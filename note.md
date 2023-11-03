@@ -8,5 +8,8 @@ $git clone url_https
 $git init
 $git remote  -v
 $git add .
+git commit -am "text"
 $git commit -m "init project"
-$git posh origin main
+$git push origin main
+$git brach
+$git checkout -b branch_minhanh main
