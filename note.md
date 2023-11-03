@@ -12,4 +12,5 @@ git commit -am "text"
 $git commit -m "init project"
 $git push origin main
 $git brach
-$git checkout -b branch_minhanh main
+$git checkout -b name_branch_muon_dat main
+$git push --set-upstream origin name_branch 
