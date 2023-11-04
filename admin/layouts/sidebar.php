@@ -10,34 +10,19 @@
                     <a href="index.php?action=category"><i data-feather="users"></i> <span>Category</span></a>
                 </li>
                 <li>
-                    <a href=""><i data-feather="file-text"></i> <span>Estimates</span></a>
+                    <a href="index.php?action=cinema"><i data-feather="file-text"></i> <span>Cinema</span></a>
                 </li>
                 <li>
-                    <a href=""><i data-feather="star"></i> <span>Items</span></a>
+                    <a href="index.php?action=movie"><i data-feather="star"></i> <span>Movie</span></a>
                 </li>
                 <li>
-                    <a href=""><i data-feather="credit-card"></i> <span>Payments</span></a>
+                    <a href="index.php?action=room"><i data-feather="credit-card"></i> <span>Room</span></a>
                 </li>
                 <li>
-                    <a href=""><i data-feather="package"></i> <span>Expenses</span></a>
+                    <a href="index.php?action=seats"><i data-feather="package"></i> <span>Seats</span></a>
                 </li>
                 <li>
-                    <a href=""><i data-feather="settings"></i> <span>Settings</span></a>
-                </li>
-                <li class="menu-title">
-                    <span>Pages</span>
-                </li>
-                <li>
-                    <a href=""><i data-feather="user-plus"></i> <span>Profile</span></a>
-                </li>
-                <li>
-                    <a href=""><i data-feather="user"></i> <span>Users</span></a>
-                </li>
-                <li>
-                    <a href=""><i data-feather="file"></i> <span>Blank Page</span></a>
-                </li>
-                <li>
-                    <a href=""><i data-feather="map-pin"></i> <span>Vector Maps</span></a>
+                    <a href="index.php?action=tickets"><i data-feather="settings"></i> <span>Tickets</span></a>
                 </li>
             </ul>
         </div>

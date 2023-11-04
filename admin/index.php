@@ -11,7 +11,17 @@ if (isset($_GET['action'])) {
             include './views/total_list.php';
             include './views/analytics.php';
             break;
-        case 'update':
+        case 'category':
+            break;
+        case 'cinema':
+            break;
+        case 'movie':
+            break;
+        case 'room':
+            break;
+        case 'seats':
+            break;
+        case 'tickets':
             break;
         default:
             break;
