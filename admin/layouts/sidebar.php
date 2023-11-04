@@ -4,10 +4,10 @@
             <ul>
                 <li class="menu-title"><span>Main</span></li>
                 <li class="active">
-                    <a href=""><i data-feather="home"></i> <span>Dashboard</span></a>
+                    <a href="index.php?action=dashboard"><i data-feather="home"></i> <span>Dashboard</span></a>
                 </li>
                 <li>
-                    <a href=""><i data-feather="users"></i> <span>Customers</span></a>
+                    <a href="index.php?action=category"><i data-feather="users"></i> <span>Category</span></a>
                 </li>
                 <li>
                     <a href=""><i data-feather="file-text"></i> <span>Estimates</span></a>

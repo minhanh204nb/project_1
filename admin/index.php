@@ -7,7 +7,9 @@ include './layouts/sidebar.php';
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
     switch ($action) {
-        case 'create':
+        case 'dashboard':
+            include './views/total_list.php';
+            include './views/analytics.php';
             break;
         case 'update':
             break;
