@@ -1,7 +1,7 @@
 <div class="header header-one">
     <div class="header-left header-left-one">
         <a href="index.html" class="logo">
-            <img src="assets/img/logo.svg" alt="Logo">
+            <!-- <img src="assets/img/img-05.jpg" alt="Logo"> -->
         </a>
         <a href="index.html" class="white-logo">
             <!-- <img src="assets/img/logo-white.png" alt="Logo"> -->

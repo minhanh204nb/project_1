@@ -18,9 +18,19 @@ if (isset($_GET['action'])) {
             include './views/list_category.php';
             break;
         case 'insert_category':
+            if (isset($_POST['insert_category']) && $_POST['insert_category']) {
+                $name = $_POST['name_category'];
+                insert_category($name);
+            }
             include './controllers/category/insert_category.php';
             break;
-        case 'movie':
+        case 'delete_category':
+            if (isset($_GET['id']) && ($_GET['id'])>0) {
+                $id_category = $_GET['id'];
+                delete_category($id_category);
+            }
+            $list_category = loadall_category();
+            include './views/list_category.php';
             break;
         case 'room':
             break;

@@ -11,7 +11,7 @@ function update_category($id_category, $name_category)
 }
 function delete_category($id_category)
 {
-    $sql = "DELETE FROM CATEGORY WHERE id_category = '$id_category'";
+    $sql = "delete from category where id_category=" . $id_category;
     pdo_execute($sql);
 }
 function loadall_category()
