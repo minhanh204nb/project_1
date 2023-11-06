@@ -1,5 +1,7 @@
 <?php
 include './models/pdo.php';
+include './models/category.php';
+include './models/movie.php';
 include './layouts/head.php';
 include './layouts/navbar.php';
 include './layouts/sidebar.php';
@@ -12,8 +14,11 @@ if (isset($_GET['action'])) {
             include './views/analytics.php';
             break;
         case 'category':
+            $list_category = loadall_category();
+            include './views/list_category.php';
             break;
-        case 'cinema':
+        case 'insert_category':
+            include './controllers/category/insert_category.php';
             break;
         case 'movie':
             break;
