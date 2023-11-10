@@ -25,7 +25,7 @@ if (isset($_GET['action'])) {
             include './controllers/category/insert_category.php';
             break;
         case 'delete_category':
-            if (isset($_GET['id']) && ($_GET['id'])>0) {
+            if (isset($_GET['id']) && ($_GET['id']) > 0) {
                 $id_category = $_GET['id'];
                 delete_category($id_category);
             }

@@ -1,85 +1,112 @@
-<header class="header" data-header>
-    <div class="container">
-        <div class="overlay" data-overlay></div>
-        <a href="./index.html" class="logo">
-            <img src="./assets/images/logo.svg" alt="Filmlane logo" />
-        </a>
-        <form class="header-actions">
-            <div>
-                <input type="text" name="search" />
+<button class="scroll-top scroll-to-target" data-target="html">
+    <i class="fas fa-angle-up"></i>
+</button>
+<header class="header-style-two">
+    <div id="sticky-header" class="menu-area">
+        <div class="container custom-container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="mobile-nav-toggler"><i class="fas fa-bars"></i></div>
+                    <div class="menu-wrap">
+                        <nav class="menu-nav show">
+                            <div class="logo">
+                                <a href="index.php?action=home">
+                                    <img src="assets/img/logo/logo.png" alt="Logo">
+                                </a>
+                            </div>
+                            <div class="navbar-wrap main-menu d-none d-lg-flex">
+                                <ul class="navigation">
+                                    <li class="active menu-item-has-children"><a href="index.php?action=home">Home</a>
+                                    </li>
+                                    <li class="menu-item-has-children"><a href="index.php?action=list_movie">Movie</a>
+                                    </li>
+                                    <li><a href="index.php?action=combo">Combo</a></li>
+                                    <li class="menu-item-has-children"><a href="index.php?action=blog">blog</a>
+                                    </li>
+                                    <li><a href="index.php?action=contacts">contacts</a></li>
+                                    <li><a href="">Your tickets</a></li>
+                                </ul>
+                            </div>
+                            <div class="header-action d-none d-md-block">
+                                <ul>
+                                    <li class="d-none d-xl-block">
+                                        <div class="footer-search">
+                                            <form action="#">
+                                                <input type="text" placeholder="Find Favorite Movie">
+                                                <button><i class="fas fa-search"></i></button>
+                                            </form>
+                                        </div>
+                                    </li>
+                                    <li class="header-lang">
+                                        <form action="#">
+                                            <div class="icon"><i class="flaticon-globe"></i></div>
+                                            <select id="lang-dropdown">
+                                                <option value="">EN</option>
+                                                <option value="">VN</option>
+                                                <option value="">AR</option>
+                                                <option value="">TU</option>
+                                            </select>
+                                        </form>
+                                    </li>
+                                    <li class="header-btn"><a href="#" class="btn">Sign In</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <!-- Mobile Menu  -->
+                    <div class="mobile-menu">
+                        <div class="close-btn"><i class="fas fa-times"></i></div>
+
+                        <nav class="menu-box">
+                            <div class="nav-logo"><a href="index.html"><img src="assets/img/logo/logo.png" alt="" title=""></a>
+                            </div>
+                            <div class="menu-outer">
+                                <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+
+                                <ul class="navigation">
+                                    <li class="active menu-item-has-children"><a href="#">Home</a>
+                                        <ul class="submenu">
+                                            <li><a href="index.html">Home One</a></li>
+                                            <li class="active"><a href="index-2.html">Home Two</a></li>
+                                        </ul>
+                                        <div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>
+                                    </li>
+                                    <li class="menu-item-has-children"><a href="#">Movie</a>
+                                        <ul class="submenu">
+                                            <li><a href="movie.html">Movie</a></li>
+                                            <li><a href="movie-details.html">Movie Details</a></li>
+                                        </ul>
+                                        <div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>
+                                    </li>
+                                    <li><a href="tv-show.html">tv show</a></li>
+                                    <li><a href="pricing.html">Pricing</a></li>
+                                    <li class="menu-item-has-children"><a href="#">blog</a>
+                                        <ul class="submenu">
+                                            <li><a href="blog.html">Our Blog</a></li>
+                                            <li><a href="blog-details.html">Blog Details</a></li>
+                                        </ul>
+                                        <div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>
+                                    </li>
+                                    <li><a href="contact.html">contacts</a></li>
+                                </ul>
+                            </div>
+                            <div class="social-links">
+                                <ul class="clearfix">
+                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                                    <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
+                                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                                    <li><a href="#"><span class="fab fa-youtube"></span></a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="menu-backdrop"></div>
+                    <!-- End Mobile Menu -->
+
+                </div>
             </div>
-            <button class="search-btn">
-                <ion-icon name="search-outline"></ion-icon>
-            </button>
-            <div class="lang-wrapper">
-                <label for="language">
-                    <ion-icon name="globe-outline"></ion-icon>
-                </label>
-                <select name="language" id="language">
-                    <option value="en">EN</option>
-                    <option value="au">AU</option>
-                    <option value="ar">AR</option>
-                    <option value="tu">TU</option>
-                </select>
-            </div>
-            <button class="btn btn-primary">Sign in</button>
-        </form>
-        <button class="menu-open-btn" data-menu-open-btn>
-            <ion-icon name="reorder-two"></ion-icon>
-        </button>
-        <nav class="navbar" data-navbar>
-            <div class="navbar-top">
-                <a href="./index.html" class="logo">
-                    <img src="./assets/images/logo.svg" alt="Filmlane logo" />
-                </a>
-                <button class="menu-close-btn" data-menu-close-btn>
-                    <ion-icon name="close-outline"></ion-icon>
-                </button>
-            </div>
-            <ul class="navbar-list">
-                <li>
-                    <a href="./index.html" class="navbar-link">Home</a>
-                </li>
-                <li>
-                    <a href="#" class="navbar-link">Movie</a>
-                </li>
-                <li>
-                    <a href="#" class="navbar-link">Tv Show</a>
-                </li>
-                <li>
-                    <a href="#" class="navbar-link">Web Series</a>
-                </li>
-                <li>
-                    <a href="#" class="navbar-link">Pricing</a>
-                </li>
-            </ul>
-            <ul class="navbar-social-list">
-                <li>
-                    <a href="#" class="navbar-social-link">
-                        <ion-icon name="logo-twitter"></ion-icon>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="navbar-social-link">
-                        <ion-icon name="logo-facebook"></ion-icon>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="navbar-social-link">
-                        <ion-icon name="logo-pinterest"></ion-icon>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="navbar-social-link">
-                        <ion-icon name="logo-instagram"></ion-icon>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="navbar-social-link">
-                        <ion-icon name="logo-youtube"></ion-icon>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        </div>
     </div>
 </header>

@@ -1,20 +1,45 @@
 <?php
 include './models/pdo.php';
 include './layout/head.php';
-include './layout/header.php';
-include './layout/navbar.php';
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
+    if ($action !== 'booking') {
+        include './layout/navbar.php';
+    }
     switch ($action) {
-        case 'create':
+        case 'home':
+            include './layout/header.php';
+            include './views/home.php';
             break;
-        case 'update':
+        case 'list_movie':
+            include './views/list_movie.php';
             break;
+        case 'details_movie':
+            include './views/details_movie.php';
+            break;
+        case 'blog':
+            include './views/blog.php';
+            break;
+        case 'details_blog':
+            include './views/details_blog.php';
+            break;
+        case 'contacts':
+            include './views/contacts.php';
+            break;
+        case 'combo':
+            include './views/combo.php';
+            break;
+        case 'booking':
+            include './views/booking.php';
         default:
+            // include './views/home.php';
             break;
     }
 } else {
-    include './views/list_movie.php';
+    include './layout/header.php';
+    include './views/home.php';
 }
-include './layout/footer.php';
+if ($action !== 'booking') {
+    include './layout/footer.php';
+}

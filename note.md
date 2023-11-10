@@ -9,7 +9,7 @@ $git remote  -v
 $git add .
 git commit -am "text"
 $git commit -m "init project"
-$git push origin main
+$git push origin maingit
 $git brach
 $git checkout main
 $git checkout -b name_branch_muon_dat main

@@ -1,81 +1,89 @@
-<footer class="footer">
-    <div class="footer-top">
+<footer>
+    <div class="footer-top-wrap">
         <div class="container">
-            <div class="footer-brand-wrapper">
-                <a href="./index.html" class="logo">
-                    <img src="./assets/images/logo.svg" alt="Filmlane logo" />
-                </a>
-                <ul class="footer-list">
-                    <li>
-                        <a href="./index.html" class="footer-link">Home</a>
-                    </li>
-                    <li>
-                        <a href="#" class="footer-link">Movie</a>
-                    </li>
-                    <li>
-                        <a href="#" class="footer-link">TV Show</a>
-                    </li>
-                    <li>
-                        <a href="#" class="footer-link">Web Series</a>
-                    </li>
-                    <li>
-                        <a href="#" class="footer-link">Pricing</a>
-                    </li>
-                </ul>
+            <div class="footer-menu-wrap">
+                <div class="row align-items-center">
+                    <div class="col-lg-3">
+                        <div class="footer-logo">
+                            <a href="index.html"><img src="img/logo/logo.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="footer-menu">
+                            <nav>
+                                <ul class="navigation">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="index.html">Movie</a></li>
+                                    <li><a href="index.html">tv show</a></li>
+                                    <li><a href="index.html">pages</a></li>
+                                    <li><a href="pricing.html">Pricing</a></li>
+                                </ul>
+                                <div class="footer-search">
+                                    <form action="#">
+                                        <input type="text" placeholder="Find Favorite Movie">
+                                        <button><i class="fas fa-search"></i></button>
+                                    </form>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="divider"></div>
-            <div class="quicklink-wrapper">
-                <ul class="quicklink-list">
-                    <li>
-                        <a href="#" class="quicklink-link">Faq</a>
-                    </li>
-                    <li>
-                        <a href="#" class="quicklink-link">Help center</a>
-                    </li>
-                    <li>
-                        <a href="#" class="quicklink-link">Terms of use</a>
-                    </li>
-                    <li>
-                        <a href="#" class="quicklink-link">Privacy</a>
-                    </li>
-                </ul>
-                <ul class="social-list">
-                    <li>
-                        <a href="#" class="social-link">
-                            <ion-icon name="logo-facebook"></ion-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="social-link">
-                            <ion-icon name="logo-twitter"></ion-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="social-link">
-                            <ion-icon name="logo-pinterest"></ion-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="social-link">
-                            <ion-icon name="logo-linkedin"></ion-icon>
-                        </a>
-                    </li>
-                </ul>
+            <div class="footer-quick-link-wrap">
+                <div class="row align-items-center">
+                    <div class="col-md-7">
+                        <div class="quick-link-list">
+                            <ul>
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">Help Center</a></li>
+                                <li><a href="#">Terms of Use</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="footer-social">
+                            <ul>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="footer-bottom">
+    <div class="copyright-wrap">
         <div class="container">
-            <p class="copyright">
-                &copy; 2022 <a href="#">codewithsadee</a>. All Rights Reserved
-            </p>
-            <img src="./assets/images/footer-bottom-img.png" alt="Online banking companies logo" class="footer-bottom-img" />
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="copyright-text">
+                        <p>Copyright © 2021. All Rights Reserved By <a href="index.html">Movflx</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="payment-method-img text-center text-md-right">
+                        <img src="assets/img/images/card_img.png" alt="img">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </footer>
-<a href="#top" class="go-top" data-go-top>
-    <ion-icon name="chevron-up"></ion-icon>
-</a>
-<script src="./assets/js/script.js"></script>
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/isotope.pkgd.min.js"></script>
+<script src="assets/js/imagesloaded.pkgd.min.js"></script>
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
+<script src="assets/js/jquery.odometer.min.js"></script>
+<script src="assets/js/jquery.appear.js"></script>
+<script src="assets/js/slick.min.js"></script>
+<script src="assets/js/ajax-form.js"></script>
+<script src="assets/js/wow.min.js"></script>
+<script src="assets/js/aos.js"></script>
+<script src="assets/js/plugins.js"></script>
+<script src="assets/js/main.js"></script>
