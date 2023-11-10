@@ -42,9 +42,6 @@
                     </div>
                 </div>
             </div>
-            <div class="movie-details-btn">
-                <a href="assets/img/poster/movie_details_img.jpg" class="download-btn" download="">Download <img src="fonts/download.svg" alt=""></a>
-            </div>
         </div>
     </div>
     <div class="container">
