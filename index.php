@@ -37,6 +37,7 @@ if (isset($_GET['action'])) {
             break;
     }
 } else {
+    include './layout/navbar.php';
     include './layout/header.php';
     include './views/home.php';
 }
