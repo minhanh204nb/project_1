@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th10 09, 2023 lúc 12:13 PM
+-- Thời gian đã tạo: Th10 12, 2023 lúc 05:16 PM
 -- Phiên bản máy phục vụ: 8.0.17
 -- Phiên bản PHP: 7.3.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `system_tickets`
+-- Cơ sở dữ liệu: `project_1`
 --
 
 -- --------------------------------------------------------
@@ -28,29 +28,30 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `account` (
-  `id_account` int(11) NOT NULL,
-  `name_account` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `password_account` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `address` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `phone_number` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
+  `id_account` int(10) NOT NULL,
+  `user` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `pass` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `id_info` int(11) NOT NULL,
+  `action` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `role` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `book_ticket`
+-- Cấu trúc bảng cho bảng `bill`
 --
 
-CREATE TABLE `book_ticket` (
-  `id_booking` int(11) NOT NULL,
-  `id_ticket` int(11) NOT NULL,
-  `id_account` int(11) NOT NULL,
-  `booking_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `quantity` int(11) NOT NULL,
-  `price` float NOT NULL,
-  `total_amount` float NOT NULL,
-  `id_promotion` int(11) DEFAULT NULL
+CREATE TABLE `bill` (
+  `id_bill` int(10) NOT NULL,
+  `id_info` int(11) NOT NULL,
+  `id_ticket` int(10) NOT NULL,
+  `id_combo` int(10) NOT NULL,
+  `name_movie` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `name_combo` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `time` datetime NOT NULL,
+  `total_price` float NOT NULL,
+  `action` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -60,42 +61,9 @@ CREATE TABLE `book_ticket` (
 --
 
 CREATE TABLE `category` (
-  `id_category` int(11) NOT NULL,
-  `name_category` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
+  `id_category` int(10) NOT NULL,
+  `name_category` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `category`
---
-
-INSERT INTO `category` (`id_category`, `name_category`) VALUES
-(1, 'Lãng mạn'),
-(2, 'Hành động'),
-(3, 'Trinh thám'),
-(4, 'Kinh dị');
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `cinema`
---
-
-CREATE TABLE `cinema` (
-  `id_cinema` int(11) NOT NULL,
-  `name_cinema` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `address` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `link_google` varchar(100) COLLATE utf8mb4_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `cinema`
---
-
-INSERT INTO `cinema` (`id_cinema`, `name_cinema`, `address`, `link_google`) VALUES
-(1, 'Hà Đông', 'Hà Nội', 'gewrgwegwertywery'),
-(2, 'lotte', 'HCM', 'ưefewrgwerytwey'),
-(3, 'cinema Nam Kỳ', 'HCM', 'ghsrethreth'),
-(4, 'GALAXY', 'HN', 'gsergerg');
 
 -- --------------------------------------------------------
 
@@ -104,39 +72,40 @@ INSERT INTO `cinema` (`id_cinema`, `name_cinema`, `address`, `link_google`) VALU
 --
 
 CREATE TABLE `combo` (
-  `id_combo` int(11) NOT NULL,
-  `name_combo` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `description` text COLLATE utf8mb4_general_ci,
-  `price` float NOT NULL
+  `id_combo` int(10) NOT NULL,
+  `name_combo` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `price_combo` float NOT NULL,
+  `describe` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `id_product` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `combo`
---
-
-INSERT INTO `combo` (`id_combo`, `name_combo`, `description`, `price`) VALUES
-(2, '2 bcs và 2 vé  1 bỏng', 'hời', 600000),
-(3, 'Combo ve va nước', 'hời', 200000);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `combo_ticket`
+-- Cấu trúc bảng cho bảng `contact`
 --
 
-CREATE TABLE `combo_ticket` (
-  `id_combo_ticket` int(11) NOT NULL,
-  `id_combo` int(11) NOT NULL,
-  `id_ticket` int(11) NOT NULL
+CREATE TABLE `contact` (
+  `id_contact` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `content` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Đang đổ dữ liệu cho bảng `combo_ticket`
+-- Cấu trúc bảng cho bảng `information`
 --
 
-INSERT INTO `combo_ticket` (`id_combo_ticket`, `id_combo`, `id_ticket`) VALUES
-(1, 2, 3),
-(2, 3, 4);
+CREATE TABLE `information` (
+  `id_info` int(11) NOT NULL,
+  `nane_clinet` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `phone_number` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -145,39 +114,41 @@ INSERT INTO `combo_ticket` (`id_combo_ticket`, `id_combo`, `id_ticket`) VALUES
 --
 
 CREATE TABLE `movie` (
-  `id_movie` int(11) NOT NULL,
-  `name_movie` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `id_movie` int(10) NOT NULL,
+  `name_movie` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `content` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `time` int(11) NOT NULL,
+  `author` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `performer` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `age_limit` int(11) NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `time` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
-  `author` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `performer` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `year` int(11) NOT NULL,
-  `vote_number` int(11) NOT NULL,
-  `link_traller` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `id_category` int(11) NOT NULL
+  `id_category` int(10) NOT NULL,
+  `action` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `movie`
---
-
-INSERT INTO `movie` (`id_movie`, `name_movie`, `image`, `time`, `author`, `performer`, `year`, `vote_number`, `link_traller`, `id_category`) VALUES
-(1, 'conan', 'ưegfwgweg', '90 phút', 'Minh Anh', 'Minh Anh, Nam ,Thien', 2024, 999, 'conan', 3),
-(2, '1 ngày của nghiện', 'ẻgergerg', '90', 'Lee Vu', 'mama , như hoa cô lương', 2023, 666, 'vfdsagersgerg', 2);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `promotion`
+-- Cấu trúc bảng cho bảng `price`
 --
 
-CREATE TABLE `promotion` (
-  `id_promotion` int(11) NOT NULL,
-  `name_promotion` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `description` text COLLATE utf8mb4_general_ci,
-  `discount_percent` float NOT NULL,
-  `start_date` date NOT NULL,
-  `end_date` date NOT NULL
+CREATE TABLE `price` (
+  `id_price` int(10) NOT NULL,
+  `price` float NOT NULL,
+  `action` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `product`
+--
+
+CREATE TABLE `product` (
+  `id_product` int(11) NOT NULL,
+  `name_product` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `price_product` float NOT NULL,
+  `describe` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -187,34 +158,24 @@ CREATE TABLE `promotion` (
 --
 
 CREATE TABLE `room` (
-  `id_room` int(11) NOT NULL,
-  `id_cinema` int(11) NOT NULL,
-  `action` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `total_seats` int(11) NOT NULL
+  `id_room` int(10) NOT NULL,
+  `id_cinema` int(10) NOT NULL,
+  `name_room` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `action` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `room`
---
-
-INSERT INTO `room` (`id_room`, `id_cinema`, `action`, `total_seats`) VALUES
-(1, 3, 'hoạt động', 100),
-(2, 4, 'hoạt động', 90),
-(3, 2, 'còn', 100),
-(4, 1, 'hoạt động', 45);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `seats`
+-- Cấu trúc bảng cho bảng `seat`
 --
 
-CREATE TABLE `seats` (
-  `id_seats` int(11) NOT NULL,
-  `seats_type` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `action` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `id_ticket` int(11) NOT NULL,
-  `id_room` int(11) NOT NULL
+CREATE TABLE `seat` (
+  `id_seat` int(10) NOT NULL,
+  `id_room` int(10) NOT NULL,
+  `row` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `column` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `action` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -224,18 +185,14 @@ CREATE TABLE `seats` (
 --
 
 CREATE TABLE `showtime` (
-  `id_movie` int(11) NOT NULL,
-  `start_time` datetime NOT NULL,
-  `end_time` datetime NOT NULL
+  `id_showtime` int(10) NOT NULL,
+  `id_cinema` int(10) NOT NULL,
+  `id_movie` int(10) NOT NULL,
+  `show_date` date NOT NULL,
+  `start_time` time NOT NULL,
+  `end_time` time NOT NULL,
+  `action` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `showtime`
---
-
-INSERT INTO `showtime` (`id_movie`, `start_time`, `end_time`) VALUES
-(1, '2023-11-08 22:16:01', '2023-11-08 22:16:01'),
-(2, '2023-11-08 22:16:01', '2023-11-08 22:16:01');
 
 -- --------------------------------------------------------
 
@@ -244,19 +201,12 @@ INSERT INTO `showtime` (`id_movie`, `start_time`, `end_time`) VALUES
 --
 
 CREATE TABLE `ticket` (
-  `id_ticket` int(11) NOT NULL,
-  `price` float NOT NULL,
-  `ticket_type` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `id_movie` int(11) NOT NULL
+  `id_ticket` int(10) NOT NULL,
+  `id_showtime` int(10) NOT NULL,
+  `id_seat` int(10) NOT NULL,
+  `id_price` int(10) NOT NULL,
+  `action` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `ticket`
---
-
-INSERT INTO `ticket` (`id_ticket`, `price`, `ticket_type`, `id_movie`) VALUES
-(3, 200000, 'Thành Viên', 2),
-(4, 95000, 'Người lớn', 1);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -266,16 +216,17 @@ INSERT INTO `ticket` (`id_ticket`, `price`, `ticket_type`, `id_movie`) VALUES
 -- Chỉ mục cho bảng `account`
 --
 ALTER TABLE `account`
-  ADD PRIMARY KEY (`id_account`);
+  ADD PRIMARY KEY (`id_account`),
+  ADD KEY `account_ibfk_1` (`id_info`);
 
 --
--- Chỉ mục cho bảng `book_ticket`
+-- Chỉ mục cho bảng `bill`
 --
-ALTER TABLE `book_ticket`
-  ADD PRIMARY KEY (`id_booking`),
-  ADD KEY `id_account` (`id_account`),
-  ADD KEY `book_ticket_ibfk_2` (`id_ticket`),
-  ADD KEY `book_ticket_ibfk_3` (`id_promotion`);
+ALTER TABLE `bill`
+  ADD PRIMARY KEY (`id_bill`),
+  ADD KEY `bill_ibfk_2` (`id_combo`),
+  ADD KEY `bill_ibfk_3` (`id_ticket`),
+  ADD KEY `bill_ibfk_1` (`id_info`);
 
 --
 -- Chỉ mục cho bảng `category`
@@ -284,24 +235,23 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`id_category`);
 
 --
--- Chỉ mục cho bảng `cinema`
---
-ALTER TABLE `cinema`
-  ADD PRIMARY KEY (`id_cinema`);
-
---
 -- Chỉ mục cho bảng `combo`
 --
 ALTER TABLE `combo`
-  ADD PRIMARY KEY (`id_combo`);
+  ADD PRIMARY KEY (`id_combo`),
+  ADD KEY `id_product` (`id_product`);
 
 --
--- Chỉ mục cho bảng `combo_ticket`
+-- Chỉ mục cho bảng `contact`
 --
-ALTER TABLE `combo_ticket`
-  ADD PRIMARY KEY (`id_combo_ticket`),
-  ADD KEY `id_combo` (`id_combo`),
-  ADD KEY `id_ticket` (`id_ticket`);
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id_contact`);
+
+--
+-- Chỉ mục cho bảng `information`
+--
+ALTER TABLE `information`
+  ADD PRIMARY KEY (`id_info`);
 
 --
 -- Chỉ mục cho bảng `movie`
@@ -311,10 +261,16 @@ ALTER TABLE `movie`
   ADD KEY `id_category` (`id_category`);
 
 --
--- Chỉ mục cho bảng `promotion`
+-- Chỉ mục cho bảng `price`
 --
-ALTER TABLE `promotion`
-  ADD PRIMARY KEY (`id_promotion`);
+ALTER TABLE `price`
+  ADD PRIMARY KEY (`id_price`);
+
+--
+-- Chỉ mục cho bảng `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`id_product`);
 
 --
 -- Chỉ mục cho bảng `room`
@@ -324,151 +280,99 @@ ALTER TABLE `room`
   ADD KEY `id_cinema` (`id_cinema`);
 
 --
--- Chỉ mục cho bảng `seats`
+-- Chỉ mục cho bảng `seat`
 --
-ALTER TABLE `seats`
-  ADD PRIMARY KEY (`id_seats`),
-  ADD KEY `id_ticket` (`id_ticket`),
+ALTER TABLE `seat`
+  ADD PRIMARY KEY (`id_seat`),
   ADD KEY `id_room` (`id_room`);
 
 --
 -- Chỉ mục cho bảng `showtime`
 --
 ALTER TABLE `showtime`
-  ADD PRIMARY KEY (`id_movie`);
+  ADD PRIMARY KEY (`id_showtime`),
+  ADD KEY `id_cinema` (`id_cinema`),
+  ADD KEY `showtime_ibfk_2` (`id_movie`);
 
 --
 -- Chỉ mục cho bảng `ticket`
 --
 ALTER TABLE `ticket`
   ADD PRIMARY KEY (`id_ticket`),
-  ADD KEY `id_movie` (`id_movie`);
+  ADD KEY `id_showtime` (`id_showtime`),
+  ADD KEY `ticket_ibfk_2` (`id_price`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT cho bảng `account`
+-- AUTO_INCREMENT cho bảng `contact`
 --
-ALTER TABLE `account`
-  MODIFY `id_account` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `contact`
+  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `book_ticket`
+-- AUTO_INCREMENT cho bảng `information`
 --
-ALTER TABLE `book_ticket`
-  MODIFY `id_booking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT cho bảng `category`
---
-ALTER TABLE `category`
-  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT cho bảng `cinema`
---
-ALTER TABLE `cinema`
-  MODIFY `id_cinema` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT cho bảng `combo`
---
-ALTER TABLE `combo`
-  MODIFY `id_combo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT cho bảng `combo_ticket`
---
-ALTER TABLE `combo_ticket`
-  MODIFY `id_combo_ticket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT cho bảng `movie`
---
-ALTER TABLE `movie`
-  MODIFY `id_movie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT cho bảng `promotion`
---
-ALTER TABLE `promotion`
-  MODIFY `id_promotion` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT cho bảng `room`
---
-ALTER TABLE `room`
-  MODIFY `id_room` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT cho bảng `seats`
---
-ALTER TABLE `seats`
-  MODIFY `id_seats` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT cho bảng `showtime`
---
-ALTER TABLE `showtime`
-  MODIFY `id_movie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT cho bảng `ticket`
---
-ALTER TABLE `ticket`
-  MODIFY `id_ticket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `information`
+  MODIFY `id_info` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Các ràng buộc cho bảng `book_ticket`
+-- Các ràng buộc cho bảng `account`
 --
-ALTER TABLE `book_ticket`
-  ADD CONSTRAINT `book_ticket_ibfk_1` FOREIGN KEY (`id_account`) REFERENCES `account` (`id_account`),
-  ADD CONSTRAINT `book_ticket_ibfk_2` FOREIGN KEY (`id_ticket`) REFERENCES `ticket` (`id_ticket`),
-  ADD CONSTRAINT `book_ticket_ibfk_3` FOREIGN KEY (`id_promotion`) REFERENCES `promotion` (`id_promotion`);
+ALTER TABLE `account`
+  ADD CONSTRAINT `account_ibfk_1` FOREIGN KEY (`id_info`) REFERENCES `information` (`id_info`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Các ràng buộc cho bảng `combo_ticket`
+-- Các ràng buộc cho bảng `bill`
 --
-ALTER TABLE `combo_ticket`
-  ADD CONSTRAINT `combo_ticket_ibfk_1` FOREIGN KEY (`id_combo`) REFERENCES `combo` (`id_combo`),
-  ADD CONSTRAINT `combo_ticket_ibfk_2` FOREIGN KEY (`id_ticket`) REFERENCES `ticket` (`id_ticket`);
+ALTER TABLE `bill`
+  ADD CONSTRAINT `bill_ibfk_1` FOREIGN KEY (`id_info`) REFERENCES `information` (`id_info`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  ADD CONSTRAINT `bill_ibfk_2` FOREIGN KEY (`id_combo`) REFERENCES `combo` (`id_combo`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `bill_ibfk_3` FOREIGN KEY (`id_ticket`) REFERENCES `ticket` (`id_ticket`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Các ràng buộc cho bảng `combo`
+--
+ALTER TABLE `combo`
+  ADD CONSTRAINT `combo_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id_product`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `movie`
 --
 ALTER TABLE `movie`
-  ADD CONSTRAINT `movie_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES `category` (`id_category`);
+  ADD CONSTRAINT `movie_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES `category` (`id_category`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `room`
 --
 ALTER TABLE `room`
-  ADD CONSTRAINT `room_ibfk_1` FOREIGN KEY (`id_cinema`) REFERENCES `cinema` (`id_cinema`);
+  ADD CONSTRAINT `room_ibfk_1` FOREIGN KEY (`id_cinema`) REFERENCES `showtime` (`id_cinema`) ON DELETE CASCADE;
 
 --
--- Các ràng buộc cho bảng `seats`
+-- Các ràng buộc cho bảng `seat`
 --
-ALTER TABLE `seats`
-  ADD CONSTRAINT `seats_ibfk_1` FOREIGN KEY (`id_ticket`) REFERENCES `ticket` (`id_ticket`),
-  ADD CONSTRAINT `seats_ibfk_2` FOREIGN KEY (`id_room`) REFERENCES `room` (`id_room`);
+ALTER TABLE `seat`
+  ADD CONSTRAINT `seat_ibfk_1` FOREIGN KEY (`id_room`) REFERENCES `room` (`id_room`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `showtime`
 --
 ALTER TABLE `showtime`
-  ADD CONSTRAINT `showtime_ibfk_1` FOREIGN KEY (`id_movie`) REFERENCES `movie` (`id_movie`);
+  ADD CONSTRAINT `showtime_ibfk_1` FOREIGN KEY (`id_cinema`) REFERENCES `room` (`id_cinema`) ON DELETE CASCADE,
+  ADD CONSTRAINT `showtime_ibfk_2` FOREIGN KEY (`id_movie`) REFERENCES `movie` (`id_movie`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Các ràng buộc cho bảng `ticket`
 --
 ALTER TABLE `ticket`
-  ADD CONSTRAINT `ticket_ibfk_1` FOREIGN KEY (`id_movie`) REFERENCES `movie` (`id_movie`);
+  ADD CONSTRAINT `ticket_ibfk_1` FOREIGN KEY (`id_showtime`) REFERENCES `showtime` (`id_showtime`) ON DELETE CASCADE,
+  ADD CONSTRAINT `ticket_ibfk_2` FOREIGN KEY (`id_price`) REFERENCES `price` (`id_price`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
