@@ -50,14 +50,10 @@ if (isset($_GET['action'])) {
             include "./views/list_category.php";
             break;
         case 'movie':
-            
             $list_country = loadall_country();
             $list_category = loadall_category();
             $list_movie = loadall_movie();
             include './views/movie/list_movie.php';
-            break;
-        case 'detail_movie':
-            include './views/movie/details_movie.php';
             break;
         case 'insert_movie':
             if (isset($_POST['insert']) && ($_POST['insert'])) {

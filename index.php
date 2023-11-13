@@ -4,7 +4,7 @@ include './layout/head.php';
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
-    if ($action !== 'booking') {
+    if ($action !== 'booking' and $action !== 'signup' and $action !== 'signin' and $action !== 'forgot')  {
         include './layout/navbar.php';
     }
     switch ($action) {
@@ -32,6 +32,16 @@ if (isset($_GET['action'])) {
             break;
         case 'booking':
             include './views/booking.php';
+            break;
+        case 'signin':
+            include './auth/signin.php';
+            break;
+        case 'signup':
+            include './auth/signup.php';
+            break;
+        case 'forgot':
+            include './auth/forgot.php';
+            break;
         default:
             // include './views/home.php';
             break;
@@ -41,6 +51,6 @@ if (isset($_GET['action'])) {
     include './layout/header.php';
     include './views/home.php';
 }
-if ($action !== 'booking') {
+if ($action !== 'booking' and $action !== 'signup' and $action !== 'signin'and $action !== 'forgot') {
     include './layout/footer.php';
 }

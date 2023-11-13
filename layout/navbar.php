@@ -48,7 +48,7 @@
                                             </select>
                                         </form>
                                     </li>
-                                    <li class="header-btn"><a href="#" class="btn">Sign In</a></li>
+                                    <li class="header-btn"><a href="index.php?action=signin" class="btn">Sign In</a></li>
                                 </ul>
                             </div>
                         </nav>
