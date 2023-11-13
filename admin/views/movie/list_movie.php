@@ -46,7 +46,7 @@
                         echo '<div class="col-md-6 col-xl-4 col-sm-12 d-flex">';
                         echo '<div class="blog grid-blog flex-fill">';
                         echo '<div class="blog-image">';
-                        echo '<a href="blog-details.html"><img class="img-fluid" src="../uploads/' . $movie['image'] . '" alt="' . $movie['name_movie'] . '"></a>';
+                        echo '<a href=""><img class="img-fluid" src="../uploads/' . $movie['image'] . '" alt="' . $movie['name_movie'] . '"></a>';
                         echo '<div class="blog-views">';
                         echo '<i class="feather-eye me-1"></i>' . $movie['reviews'] . '';
                         echo '</div>';
@@ -64,7 +64,7 @@
                         echo '</div>';
                         echo '</li>';
                         echo '</ul>';
-                        echo '<h3 class="blog-title"><a href="blog-details.html">' . $movie['content'] . '</a></h3>';
+                        echo '<h3 class="blog-title"><a href="">' . $movie['content'] . '</a></h3>';
                         echo '<p>' . $movie['content'] . '</p>';
                         echo '</div>';
                         echo '<div class="row">';
