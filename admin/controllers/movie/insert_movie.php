@@ -47,15 +47,13 @@
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Name movie<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="name_movie">
+                                                <input type="text" class="form-control" name="name_movie" required placeholder="name movie" >
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
-                                                <label>Content</label>
-                                                <div id="editor">
-                                                    <input type="text" name="content">
-                                                </div>
+                                                <label>Content<span class="text-danger">*</span></label>
+                                                <input class="form-control" type="text" name="content" required placeholder="content" >
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
@@ -73,37 +71,37 @@
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Years<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="year">
+                                                <input type="text" class="form-control" name="year" required min="1900" max="2023" >
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Time<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="time">
+                                                <input type="text" class="form-control" name="time" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
-                                                <label>Riviews<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="riviews">
+                                                <label>Reviews<span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" name="reviews" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Author<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="author">
+                                                <input type="text" class="form-control" name="author" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Performer<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="performer">
+                                                <input type="text" class="form-control" name="performer" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Age limit<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="age_limit">
+                                                <input type="text" class="form-control" name="age_limit" required min="0" max="150" >
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
@@ -113,20 +111,20 @@
                                                     <div class="pop_up">
                                                         <p>Add Image</p>
                                                     </div>
-                                                    <input type="file" name="image" class="upload">
+                                                    <input type="file" name="image" class="upload" required>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Trailer movie<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="trailer_movie">
+                                                <input type="text" class="form-control" name="trailer_movie" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group modal-select-box">
                                                 <label>Category</label>
-                                                <select class="select" name="category">
+                                                <select class="select" name="id_category">
                                                     <?php
                                                     foreach ($list_category as $category) {
                                                         echo ' <option value="' . $category['id_category'] . '">' . $category['name_category'] . '</option>';
@@ -138,7 +136,7 @@
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Action<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="action">
+                                                <input type="text" class="form-control" name="action" required>
                                             </div>
                                         </div>
                                     </div>
@@ -146,6 +144,7 @@
                             </div>
                             <div class=" blog-categories-btn pt-0">
                                 <div class="bank-details-btn ">
+                                    <!-- <button name="insert" class="btn btn-primary me-2">Add Movie</button> -->
                                     <input type="submit" name="insert" class="btn btn-primary me-2" value="Add Movie">
                                 </div>
                             </div>
