@@ -5,11 +5,7 @@ include './layout/head.php';
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
-<<<<<<< HEAD
-    if ($action !== 'booking' and $action !== 'signup' and $action !== 'signin' and $action !== 'forgot')  {
-=======
     if ($action !== 'booking' and $action !== 'signup' and $action !== 'signin' and $action !== 'forgot') {
->>>>>>> 8da99ca2feccbeee2094e79be680ba86ee61d9e7
         include './layout/navbar.php';
     }
     switch ($action) {
@@ -56,10 +52,6 @@ if (isset($_GET['action'])) {
     include './layout/header.php';
     include './views/home.php';
 }
-<<<<<<< HEAD
-if ($action !== 'booking' and $action !== 'signup' and $action !== 'signin'and $action !== 'forgot') {
-=======
 if ($action !== 'booking' and $action !== 'signup' and $action !== 'signin' and $action !== 'forgot') {
->>>>>>> 8da99ca2feccbeee2094e79be680ba86ee61d9e7
     include './layout/footer.php';
 }
