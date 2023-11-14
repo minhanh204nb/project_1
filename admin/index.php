@@ -26,14 +26,16 @@ if (isset($_GET['action'])) {
             include './controllers/category/insert_category.php';
             break;
         case 'delete_category':
-            if (isset($_GET['id']) && ($_GET['id']) >= 0) {
+            if (isset($_GET['id']) && ($_GET['id'] >0)) {
                 // Delete the category by calling the delete_category function
                 delete_category($_GET['id']);
             }
             // Reload the list of categories after deletion
-            $list_category = loadall_category();
+            $sql = "select * from category order by name_category";
+            $list_category = pdo_query($sql);
             include './views/list_category.php';
             break;
+            
         case 'edit_category':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $list_category = loadone_category($_GET['id']);
@@ -41,13 +43,14 @@ if (isset($_GET['action'])) {
             include './controllers/category/update_category.php';
             break;
         case 'update_category':
-            if (isset($_POST['']) && ($_POST['capnhat'])) {
+            if (isset($_POST['update_category']) && ($_POST['update_category'])) {
                 $name_category = $_POST['name_category'];
-                $id_category = $_POST['id'];
+                $id_category = $_POST['id_category'];
                 update_category($id_category, $name_category);
             }
-            $list_category = loadall_category();
-            include "./views/list_category.php";
+            $sql = "select * from category order by id_category desc";
+            $list_category = pdo_query($sql);
+            include './views/list_category.php';
             break;
         case 'movie':
             $list_country = loadall_country();
