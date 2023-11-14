@@ -1,14 +1,8 @@
 <?php
 include './models/pdo.php';
-<<<<<<< HEAD
-include './models/category.php';
-include './models/movie.php';
-include './models/country.php';
-=======
 include './models/category/category.php';
 include './models/movie/movie.php';
 include './models/movie/country.php';
->>>>>>> 8da99ca2feccbeee2094e79be680ba86ee61d9e7
 include './layouts/head.php';
 include './layouts/navbar.php';
 include './layouts/sidebar.php';
