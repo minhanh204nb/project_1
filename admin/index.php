@@ -3,6 +3,8 @@ include './models/pdo.php';
 include './models/category/category.php';
 include './models/movie/movie.php';
 include './models/movie/country.php';
+include './models/room.php';
+// include './controllers/room/insert_room.php';
 include './layouts/head.php';
 include './layouts/navbar.php';
 include './layouts/sidebar.php';
@@ -39,14 +41,22 @@ if (isset($_GET['action'])) {
             break;
         case 'insert_room':
             if (isset($_POST['btn'])) {
-                $tenphong = $_POST['name_room'];
-                $trangthai = $_POST['trangthai'];
-                insert_room($tenphong, $trangthai);
-                // header('location:?action=room');
+                $name_room = $_POST['name_room'];
+                $action = $_POST['trangthai'];
+                insert_room($name_room, $action);
+                header('location:?action=room');
             }
-            // include './controllers/room/add_room.php';
-
+            include './controllers/room/insert_room.php';
             break;
+
+            case 'delete_room':
+                if (isset($_GET['id_room'])) {
+                  
+                    delete_room($_GET['id_room']);
+                }
+                $listroom = listroom();
+                include './views/list_room.php';
+                break;
 
       
         case 'seats':

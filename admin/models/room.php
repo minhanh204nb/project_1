@@ -11,4 +11,9 @@ function insert_room($name_room,$action){
     pdo_execute($sql);
 
 } 
+function delete_room($id_room)
+{
+    $sql = "DELETE FROM room WHERE id_room = $id_room";
+    pdo_execute($sql);
+}
 ?>

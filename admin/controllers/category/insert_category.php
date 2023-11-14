@@ -8,7 +8,7 @@
                     <div class="col-xl-8 offset-xl-2">
                         <div class="col-md-9">
                             <ul class="list-links mb-4">
-                                <li class="active"><a href="index.php?action=category">List category</a></li>
+                                <li class="active"><a href="index.php?action=movie">List category</a></li>
                             </ul>
                         </div>
                         <div class="page-header">
