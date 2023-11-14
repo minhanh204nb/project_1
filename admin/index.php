@@ -1,8 +1,8 @@
 <?php
 include './models/pdo.php';
-include './models/category.php';
-include './models/room.php';
-include './models/movie.php';
+include './models/category/category.php';
+include './models/movie/movie.php';
+include './models/movie/country.php';
 include './layouts/head.php';
 include './layouts/navbar.php';
 include './layouts/sidebar.php';

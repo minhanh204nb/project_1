@@ -1,10 +1,11 @@
 <?php
 include './models/pdo.php';
+include './models/account/signup.php';
 include './layout/head.php';
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
-    if ($action !== 'booking' and $action !== 'signup' and $action !== 'signin' and $action !== 'forgot')  {
+    if ($action !== 'booking' and $action !== 'signup' and $action !== 'signin' and $action !== 'forgot') {
         include './layout/navbar.php';
     }
     switch ($action) {
@@ -51,6 +52,6 @@ if (isset($_GET['action'])) {
     include './layout/header.php';
     include './views/home.php';
 }
-if ($action !== 'booking' and $action !== 'signup' and $action !== 'signin'and $action !== 'forgot') {
+if ($action !== 'booking' and $action !== 'signup' and $action !== 'signin' and $action !== 'forgot') {
     include './layout/footer.php';
 }
