@@ -25,7 +25,9 @@ foreach ($listroom as $room) {
     echo "<td>" . $room["id_room"] . "</td>";
     echo "<td>" . $room["name_room"] . "</td>";
     echo "<td>" . $room["action"] . "</td>";
-    echo "<td> <a href='" . $update_room . "'><input type='button' value='update'></a> <a href='" . $delete_room . "' onclick='return confirm(\"Bạn có chắc muốn xóa?\");'><input type='button' value='delete'></a> </td>";
+    echo "<td class='edit-delete-btn'>
+    <a href='" . $update_room . "' class='text-success'><i class='feather-edit-3 me-1'></i> Edit</a>
+    <a href='" . $delete_room . "' onclick='return confirm(\"Bạn có chắc muốn xóa?\");' class='text-danger' data-bs-toggle='modal' data-bs-target='#deleteModal'><i class='feather-trash-2 me-1'></i> Delete</a></td>";
     echo "</tr>";
 }
 ?>
