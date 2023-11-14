@@ -3,7 +3,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <button><a href="index.php?action=insert_category">INSERT CATEGORY</a></button>
+                    <button><a href="index.php?action=insert_category">INSERT CINEMA</a></button>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -13,17 +13,20 @@
                                     <table border="1" class="datatable table table-stripped dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                         <tr>
                                             <th>ID</th>
-                                            <th>NAME CATEGORY</th>
+                                            <th>NAME CINEMA  </th>
+                                            <th>ADDRESS</th>
+                                            <th>LINK_GOOGLE</th>
                                             <th colspan="2">ACTION</th>
                                         </tr>
                                         <?php
-                                        foreach ($list_category as $category) {
-                                            $update_category = "index.php?action=update_category&id" . $category['id_category'];
-                                            $delete_category = "index.php?action=delete_category&id" . $category['id_category'];
+                                        foreach ($list_cinema as $cinema) {
+                                            $update_cinema = "index.php?action=update_cinema&id" . $cinema['id_cinema'];
+                                            $delete_cinema = "index.php?action=delete_cinema&id" . $cinema['id_cinema'];
                                             echo "<tr>";
-                                            echo "<td>" . $category["id_category"] . "</td>";
-                                            echo "<td>" . $category["name_category"] . "</td>";
-                                            echo "<td> <a href='" . $update_category . "'><input type='button' value='update'></a> <a href='" . $delete_category . "' onclick='return confirm(\"Bạn có chắc muốn xóa?\");'><input type='button' value='delete'></a> </td>";
+                                            echo "<td>" . $cinema["id_cinema"] . "</td>";
+                                            echo "<td>" . $cinema["action"] . "</td>";
+                                            echo "<td>" . $cinema["total_seats"] . "</td>";
+                                            echo "<td> <a href='" . $update_cinema . "'><input type='button' value='update'></a> <a href='" . $delete_cinema  . "' onclick='return confirm(\"Bạn có chắc muốn xóa?\");'><input type='button' value='delete'></a> </td>";
                                             echo "</tr>";
                                         }
                                         ?>

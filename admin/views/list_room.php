@@ -3,7 +3,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <button><a href="index.php?action=insert_category">INSERT CATEGORY</a></button>
+                    <button><a href="?action=name_room">INSERT ROOM</a></button>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -13,20 +13,22 @@
                                     <table border="1" class="datatable table table-stripped dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                         <tr>
                                             <th>ID</th>
-                                            <th>NAME CATEGORY</th>
+                                            <th>name_room </th>
+                                            <th>action</th>
                                             <th colspan="2">ACTION</th>
                                         </tr>
                                         <?php
-                                        foreach ($list_category as $category) {
-                                            $update_category = "index.php?action=update_category&id" . $category['id_category'];
-                                            $delete_category = "index.php?action=delete_category&id" . $category['id_category'];
-                                            echo "<tr>";
-                                            echo "<td>" . $category["id_category"] . "</td>";
-                                            echo "<td>" . $category["name_category"] . "</td>";
-                                            echo "<td> <a href='" . $update_category . "'><input type='button' value='update'></a> <a href='" . $delete_category . "' onclick='return confirm(\"Bạn có chắc muốn xóa?\");'><input type='button' value='delete'></a> </td>";
-                                            echo "</tr>";
-                                        }
-                                        ?>
+foreach ($listroom as $room) {
+    $update_room = "index.php?action=update_room&id" . $room['id_room'];
+    $delete_room = "index.php?action=delete_room&id" . $room['id_room'];
+    echo "<tr>";
+    echo "<td>" . $room["id_room"] . "</td>";
+    echo "<td>" . $room["name_room"] . "</td>";
+    echo "<td>" . $room["action"] . "</td>";
+    echo "<td> <a href='" . $update_room . "'><input type='button' value='update'></a> <a href='" . $delete_room . "' onclick='return confirm(\"Bạn có chắc muốn xóa?\");'><input type='button' value='delete'></a> </td>";
+    echo "</tr>";
+}
+?>
                                     </table>
                                 </div>
                             </div>
