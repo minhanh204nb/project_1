@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+if (is_array($name_category)) {
+    extract(($name_category));
+}
+?>
+
 <body class="nk-body bg-lighter npc-default has-sidebar no-touch nk-nio-theme">
     <div class="main-wrapper">
         <div class="page-wrapper">
@@ -14,7 +20,7 @@
                         <div class="page-header">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <h3 class="page-title">Add category</h3>
+                                    <h3 class="page-title">Update category</h3>
                                 </div>
                             </div>
                         </div>
@@ -31,7 +37,7 @@
                                     </div>
                                 </div>
                                 <div class="bank-details-btn ">
-                                    <input type="submit" class="btn btn-primary me-2" name="insert_category" value="INSERT">
+                                    <input type="submit" class="btn btn-primary me-2" name="update_category" value="UPDATE">
                                 </div>
                             </div>
                         </form>

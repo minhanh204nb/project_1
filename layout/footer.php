@@ -5,18 +5,19 @@
                 <div class="row align-items-center">
                     <div class="col-lg-3">
                         <div class="footer-logo">
-                            <a href="index.html"><img src="img/logo/logo.png" alt=""></a>
+                            <a href="index.php?action=home"><img src="assets/img/logo/logo.png" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-9">
                         <div class="footer-menu">
                             <nav>
                                 <ul class="navigation">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="index.html">Movie</a></li>
-                                    <li><a href="index.html">tv show</a></li>
-                                    <li><a href="index.html">pages</a></li>
-                                    <li><a href="pricing.html">Pricing</a></li>
+                                    <li><a href="index.php?action=home">Home</a></li>
+                                    <li class="menu-item-has-children"><a href="index.php?action=list_movie">Movie</a></li>
+                                    <li><a href="index.php?action=combo">Combo</a></li>
+                                    <li class="menu-item-has-children"><a href="index.php?action=blog">blog</a></li>
+                                    <li><a href="index.php?action=contacts">contacts</a></li>
+                                    <li><a href="">Your tickets</a></li>
                                 </ul>
                                 <div class="footer-search">
                                     <form action="#">

@@ -947,7 +947,6 @@
             <div class="col-lg-6 order-0 order-lg-2">
                 <div class="services-img-wrap">
                     <img src="assets/img/images/services_img02.jpg" alt="">
-                    <a href="assets/img/images/services_img02.jpg" class="download-btn" download="">Download <img src="fonts/download.svg" alt=""></a>
                 </div>
             </div>
             <div class="col-xl-5 col-lg-6">

@@ -3,7 +3,6 @@ include './models/pdo.php';
 include './models/category.php';
 include './models/room.php';
 include './models/movie.php';
-include './models/cinema.php';
 include './layouts/head.php';
 include './layouts/navbar.php';
 include './layouts/sidebar.php';
@@ -49,10 +48,7 @@ if (isset($_GET['action'])) {
 
             break;
 
-        case 'cinema':
-            $list_cinema = list_cinema();
-            include './views/list_cinema.php';
-            break;
+      
         case 'seats':
             break;
         case 'tickets':
