@@ -50,19 +50,19 @@ if (isset($_GET['action'])) {
             include "./views/list_category.php";
             break;
         case 'movie':
+            $list_country = loadall_country();
+            $list_category = loadall_category();
+            $list_movie = loadall_movie();
             include './views/movie/list_movie.php';
-            break;
-        case 'detail_movie':
-            include './views/movie/details_movie.php';
             break;
         case 'insert_movie':
             if (isset($_POST['insert']) && ($_POST['insert'])) {
                 $name_movie = $_POST['name_movie'];
-                $contet = $_POST['content'];
-                $country = $_POST['country'];
+                $content = $_POST['content'];
+                $country = $_POST['id_country'];
                 $year = $_POST['year'];
                 $time = $_POST['time'];
-                $riviews = $_POST['riviews'];
+                $reviews = $_POST['reviews'];
                 $author = $_POST['author'];
                 $performer = $_POST['performer'];
                 $age_limit = $_POST['age_limit'];
@@ -76,7 +76,7 @@ if (isset($_GET['action'])) {
                     // move_uploaded_file:di chuyển tệp đã tải lên đến đích mới
                 } else {
                 }
-                insert_movie($name_movie, $contet, $country, $year, $time, $riviews, $author, $performer, $age_limit, $trailer_movie, $id_category, $action, $image);
+                insert_movie($name_movie, $content, $id_category, $year, $time, $reviews, $author, $performer, $age_limit, $image, $trailer_movie, $id_category, $action);
             }
             $list_country = loadall_country();
             $list_category = loadall_category();

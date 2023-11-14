@@ -31,64 +31,80 @@
                     </div>
                 </div>
                 <div class="row">
+                    <?php
+                    // Assuming $list_movie is your array of movies
+                    $itemsPerPage = 6; // Adjust this based on your preference
+                    $totalMovies = count($list_movie);
+                    $totalPages = ceil($totalMovies / $itemsPerPage);
 
-                    <div class="col-md-6 col-xl-4 col-sm-12 d-flex">
-                        <div class="blog grid-blog flex-fill">
-                            <div class="blog-image">
-                                <a href="blog-details.html"><img class="img-fluid" src="assets/img/category/blog-1.jpg" alt="Post Image"></a>
-                                <div class="blog-views">
-                                    <i class="feather-eye me-1"></i>225
-                                </div>
-                            </div>
-                            <div class="blog-content">
-                                <ul class="entry-meta meta-item">
-                                    <li>
-                                        <div class="post-author">
-                                            <a href="profile.html">
-                                                <!-- <img src="assets/img/profiles/avatar-12.jpg" alt="Post Author"> -->
-                                                <span>
-                                                    <span class="post-title">Name movie</span>
-                                                    <span class="post-date"><i class="far fa-clock"></i>2022</span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <h3 class="blog-title"><a href="blog-details.html">
-                                        content ...</a></h3>
-                                <p>Content ....</p>
-                            </div>
-                            <div class="row">
-                                <div class="edit-options">
-                                    <div class="edit-delete-btn">
-                                        <a href="#" class="text-success"><i class="feather-edit-3 me-1"></i> Edit</a>
-                                        <a href="#" class="text-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="feather-trash-2 me-1"></i> Delete</a>
-                                    </div>
-                                    <div class="status-toggle">
-                                        <input id="rating_4" class="check" type="checkbox" checked>
-                                        <label for="rating_4" class="checktoggle checkbox-bg">checkbox</label><span>Active</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    // Assuming $_GET['page'] is used for pagination
+                    $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+                    $startIndex = ($currentPage - 1) * $itemsPerPage;
+                    $moviesToDisplay = array_slice($list_movie, $startIndex, $itemsPerPage);
+
+                    foreach ($moviesToDisplay as $movie) {
+                        echo '<div class="col-md-6 col-xl-4 col-sm-12 d-flex">';
+                        echo '<div class="blog grid-blog flex-fill">';
+                        echo '<div class="blog-image">';
+                        echo '<a href=""><img class="img-fluid" src="../uploads/' . $movie['image'] . '" alt="' . $movie['name_movie'] . '"></a>';
+                        echo '<div class="blog-views">';
+                        echo '<i class="feather-eye me-1"></i>' . $movie['reviews'] . '';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '<div class="blog-content">';
+                        echo '<ul class="entry-meta meta-item">';
+                        echo '<li>';
+                        echo '<div class="post-author">';
+                        echo '<a href="profile.html">';
+                        echo '<span>';
+                        echo '<span class="post-title">' . $movie['name_movie'] . '</span>';
+                        echo '<span class="post-date"><i class="far fa-clock"></i>' . $movie['year'] . '</span>';
+                        echo '</span>';
+                        echo '</a>';
+                        echo '</div>';
+                        echo '</li>';
+                        echo '</ul>';
+                        echo '<h3 class="blog-title"><a href="">' . $movie['content'] . '</a></h3>';
+                        echo '<p>' . $movie['content'] . '</p>';
+                        echo '</div>';
+                        echo '<div class="row">';
+                        echo '<div class="edit-options">';
+                        echo '<div class="edit-delete-btn">';
+                        echo '<a href="#" class="text-success"><i class="feather-edit-3 me-1"></i> Edit</a>';
+                        echo '<a href="#" class="text-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="feather-trash-2 me-1"></i> Delete</a>';
+                        echo '</div>';
+                        echo '<div class="status-toggle">';
+                        // echo '<input id="rating_' . $movie['id_movie'] . '" class="check" type="checkbox" ' . ($movie['active'] ? 'checked' : '') . '>';
+                        // echo '<label for="rating_' . $movie['id_movie'] . '" class="checktoggle checkbox-bg">checkbox</label><span>Active</span>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
+                    }
+                    ?>
                 </div>
-                <div class="row ">
+                <div class="row">
                     <div class="col-md-12">
                         <div class="pagination-tab  d-flex justify-content-center">
                             <ul class="pagination mb-0">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1"><i class="feather-chevron-left mr-2"></i>Previous</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item active">
-                                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next<i class="feather-chevron-right ml-2"></i></a>
-                                </li>
+                                <?php if ($currentPage > 1) : ?>
+                                    <li class="page-item">
+                                        <a class="page-link" href="index.php?action=movie&page=<?php echo $currentPage - 1; ?>" tabindex="-1">
+                                            <i class="feather-chevron-left mr-2"></i>Previous
+                                        </a>
+                                    </li>
+                                <?php endif; ?>
+                                <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
+                                    <li class="page-item <?php echo ($i == $currentPage) ? 'active' : ''; ?>">
+                                        <a class="page-link" href="index.php?action=movie&page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                    </li>
+                                <?php endfor; ?>
+                                <?php if ($currentPage < $totalPages) : ?>
+                                    <li class="page-item">
+                                        <a class="page-link" href="index.php?action=movie&page=<?php echo $currentPage + 1; ?>">Next<i class="feather-chevron-right ml-2"></i></a>
+                                    </li>
+                                <?php endif; ?>
                             </ul>
                         </div>
                     </div>
