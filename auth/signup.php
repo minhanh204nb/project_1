@@ -13,11 +13,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="author" content="Dmitry Volkov" />
-<<<<<<< HEAD
-    <title>HotFlix – Online Movies, TV Shows & Cinema HTML Template</title>
-=======
     <title>Sign Up</title>
->>>>>>> 8da99ca2feccbeee2094e79be680ba86ee61d9e7
 </head>
 
 <body class="body">
@@ -27,25 +23,12 @@
                 <div class="col-12">
                     <div class="sign__content">
                         <!-- authorization form -->
-<<<<<<< HEAD
-                        <form action="#" class="sign__form">
-                            <a href="index.html" class="sign__logo">
-=======
                         <form action="index.php?action=signup" class="sign__form">
                             <a href="index.php?action=home" class="sign__logo">
->>>>>>> 8da99ca2feccbeee2094e79be680ba86ee61d9e7
                                 <img src="./assets/img/images/logo.svg" alt="" />
                             </a>
 
                             <div class="sign__group">
-<<<<<<< HEAD
-                                <input type="text" class="sign__input" placeholder="Name" />
-                            </div>
-                            <div class="sign__group">
-                                <input type="text" class="sign__input" placeholder="Email" />
-                            </div>
-
-=======
                                 <input type="text" class="sign__input" name="name_clinet" placeholder="Name" />
                             </div>
                             <div class="sign__group">
@@ -57,7 +40,6 @@
                             <div class="sign__group">
                                 <input type="text" name="phone_number" class="sign__input" placeholder="Tell" />
                             </div>
->>>>>>> 8da99ca2feccbeee2094e79be680ba86ee61d9e7
                             <div class="sign__group">
                                 <input type="password" class="sign__input" placeholder="Password" />
                             </div>

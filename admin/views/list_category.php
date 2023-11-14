@@ -41,8 +41,6 @@
     </div>
 </div>
 
-<<<<<<< HEAD
-=======
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
@@ -54,4 +52,3 @@
     <link rel="stylesheet" href="assets/css/feather.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
->>>>>>> 68de41392cc158535988dc26e0a891903899f6f6
