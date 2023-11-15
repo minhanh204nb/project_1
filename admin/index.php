@@ -16,7 +16,7 @@ if (isset($_GET['action'])) {
             break;
         case 'category':
             $list_category = loadall_category();
-            include './views/list_category.php';
+            include './views/category/list_category.php';
             break;
         case 'insert_category':
             if (isset($_POST['insert_category']) && $_POST['insert_category']) {
@@ -26,28 +26,29 @@ if (isset($_GET['action'])) {
             include './controllers/category/insert_category.php';
             break;
         case 'delete_category':
-            if (isset($_GET['id']) && ($_GET['id']) >= 0) {
+            if (isset($_GET['id']) && ($_GET['id']) > 0) {
                 // Delete the category by calling the delete_category function
                 delete_category($_GET['id']);
             }
             // Reload the list of categories after deletion
             $list_category = loadall_category();
-            include './views/list_category.php';
+            include './views/category/list_category.php';
             break;
         case 'edit_category':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $list_category = loadone_category($_GET['id']);
             }
+            // $list_category = loadall_category();
             include './controllers/category/update_category.php';
             break;
         case 'update_category':
-            if (isset($_POST['']) && ($_POST['capnhat'])) {
+            if (isset($_POST['update_category']) && ($_POST['update_category'])) {
                 $name_category = $_POST['name_category'];
                 $id_category = $_POST['id'];
                 update_category($id_category, $name_category);
             }
             $list_category = loadall_category();
-            include "./views/list_category.php";
+            include "./views/category/list_category.php";
             break;
         case 'movie':
             $list_country = loadall_country();
@@ -87,6 +88,9 @@ if (isset($_GET['action'])) {
         case 'edit_movie':
             break;
         case 'update_movie':
+            break;
+        case'room':
+            
             break;
         default:
             break;

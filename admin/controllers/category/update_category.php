@@ -14,7 +14,7 @@ if (is_array($name_category)) {
                     <div class="col-xl-8 offset-xl-2">
                         <div class="col-md-9">
                             <ul class="list-links mb-4">
-                                <li class="active"><a href="index.php?action=category">List category</a></li>
+                                <li class="active"><a href="index.php?action=update_category">List category</a></li>
                             </ul>
                         </div>
                         <div class="page-header">
@@ -31,7 +31,7 @@ if (is_array($name_category)) {
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>NAME CATEGORY<span class="text-danger">*</span></label>
-                                                <input type="text" name="name_category" class="form-control" required placeholder="name category"></ </div>
+                                                <input type="text" name="name_category" class="form-control" value="<?php if (isset($name_category) && ($name_category != "")) echo $name_category; ?>" required placeholder="name category"></ </div>
                                             </div>
                                         </div>
                                     </div>
