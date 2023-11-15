@@ -44,7 +44,19 @@
         </div>
         <div class="row tr-movie-active">
             <?php
-            foreach ($list_movie as $movie) {
+            // Number of movies per page
+            $moviesPerPage = 8;
+
+            // Current page from URL parameter
+            $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+            // Calculate the starting index for movies on the current page
+            $startIndex = ($currentPage - 1) * $moviesPerPage;
+
+            // Get a subset of movies for the current page
+            $pagedMovies = array_slice($list_movie, $startIndex, $moviesPerPage);
+
+            foreach ($pagedMovies as $movie) {
                 echo '<div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">';
                 echo '<div class="movie-item movie-item-three mb-50">';
                 echo '<div class="movie-poster text-center">'; // Added class "text-center"
@@ -80,22 +92,37 @@
                 echo '</div>';
             }
             ?>
-
         </div>
+
         <div class="row">
             <div class="col-12">
                 <div class="pagination-wrap mt-30">
                     <nav>
                         <ul>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">Next</a></li>
+                            <?php
+                            // Calculate the total number of pages
+                            $totalPages = ceil(count($list_movie) / $moviesPerPage);
+
+                            // Previous button
+                            if ($currentPage > 1) {
+                                echo '<li><a href="index.php?action=list_movie&page=' . ($currentPage - 1) . '">Previous</a></li>';
+                            }
+
+                            // Page numbers
+                            for ($i = 1; $i <= $totalPages; $i++) {
+                                echo '<li' . ($i === $currentPage ? ' class="active"' : '') . '><a href="index.php?action=list_movie&page=' . $i . '">' . $i . '</a></li>';
+                            }
+
+                            // Next button
+                            if ($currentPage < $totalPages) {
+                                echo '<li><a href="index.php?action=list_movie&page=' . ($currentPage + 1) . '">Next</a></li>';
+                            }
+                            ?>
                         </ul>
                     </nav>
                 </div>
             </div>
         </div>
+
     </div>
 </section>

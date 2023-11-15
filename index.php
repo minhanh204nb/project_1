@@ -15,6 +15,7 @@ if (isset($_GET['action'])) {
         case 'home':
             $list_category = loadall_category();
             $list_country = loadall_country();
+            $list_movie_limit=loadlimit_movie(4);
             $list_movie = loadall_movie();
             include './layout/header.php';
             include './views/home.php';
