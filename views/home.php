@@ -1013,7 +1013,7 @@
                 echo '<a href="' . $movie['trailer_movie'] . '" class="popup-video btn">Watch Now</a>';
                 echo '</li>';
                 echo '<li>';
-                echo '<a href="index.php?action=details_movie" class="btn">Details</a>';
+                echo '<li><a href="index.php?action=details_movie&id=' . $movie['id_movie'] . '" class="btn">Details</a></li>';
                 echo '</li>';
                 echo '</ul>';
                 echo '</div>';
@@ -1026,7 +1026,7 @@
                 echo '<i class="fas fa-star"></i>';
                 echo '</div>';
                 echo '<h5 class="title">';
-                echo '<a href="index.php?action=details_movie">' . $movie['name_movie'] . '</a>';
+                echo '<a href="index.php?action=details_movie&id'.$movie['id_movie'].'">' . $movie['name_movie'] . '</a>';
                 echo '</h5>';
                 foreach ($list_category as $category) {
                     if ($movie['id_category'] == $category['id_category']) {
@@ -1056,8 +1056,20 @@
             }
             ?>
         </div>
-        <div class="tr-movie-btn text-center mt-25">
-            <a href="#" class="btn">BROWSE ALL MOVIES</a>
+        <div class="row">
+            <div class="col-12">
+                <div class="pagination-wrap mt-30">
+                    <nav>
+                        <ul>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
         </div>
     </div>
 </section>

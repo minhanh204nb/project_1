@@ -13,8 +13,8 @@ if (isset($_GET['action'])) {
     }
     switch ($action) {
         case 'home':
-            $list_category=loadall_category();
-            $list_country=loadall_country();
+            $list_category = loadall_category();
+            $list_country = loadall_country();
             $list_movie = loadall_movie();
             include './layout/header.php';
             include './views/home.php';
@@ -24,6 +24,12 @@ if (isset($_GET['action'])) {
             include './views/list_movie.php';
             break;
         case 'details_movie':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $id_movie = $_GET['id'];
+                $list_movie = loadone_movie($id_movie);
+            }
+            $list_category = loadall_category();
+            $list_country = loadall_country();
             include './views/details_movie.php';
             break;
         case 'blog':

@@ -58,7 +58,7 @@
                 echo '<i class="fas fa-star"></i>';
                 echo '</li>';
                 echo '<li><a href="' . $movie['trailer_movie'] . '" class="popup-video btn">Watch Now</a></li>';
-                echo '<li><a href="index.php?action=details_movie" class="btn">Details</a></li>';
+                echo '<li><a href="index.php?action=details_movie&id=' . $movie['id_movie'] . '" class="btn">Details</a></li>';
                 echo '</ul>';
                 echo '</div>';
                 echo '<div class="movie-content">';

@@ -15,3 +15,8 @@ function loadall_movie()
     $list_movie = pdo_query($sql);
     return $list_movie;
 }
+function loadone_movie($id_movie){
+    $sql = "SELECT * FROM movie WHERE id_movie = '$id_movie'";
+    $list_movie=pdo_query_one($sql);
+    return $list_movie;
+}
