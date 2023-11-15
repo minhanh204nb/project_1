@@ -1,5 +1,8 @@
 <?php
 include './models/pdo.php';
+include './admin/models/category/category.php';
+include './admin/models/movie/country.php';
+include './admin/models/movie/movie.php';
 include './models/account/signup.php';
 include './layout/head.php';
 
@@ -10,10 +13,14 @@ if (isset($_GET['action'])) {
     }
     switch ($action) {
         case 'home':
+            $list_category=loadall_category();
+            $list_country=loadall_country();
+            $list_movie = loadall_movie();
             include './layout/header.php';
             include './views/home.php';
             break;
         case 'list_movie':
+            $list_movie = loadall_movie();
             include './views/list_movie.php';
             break;
         case 'details_movie':
