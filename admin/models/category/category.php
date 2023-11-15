@@ -16,7 +16,7 @@ function delete_category($id_category)
 }
 function loadall_category()
 {
-    $sql = "select * from category order by id_category desc";
+    $sql = "select * from category order by id_category asc";
     $list_category = pdo_query($sql);
     return $list_category;
 }
