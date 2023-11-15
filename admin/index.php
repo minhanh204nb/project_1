@@ -31,9 +31,9 @@ if (isset($_GET['action'])) {
                 delete_category($_GET['id']);
             }
             // Reload the list of categories after deletion
-            $sql = "select * from category order by id_category desc";
+            $sql = "select * from category order by id_category";
             $list_category = pdo_query($sql);
-            include './views/list_category.php';
+            include './views/category/list_category.php';
             break;
             
         case 'edit_category':
@@ -48,7 +48,7 @@ if (isset($_GET['action'])) {
                 $id_category = $_POST['id_category'];
                 update_category($id_category, $name_category);
             }
-            $sql = "select * from category order by id_category desc";
+            $sql = "select * from category order by id_category";
             $list_category = pdo_query($sql);
             include './views/list_category.php';
             break;
