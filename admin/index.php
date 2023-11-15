@@ -31,7 +31,7 @@ if (isset($_GET['action'])) {
                 delete_category($_GET['id']);
             }
             // Reload the list of categories after deletion
-            $sql = "select * from category order by name_category";
+            $sql = "select * from category order by id_category desc";
             $list_category = pdo_query($sql);
             include './views/list_category.php';
             break;
