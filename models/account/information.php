@@ -6,7 +6,8 @@ function insert_information($name_clinet, $phone_number, $email, $address)
 }
 function loadall_info()
 {
-    $sql = "SELECT * FROM information order by name_clinet";
+    $sql = "SELECT * FROM information";
     $list_info = pdo_query($sql);
     return $list_info;
 }
+

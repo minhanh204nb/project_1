@@ -90,13 +90,34 @@ if (isset($_GET['action'])) {
                 // Delete the movie by calling the delete_movie function
                 delete_movie($_GET['id']);
             }
-            $sql = 'SELECT * FROM movie order by id_category';
-            $list_movie = pdo_query($sql);
+
+            // $sql = 'SELECT * FROM movie order by id_category';
+            // $list_movie = pdo_query($sql);
             include './views/movie/list_movie.php';
             break;
         case 'edit_movie':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $movie_to_edit = loadone_movie($_GET['id']);
+                include './controllers/movie/update_movie.php';
+            }
             break;
         case 'update_movie':
+            if (isset($_POST['update']) && ($_POST['update'])) {
+                $id_movie = $_POST['id_movie'];
+                $name_movie = $_POST['name_movie'];
+                $content = $_POST['content'];
+                $country = $_POST['id_country'];
+                $year = $_POST['year'];
+                $time = $_POST['time'];
+                $reviews = $_POST['reviews'];
+                $author = $_POST['author'];
+                $performer = $_POST['performer'];
+                $age_limit = $_POST['age_limit'];
+                $trailer_movie = $_POST['trailer_movie'];
+                $id_category = $_POST['id_category'];
+                $action = $_POST['action'];
+            }
+            include './views/movie/list_movie.php';
             break;
         default:
             break;
