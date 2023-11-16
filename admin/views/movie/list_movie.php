@@ -71,8 +71,10 @@
                         echo '<div class="row">';
                         echo '<div class="edit-options">';
                         echo '<div class="edit-delete-btn">';
-                        echo '<a href="#" class="text-success"><i class="feather-edit-3 me-1"></i> Edit</a>';
-                        echo '<a href="#" class="text-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="feather-trash-2 me-1"></i> Delete</a>';
+                        $edit_movie = 'index.php?action=edit_movie&id=' . $movie['id_movie'];
+                        $delete_movie = 'index.php?action=delete_movie&id=' . $movie['id_movie'];
+                        echo ' <a href="' . $edit_movie . '" class="text-success"><i class="feather-edit-3 me-1"></i> Edit</a>';
+                        echo '<a href="' . $delete_movie . '" class="text-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="feather-trash-2 me-1"></i> Delete</a>';
                         echo '</div>';
                         echo '<div class="status-toggle">';
                         // echo '<input id="rating_' . $movie['id_movie'] . '" class="check" type="checkbox" ' . ($movie['active'] ? 'checked' : '') . '>';
@@ -121,7 +123,7 @@
                                     <div class="del-icon"><i class="feather-x-circle"></i></div>
                                     <h2>Sure you want to delete</h2>
                                     <div class="submit-section">
-                                        <a href="blog.html" class="btn btn-success me-2">Yes</a>
+                                        <a href="<?php echo $delete_movie; ?>" class="btn btn-success me-2">Yes</a>
                                         <a href="#" class="btn btn-danger" data-bs-dismiss="modal">No</a>
                                     </div>
                                 </div>

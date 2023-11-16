@@ -27,18 +27,18 @@
                         <h5 class="title">Contact Form</h5>
                     </div>
                     <div class="contact-form">
-                        <form action="#">
+                        <form action="index.php?action=contact" method="post">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="You Name *">
+                                    <input type="text" name="name" placeholder="Your Name *">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" placeholder="You  Email *">
+                                    <input type="email" name="email" placeholder="Your Email *">
                                 </div>
                             </div>
-                            <input type="text" placeholder="Subject *">
-                            <textarea name="message" placeholder="Type Your Message..."></textarea>
-                            <button class="btn">Send Message</button>
+                            <input type="text" name="title" placeholder="Subject *">
+                            <textarea name="content" placeholder="Type Your Message..."></textarea>
+                            <input class="btn" type="submit" name="send" value="Send Message">
                         </form>
                     </div>
                 </div>

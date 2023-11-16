@@ -23,7 +23,7 @@
                                     <li><a href="index.php?action=combo">Combo</a></li>
                                     <li class="menu-item-has-children"><a href="index.php?action=blog">blog</a>
                                     </li>
-                                    <li><a href="index.php?action=contacts">contacts</a></li>
+                                    <li><a href="index.php?action=contact">contacts</a></li>
                                     <li><a href="">Your tickets</a></li>
                                 </ul>
                             </div>
@@ -31,9 +31,9 @@
                                 <ul>
                                     <li class="d-none d-xl-block">
                                         <div class="footer-search">
-                                            <form action="#">
-                                                <input type="text" placeholder="Find Favorite Movie">
-                                                <button><i class="fas fa-search"></i></button>
+                                            <form action="index.php?action=search" method="get">
+                                                <input type="text" name="search" placeholder="Find Favorite Movie">
+                                                <button type="submit"><i class="fas fa-search"></i></button>
                                             </form>
                                         </div>
                                     </li>

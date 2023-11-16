@@ -1,66 +1,82 @@
-<section class="movie-details-area" data-background="assets/img/bg/movie_details_bg.jpg">
-    <div class="container">
-        <div class="row align-items-center position-relative">
-            <div class="col-xl-3 col-lg-4">
-                <div class="movie-details-img">
-                    <img src="assets/img/poster/movie_details_img.jpg" alt="">
-                    <a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="popup-video"><img src="assets/img/images/play_icon.png" alt=""></a>
-                </div>
-            </div>
-            <div class="col-xl-6 col-lg-8">
-                <div class="movie-details-content">
-                    <h5>New Episodes</h5>
-                    <h2>The Easy <span>Reach</span></h2>
-                    <div class="banner-meta">
-                        <ul>
-                            <li class="quality">
-                                <span>Pg 18</span>
-                                <span>hd</span>
-                            </li>
-                            <li class="category">
-                                <a href="#">Romance,</a>
-                                <a href="#">Drama</a>
-                            </li>
-                            <li class="release-time">
-                                <span><i class="far fa-calendar-alt"></i> 2021</span>
-                                <span><i class="far fa-clock"></i> 128 min</span>
-                            </li>
-                        </ul>
+<?php
+$movie_id = isset($_GET['id']) ? $_GET['id'] : 0;
+$movie = loadone_movie($movie_id);
+if ($movie) {
+?>
+    <section class="movie-details-area" data-background="assets/img/bg/movie_details_bg.jpg">
+        <div class="container">
+            <div class="row align-items-center position-relative">
+                <div class="col-xl-3 col-lg-4">
+                    <div class="movie-details-img">
+                        <img src="../uploads/<?php echo $movie['image']; ?>" alt="">
+                        <a href="<?php echo $movie['trailer_movie']; ?>" class="popup-video"><img src="assets/img/images/play_icon.png" alt=""></a>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consecetur adipiscing elseddo eiusmod tempor.There are many
-                        variations of passages of lorem
-                        Ipsum available, but the majority have suffered alteration in some injected humour.</p>
-                    <div class="movie-details-prime">
-                        <ul>
-                            <li class="share"><a href="#"><i class="fas fa-share-alt"></i> Share</a></li>
-                            <li class="streaming">
-                                <h6>Prime Video</h6>
-                                <span>Streaming Channels</span>
-                            </li>
-                            <li class="watch"><a href="index.php?action=booking" class="btn popup-video"><i class="fas fa-play"></i>BOOKING</a></li>
-                        </ul>
+                </div>
+                <div class="col-xl-6 col-lg-8">
+                    <div class="movie-details-content">
+                        <h5>New Episodes</h5>
+                        <h2><span><?php echo $movie['name_movie']; ?></span></h2>
+                        <div class="banner-meta">
+                            <ul>
+                                <li class="quality">
+                                    <span><?php echo $movie['age_limit']; ?></span>
+                                    <span>hd</span>
+                                </li>
+                                <?php
+                                foreach ($list_category as $category) {
+                                    if ($movie['id_category'] == $category['id_category']) {
+                                        $movie['id_category'] = $category['name_category'];
+                                    }
+                                }
+                                ?>
+                                <li class="category">
+                                    <a href="#"><?php echo $movie['id_category']; ?></a>
+                                </li>
+                                <li class="category">
+                                    <a href="#"><?php echo $movie['author']; ?></a>
+                                </li>
+                                <li class="category">
+                                    <a href="#"><?php echo $movie['performer']; ?></a>
+                                </li>
+                                <li class="release-time">
+                                    <span><i class="far fa-calendar-alt"></i><?php echo $movie['year']; ?></span>
+                                    <span><i class="far fa-clock"></i><?php echo $movie['time']; ?></span>
+                                </li>
+                            </ul>
+                        </div>
+                        <p><?php echo $movie['content']; ?></p>
+                        <div class="movie-details-prime">
+                            <ul>
+                                <li class="share"><a href="#"><i class="fas fa-share-alt"></i> Share</a></li>
+                                <li class="streaming">
+                                    <h6>Prime Video</h6>
+                                    <span>Streaming Channels</span>
+                                </li>
+                                <li class="watch"><a href="index.php?action=booking" class="btn popup-video"><i class="fas fa-play"></i>BOOKING</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="movie-history-wrap">
-                    <h3 class="title">About <span>History</span></h3>
-                    <p>Lorem ipsum dolor sit amet, consecetur adipiscing elseddo eiusmod tempor.There are many variations of passages of lorem
-                        Ipsum available, but the majority have suffered alteration in some injected humour.There are many variations of passages
-                        of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised
-                        words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure
-                        there isn't anything errassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to
-                        repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of
-                        over 200 Latin words, combined with a handful</p>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="movie-history-wrap">
+                        <h3 class="title">About <span>History</span></h3>
+                        <p><?php echo $movie['content']; ?></p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php
+} else {
+    echo '<p>Movie not found</p>';
+}
+?>
+
+
 <section class="tv-series-area tv-series-bg" data-background="assets/img/bg/tv_series_bg02.jpg">
     <div class="container">
         <div class="row justify-content-center">

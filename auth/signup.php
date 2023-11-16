@@ -13,11 +13,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="author" content="Dmitry Volkov" />
-<<<<<<< HEAD
-    <title>HotFlix – Online Movies, TV Shows & Cinema HTML Template</title>
-=======
     <title>Sign Up</title>
->>>>>>> 8da99ca2feccbeee2094e79be680ba86ee61d9e7
 </head>
 
 <body class="body">
@@ -25,27 +21,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="sign__content">
-                        <!-- authorization form -->
-<<<<<<< HEAD
-                        <form action="#" class="sign__form">
-                            <a href="index.html" class="sign__logo">
-=======
-                        <form action="index.php?action=signup" class="sign__form">
+                    <div class="sign__content">  
+                        <form action="index.php?action=signup" method="post" class="sign__form">
                             <a href="index.php?action=home" class="sign__logo">
->>>>>>> 8da99ca2feccbeee2094e79be680ba86ee61d9e7
                                 <img src="./assets/img/images/logo.svg" alt="" />
                             </a>
-
                             <div class="sign__group">
-<<<<<<< HEAD
-                                <input type="text" class="sign__input" placeholder="Name" />
-                            </div>
-                            <div class="sign__group">
-                                <input type="text" class="sign__input" placeholder="Email" />
-                            </div>
-
-=======
                                 <input type="text" class="sign__input" name="name_clinet" placeholder="Name" />
                             </div>
                             <div class="sign__group">
@@ -57,20 +38,18 @@
                             <div class="sign__group">
                                 <input type="text" name="phone_number" class="sign__input" placeholder="Tell" />
                             </div>
->>>>>>> 8da99ca2feccbeee2094e79be680ba86ee61d9e7
                             <div class="sign__group">
                                 <input type="password" class="sign__input" placeholder="Password" />
                             </div>
-
+                            <div class="sign__group">
+                                <input type="text" class="sign__input" placeholder="Password" value="<?php $info['id_name'] ?>" hidden />
+                            </div>
                             <div class="sign__group sign__group--checkbox">
                                 <input id="remember" name="remember" type="checkbox" checked="checked" />
                                 <label for="remember">I agree to the Privacy Policy</label>
                             </div>
-
-                            <button class="sign__btn" type="button">Sign Up</button>
-
+                            <input type="submit" class="sign__btn" name="signup" value="Sign Up">
                             <span class="sign__delimiter">or</span>
-
                             <div class="sign__social">
                                 <a class="fb" href="#"><svg viewBox="0 0 9 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.56341 16.8197V8.65888H7.81615L8.11468 5.84663H5.56341L5.56724 4.43907C5.56724 3.70559 5.63693 3.31257 6.69042 3.31257H8.09873V0.5H5.84568C3.1394 0.5 2.18686 1.86425 2.18686 4.15848V5.84695H0.499939V8.6592H2.18686V16.8197H5.56341Z" />
@@ -82,34 +61,13 @@
                                         <path d="M473.16 221.48l-2.26-9.59H262.46v88.22H387c-12.93 61.4-72.93 93.72-121.94 93.72-35.66 0-73.25-15-98.13-39.11a140.08 140.08 0 01-41.8-98.88c0-37.16 16.7-74.33 41-98.78s61-38.13 97.49-38.13c41.79 0 71.74 22.19 82.94 32.31l62.69-62.36C390.86 72.72 340.34 32 261.6 32c-60.75 0-119 23.27-161.58 65.71C58 139.5 36.25 199.93 36.25 256s20.58 113.48 61.3 155.6c43.51 44.92 105.13 68.4 168.58 68.4 57.73 0 112.45-22.62 151.45-63.66 38.34-40.4 58.17-96.3 58.17-154.9 0-24.67-2.48-39.32-2.59-39.96z" />
                                     </svg></a>
                             </div>
-
                             <span class="sign__text">Already have an account?
                                 <a href="index.php?action=signin">Sign In!</a></span>
-
-
                         </form>
-                        <!-- end authorization form -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- JS -->
-    <!-- <script src="js/jquery-3.5.1.min.js"></script> -->
-    <!-- <script src="js/bootstrap.bundle.min.js"></script> -->
-    <!-- <script src="js/owl.carousel.min.js"></script> -->
-    <!-- <script src="js/jquery.magnific-popup.min.js"></script> -->
-    <!-- <script src="js/jquery.mousewheel.min.js"></script> -->
-    <!-- <script src="js/jquery.mCustomScrollbar.min.js"></script> -->
-    <!-- <script src="js/wNumb.js"></script> -->
-    <!-- <script src="js/nouislider.min.js"></script> -->
-    <!-- <script src="js/plyr.min.js"></script> -->
-    <!-- <script src="js/photoswipe.min.js"></script> -->
-    <!-- <script src="js/photoswipe-ui-default.min.js"></script> -->
-    <!-- <script src="js/main.js"></script> -->
 </body>
-
-<!-- Mirrored from hotflix.volkovdesign.com/main/signin.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 04 Nov 2023 18:10:31 GMT -->
-
 </html>
