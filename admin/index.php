@@ -90,9 +90,9 @@ if (isset($_GET['action'])) {
                 // Delete the movie by calling the delete_movie function
                 delete_movie($_GET['id']);
             }
-
-            // $sql = 'SELECT * FROM movie order by id_category';
-            // $list_movie = pdo_query($sql);
+            $list_country = loadall_country();
+            $list_category = loadall_category();
+            $list_movie = loadall_movie();
             include './views/movie/list_movie.php';
             break;
         case 'edit_movie':

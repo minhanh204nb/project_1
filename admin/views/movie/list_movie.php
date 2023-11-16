@@ -73,7 +73,7 @@
                         $edit_movie = 'index.php?action=edit_movie&id=' . $movie['id_movie'];
                         $delete_movie = 'index.php?action=delete_movie&id=' . $movie['id_movie'];
                         echo ' <a href="' . $edit_movie . '" class="text-success"><i class="feather-edit-3 me-1"></i> Edit</a>';
-                        echo '<a href="' . $delete_movie . '" class="text-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="feather-trash-2 me-1"></i> Delete</a>';
+                        echo '<a  href="' . $delete_movie . '" class="text-danger" onclick="return confirm(\'Bạn có chắc muốn xóa?\');" ><i class="feather-trash-2 me-1"></i> Delete</a>';
                         echo '</div>';
                         echo '<div class="status-toggle">';
                         // echo '<input id="rating_' . $movie['id_movie'] . '" class="check" type="checkbox" ' . ($movie['active'] ? 'checked' : '') . '>';
