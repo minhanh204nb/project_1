@@ -24,7 +24,7 @@
                     <div class="sign__content">
                         <!-- authorization form -->
                         <form action="#" class="sign__form">
-                            <a href="index.html" class="sign__logo">
+                            <a href="index.php?action=home" class="sign__logo">
                                 <img src="./assets/img/images/logo.svg" alt="" />
                             </a>
 

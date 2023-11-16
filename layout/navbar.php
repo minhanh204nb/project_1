@@ -31,9 +31,9 @@
                                 <ul>
                                     <li class="d-none d-xl-block">
                                         <div class="footer-search">
-                                            <form action="#">
-                                                <input type="text" placeholder="Find Favorite Movie">
-                                                <button><i class="fas fa-search"></i></button>
+                                            <form action="index.php?action=search" method="get">
+                                                <input type="text" name="search" placeholder="Find Favorite Movie">
+                                                <button type="submit"><i class="fas fa-search"></i></button>
                                             </form>
                                         </div>
                                     </li>

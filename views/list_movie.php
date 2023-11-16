@@ -21,25 +21,23 @@
             <div class="col-lg-6">
                 <div class="section-title text-center text-lg-left">
                     <span class="sub-title">ONLINE STREAMING</span>
-                    <h2 class="title">New Release Movies</h2>
+                    <h2 class="title">All Movies</h2>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="movie-page-meta">
-                    <div class="tr-movie-menu-active text-center">
-                        <button class="active" data-filter="*">Animation</button>
-                        <button class="" data-filter=".cat-one">Movies</button>
-                        <button class="" data-filter=".cat-two">Romantic</button>
-                    </div>
                     <form action="#" class="movie-filter-form">
-                        <select class="custom-select">
-                            <option selected>English</option>
-                            <option value="1">Blueray</option>
-                            <option value="2">4k Movie</option>
-                            <option value="3">Hd Movie</option>
+                        <select id="categoryFilter" name="id_category" class="custom-select">
+                            <?php
+                            foreach ($list_category as $category) {
+                                echo '<option value="' . $category['id_category'] . '">' . $category['name_category'] . '</option>';
+                            }
+                            ?>
                         </select>
                     </form>
                 </div>
+
+
             </div>
         </div>
         <div class="row tr-movie-active">

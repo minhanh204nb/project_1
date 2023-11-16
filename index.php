@@ -15,12 +15,13 @@ if (isset($_GET['action'])) {
         case 'home':
             $list_category = loadall_category();
             $list_country = loadall_country();
-            $list_movie_limit=loadlimit_movie(4);
+            $list_movie_limit = loadlimit_movie(4);
             $list_movie = loadall_movie();
             include './layout/header.php';
             include './views/home.php';
             break;
         case 'list_movie':
+            $list_category = loadall_category();
             $list_movie = loadall_movie();
             include './views/list_movie.php';
             break;
@@ -32,6 +33,9 @@ if (isset($_GET['action'])) {
             $list_category = loadall_category();
             $list_country = loadall_country();
             include './views/details_movie.php';
+            break;
+        case 'search':
+
             break;
         case 'blog':
             include './views/blog.php';
@@ -62,6 +66,10 @@ if (isset($_GET['action'])) {
             break;
     }
 } else {
+    $list_category = loadall_category();
+    $list_country = loadall_country();
+    $list_movie_limit = loadlimit_movie(4);
+    $list_movie = loadall_movie();
     include './layout/navbar.php';
     include './layout/header.php';
     include './views/home.php';
