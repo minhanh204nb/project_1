@@ -98,9 +98,6 @@ if (isset($_GET['action'])) {
             break;
         case 'update_movie':
             break;
-        case 'room':
-
-            break;
         default:
             break;
     }
