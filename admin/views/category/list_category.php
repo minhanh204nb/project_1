@@ -19,13 +19,13 @@
                                         <?php
                                         foreach ($list_category as $category) {
                                             extract(($category));
-                                            $edit_categoty = "index.php?action=edit_categoty&id" . $category['id_category'];
-                                            $delete_category = "index.php?action=delete_category&id" . $category['id_category'];
+                                            $edit_category = "index.php?action=edit_category&id=" . $category['id_category'];
+                                            $delete_category = "index.php?action=delete_category&id=" . $category['id_category'];
                                             echo "<tr>";
                                             echo "<td>" . $category["id_category"] . "</td>";
                                             echo "<td>" . $category["name_category"] . "</td>";
                                             echo "<td class='edit-delete-btn'>
-                                            <a href='" . $edit_categoty . "' class='text-success'><i class='feather-edit-3 me-1'></i> Edit</a>
+                                            <a href='".$edit_category."' class='text-success'><i class='feather-edit-3 me-1'></i> Edit</a>
                                             <a href='" . $delete_category . "' onclick='return confirm(\"Bạn có chắc muốn xóa?\");' class='text-danger' data-bs-toggle='modal' data-bs-target='#deleteModal'><i class='feather-trash-2 me-1'></i> Delete</a></td>";
                                             echo "</tr>";
                                         }

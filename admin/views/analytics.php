@@ -9,7 +9,7 @@
                             <button class="btn btn-white btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                 Monthly
                             </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="">
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
                                 <li>
                                     <a href="javascript:void(0);" class="dropdown-item">Weekly</a>
                                 </li>
