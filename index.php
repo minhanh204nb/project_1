@@ -37,6 +37,7 @@ if (isset($_GET['action'])) {
             include './views/details_movie.php';
             break;
         case 'search':
+            include './views/search.php';
             break;
         case 'blog':
             include './views/blog.php';
@@ -54,21 +55,6 @@ if (isset($_GET['action'])) {
             include './auth/signin.php';
             break;
         case 'signup':
-            if (isset($_POST['signup']) && ($_POST['signup'])) {
-                // $name_clinet = $_POST['name_clinet'];
-                // $phone_number = $_POST['phone_number'];
-                // $email = $_POST['email'];
-                // insert_information($name, $phone_number, $email, '');
-                $user = $_POST['user'];
-                $password = $_POST['password'];
-                // foreach ($list_info as $info) {
-                //     if ($name_clinet == $info['name_clinet']) {
-                //         $name_clinet = $info['id_clinet'];
-                //     }
-                // }
-                insert_account($user, $password, '1');
-            }
-            // $list_info = loadall_info();
             include './auth/signup.php';
             break;
         case 'forgot':
