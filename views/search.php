@@ -1,27 +1,11 @@
-<section class="breadcrumb-area breadcrumb-bg" data-background="assets/img/bg/breadcrumb_bg.jpg">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="breadcrumb-content">
-                    <h2 class="title">Our <span>Movie</span></h2>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.php?action=home">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Movie</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 <section class="movie-area movie-bg" data-background="assets/img/bg/movie_bg.jpg">
     <div class="container">
         <div class="row align-items-end mb-60">
             <div class="col-lg-6">
                 <div class="section-title text-center text-lg-left">
                     <span class="sub-title">ONLINE STREAMING</span>
-                    <h2 class="title">All Movies</h2>
+                    <h2 class="title">Search ...</h2>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -37,24 +21,18 @@
                         </select>
                     </form>
                 </div>
-
-
             </div>
         </div>
         <div class="row tr-movie-active">
             <?php
             // Number of movies per page
             $moviesPerPage = 8;
-
             // Current page from URL parameter
             $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-
             // Calculate the starting index for movies on the current page
             $startIndex = ($currentPage - 1) * $moviesPerPage;
-
             // Get a subset of movies for the current page
             $pagedMovies = array_slice($list_movie, $startIndex, $moviesPerPage);
-
             foreach ($pagedMovies as $movie) {
                 echo '<div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">';
                 echo '<div class="movie-item movie-item-three mb-50">';
@@ -92,7 +70,6 @@
             }
             ?>
         </div>
-
         <div class="row">
             <div class="col-12">
                 <div class="pagination-wrap mt-30">
@@ -122,6 +99,5 @@
                 </div>
             </div>
         </div>
-
     </div>
 </section>

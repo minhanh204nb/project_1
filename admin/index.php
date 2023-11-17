@@ -83,7 +83,7 @@ if (isset($_GET['action'])) {
             }
             $list_country = loadall_country();
             $list_category = loadall_category();
-            $list_movie = loadall_movie();
+            // $list_movie = loadall_movie();
             include './controllers/movie/insert_movie.php';
             break;
         case 'delete_movie':

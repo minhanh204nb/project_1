@@ -37,6 +37,18 @@ if (isset($_GET['action'])) {
             include './views/details_movie.php';
             break;
         case 'search':
+            if (isset($_POST['keysword']) && ($_POST['keysword'] != "")) {
+                $keysword = $_POST['keysword'];
+            } else {
+                $keysword = "";
+            }
+            if (isset($_GET['id_category']) && ($_GET['id_category'] > 0)) {
+                $id_category = $_GET['id_category'];
+            } else {
+                $id_category = 0;
+            }
+            $list_movie = search_movie($keysword, $id_category);
+            $list_category = loadall_category();
             include './views/search.php';
             break;
         case 'blog':

@@ -41,3 +41,16 @@ function loadone_movie($id_movie)
     $sql = "SELECT * FROM movie WHERE id_movie = '$id_movie'";
     return pdo_query_one($sql);
 }
+function search_movie($keysword = "", $id_category)
+{
+    $sql = "select * from movie where 1";
+    if ($keysword != "") {
+        $sql .= " and name_movie like '%" . $keysword . "%'";
+    }
+    if ($id_category > 0) {
+        $sql .= " and id$id_category ='" . $id_category . "'";
+    }
+    $sql .= " order by id_movie desc";
+    $list_movie = pdo_query($sql);
+    return $list_movie;
+}
