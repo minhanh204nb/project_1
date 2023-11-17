@@ -48,7 +48,7 @@ if (isset($_GET['action'])) {
                 $id_category = 0;
             }
             $list_movie = search_movie($keysword, $id_category);
-            $list_category = loadall_category();
+            // $list_category = loadall_category();
             include './views/search.php';
             break;
         case 'blog':

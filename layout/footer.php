@@ -20,9 +20,9 @@
                                     <li><a href="">Your tickets</a></li>
                                 </ul>
                                 <div class="footer-search">
-                                    <form action="#">
-                                        <input type="text" placeholder="Find Favorite Movie">
-                                        <button><i class="fas fa-search"></i></button>
+                                    <form action="index.php?action=search" method="post">
+                                        <input type="text" name="keysword" placeholder="Find Favorite Movie">
+                                        <button type="submit"><i class="fas fa-search"></i></button>
                                     </form>
                                 </div>
                             </nav>

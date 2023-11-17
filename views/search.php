@@ -8,7 +8,7 @@
                     <h2 class="title">Search ...</h2>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <!-- <div class="col-lg-6">
                 <div class="movie-page-meta">
                     <form action="#" class="movie-filter-form">
                         <select id="categoryFilter" name="id_category" class="custom-select">
@@ -21,7 +21,7 @@
                         </select>
                     </form>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="row tr-movie-active">
             <?php
