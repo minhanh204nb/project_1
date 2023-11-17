@@ -43,6 +43,7 @@
                     $moviesToDisplay = array_slice($list_movie, $startIndex, $itemsPerPage);
 
                     foreach ($moviesToDisplay as $movie) {
+                        extract(($movie));
                         echo '<div class="col-md-6 col-xl-4 col-sm-12 d-flex">';
                         echo '<div class="blog grid-blog flex-fill">';
                         echo '<div class="blog-image">';

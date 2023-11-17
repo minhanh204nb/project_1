@@ -21,6 +21,11 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+<?php
+if (is_array($list_movie)) {
+    extract(($list_movie));
+}
+?>
 
 <body class="nk-body bg-lighter npc-default has-sidebar no-touch nk-nio-theme">
     <div class="main-wrapper">
@@ -40,20 +45,20 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="index.php?action=insert_movie" enctype="multipart/form-data" class="card" method="post">
+                        <form action="index.php?action=update_movie" enctype="multipart/form-data" class="card" method="post">
                             <div class="card-body">
                                 <div class="bank-inner-details">
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Name movie<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="name_movie" required placeholder="name movie">
+                                                <input type="text" class="form-control" value="<?php if (isset($name_movie) && ($name_movie != "")) echo $name_movie ?>" name="name_movie" required placeholder="name movie">
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Content<span class="text-danger">*</span></label>
-                                                <input class="form-control" type="text" name="content" required placeholder="content">
+                                                <input class="form-control" type="text" value="<?php if (isset($content) && ($content != "")) echo $content ?>" name="content" required placeholder="content">
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
@@ -71,37 +76,37 @@
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Years<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="year" required min="1900" max="2023">
+                                                <input type="text" class="form-control" value="<?php if (isset($year) && ($year != "")) echo $year ?>" name="year" required min="1900" max="2023">
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Time<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="time" required>
+                                                <input type="text" class="form-control" value="<?php if (isset($time) && ($time != "")) echo $time ?>" name="time" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Reviews<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="reviews" required>
+                                                <input type="text" class="form-control" value="<?php if (isset($reviews) && ($reviews != "")) echo $reviews ?>" name="reviews" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Author<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="author" required>
+                                                <input type="text" class="form-control" value="<?php if (isset($author) && ($author != "")) echo $author ?>" name="author" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Performer<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="performer" required>
+                                                <input type="text" class="form-control" value="<?php if (isset($performer) && ($performer != "")) echo $performer ?>" name="performer" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Age limit<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="age_limit" required min="0" max="150">
+                                                <input type="text" class="form-control" value="<?php if (isset($age_limit) && ($age_limit != "")) echo $age_limit ?>" name="age_limit" required min="0" max="150">
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
@@ -118,7 +123,7 @@
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Trailer movie<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="trailer_movie" required>
+                                                <input type="text" class="form-control" value="<?php if (isset($trailer_movie) && ($trailer_movie != "")) echo $trailer_movie ?>" name="trailer_movie" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
@@ -136,7 +141,7 @@
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Action<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="action" required>
+                                                <input type="text" value="<?php if(isset($action)&&($action!="")) echo $action?>" class="form-control" name="action" required>
                                             </div>
                                         </div>
                                     </div>
@@ -145,7 +150,8 @@
                             <div class=" blog-categories-btn pt-0">
                                 <div class="bank-details-btn ">
                                     <!-- <button name="insert" class="btn btn-primary me-2">Add Movie</button> -->
-                                    <input type="submit" name="insert" class="btn btn-primary me-2" value="Add Movie">
+                                    <input type="text" name="id_movie" value="<?php echo $id_movie ?>" hidden>
+                                    <input type="submit" name="update_movie" class="btn btn-primary me-2" value="UPDATE MOVIE">
                                 </div>
                             </div>
                         </form>

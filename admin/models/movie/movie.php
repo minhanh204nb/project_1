@@ -4,6 +4,15 @@ function insert_movie($name_movie, $content, $id_country, $year, $time, $reviews
     $sql = "INSERT INTO movie (name_movie, content, id_country, year, time, reviews, author, performer, age_limit, image, trailer_movie, id_category, action) VALUES ('$name_movie', '$content', '$id_country','$year', '$time', '$reviews', '$author', '$performer', '$age_limit', '$image','$trailer_movie', '$id_category', '$action')";
     pdo_execute($sql);
 }
+function update_movie($id_movie, $name_movie, $content, $id_country, $year, $time, $reviews, $author, $performer, $age_limit, $image, $trailer_movie, $id_category, $action)
+{
+
+    if ($image != "")
+        $sql = "UPDATE movie SET name_movie='$name_movie',content='$content',$id_country='$id_country',year='$year',time='$time',reviews='$reviews',author='$author',performer='$performer',age_limit='$age_limit',image='$image' ,trailer_movie='$trailer_movie',id_category='$id_category' ,action='$action' WHERE id_movie='$id_movie'";
+    else
+        $sql = "UPDATE movie SET name_movie='$name_movie',content='$content',$id_country='$id_country',year='$year',time='$time',reviews='$reviews',author='$author',performer='$performer',age_limit='$age_limit',trailer_movie='$trailer_movie',id_category='$id_category' ,action='$action' WHERE id_movie='$id_movie'";
+    pdo_execute($sql);
+}
 function delete_movie($id_movie)
 {
 
@@ -17,9 +26,7 @@ function loadall_movie()
     $list_movie = pdo_query($sql);
     return $list_movie;
 }
-function update_movie($id_movie, $name_movie, $content)
-{
-}
+
 
 
 function loadlimit_movie($number)

@@ -83,6 +83,7 @@ if (isset($_GET['action'])) {
             }
             $list_country = loadall_country();
             $list_category = loadall_category();
+            $list_movie = loadall_movie();
             include './controllers/movie/insert_movie.php';
             break;
         case 'delete_movie':
@@ -97,16 +98,19 @@ if (isset($_GET['action'])) {
             break;
         case 'edit_movie':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                $movie_to_edit = loadone_movie($_GET['id']);
-                include './controllers/movie/update_movie.php';
+                $list_movie = loadone_movie($_GET['id']);
             }
+            $list_country = loadall_country();
+            $list_category = loadall_category();
+            // $list_movie = loadall_movie();
+            include './controllers/movie/update_movie.php';
             break;
         case 'update_movie':
-            if (isset($_POST['update']) && ($_POST['update'])) {
+            if (isset($_POST['update_movie']) && ($_POST['update_movie'])) {
                 $id_movie = $_POST['id_movie'];
                 $name_movie = $_POST['name_movie'];
                 $content = $_POST['content'];
-                $country = $_POST['id_country'];
+                $id_country = $_POST['id_country']; // Fix variable name here
                 $year = $_POST['year'];
                 $time = $_POST['time'];
                 $reviews = $_POST['reviews'];
@@ -116,7 +120,20 @@ if (isset($_GET['action'])) {
                 $trailer_movie = $_POST['trailer_movie'];
                 $id_category = $_POST['id_category'];
                 $action = $_POST['action'];
+                $image = $_FILES['image']['name'];
+                $target_dir = "../uploads/";
+                $target_file = $target_dir . basename($image);
+                if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+                    // File upload successful
+                } else {
+                    // Handle file upload error
+                }
+                // $movie_to_edit = loadone_movie($_GET['id']);
+                update_movie($id_movie,$name_movie, $content, $id_country, $year, $time, $reviews, $author, $performer, $age_limit, $image, $trailer_movie, $id_category, $action);
             }
+            // $list_country = loadall_country();
+            // $list_category = loadall_category();
+            $list_movie = loadall_movie();
             include './views/movie/list_movie.php';
             break;
         default:
