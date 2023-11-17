@@ -14,22 +14,24 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>NAME ROOM</th>
+                                            <th colspan="1">STATUS</th>
                                             <th colspan="2">ACTION</th>
                                         </tr>
                                         <?php
-                                        // foreach ($list_category as $category) {
-                                        //     extract(($category));
-                                        //     $edit_category = "index.php?action=edit_category&id=" . $category['id_category'];
-                                        //     $delete_category = "index.php?action=delete_category&id=" . $category['id_category'];
-                                        //     echo "<tr>";
-                                        //     echo "<td>" . $category["id_category"] . "</td>";
-                                        //     echo "<td>" . $category["name_category"] . "</td>";
-                                        //     echo "<td class='edit-delete-btn'>
-                                        //     <a href='".$edit_category."' class='text-success'><i class='feather-edit-3 me-1'></i> Edit</a>
-                                        //     <a href='" . $delete_category . "' onclick='return confirm(\"Bạn có chắc muốn xóa?\");' class='text-danger' data-bs-toggle='modal' data-bs-target='#deleteModal'><i class='feather-trash-2 me-1'></i> Delete</a></td>";
-                                        //     echo "</tr>";
-                                        // }
-                                        // ?>
+                                        foreach ($list_room as $room) {
+                                            extract(($room));
+                                            $edit_room = "index.php?action=edit_room&id=" . $room['id_room'];
+                                            $delete_room = "index.php?action=delete_room&id=" . $room['id_room'];
+                                            echo "<tr>";
+                                            echo "<td>" . $room["id_room"] . "</td>";
+                                            echo "<td>" . $room["name_room"] . "</td>";
+                                            echo "<td>" . $room["action"] . "</td>";
+                                            echo "<td class='edit-delete-btn'>
+                                            <a href='".$edit_room."' class='text-success'><i class='feather-edit-3 me-1'></i> Edit</a>
+                                            <a href='" . $delete_room . "' onclick='return confirm(\"Bạn có chắc muốn xóa?\");' class='text-danger' data-bs-toggle='modal' data-bs-target='#deleteModal'><i class='feather-trash-2 me-1'></i> Delete</a></td>";
+                                            echo "</tr>";
+                                        }
+                                        ?>
                                     </table>
                                 </div>
                             </div>
@@ -44,7 +46,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>List movie</title>
+    <title>List room</title>
     <link rel="shortcut icon" href="assets/img/favicon.png">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">

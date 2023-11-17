@@ -3,6 +3,7 @@ include './models/pdo.php';
 include './models/category/category.php';
 include './models/movie/movie.php';
 include './models/movie/country.php';
+include './models/room/room.php';
 include './layouts/head.php';
 include './layouts/navbar.php';
 include './layouts/sidebar.php';
@@ -14,6 +15,7 @@ if (isset($_GET['action'])) {
             include './views/total_list.php';
             include './views/analytics.php';
             break;
+            // Category
         case 'category':
             $list_category = loadall_category();
             include './views/category/list_category.php';
@@ -50,8 +52,52 @@ if (isset($_GET['action'])) {
             }
             $sql = "select * from category order by id_category";
             $list_category = pdo_query($sql);
-            include './views/list_category.php';
+            include './views/category/list_category.php';
             break;
+            // End category
+
+            // Room
+            case 'room':
+                $list_room = loadall_room();
+                include './views/room/list_room.php';
+                break;
+
+            case 'insert_room':
+                if (isset($_POST['insert_room']) && $_POST['insert_room']) {
+                    $name = $_POST['name_room'];
+                    insert_room($name);
+                }
+                include './controllers/room/insert_room.php';
+                break;
+            case 'delete_room':
+                if (isset($_GET['id']) && ($_GET['id'] >0)) {
+                // Delete the category by calling the delete_category function
+                    delete_room($_GET['id']);
+                }
+                // Reload the list of categories after deletion
+                $sql = "select * from room order by id_room";
+                $list_room = pdo_query($sql);
+                include './views/room/list_room.php';
+                break; 
+            case 'edit_room':
+                if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                    $list_room = loadone_room($_GET['id']);
+                }
+                include './controllers/room/update_room.php';
+                break;             
+            case 'update_room':
+                if (isset($_POST['update_room']) && ($_POST['update_room'])) {
+                    $name_room = $_POST['name_room'];
+                    $id_room = $_POST['id_room'];
+                    update_room($id_room, $name_room);
+                }
+                $sql = "select * from room order by id_room";
+                $list_room = pdo_query($sql);
+                include './views/room/list_room.php';
+                break;    
+            // End Room
+            
+            // Movie
         case 'movie':
             $list_country = loadall_country();
             $list_category = loadall_category();
