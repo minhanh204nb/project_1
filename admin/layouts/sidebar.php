@@ -24,6 +24,9 @@
                 <li>
                     <a href="index.php?action=tickets"><i data-feather="settings"></i> <span>Tickets</span></a>
                 </li>
+                <li>
+                    <a href="index.php?action=account"><i data-feather="settings"></i> <span>Account</span></a>
+                </li>
             </ul>
         </div>
     </div>

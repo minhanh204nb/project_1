@@ -3,6 +3,7 @@ include './models/pdo.php';
 include './models/category/category.php';
 include './models/movie/movie.php';
 include './models/movie/country.php';
+include './models/account/account.php';
 include './layouts/head.php';
 include './layouts/navbar.php';
 include './layouts/sidebar.php';
@@ -129,12 +130,27 @@ if (isset($_GET['action'])) {
                     // Handle file upload error
                 }
                 // $movie_to_edit = loadone_movie($_GET['id']);
-                update_movie($id_movie,$name_movie, $content, $id_country, $year, $time, $reviews, $author, $performer, $age_limit, $image, $trailer_movie, $id_category, $action);
+                update_movie($id_movie, $name_movie, $content, $id_country, $year, $time, $reviews, $author, $performer, $age_limit, $image, $trailer_movie, $id_category, $action);
             }
             // $list_country = loadall_country();
             // $list_category = loadall_category();
             $list_movie = loadall_movie();
             include './views/movie/list_movie.php';
+            break;
+        case 'account':
+            include './views/account/list_account.php';
+            break;
+        case 'insert_account':
+            include './controllers/account/insert_account.php';
+            break;
+        case 'delete_account':
+            include './views/account/list_account.php';
+            break;
+        case 'edit_account':
+            include './controllers/account/update_account.php';
+            break;
+        case 'update_account':
+            include './views/account/list_account.php';
             break;
         default:
             break;
