@@ -37,7 +37,7 @@
                 echo '<div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">';
                 echo '<div class="movie-item movie-item-three mb-50">';
                 echo '<div class="movie-poster text-center">'; // Added class "text-center"
-                echo '<img src="../uploads/' . $movie['image'] . '" alt="">';
+                echo '<img src="../uploads/movie/' . $movie['image'] . '" alt="">';
                 echo '<ul class="overlay-btn">';
                 echo '<li class="rating">';
                 echo '<i class="fas fa-star"></i>';

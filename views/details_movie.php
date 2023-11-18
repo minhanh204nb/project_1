@@ -52,7 +52,14 @@ if ($movie) {
                                     <h6>Prime Video</h6>
                                     <span>Streaming Channels</span>
                                 </li>
-                                <li class="watch"><a href="index.php?action=booking" class="btn popup-video"><i class="fas fa-play"></i>BOOKING</a></li>
+                                <!-- <li class="watch"><a href="index.php?action=booking" class="btn popup-video"><i class="fas fa-play"></i>BOOKING</a></li> -->
+                                <?php
+                                if (isset($_SESSION['user'])) {
+                                    echo '  <li class="watch"><a href="index.php?action=booking" class="btn popup-video"><i class="fas fa-play"></i>BOOKING</a></li>';
+                                } else {
+                                    echo '  <li class="watch"><a href="index.php?action=signin" class="btn"><i class="fas fa-play"></i>BOOKING</a></li>';
+                                }
+                                ?>
                             </ul>
                         </div>
                     </div>

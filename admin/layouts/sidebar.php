@@ -13,9 +13,6 @@
                     <a href="index.php?action=category"><i data-feather="users"></i> <span>Category</span></a>
                 </li>
                 <li>
-                    <a href="index.php?action=cinema"><i data-feather="file-text"></i> <span>Cinema</span></a>
-                </li>
-                <li>
                     <a href="index.php?action=movie"><i data-feather="star"></i> <span>Movie</span></a>
                 </li>
                 <li>
@@ -25,10 +22,10 @@
                     <a href="index.php?action=combo"><i data-feather="package"></i> <span>Combo</span></a>
                 </li>
                 <li>
-                    <a href="index.php?action=tickets"><i data-feather="settings"></i> <span>Tickets</span></a>
+                    <a href="index.php?action=account"><i data-feather="settings"></i> <span>Account</span></a>
                 </li>
                 <li>
-                    <a href="index.php?action=account"><i data-feather="settings"></i> <span>Account</span></a>
+                    <a href="index.php?action=tickets"><i data-feather="settings"></i> <span>Tickets</span></a>
                 </li>
             </ul>
         </div>
