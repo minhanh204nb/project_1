@@ -43,7 +43,7 @@
         </li>
         <li class="nav-item dropdown  flag-nav">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="" role="button">
-                <img src="https://source.unsplash.com/random" alt="" height="00"> <span><a href="index.php?action=logout">Logout</a></span>
+                <!-- <img src="https://source.unsplash.com/random" alt="" height="00"> <span><a href="index.php?action=logout">Logout</a></span> -->
             </a>
         </li>
     </ul>

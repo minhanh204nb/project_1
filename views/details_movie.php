@@ -8,7 +8,7 @@ if ($movie) {
             <div class="row align-items-center position-relative">
                 <div class="col-xl-3 col-lg-4">
                     <div class="movie-details-img">
-                        <img src="../uploads/<?php echo $movie['image']; ?>" alt="">
+                        <img src="../uploads/movie/<?php echo $movie['image']; ?>" alt="">
                         <a href="<?php echo $movie['trailer_movie']; ?>" class="popup-video"><img src="assets/img/images/play_icon.png" alt=""></a>
                     </div>
                 </div>

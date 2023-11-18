@@ -6,16 +6,17 @@ function insert_category($name_category)
 }
 function update_category($id_category, $name_category)
 {
-    $sql = "UPDATE category SET name_category = '$name_category' WHERE id_category = '$id_category'";
+    $sql = "UPDATE category SET name_category = '".$name_category."' WHERE id_category = ".$id_category;
     pdo_execute($sql);
 }
 function delete_category($id_category)
 {
-    $sql = "DELETE FROM category WHERE id_category = '$id_category'";
-    pdo_execute($sql);
+    $sql = "DELETE FROM category WHERE id_category = ".$_GET['id'];
+   pdo_query($sql);
 }
 function loadall_category()
 {
+    $sql = "select * from category order by id_category";
     $sql = "select * from category order by id_category asc";
     $list_category = pdo_query($sql);
     return $list_category;

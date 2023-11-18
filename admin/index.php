@@ -10,6 +10,8 @@ include './models/category/category.php';
 include './models/movie/movie.php';
 include './models/movie/country.php';
 include './models/account/account.php';
+include './models/room/room.php';
+include './models/combo/combo.php';
 include './layouts/head.php';
 include './layouts/navbar.php';
 include './layouts/sidebar.php';
@@ -21,6 +23,7 @@ if (isset($_GET['action'])) {
             include './views/total_list.php';
             include './views/analytics.php';
             break;
+            // Category
         case 'category':
             $list_category = loadall_category();
             include './views/category/list_category.php';
@@ -59,6 +62,108 @@ if (isset($_GET['action'])) {
             $list_category = pdo_query($sql);
             include './views/category/list_category.php';
             break;
+            // End category
+
+            // Room
+        case 'room':
+            $list_room = loadall_room();
+            include './views/room/list_room.php';
+            break;
+
+        case 'insert_room':
+            if (isset($_POST['insert_room']) && $_POST['insert_room']) {
+                $name = $_POST['name_room'];
+                insert_room($name);
+            }
+            include './controllers/room/insert_room.php';
+            break;
+        case 'delete_room':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                // Delete the category by calling the delete_category function
+                delete_room($_GET['id']);
+            }
+            // Reload the list of categories after deletion
+            $sql = "select * from room order by id_room";
+            $list_room = pdo_query($sql);
+            include './views/room/list_room.php';
+            break;
+        case 'edit_room':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $list_room = loadone_room($_GET['id']);
+            }
+            include './controllers/room/update_room.php';
+            break;
+        case 'update_room':
+            if (isset($_POST['update_room']) && ($_POST['update_room'])) {
+                $name_room = $_POST['name_room'];
+                $id_room = $_POST['id_room'];
+                update_room($id_room, $name_room);
+            }
+            $sql = "select * from room order by id_room";
+            $list_room = pdo_query($sql);
+            include './views/room/list_room.php';
+            break;
+            // End Room
+
+            // Combo
+        case 'combo':
+            $list_combo = loadall_combo();
+            include './views/combo/list_combo.php';
+            break;
+
+        case 'insert_combo':
+            if (isset($_POST['insert_combo']) && $_POST['insert_combo']) {
+                $name = $_POST['name_combo'];
+                $img_combo = $_FILES['img_combo']['name'];
+                $price_combo = $_POST['price_combo'];
+                $mota = $_POST['mota'];
+                $target_dir = "../uploads/combo/";
+                $target_file = $target_dir . basename($_FILES['img_combo']['name']);
+                if (move_uploaded_file($_FILES['img_combo']['tmp_name'], $target_file)) {
+                    // move_uploaded_file:di chuyển tệp đã tải lên đến đích mới
+                } else {
+                }
+                insert_combo($name, $img_combo, $price_combo, $mota);
+            }
+            include './controllers/combo/insert_combo.php';
+            break;
+        case 'delete_combo':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                // Delete the category by calling the delete_category function
+                delete_combo($_GET['id']);
+            }
+            // Reload the list of categories after deletion
+            $sql = "select * from combo order by id_combo";
+            $list_combo = pdo_query($sql);
+            include './views/combo/list_combo.php';
+            break;
+        case 'edit_combo':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $list_combo = loadone_combo($_GET['id']);
+            }
+            include './controllers/combo/update_combo.php';
+            break;
+        case 'update_combo':
+            if (isset($_POST['update_combo']) && ($_POST['update_combo'])) {
+                $name_combo = $_POST['name_combo'];
+                $img_combo = $_FILES['img_combo']['name'];
+                $price_combo = $_POST['price_combo'];
+                $mota = $_POST['mota'];
+                $id_combo = $_POST['id_combo'];
+                $target_dir = "../uploads/combo/";
+                $target_file = $target_dir . basename($_FILES['img_combo']['name']);
+                if (move_uploaded_file($_FILES['img_combo']['tmp_name'], $target_file)) {
+                    // move_uploaded_file:di chuyển tệp đã tải lên đến đích mới
+                } else {
+                }
+                update_combo($id_combo, $name_combo, $img_combo, $price_combo, $mota);
+            }
+            $sql = "select * from combo order by id_combo";
+            $list_combo = pdo_query($sql);
+            include './views/combo/list_combo.php';
+            break;
+
+            // Movie
         case 'movie':
             $list_country = loadall_country();
             $list_category = loadall_category();
@@ -80,7 +185,7 @@ if (isset($_GET['action'])) {
                 $id_category = $_POST['id_category'];
                 $action = $_POST['action'];
                 $image = $_FILES['image']['name'];
-                $target_dir = "../uploads/";
+                $target_dir = "../uploads/movie/";
                 $target_file = $target_dir . basename($image);
                 if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
                     // move_uploaded_file:di chuyển tệp đã tải lên đến đích mới
