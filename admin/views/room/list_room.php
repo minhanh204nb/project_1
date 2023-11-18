@@ -3,7 +3,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="index.php?action=insert_room" class="btn btn-primary btn-blog mb-3"><i class="feather-plus-circle me-1"></i> Add Room</a>
+                    <a href="?action=insert_room" class="btn btn-primary btn-blog mb-3"><i class="feather-plus-circle me-1"></i> Add Room</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -13,24 +13,24 @@
                                     <table border="1" class="datatable table table-stripped dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                         <tr>
                                             <th>ID</th>
-                                            <th>NAME ROOM</th>
+                                            <th>name_room </th>
+                                            <th>action</th>
                                             <th colspan="2">ACTION</th>
                                         </tr>
+
                                         <?php
-                                        // foreach ($list_category as $category) {
-                                        //     extract(($category));
-                                        //     $edit_category = "index.php?action=edit_category&id=" . $category['id_category'];
-                                        //     $delete_category = "index.php?action=delete_category&id=" . $category['id_category'];
-                                        //     echo "<tr>";
-                                        //     echo "<td>" . $category["id_category"] . "</td>";
-                                        //     echo "<td>" . $category["name_category"] . "</td>";
-                                        //     echo "<td class='edit-delete-btn'>
-                                        //     <a href='".$edit_category."' class='text-success'><i class='feather-edit-3 me-1'></i> Edit</a>
-                                        //     <a href='" . $delete_category . "' onclick='return confirm(\"Bạn có chắc muốn xóa?\");' class='text-danger' data-bs-toggle='modal' data-bs-target='#deleteModal'><i class='feather-trash-2 me-1'></i> Delete</a></td>";
-                                        //     echo "</tr>";
-                                        // }
-                                        // ?>
-                                    </table>
+foreach ($listroom as $room): ?>
+<tr>
+<th><?php echo $room['id_room'] ?></th>
+<th><?php echo $room['name_room'] ?></th>
+<th><?php echo $room['action'] ?></th>
+<th><a href="?action=update_room&id_room=<?php echo $room['id_room'] ?>">update</a></th>
+<th><a href="?action=delete_room&id_room=<?php echo $room['id_room'] ?>">delete</a></th>
+</tr>
+
+<?php endforeach?>
+</table>
+
                                 </div>
                             </div>
                         </div>
@@ -40,6 +40,7 @@
         </div>
     </div>
 </div>
+
 
 <head>
     <meta charset="utf-8">

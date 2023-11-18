@@ -3,6 +3,7 @@ include './models/pdo.php';
 include './models/category/category.php';
 include './models/movie/movie.php';
 include './models/movie/country.php';
+include './models/room/room.php';
 include './layouts/head.php';
 include './layouts/navbar.php';
 include './layouts/sidebar.php';
@@ -26,7 +27,7 @@ if (isset($_GET['action'])) {
             include './controllers/category/insert_category.php';
             break;
         case 'delete_category':
-            if (isset($_GET['id']) && ($_GET['id'] >0)) {
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 // Delete the category by calling the delete_category function
                 delete_category($_GET['id']);
             }
@@ -35,7 +36,7 @@ if (isset($_GET['action'])) {
             $list_category = pdo_query($sql);
             include './views/category/list_category.php';
             break;
-            
+
         case 'edit_category':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $list_category = loadone_category($_GET['id']);
@@ -50,7 +51,7 @@ if (isset($_GET['action'])) {
             }
             $sql = "select * from category order by id_category";
             $list_category = pdo_query($sql);
-            include './views/list_category.php';
+            include './views/category/list_category.php';
             break;
         case 'movie':
             $list_country = loadall_country();
@@ -85,14 +86,46 @@ if (isset($_GET['action'])) {
             $list_category = loadall_category();
             include './controllers/movie/insert_movie.php';
             break;
+
         case 'delete_movie':
             break;
         case 'edit_movie':
             break;
         case 'update_movie':
             break;
-        case'room':
-            
+
+        case 'room':
+            $listroom = listroom();
+            // var_dump($listroom);
+            include './views/room/list_room.php';
+            break;
+        case 'insert_room':
+            if (isset($_POST['btn'])) {
+                $name_room = $_POST['name_room'];
+                $action = $_POST['trangthai'];
+                insert_room($name_room, $action);
+                header('location:?action=room');
+            }
+            include './controllers/room/insert_room.php';
+            break;
+            case 'update_room':
+                if (isset($_GET['id_room'])){
+                $id_room=get_id_room($_GET['id_room']);
+                }
+                if (isset($_POST['btn'])) {
+                    $name_room = $_POST['name_room'];
+                    $action = $_POST['trangthai'];
+                    update_room($_GET['id_room'],$name_room,$action);
+                }
+                include './controllers/room/update_room.php';
+            break;
+        case 'delete_room':
+            if (isset($_GET['id_room'])) {
+
+                delete_room($_GET['id_room']);
+            }
+            $listroom = listroom();
+            include './views/room/list_room.php';
             break;
         default:
             break;
