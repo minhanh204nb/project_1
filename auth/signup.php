@@ -39,7 +39,7 @@
                                 <input type="text" name="phone_number" class="sign__input" placeholder="Tell" />
                             </div> -->
                             <div class="sign__group">
-                                <input type="password" class="sign__input" placeholder="Password" required />
+                                <input type="password" name="password" class="sign__input" placeholder="Password" required />
                             </div>
                             <div class="sign__group sign__group--checkbox">
                                 <input id="remember" name="remember" type="checkbox" checked="checked" />

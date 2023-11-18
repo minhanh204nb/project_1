@@ -18,7 +18,7 @@ function update_account($id_account, $name_clinet, $user, $password, $phone_numb
 }
 function delete_account($id_account)
 {
-    $sql = "DELETE FROM account WHERE id_account = '$id_account'";
+    $sql = "DELETE FROM account WHERE id_account = ".$id_account;
     pdo_execute($sql);
 }
 function loadone_account($id_account)

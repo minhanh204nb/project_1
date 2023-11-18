@@ -11,13 +11,14 @@ function update_category($id_category, $name_category)
 }
 function delete_category($id_category)
 {
-    $sql = "DELETE FROM category WHERE id_category = ".$_GET['id'];
+    $sql = "DELETE FROM category WHERE id_category = ".$id_category;
    pdo_query($sql);
 }
 function loadall_category()
 {
-    $sql = "select * from category order by id_category";
-    $sql = "select * from category order by id_category asc";
+    // $sql = "select * from category order by id_category";
+    // $sql = "select * from category order by id_category asc";
+    $sql="SELECT * from category order by id_category";
     $list_category = pdo_query($sql);
     return $list_category;
 }

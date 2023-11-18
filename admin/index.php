@@ -37,12 +37,13 @@ if (isset($_GET['action'])) {
             break;
         case 'delete_category':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                // Delete the category by calling the delete_category function
-                delete_category($_GET['id']);
+                $id_category = $_GET['id'];
+                delete_category($id_category);
             }
             // Reload the list of categories after deletion
-            $sql = "select * from category order by id_category";
-            $list_category = pdo_query($sql);
+            // $sql = "select * from category order by id_category";
+            // $list_category = pdo_query($sql);
+            $list_category = loadall_category();
             include './views/category/list_category.php';
             break;
 
