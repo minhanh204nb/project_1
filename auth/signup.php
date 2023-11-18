@@ -27,28 +27,26 @@
                                 <img src="./assets/img/images/logo.svg" alt="" />
                             </a>
                             <div class="sign__group">
-                                <input type="text" class="sign__input" name="name_clinet" placeholder="Name" />
+                                <input type="text" class="sign__input" name="name_clinet" placeholder="Name" required />
                             </div>
                             <div class="sign__group">
-                                <input type="text" class="sign__input" name="user" placeholder="User" />
+                                <input type="text" class="sign__input" name="user" placeholder="User" required />
                             </div>
-                            <div class="sign__group">
+                            <!-- <div class="sign__group">
                                 <input type="text" name="email" class="sign__input" placeholder="Email" />
                             </div>
                             <div class="sign__group">
                                 <input type="text" name="phone_number" class="sign__input" placeholder="Tell" />
-                            </div>
+                            </div> -->
                             <div class="sign__group">
-                                <input type="password" class="sign__input" placeholder="Password" />
-                            </div>
-                            <div class="sign__group">
-                                <input type="text" class="sign__input" placeholder="Password" value="<?php $info['id_name'] ?>" hidden />
+                                <input type="password" class="sign__input" placeholder="Password" required />
                             </div>
                             <div class="sign__group sign__group--checkbox">
                                 <input id="remember" name="remember" type="checkbox" checked="checked" />
                                 <label for="remember">I agree to the Privacy Policy</label>
                             </div>
                             <input type="submit" class="sign__btn" name="signup" value="Sign Up">
+                            <!-- <button class="sign__btn" name="signup" >Sign Up</button> -->
                             <span class="sign__delimiter">or</span>
                             <div class="sign__social">
                                 <a class="fb" href="#"><svg viewBox="0 0 9 17" fill="none" xmlns="http://www.w3.org/2000/svg">

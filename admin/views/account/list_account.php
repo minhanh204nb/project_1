@@ -43,23 +43,36 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr role="row" class="odd">
-                                                    <td class="sorting_1">
-                                                        <h2 class="table-avatar">
-                                                            <a href="index.php?action=edit_account" class="avatar avatar-sm me-2"><img class="avatar-img rounded-circle" src="https://source.unsplash.com/random" alt="User Image"></a>
-                                                            <a href="index.php?action=edit_account">NAME ACCOUNT<span>phone_number</span></a>
-                                                        </h2>
-                                                    </td>
-                                                    <td><a href="" class="__cf_email__" data-cfemail="bedfd2dbc6dddfd3cedcdbd2d2fedbc6dfd3ced2db90ddd1d3">Email</a></td>
-                                                    <td>USER</td>
-                                                    <td>PASSWORD</td>
-                                                    <td>HN</td>
-                                                    <td><span class="badge badge-pill bg-success-light">admin</span></td>
-                                                    <td class="text-end">
-                                                        <a href="index.php?action=edit_account" class="btn btn-sm btn-white text-success me-2"><i class="far fa-edit me-1"></i> Edit</a>
-                                                        <a href="index.php?action=update_account" class="btn btn-sm btn-white text-danger me-2"><i class="far fa-trash-alt me-1"></i>Delete</a>
-                                                    </td>
-                                                </tr>
+                                                <?php
+                                                foreach ($list_account as $account) {
+                                                    extract(($account));
+                                                    echo '<tr role="row" class="odd">';
+                                                    echo '<td class="sorting_1">';
+                                                    echo '<h2 class="table-avatar">';
+                                                    echo '<a href="index.php?action=edit_account" class="avatar avatar-sm me-2"><img class="avatar-img rounded-circle" src="https://source.unsplash.com/random" alt="User Image"></a>';
+                                                    echo '<a href="index.php?action=edit_account">' . $account['name_clinet'] . '<span>' . $account['phone_number'] . '</span></a>';
+                                                    echo '</h2>';
+                                                    echo '</td>';
+                                                    echo '<td><a href="mailto:' . $account['email'] . '" class="__cf_email__" data-cfemail="' . $account['email_cf'] . '">' . $account['email'] . '</a></td>';
+                                                    echo '<td>' . $account['user'] . '</td>';
+                                                    echo '<td>' . $account['password'] . '</td>';
+                                                    echo '<td>' . $account['address'] . '</td>';
+                                                    $role = "";
+                                                    if ($account['role'] == 1) {
+                                                        $role = 'admin';
+                                                    } else {
+                                                        $role = 'user';
+                                                    }
+                                                    echo '<td><span class="badge badge-pill bg-success-light">' . $role . '</span></td>';
+                                                    echo '<td class="text-end">';
+                                                    $edit_account = 'index.php?action=edit_account&id=' . $account['id_account'];
+                                                    $delete_account = 'index.php?action=detete_account&id=' . $account['id_account'];
+                                                    echo '<a href="' . $edit_account . '"  class="btn btn-sm btn-white text-success me-2"><i class="far fa-edit me-1"></i> Edit</a>';
+                                                    echo '<a href="' . $delete_account . '"onclick="return confirm(\'Bạn có chắc muốn xóa?\');" class="btn btn-sm btn-white text-danger me-2"><i class="far fa-trash-alt me-1"></i>Delete</a>';
+                                                    echo '</td>';
+                                                    echo '</tr>';
+                                                }
+                                                ?>
                                             </tbody>
                                         </table>
                                     </div>

@@ -23,25 +23,25 @@
                 <div class="col-12">
                     <div class="sign__content">
                         <!-- authorization form -->
-                        <form action="#" class="sign__form">
+                        <form action="index.php?action=signin" class="sign__form" method="post">
                             <a href="index.php?action=home" class="sign__logo">
                                 <img src="./assets/img/images/logo.svg" alt="" />
                             </a>
 
                             <div class="sign__group">
-                                <input type="text" class="sign__input" placeholder="Email" />
+                                <input type="text" class="sign__input" name="user" placeholder="User" />
                             </div>
 
                             <div class="sign__group">
-                                <input type="password" class="sign__input" placeholder="Password" />
+                                <input type="password" class="sign__input" name="password" placeholder="Password" />
                             </div>
 
                             <div class="sign__group sign__group--checkbox">
                                 <input id="remember" name="remember" type="checkbox" checked="checked" />
                                 <label for="remember">Remember Me</label>
                             </div>
-
-                            <button class="sign__btn" type="button">Sign in</button>
+                            <input class="sign__btn" type="submit" name="signin" value="Sign In">
+                            <!-- <button class="sign__btn" type="button">Sign in</button> -->
 
                             <span class="sign__delimiter">or</span>
 

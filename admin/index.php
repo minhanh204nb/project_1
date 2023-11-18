@@ -1,4 +1,6 @@
 <?php
+session_start();
+ob_start();
 include './models/pdo.php';
 include './models/category/category.php';
 include './models/movie/movie.php';
@@ -138,19 +140,57 @@ if (isset($_GET['action'])) {
             include './views/movie/list_movie.php';
             break;
         case 'account':
+            $list_account = loadall_account();
             include './views/account/list_account.php';
             break;
         case 'insert_account':
+            if (isset($_POST['insert']) && $_POST['insert']) {
+                $name_clinet = $_POST['name_clinet'];
+                $user = $_POST['user'];
+                $password = $_POST['password'];
+                $phone_number = $_POST['phone_number'];
+                $email = $_POST['email'];
+                $address = $_POST['address'];
+                $action = $_POST['action'];
+                $role = $_POST['role'];
+                insert_account($name_clinet, $user, $password, $phone_number, $email, $address, $action, $role);
+            }
             include './controllers/account/insert_account.php';
             break;
         case 'delete_account':
+            if (isset($_GET['id']) && ($_GET['id'] >= 0)) {
+                // Delete the movie by calling the delete_movie function
+                delete_account($_GET['id']);
+            }
+            $list_account = loadall_account();
             include './views/account/list_account.php';
             break;
         case 'edit_account':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $list_account = loadone_account($_GET['id']);
+            }
             include './controllers/account/update_account.php';
             break;
         case 'update_account':
+            if (isset($_POST['update_account']) && ($_POST['update_account'])) {
+                $id_account = $_GET['id_account'];
+                $name_clinet = $_POST['name_clinet'];
+                $user = $_POST['user'];
+                $password = $_POST['password'];
+                $phone_number = $_POST['phone_number'];
+                $email = $_POST['email'];
+                $address = $_POST['address'];
+                $action = $_POST['action'];
+                $role = $_POST['role'];
+                update_account($id_account, $name_clinet, $user, $password, $phone_number, $email, $address, $action, $role);
+            }
+            $list_account = loadall_account();
             include './views/account/list_account.php';
+            break;
+        case 'logout':
+            if (isset($_SESSION['user'])) {
+                unset($_SESSION['user']);
+            }
             break;
         default:
             break;

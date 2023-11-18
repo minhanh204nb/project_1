@@ -1,7 +1,7 @@
 <div class="header header-one">
     <div class="header-left header-left-one">
-        <a href="index.html" class="logo">
-            <!-- <img src="assets/img/img-05.jpg" alt="Logo"> -->
+        <a href="index.php" class="logo">
+            <!-- <img src="https://source.unsplash.com/random" alt="Logo"> -->
         </a>
         <a href="index.html" class="white-logo">
             <!-- <img src="assets/img/logo-white.png" alt="Logo"> -->
@@ -43,7 +43,7 @@
         </li>
         <li class="nav-item dropdown  flag-nav">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="" role="button">
-                <img src="https://source.unsplash.com/random" alt="" height="00"> <span>Đăng xuất</span>
+                <img src="https://source.unsplash.com/random" alt="" height="00"> <span><a href="index.php?action=logout">Logout</a></span>
             </a>
         </li>
     </ul>

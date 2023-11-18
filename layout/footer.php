@@ -16,7 +16,7 @@
                                     <li class="menu-item-has-children"><a href="index.php?action=list_movie">Movie</a></li>
                                     <li><a href="index.php?action=combo">Combo</a></li>
                                     <li class="menu-item-has-children"><a href="index.php?action=blog">blog</a></li>
-                                    <li><a href="index.php?action=contacts">contacts</a></li>
+                                    <li><a href="index.php?action=contact">contacts</a></li>
                                     <li><a href="">Your tickets</a></li>
                                 </ul>
                                 <div class="footer-search">

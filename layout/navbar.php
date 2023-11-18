@@ -1,3 +1,6 @@
+<?php
+extract($_SESSION['user']);
+?>
 <button class="scroll-top scroll-to-target" data-target="html">
     <i class="fas fa-angle-up"></i>
 </button>
@@ -24,7 +27,17 @@
                                     <li class="menu-item-has-children"><a href="index.php?action=blog">blog</a>
                                     </li>
                                     <li><a href="index.php?action=contact">contacts</a></li>
-                                    <li><a href="">Your tickets</a></li>
+                                    <?php
+                                    if (isset($_SESSION['user'])) {
+                                        if ($role == '1') {
+                                            echo '  <li><a href="../admin/index.php?action=dashboard">Admin</a></li>';
+                                        } else {
+                                            echo '  <li><a href="index.php?action=your_ticket">Your tickets</a></li>';
+                                        }
+                                    } else {
+                                        echo '  <li><a href="index.php?action=signin">Your tickets</a></li>';
+                                    }
+                                    ?>
                                 </ul>
                             </div>
                             <div class="header-action d-none d-md-block">
@@ -48,7 +61,13 @@
                                             </select>
                                         </form>
                                     </li>
-                                    <li class="header-btn"><a href="index.php?action=signin" class="btn">Sign In</a></li>
+                                    <?php
+                                    if (isset($_SESSION['user'])) {
+                                        echo '<li class="header-btn"><a href="index.php?action=logout" class="btn">' . $user . '</a></li>';
+                                    } else {
+                                        echo '<li class="header-btn"><a href="index.php?action=signin" class="btn">Sign In</a></li>';
+                                    }
+                                    ?>
                                 </ul>
                             </div>
                         </nav>
