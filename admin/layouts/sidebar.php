@@ -19,7 +19,7 @@
                     <a href="index.php?action=room"><i data-feather="credit-card"></i> <span>Room</span></a>
                 </li>
                 <li>
-                    <a href="index.php?action=seats"><i data-feather="package"></i> <span>Seats</span></a>
+                    <a href="index.php?action=combo"><i data-feather="package"></i> <span>Combo</span></a>
                 </li>
                 <li>
                     <a href="index.php?action=tickets"><i data-feather="settings"></i> <span>Tickets</span></a>
