@@ -55,8 +55,17 @@ function search_movie($keysword = "", $id_category)
     return $list_movie;
 }
 
-function load_movie_same_category($id_movie,$id_category){
-    $sql="select * from movie where id_category=".$id_category." AND id_movie <> ".$id_movie;
-    $list_movie_same_category=pdo_query($sql);
+function load_movie_same_category($id_movie, $id_category)
+{
+    $sql = "select * from movie where id_category=" . $id_category . " AND id_movie <> " . $id_movie;
+    $list_movie_same_category = pdo_query($sql);
+    return $list_movie_same_category;
+}
+
+function load_movie_same_category_limit($id_movie, $id_category)
+{
+    $sql = "SELECT * FROM movie WHERE id_category = '$id_category' AND id_movie <> '$id_movie' LIMIT 4";
+    // $sql="select * from movie where id_category=".$id_category." AND id_movie <> ".$id_movie;
+    $list_movie_same_category = pdo_query($sql);
     return $list_movie_same_category;
 }

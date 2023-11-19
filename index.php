@@ -38,7 +38,7 @@ if (isset($_GET['action'])) {
                 $id_movie = $_GET['id'];
                 $list_movie = loadone_movie($id_movie);
                 $id_category = isset($_POST['same_category']) ? $_POST['same_category'] : 1;
-                $list_same_category = load_movie_same_category($id_movie, $id_category);
+                $list_same_category = load_movie_same_category_limit($id_movie, $id_category);
             }
             $list_all_movie = loadall_movie();
             $list_movie = loadone_movie($id_movie);
