@@ -27,6 +27,9 @@
                 <li>
                     <a href="index.php?action=tickets"><i data-feather="settings"></i> <span>Tickets</span></a>
                 </li>
+                <li>
+                    <a href="index.php?action=showtime"><i data-feather="settings"></i> <span>Showtime</span></a>
+                </li>
             </ul>
         </div>
     </div>

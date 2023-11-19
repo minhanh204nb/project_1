@@ -297,6 +297,10 @@ if (isset($_GET['action'])) {
             $list_account = loadall_account();
             include './views/account/list_account.php';
             break;
+        case 'tickets':
+            break;
+        case 'showtime':
+            break;
         case 'logout':
             if (isset($_SESSION['user'])) {
                 unset($_SESSION['user']);
