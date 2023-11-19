@@ -23,7 +23,7 @@
                     <?php
                     if (isset($_POST['same_category']) && $_POST['same_category']) {
                         echo ' <span class="sub-title">ONLINE STREAMING</span>';
-                        echo ' <a href="index.php?action=list_movie"><h2 class="title">All Movies</h2></a> ';
+                        echo ' <a href="index.php?action=list_movie"><h2 class="title">Category ' . $category['name_category'] . '</h2></a> ';
                         echo ' <style>
                         .dis_none{
                             display: none;
@@ -58,7 +58,11 @@
         </div>
         <div class="row justify-content-center">
             <?php
-            foreach ($list_same_category as $same_category) {
+            $moviesPerPage = 8;
+            $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+            $startIndex = ($currentPage - 1) * $moviesPerPage;
+            $pagedMovies = array_slice($list_same_category, $startIndex, $moviesPerPage);
+            foreach ($pagedMovies as $same_category) {
                 echo '<div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">';
                 echo '<div class="movie-item movie-item-three mb-50">';
                 echo '<div class="movie-poster text-center equal-height">';
@@ -105,18 +109,10 @@
         </div>
         <div class="row tr-movie-active dis_none">
             <?php
-            // Number of movies per page
             $moviesPerPage = 8;
-
-            // Current page from URL parameter
             $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-
-            // Calculate the starting index for movies on the current page
             $startIndex = ($currentPage - 1) * $moviesPerPage;
-
-            // Get a subset of movies for the current page
             $pagedMovies = array_slice($list_movie, $startIndex, $moviesPerPage);
-
             foreach ($pagedMovies as $movie) {
                 echo '<div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">';
                 echo '<div class="movie-item movie-item-three mb-50">';
@@ -160,20 +156,14 @@
                     <nav>
                         <ul>
                             <?php
-                            // Calculate the total number of pages
-                            $totalPages = ceil(count($list_movie) / $moviesPerPage);
-
-                            // Previous button
+                            $moviesList = isset($_POST['same_category']) && $_POST['same_category'] ? $list_same_category : $list_movie;
+                            $totalPages = ceil(count($moviesList) / $moviesPerPage);
                             if ($currentPage > 1) {
                                 echo '<li><a href="index.php?action=list_movie&page=' . ($currentPage - 1) . '">Previous</a></li>';
                             }
-
-                            // Page numbers
                             for ($i = 1; $i <= $totalPages; $i++) {
                                 echo '<li' . ($i === $currentPage ? ' class="active"' : '') . '><a href="index.php?action=list_movie&page=' . $i . '">' . $i . '</a></li>';
                             }
-
-                            // Next button
                             if ($currentPage < $totalPages) {
                                 echo '<li><a href="index.php?action=list_movie&page=' . ($currentPage + 1) . '">Next</a></li>';
                             }
@@ -183,21 +173,16 @@
                 </div>
             </div>
         </div>
-
     </div>
 </section>
 
 <style>
-    /* Adjust the height as needed */
     .equal-height img {
         height: 300px;
-        /* Set your desired height */
         width: auto;
         object-fit: cover;
-        /* This property ensures that the image covers the entire box even if it has to be cropped */
     }
 
-    /* Optional: Add some styling to the movie items */
     .movie-item {
         transition: transform 0.3s ease-in-out;
     }
