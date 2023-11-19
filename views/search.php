@@ -1,4 +1,3 @@
-
 <section class="movie-area movie-bg" data-background="assets/img/bg/movie_bg.jpg">
     <div class="container">
         <div class="row align-items-end mb-60">
@@ -26,7 +25,7 @@
         <div class="row tr-movie-active">
             <?php
             // Number of movies per page
-            $moviesPerPage = 8;
+            $moviesPerPage = 100;
             // Current page from URL parameter
             $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
             // Calculate the starting index for movies on the current page
@@ -36,7 +35,7 @@
             foreach ($pagedMovies as $movie) {
                 echo '<div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">';
                 echo '<div class="movie-item movie-item-three mb-50">';
-                echo '<div class="movie-poster text-center">'; // Added class "text-center"
+                echo '<div class="movie-poster text-center equal-height">';
                 echo '<img src="../uploads/movie/' . $movie['image'] . '" alt="">';
                 echo '<ul class="overlay-btn">';
                 echo '<li class="rating">';
@@ -101,3 +100,18 @@
         </div>
     </div>
 </section>
+<style>
+    .equal-height img {
+        height: 300px;
+        width: auto;
+        object-fit: cover;
+    }
+
+    .movie-item {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .movie-item:hover {
+        transform: scale(1.05);
+    }
+</style>

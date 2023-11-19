@@ -58,7 +58,7 @@
         </div>
         <div class="row justify-content-center">
             <?php
-            $moviesPerPage = 8;
+            $moviesPerPage = 100;
             $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
             $startIndex = ($currentPage - 1) * $moviesPerPage;
             $pagedMovies = array_slice($list_same_category, $startIndex, $moviesPerPage);
