@@ -46,7 +46,8 @@
                         extract(($movie));
                         echo '<div class="col-md-6 col-xl-4 col-sm-12 d-flex">';
                         echo '<div class="blog grid-blog flex-fill">';
-                        echo '<div class="blog-image">';
+                        echo '<div class="blog-image movie-poster text-center equal-height">';
+                        // echo '<div class="movie-poster text-center equal-height">';
                         echo '<a href=""><img class="img-fluid" src="../uploads/movie/' . $movie['image'] . '" alt="' . $movie['name_movie'] . '"></a>';
                         echo '<div class="blog-views">';
                         echo '<i class="feather-eye me-1"></i>' . $movie['reviews'] . '';
@@ -148,3 +149,23 @@
 </body>
 
 </html>
+<style>
+    /* Adjust the height as needed */
+    .equal-height img {
+        height: 700px;
+        /* Set your desired height */
+        width: auto;
+        object-fit: cover;
+        /* This property ensures that the image covers the entire box even if it has to be cropped */
+    }
+
+
+    /* Optional: Add some styling to the movie items */
+    .movie-item {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .movie-item:hover {
+        transform: scale(1.05);
+    }
+</style>

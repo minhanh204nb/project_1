@@ -43,54 +43,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="blog-post-item">
-                    <div class="blog-post-thumb">
-                        <a href="index.php?action=details_blog"><img src="assets/img/blog/blog_thumb02.jpg" alt=""></a>
-                    </div>
-                    <div class="blog-post-content">
-                        <span class="date"><i class="far fa-clock"></i> 10 Mar 2021</span>
-                        <h2 class="title"><a href="index.php?action=details_blog">Where watch English movies free?</a></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun
-                            labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip exesa
-                            commodo consequat. Duis aute
-                            irure dolor in reprehend .</p>
-                        <div class="blog-post-meta">
-                            <ul>
-                                <li><i class="far fa-user"></i> by <a href="#">Admin</a></li>
-                                <li><i class="far fa-thumbs-up"></i> 63</li>
-                                <li><i class="far fa-comments"></i><a href="#">12 Comments</a></li>
-                            </ul>
-                            <div class="read-more">
-                                <a href="index.php?action=details_blog">Read More <i class="fas fa-angle-double-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="blog-post-item">
-                    <div class="blog-post-thumb">
-                        <a href="index.php?action=details_blog"><img src="assets/img/blog/blog_thumb03.jpg" alt=""></a>
-                    </div>
-                    <div class="blog-post-content">
-                        <span class="date"><i class="far fa-clock"></i> 10 Mar 2021</span>
-                        <h2 class="title"><a href="index.php?action=details_blog">House movie to is streaming website?</a></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun
-                            labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip exesa
-                            commodo consequat. Duis aute
-                            irure dolor in reprehend .</p>
-                        <div class="blog-post-meta">
-                            <ul>
-                                <li><i class="far fa-user"></i> by <a href="#">Admin</a></li>
-                                <li><i class="far fa-thumbs-up"></i> 63</li>
-                                <li><i class="far fa-comments"></i><a href="#">12 Comments</a></li>
-                            </ul>
-                            <div class="read-more">
-                                <a href="index.php?action=details_blog">Read More <i class="fas fa-angle-double-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="pagination-wrap mt-60">
                     <nav>
                         <ul>
@@ -109,8 +62,8 @@
                         <div class="widget-title mb-30">
                             <h5 class="title">Search Objects</h5>
                         </div>
-                        <form action="#" class="sidebar-search">
-                            <input type="text" placeholder="Search...">
+                        <form action="index.php?action=search" class="sidebar-search" method="post">
+                            <input type="text" name="keysword" placeholder="Search...">
                             <button><i class="fas fa-search"></i></button>
                         </form>
                     </div>
@@ -124,58 +77,6 @@
                                 <li><a href="#">Action Movies</a> <span>10</span></li>
                                 <li><a href="#">Streaming</a> <span>9</span></li>
                                 <li><a href="#">Download</a> <span>16</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="widget blog-widget">
-                        <div class="widget-title mb-30">
-                            <h5 class="title">Recent Posts</h5>
-                        </div>
-                        <div class="rc-post">
-                            <ul>
-                                <li class="rc-post-item">
-                                    <div class="thumb">
-                                        <a href="index.php?action=details_blog"><img src="assets/img/blog/rc_post_thumb01.jpg" alt=""></a>
-                                    </div>
-                                    <div class="content">
-                                        <h5 class="title"><a href="index.php?action=details_blog">Express Management Effective</a></h5>
-                                        <span class="date"><i class="far fa-clock"></i> 10 Mar 2021</span>
-                                    </div>
-                                </li>
-                                <li class="rc-post-item">
-                                    <div class="thumb">
-                                        <a href="index.php?action=details_blog"><img src="assets/img/blog/rc_post_thumb02.jpg" alt=""></a>
-                                    </div>
-                                    <div class="content">
-                                        <h5 class="title"><a href="index.php?action=details_blog">Where watch English movies free?</a></h5>
-                                        <span class="date"><i class="far fa-clock"></i> 10 Mar 2021</span>
-                                    </div>
-                                </li>
-                                <li class="rc-post-item">
-                                    <div class="thumb">
-                                        <a href="index.php?action=details_blog"><img src="assets/img/blog/rc_post_thumb03.jpg" alt=""></a>
-                                    </div>
-                                    <div class="content">
-                                        <h5 class="title"><a href="index.php?action=details_blog">House movie streaming website</a></h5>
-                                        <span class="date"><i class="far fa-clock"></i> 10 Mar 2021</span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="widget blog-widget">
-                        <div class="widget-title mb-30">
-                            <h5 class="title">Tag Post</h5>
-                        </div>
-                        <div class="tag-list">
-                            <ul>
-                                <li><a href="#">Movies</a></li>
-                                <li><a href="#">Creative</a></li>
-                                <li><a href="#">News</a></li>
-                                <li><a href="#">Romantic</a></li>
-                                <li><a href="#">Who</a></li>
-                                <li><a href="#">English</a></li>
-                                <li><a href="#">Blending</a></li>
                             </ul>
                         </div>
                     </div>

@@ -48,12 +48,7 @@
                         </blockquote>
                         <div class="blog-img-wrap">
                             <div class="row">
-                                <div class="col-sm-6">
-                                    <img src="assets/img/blog/blog_details_img01.jpg" alt="">
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="assets/img/blog/blog_details_img02.jpg" alt="">
-                                </div>
+                                <img src="https://source.unsplash.com/random" alt="">
                             </div>
                         </div>
                         <p>Lorem Ipsum is simply dummy text of the printing and typetting industry. Lorem Ipsum has been the industry's standard
@@ -63,36 +58,10 @@
                             printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuies, but
                             also the leap into electronic typesetting, remaining essentially unched. It was populrised in the 1960s with the release
                             of Letraset sheets containing .</p>
-                        <div class="blog-post-meta">
-                            <div class="blog-details-tags">
-                                <ul>
-                                    <li><i class="fas fa-tags"></i> <span>Tags :</span></li>
-                                    <li><a href="#">Movies ,</a> <a href="#">Creative ,</a> <a href="#">News ,</a> <a href="#">English</a></li>
-                                </ul>
-                            </div>
-                            <div class="blog-post-share">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
-                <div class="avatar-post mt-40 mb-80">
-                    <div class="post-avatar-img">
-                        <img src="assets/img/blog/post_avatar_img.png" alt="img">
-                    </div>
-                    <div class="post-avatar-content">
-                        <h5>Thomas Herlihy</h5>
-                        <p>Printing and typetting industry. Lorem Ipsum has been the instry standrd the dummy
-                            text ever since the, when an unknown printer took a galley .</p>
-                        <ul>
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
+
                 <div class="blog-comment mb-80">
                     <div class="widget-title mb-45">
                         <h5 class="title">Comment's (02)</h5>
@@ -106,21 +75,6 @@
                                 <div class="comment-text">
                                     <div class="comment-avatar-info">
                                         <h5>Daisy Waterstone <span class="comment-date">November 13, 2021</span></h5>
-                                        <a href="#" class="comment-reply-link">Reply <i class="fas fa-reply-all"></i></a>
-                                    </div>
-                                    <p>Printing and typetting industry. Lorem Ipsum has been the instry standrd the dummy
-                                        text ever since the, when an unknown printer took a galley .</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="comment-reply">
-                            <div class="single-comment">
-                                <div class="comment-avatar-img">
-                                    <img src="assets/img/blog/comment_avatar02.jpg" alt="img">
-                                </div>
-                                <div class="comment-text">
-                                    <div class="comment-avatar-info">
-                                        <h5>Jon Deo <span class="comment-date">November 13, 2021</span></h5>
                                         <a href="#" class="comment-reply-link">Reply <i class="fas fa-reply-all"></i></a>
                                     </div>
                                     <p>Printing and typetting industry. Lorem Ipsum has been the instry standrd the dummy

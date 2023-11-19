@@ -54,3 +54,9 @@ function search_movie($keysword = "", $id_category)
     $list_movie = pdo_query($sql);
     return $list_movie;
 }
+
+function load_movie_same_category($id_movie,$id_category){
+    $sql="select * from movie where id_category=".$id_category." AND id_movie <> ".$id_movie;
+    $list_movie_same_category=pdo_query($sql);
+    return $list_movie_same_category;
+}

@@ -20,28 +20,90 @@
         <div class="row align-items-end mb-60">
             <div class="col-lg-6">
                 <div class="section-title text-center text-lg-left">
-                    <span class="sub-title">ONLINE STREAMING</span>
-                    <h2 class="title">All Movies</h2>
+                    <?php
+                    if (isset($_POST['same_category']) && $_POST['same_category']) {
+                        echo ' <span class="sub-title">ONLINE STREAMING</span>';
+                        echo ' <a href="index.php?action=list_movie"><h2 class="title">All Movies</h2></a> ';
+                        echo ' <style>
+                        .dis_none{
+                            display: none;
+                        }
+                        </style>';
+                    } else {
+                    }
+                    ?>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="movie-page-meta">
-                    <form action="#" class="movie-filter-form">
-                        <select id="categoryFilter" name="id_category" class="custom-select">
+                    <form class="movie-filter-form" action="index.php?action=list_movie" method="post" id="filterForm">
+                        <input type="hidden" name="id_movie" value="<?php echo $id_movie; ?>">
+                        <select id="categoryFilter" class="custom-select" name="same_category" onchange="submitForm()">
                             <?php
                             foreach ($list_category as $category) {
-                                echo '';
-                                echo '<option value="' . $category['id_category'] . '"><a href="index.php">' . $category['name_category'] . '</a></option>';
+                                $selected = ($category['id_category'] == $id_category) ? 'selected' : '';
+                                echo '<option value="' . $category['id_category'] . '" ' . $selected . '>' . $category['name_category'] . '</option>';
                             }
                             ?>
                         </select>
+                        <input hidden type="submit" value="Apply Filter">
                     </form>
+                    <script>
+                        function submitForm() {
+                            document.getElementById("filterForm").submit();
+                        }
+                    </script>
                 </div>
-
-
             </div>
         </div>
-        <div class="row tr-movie-active">
+        <div class="row justify-content-center">
+            <?php
+            foreach ($list_same_category as $same_category) {
+                echo '<div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">';
+                echo '<div class="movie-item movie-item-three mb-50">';
+                echo '<div class="movie-poster text-center equal-height">';
+                echo '<img src="../uploads/movie/' . $same_category['image'] . '" alt="">';
+                echo '<ul class="overlay-btn">';
+                echo '<li class="rating">';
+                echo '<i class="fas fa-star"></i>';
+                echo '<i class="fas fa-star"></i>';
+                echo '<i class="fas fa-star"></i>';
+                echo '<i class="fas fa-star"></i>';
+                echo '<i class="fas fa-star"></i>';
+                echo '</li>';
+                echo '<li><a href="' . $same_category['trailer_movie'] . '" class="popup-video btn">Watch Now</a></li>';
+                echo '<li><a href="index.php?action=details_movie&id=' . $same_category['id_movie'] . '" class="btn">Details</a></li>';
+                echo '</ul>';
+                echo '</div>';
+                echo '<div class="movie-content">';
+                echo '<div class="top">';
+                echo '<h5 class="title"><a href="#">' . $same_category['name_movie'] . '</a></h5>';
+                echo '<span class="date">' . $same_category['year'] . '</span>';
+                echo '</div>';
+                echo '<div class="bottom">';
+                echo '<ul>';
+                echo '<li><span class="quality">hd</span></li>';
+                echo '<li>';
+                echo '<span class="duration"><i class="far fa-clock"></i> ' . $same_category['time'] . '</span>';
+                echo '<span class="rating"><i class="fas fa-thumbs-up"></i>' . $same_category['reviews'] . '</span>';
+                echo '</li>';
+                echo '</ul>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+            }
+            ?>
+        </div>
+        <div class="row align-items-end mb-60 dis_none">
+            <div class="col-lg-6">
+                <div class="section-title text-center text-lg-left">
+                    <span class="sub-title">ONLINE STREAMING</span>
+                    <h2 class="title">All Movies</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row tr-movie-active dis_none">
             <?php
             // Number of movies per page
             $moviesPerPage = 8;
@@ -58,7 +120,7 @@
             foreach ($pagedMovies as $movie) {
                 echo '<div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">';
                 echo '<div class="movie-item movie-item-three mb-50">';
-                echo '<div class="movie-poster text-center">'; // Added class "text-center"
+                echo '<div class="movie-poster text-center equal-height">';
                 echo '<img src="../uploads/movie/' . $movie['image'] . '" alt="">';
                 echo '<ul class="overlay-btn">';
                 echo '<li class="rating">';
@@ -92,7 +154,6 @@
             }
             ?>
         </div>
-
         <div class="row">
             <div class="col-12">
                 <div class="pagination-wrap mt-30">
@@ -125,3 +186,23 @@
 
     </div>
 </section>
+
+<style>
+    /* Adjust the height as needed */
+    .equal-height img {
+        height: 300px;
+        /* Set your desired height */
+        width: auto;
+        object-fit: cover;
+        /* This property ensures that the image covers the entire box even if it has to be cropped */
+    }
+
+    /* Optional: Add some styling to the movie items */
+    .movie-item {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .movie-item:hover {
+        transform: scale(1.05);
+    }
+</style>

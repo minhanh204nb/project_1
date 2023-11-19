@@ -8,7 +8,9 @@ if ($movie) {
             <div class="row align-items-center position-relative">
                 <div class="col-xl-3 col-lg-4">
                     <div class="movie-details-img">
-                        <img src="../uploads/movie/<?php echo $movie['image']; ?>" alt="">
+                        <div class="movie-poster text-center equal-height">
+                            <img src="../uploads/movie/<?php echo $movie['image']; ?>" alt="">
+                        </div>
                         <a href="<?php echo $movie['trailer_movie']; ?>" class="popup-video"><img src="assets/img/images/play_icon.png" alt=""></a>
                     </div>
                 </div>
@@ -55,7 +57,7 @@ if ($movie) {
                                 <!-- <li class="watch"><a href="index.php?action=booking" class="btn popup-video"><i class="fas fa-play"></i>BOOKING</a></li> -->
                                 <?php
                                 if (isset($_SESSION['user'])) {
-                                    echo '  <li class="watch"><a href="index.php?action=booking" class="btn popup-video"><i class="fas fa-play"></i>BOOKING</a></li>';
+                                    echo '  <li class="watch"><a href="index.php?action=booking" class="btn"><i class="fas fa-play"></i>BOOKING</a></li>';
                                 } else {
                                     echo '  <li class="watch"><a href="index.php?action=signin" class="btn"><i class="fas fa-play"></i>BOOKING</a></li>';
                                 }
@@ -84,105 +86,81 @@ if ($movie) {
 ?>
 
 
+
 <section class="tv-series-area tv-series-bg" data-background="assets/img/bg/tv_series_bg02.jpg">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="section-title text-center mb-50">
                     <span class="sub-title">Best TV Series</span>
-                    <h2 class="title">World Best TV Series</h2>
+                    <h2 class="title">Same Category <?php echo  $movie['id_category'] ?></h2>
                 </div>
             </div>
         </div>
+        <?php
+        foreach ($list_category as $category) {
+            if ($movie['id_category'] == $category['name_category']) {
+                $movie['id_category'] = $category['id_category'];
+            }
+        }
+        ?>
+        <!-- <form class="movie-filter-form" action="index.php?action=details_movie&id=<?php echo $id_movie; ?>" method="post">
+            <select id="categoryFilter" class="custom-select" name="same_category">
+                <?php
+                foreach ($list_category as $category) {
+                    $selected = ($category['id_category'] == $id_category) ? 'selected' : '';
+                    echo '<option value="' . $category['id_category'] . '" ' . $selected . '>' . $category['name_category'] . '</option>';
+                }
+                ?>
+            </select>
+            <input type="submit" value="Submit">
+        </form> -->
         <div class="row justify-content-center">
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="movie-item mb-50">
-                    <div class="movie-poster">
-                        <a href="index.php?action=details_movie"><img src="assets/img/poster/ucm_poster09.jpg" alt=""></a>
-                    </div>
-                    <div class="movie-content">
-                        <div class="top">
-                            <h5 class="title"><a href="index.php?action=details_movie">Women's Day</a></h5>
-                            <span class="date">2021</span>
-                        </div>
-                        <div class="bottom">
-                            <ul>
-                                <li><span class="quality">hd</span></li>
-                                <li>
-                                    <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                    <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="movie-item mb-50">
-                    <div class="movie-poster">
-                        <a href="index.php?action=details_movie"><img src="assets/img/poster/ucm_poster10.jpg" alt=""></a>
-                    </div>
-                    <div class="movie-content">
-                        <div class="top">
-                            <h5 class="title"><a href="index.php?action=details_movie">The Perfect Match</a></h5>
-                            <span class="date">2021</span>
-                        </div>
-                        <div class="bottom">
-                            <ul>
-                                <li><span class="quality">4k</span></li>
-                                <li>
-                                    <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                    <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="movie-item mb-50">
-                    <div class="movie-poster">
-                        <a href="index.php?action=details_movie"><img src="assets/img/poster/ucm_poster03.jpg" alt=""></a>
-                    </div>
-                    <div class="movie-content">
-                        <div class="top">
-                            <h5 class="title"><a href="index.php?action=details_movie">The Dog Woof</a></h5>
-                            <span class="date">2021</span>
-                        </div>
-                        <div class="bottom">
-                            <ul>
-                                <li><span class="quality">hd</span></li>
-                                <li>
-                                    <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                    <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="movie-item mb-50">
-                    <div class="movie-poster">
-                        <a href="index.php?action=details_movie"><img src="assets/img/poster/ucm_poster04.jpg" alt=""></a>
-                    </div>
-                    <div class="movie-content">
-                        <div class="top">
-                            <h5 class="title"><a href="index.php?action=details_movie">The Easy Reach</a></h5>
-                            <span class="date">2021</span>
-                        </div>
-                        <div class="bottom">
-                            <ul>
-                                <li><span class="quality">hd</span></li>
-                                <li>
-                                    <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                    <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php
+            foreach ($list_same_category as $same_category) {
+                echo '<div class="col-xl-3 col-lg-4 col-sm-6">';
+                echo '<div class="movie-item movie-item-two mb-50">';
+                echo '<div class="movie-poster text-center equal-height">';
+                echo '<a href="index.php?action=details_movie&id=' . $same_category['id_movie'] . '"><img src="./uploads/movie/' . $same_category['image'] . '" alt=""></a>';
+                echo '</div>';
+                echo '<div class="movie-content">';
+                echo '<div class="top">';
+                echo '<h5 class="title"><a href="index.php?action=details_movie&id=' . $same_category['id_movie'] . '">' . $same_category['name_movie'] . '</a></h5>';
+                echo '<span class="date">' . $same_category['year'] . '</span>';
+                echo '</div>';
+                echo '<div class="bottom">';
+                echo '<ul>';
+                echo '<li><span class="quality">hd</span></li>';
+                echo '<li>';
+                echo '<span class="duration"><i class="far fa-clock"></i>' . $same_category['time'] . '</span>';
+                echo '<span class="rating"><i class="fas fa-thumbs-up"></i>' . $same_category['reviews'] . '</span>';
+                echo '</li>';
+                echo '</ul>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+            }
+            ?>
         </div>
     </div>
 </section>
+<style>
+    /* Adjust the height as needed */
+    .equal-height img {
+        height: 300px;
+        /* Set your desired height */
+        width: auto;
+        object-fit: cover;
+        /* This property ensures that the image covers the entire box even if it has to be cropped */
+    }
+
+    /* Optional: Add some styling to the movie items */
+    .movie-item {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .movie-item:hover {
+        transform: scale(1.05);
+    }
+</style>

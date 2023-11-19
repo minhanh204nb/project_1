@@ -29,11 +29,11 @@
                             </a>
 
                             <div class="sign__group">
-                                <input type="text" class="sign__input" name="user" placeholder="User" />
+                                <input type="text" class="sign__input" name="user" placeholder="User"  required />
                             </div>
 
                             <div class="sign__group">
-                                <input type="password" class="sign__input" name="password" placeholder="Password" />
+                                <input type="password" class="sign__input" name="password" placeholder="Password" required />
                             </div>
 
                             <div class="sign__group sign__group--checkbox">

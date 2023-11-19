@@ -234,7 +234,7 @@ if (isset($_GET['action'])) {
                 $id_category = $_POST['id_category'];
                 $action = $_POST['action'];
                 $image = $_FILES['image']['name'];
-                $target_dir = "../uploads/";
+                $target_dir = "../uploads/movie/";
                 $target_file = $target_dir . basename($image);
                 if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
                     // File upload successful

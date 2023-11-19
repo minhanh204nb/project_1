@@ -42,7 +42,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-5">
+                    <!-- <div class="col-md-5">
                         <div class="footer-social">
                             <ul>
                                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -51,7 +51,7 @@
                                 <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

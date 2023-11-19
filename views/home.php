@@ -13,7 +13,7 @@
             foreach ($list_movie_limit as $movie) {
                 echo '<div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">';
                 echo '<div class="movie-item movie-item-three mb-50">';
-                echo '<div class="movie-poster text-center">'; // Added class "text-center"
+                echo '<div class="movie-poster text-center equal-height">';
                 echo '<img src="../uploads/movie/' . $movie['image'] . '" alt="">';
                 echo '<ul class="overlay-btn">';
                 echo '<li class="rating">';
@@ -50,6 +50,25 @@
         </div>
     </div>
 </section>
+<style>
+    /* Adjust the height as needed */
+    .equal-height img {
+        height: 300px;
+        /* Set your desired height */
+        width: auto;
+        object-fit: cover;
+        /* This property ensures that the image covers the entire box even if it has to be cropped */
+    }
+
+    /* Optional: Add some styling to the movie items */
+    .movie-item {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .movie-item:hover {
+        transform: scale(1.05);
+    }
+</style>
 
 <section class="services-area services-bg-two" data-background="assets/img/bg/services_bg02.jpg" style="background-image: url(&quot;assets/img/bg/services_bg02.jpg&quot;);">
     <div class="container">
@@ -125,8 +144,8 @@
             $pagedMovies = array_slice($list_movie, $startIndex, $moviesPerPage);
             foreach ($pagedMovies as $movie) {
                 echo '<div class="custom-col">';
-                echo '<div class="movie-item movie-item-two">';
-                echo '<div class="movie-poster">';
+                echo '<div class="movie-item movie-item-two mb-50">';
+                echo '<div class="movie-poster text-center equal-height">';
                 echo '<img src="../uploads/movie/' . $movie['image'] . '" alt="">';
                 echo '<ul class="overlay-btn">';
                 echo '<li>';
@@ -202,4 +221,5 @@
 
     </div>
 </section>
+
 <!-- top-rated-movie-end -->

@@ -114,9 +114,14 @@ if (is_array($list_movie)) {
                                                 <label>Thumb movie</label>
                                                 <div class="change-photo-btn">
                                                     <div class="pop_up">
+                                                        <img src="../uploads/movie/<?php echo $image ?>" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="change-photo-btn">
+                                                    <div class="pop_up">
                                                         <p>Add Image</p>
                                                     </div>
-                                                    <input type="file" name="image" class="upload" required>
+                                                    <input type="file" name="image" class="upload">
                                                 </div>
                                             </div>
                                         </div>
@@ -141,7 +146,7 @@ if (is_array($list_movie)) {
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Action<span class="text-danger">*</span></label>
-                                                <input type="text" value="<?php if(isset($action)&&($action!="")) echo $action?>" class="form-control" name="action" required>
+                                                <input type="text" value="<?php if (isset($action) && ($action != "")) echo $action ?>" class="form-control" name="action" required>
                                             </div>
                                         </div>
                                     </div>

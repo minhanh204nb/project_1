@@ -25,6 +25,10 @@ if (isset($_GET['action'])) {
             include './views/home.php';
             break;
         case 'list_movie':
+            if (isset($_POST['same_category']) && $_POST['same_category']) {
+                $id_category = isset($_POST['same_category']) ? $_POST['same_category'] : 2;
+                $list_same_category = load_movie_same_category('1', $id_category);
+            }
             $list_category = loadall_category();
             $list_movie = loadall_movie();
             include './views/list_movie.php';
@@ -33,7 +37,11 @@ if (isset($_GET['action'])) {
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $id_movie = $_GET['id'];
                 $list_movie = loadone_movie($id_movie);
+                $id_category = isset($_POST['same_category']) ? $_POST['same_category'] : 1;
+                $list_same_category = load_movie_same_category($id_movie, $id_category);
             }
+            $list_all_movie = loadall_movie();
+            $list_movie = loadone_movie($id_movie);
             $list_category = loadall_category();
             $list_country = loadall_country();
             include './views/details_movie.php';
@@ -105,6 +113,7 @@ if (isset($_GET['action'])) {
             include './auth/forgot.php';
             break;
         case 'your_ticket':
+            include './views/your_tickets.php';
             break;
         case 'contact':
             if (isset($_POST['send']) && $_POST['send']) {
