@@ -43,10 +43,11 @@
                     $moviesToDisplay = array_slice($list_movie, $startIndex, $itemsPerPage);
 
                     foreach ($moviesToDisplay as $movie) {
-                        extract($movie);
+                        extract(($movie));
                         echo '<div class="col-md-6 col-xl-4 col-sm-12 d-flex">';
                         echo '<div class="blog grid-blog flex-fill">';
-                        echo '<div class="blog-image">';
+                        echo '<div class="blog-image movie-poster text-center equal-height">';
+                        // echo '<div class="movie-poster text-center equal-height">';
                         echo '<a href=""><img class="img-fluid" src="../uploads/movie/' . $movie['image'] . '" alt="' . $movie['name_movie'] . '"></a>';
                         echo '<div class="blog-views">';
                         echo '<i class="feather-eye me-1"></i>' . $movie['reviews'] . '';
@@ -71,8 +72,10 @@
                         echo '<div class="row">';
                         echo '<div class="edit-options">';
                         echo '<div class="edit-delete-btn">';
-                        echo '<a href="#" class="text-success"><i class="feather-edit-3 me-1"></i> Edit</a>';
-                        echo '<a href="#" class="text-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="feather-trash-2 me-1"></i> Delete</a>';
+                        $edit_movie = 'index.php?action=edit_movie&id=' . $movie['id_movie'];
+                        $delete_movie = 'index.php?action=delete_movie&id=' . $movie['id_movie'];
+                        echo ' <a href="' . $edit_movie . '" class="text-success"><i class="feather-edit-3 me-1"></i> Edit</a>';
+                        echo '<a  href="' . $delete_movie . '" class="text-danger" onclick="return confirm(\'Bạn có chắc muốn xóa?\');" ><i class="feather-trash-2 me-1"></i> Delete</a>';
                         echo '</div>';
                         echo '<div class="status-toggle">';
                         // echo '<input id="rating_' . $movie['id_movie'] . '" class="check" type="checkbox" ' . ($movie['active'] ? 'checked' : '') . '>';
@@ -121,7 +124,7 @@
                                     <div class="del-icon"><i class="feather-x-circle"></i></div>
                                     <h2>Sure you want to delete</h2>
                                     <div class="submit-section">
-                                        <a href="blog.html" class="btn btn-success me-2">Yes</a>
+                                        <a href="<?php echo $delete_movie; ?>" class="btn btn-success me-2">Yes</a>
                                         <a href="#" class="btn btn-danger" data-bs-dismiss="modal">No</a>
                                     </div>
                                 </div>
@@ -146,3 +149,23 @@
 </body>
 
 </html>
+<style>
+    /* Adjust the height as needed */
+    .equal-height img {
+        height: 700px;
+        /* Set your desired height */
+        width: auto;
+        object-fit: cover;
+        /* This property ensures that the image covers the entire box even if it has to be cropped */
+    }
+
+
+    /* Optional: Add some styling to the movie items */
+    .movie-item {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .movie-item:hover {
+        transform: scale(1.05);
+    }
+</style>

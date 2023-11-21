@@ -5,3 +5,8 @@ function loadall_country()
     $list_country = pdo_query($sql);
     return $list_country;
 }
+function loadone_country($id_country)
+{
+    $sql = "SELECT * FROM country WHERE id_country = $id_country";
+    return pdo_query_one($sql);
+}

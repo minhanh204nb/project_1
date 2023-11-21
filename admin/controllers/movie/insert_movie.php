@@ -53,7 +53,7 @@
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Content<span class="text-danger">*</span></label>
-                                                <input class="form-control" type="text" name="content" required placeholder="content" >
+                                                <input class="form-control" type="text" name="content" value="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur sint laborum quidem architecto accusantium est itaque soluta vel doloremque veritatis! Et deserunt debitis quae beatae, excepturi possimus repellat. Delectus, soluta. " required placeholder="content" >
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
@@ -71,37 +71,37 @@
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Years<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="year" required min="1900" max="2023" >
+                                                <input type="text" class="form-control" name="year" value="2023" required min="1900" max="2023" >
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Time<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="time" required>
+                                                <input type="text" class="form-control" value="120 phút" name="time" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Reviews<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="reviews" required>
+                                                <input type="text" class="form-control" value="9.3" name="reviews" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Author<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="author" required>
+                                                <input type="text" class="form-control" value="Frank Darabont" name="author" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Performer<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="performer" required>
+                                                <input type="text" class="form-control" value="Morgan Freeman, Tim Robbins, Bob Gunton…" name="performer" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Age limit<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="age_limit" required min="0" max="150" >
+                                                <input type="text" class="form-control" value="16" name="age_limit" required min="0" max="150" >
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
@@ -118,7 +118,7 @@
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Trailer movie<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="trailer_movie" required>
+                                                <input type="text" class="form-control" value="https://www.youtube.com/watch?v=yi363I5MoAk" name="trailer_movie" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
@@ -136,7 +136,7 @@
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Action<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="action" required>
+                                                <input type="text" class="form-control" value="action" name="action" required>
                                             </div>
                                         </div>
                                     </div>

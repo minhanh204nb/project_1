@@ -1,3 +1,7 @@
+<?php
+extract($_SESSION['user']);
+?>
+
 <button class="scroll-top scroll-to-target" data-target="html">
     <i class="fas fa-angle-up"></i>
 </button>
@@ -23,17 +27,27 @@
                                     <li><a href="index.php?action=combo">Combo</a></li>
                                     <li class="menu-item-has-children"><a href="index.php?action=blog">blog</a>
                                     </li>
-                                    <li><a href="index.php?action=contacts">contacts</a></li>
-                                    <li><a href="">Your tickets</a></li>
+                                    <li><a href="index.php?action=contact">contacts</a></li>
+                                    <?php
+                                    if (isset($_SESSION['user'])) {
+                                        if ($role == '1') {
+                                            echo '  <li><a href="../admin/index.php?action=dashboard">Admin</a></li>';
+                                        } else {
+                                            echo '  <li><a href="index.php?action=your_ticket">Your tickets</a></li>';
+                                        }
+                                    } else {
+                                        echo '  <li><a href="index.php?action=signin">Your tickets</a></li>';
+                                    }
+                                    ?>
                                 </ul>
                             </div>
                             <div class="header-action d-none d-md-block">
                                 <ul>
                                     <li class="d-none d-xl-block">
                                         <div class="footer-search">
-                                            <form action="#">
-                                                <input type="text" placeholder="Find Favorite Movie">
-                                                <button><i class="fas fa-search"></i></button>
+                                            <form action="index.php?action=search" method="post">
+                                                <input type="text" name="keysword" placeholder="Find Favorite Movie">
+                                                <button type="submit"><i class="fas fa-search"></i></button>
                                             </form>
                                         </div>
                                     </li>
@@ -48,7 +62,13 @@
                                             </select>
                                         </form>
                                     </li>
-                                    <li class="header-btn"><a href="index.php?action=signin" class="btn">Sign In</a></li>
+                                    <?php
+                                    if (isset($_SESSION['user'])) {
+                                        echo '<li class="header-btn"><a href="index.php?action=logout" class="btn">' . $user . '</a></li>';
+                                    } else {
+                                        echo '<li class="header-btn"><a href="index.php?action=signin" class="btn">Sign In</a></li>';
+                                    }
+                                    ?>
                                 </ul>
                             </div>
                         </nav>

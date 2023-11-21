@@ -20,304 +20,154 @@
         <div class="row align-items-end mb-60">
             <div class="col-lg-6">
                 <div class="section-title text-center text-lg-left">
-                    <span class="sub-title">ONLINE STREAMING</span>
-                    <h2 class="title">New Release Movies</h2>
+                    <?php
+                    if (isset($_POST['same_category']) && $_POST['same_category']) {
+                        echo ' <span class="sub-title">ONLINE STREAMING</span>';
+                        echo ' <a href="index.php?action=list_movie"><h2 class="title">Category ' . $category['name_category'] . '</h2></a> ';
+                        echo ' <style>
+                        .dis_none{
+                            display: none;
+                        }
+                        </style>';
+                    } else {
+                    }
+                    ?>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="movie-page-meta">
-                    <div class="tr-movie-menu-active text-center">
-                        <button class="active" data-filter="*">Animation</button>
-                        <button class="" data-filter=".cat-one">Movies</button>
-                        <button class="" data-filter=".cat-two">Romantic</button>
-                    </div>
-                    <form action="#" class="movie-filter-form">
-                        <select class="custom-select">
-                            <option selected>English</option>
-                            <option value="1">Blueray</option>
-                            <option value="2">4k Movie</option>
-                            <option value="3">Hd Movie</option>
+                    <form class="movie-filter-form" action="index.php?action=list_movie" method="post" id="filterForm">
+                        <input type="hidden" name="id_movie" value="<?php echo $id_movie; ?>">
+                        <select id="categoryFilter" class="custom-select" name="same_category" onchange="submitForm()">
+                            <?php
+                            foreach ($list_category as $category) {
+                                $selected = ($category['id_category'] == $id_category) ? 'selected' : '';
+                                echo '<option value="' . $category['id_category'] . '" ' . $selected . '>' . $category['name_category'] . '</option>';
+                            }
+                            ?>
                         </select>
+                        <input hidden type="submit" value="Apply Filter">
                     </form>
+                    <script>
+                        function submitForm() {
+                            document.getElementById("filterForm").submit();
+                        }
+                    </script>
                 </div>
             </div>
         </div>
-        <div class="row tr-movie-active">
-            <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">
-                <div class="movie-item movie-item-three mb-50">
-                    <div class="movie-poster">
-                        <img src="assets/img/poster/ucm_poster01.jpg" alt="">
-                        <ul class="overlay-btn">
-                            <li class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </li>
-                            <li><a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="popup-video btn">Watch Now</a></li>
-                            <li><a href="index.php?action=details_movie" class="btn">Details</a></li>
-                        </ul>
-                    </div>
-                    <div class="movie-content">
-                        <div class="top">
-                            <h5 class="title"><a href="index.php?action=details_movie">Women's Day</a></h5>
-                            <span class="date">2021</span>
-                        </div>
-                        <div class="bottom">
-                            <ul>
-                                <li><span class="quality">hd</span></li>
-                                <li>
-                                    <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                    <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+        <div class="row justify-content-center">
+            <?php
+            $moviesPerPage = 100;
+            $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+            $startIndex = ($currentPage - 1) * $moviesPerPage;
+            $pagedMovies = array_slice($list_same_category, $startIndex, $moviesPerPage);
+            foreach ($pagedMovies as $same_category) {
+                echo '<div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">';
+                echo '<div class="movie-item movie-item-three mb-50">';
+                echo '<div class="movie-poster text-center equal-height">';
+                echo '<img src="../uploads/movie/' . $same_category['image'] . '" alt="">';
+                echo '<ul class="overlay-btn">';
+                echo '<li class="rating">';
+                echo '<i class="fas fa-star"></i>';
+                echo '<i class="fas fa-star"></i>';
+                echo '<i class="fas fa-star"></i>';
+                echo '<i class="fas fa-star"></i>';
+                echo '<i class="fas fa-star"></i>';
+                echo '</li>';
+                echo '<li><a href="' . $same_category['trailer_movie'] . '" class="popup-video btn">Watch Now</a></li>';
+                echo '<li><a href="index.php?action=details_movie&id=' . $same_category['id_movie'] . '" class="btn">Details</a></li>';
+                echo '</ul>';
+                echo '</div>';
+                echo '<div class="movie-content">';
+                echo '<div class="top">';
+                echo '<h5 class="title"><a href="#">' . $same_category['name_movie'] . '</a></h5>';
+                echo '<span class="date">' . $same_category['year'] . '</span>';
+                echo '</div>';
+                echo '<div class="bottom">';
+                echo '<ul>';
+                echo '<li><span class="quality">hd</span></li>';
+                echo '<li>';
+                echo '<span class="duration"><i class="far fa-clock"></i> ' . $same_category['time'] . '</span>';
+                echo '<span class="rating"><i class="fas fa-thumbs-up"></i>' . $same_category['reviews'] . '</span>';
+                echo '</li>';
+                echo '</ul>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+            }
+            ?>
+        </div>
+        <div class="row align-items-end mb-60 dis_none">
+            <div class="col-lg-6">
+                <div class="section-title text-center text-lg-left">
+                    <span class="sub-title">ONLINE STREAMING</span>
+                    <h2 class="title">All Movies</h2>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one">
-                <div class="movie-item movie-item-three mb-50">
-                    <div class="movie-poster">
-                        <img src="assets/img/poster/ucm_poster02.jpg" alt="">
-                        <ul class="overlay-btn">
-                            <li class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </li>
-                            <li><a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="popup-video btn">Watch Now</a></li>
-                            <li><a href="index.php?action=details_movie" class="btn">Details</a></li>
-                        </ul>
-                    </div>
-                    <div class="movie-content">
-                        <div class="top">
-                            <h5 class="title"><a href="index.php?action=details_movie">The Perfect Match</a></h5>
-                            <span class="date">2021</span>
-                        </div>
-                        <div class="bottom">
-                            <ul>
-                                <li><span class="quality">4k</span></li>
-                                <li>
-                                    <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                    <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">
-                <div class="movie-item movie-item-three mb-50">
-                    <div class="movie-poster">
-                        <img src="assets/img/poster/ucm_poster03.jpg" alt="">
-                        <ul class="overlay-btn">
-                            <li class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </li>
-                            <li><a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="popup-video btn">Watch Now</a></li>
-                            <li><a href="index.php?action=details_movie" class="btn">Details</a></li>
-                        </ul>
-                    </div>
-                    <div class="movie-content">
-                        <div class="top">
-                            <h5 class="title"><a href="index.php?action=details_movie">The Dog Woof</a></h5>
-                            <span class="date">2021</span>
-                        </div>
-                        <div class="bottom">
-                            <ul>
-                                <li><span class="quality">hd</span></li>
-                                <li>
-                                    <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                    <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one">
-                <div class="movie-item movie-item-three mb-50">
-                    <div class="movie-poster">
-                        <img src="assets/img/poster/ucm_poster04.jpg" alt="">
-                        <ul class="overlay-btn">
-                            <li class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </li>
-                            <li><a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="popup-video btn">Watch Now</a></li>
-                            <li><a href="index.php?action=details_movie" class="btn">Details</a></li>
-                        </ul>
-                    </div>
-                    <div class="movie-content">
-                        <div class="top">
-                            <h5 class="title"><a href="index.php?action=details_movie">The Easy Reach</a></h5>
-                            <span class="date">2021</span>
-                        </div>
-                        <div class="bottom">
-                            <ul>
-                                <li><span class="quality">hd</span></li>
-                                <li>
-                                    <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                    <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">
-                <div class="movie-item movie-item-three mb-50">
-                    <div class="movie-poster">
-                        <img src="assets/img/poster/ucm_poster05.jpg" alt="">
-                        <ul class="overlay-btn">
-                            <li class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </li>
-                            <li><a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="popup-video btn">Watch Now</a></li>
-                            <li><a href="index.php?action=details_movie" class="btn">Details</a></li>
-                        </ul>
-                    </div>
-                    <div class="movie-content">
-                        <div class="top">
-                            <h5 class="title"><a href="index.php?action=details_movie">The Cooking</a></h5>
-                            <span class="date">2021</span>
-                        </div>
-                        <div class="bottom">
-                            <ul>
-                                <li><span class="quality">hd</span></li>
-                                <li>
-                                    <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                    <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one cat-two">
-                <div class="movie-item movie-item-three mb-50">
-                    <div class="movie-poster">
-                        <img src="assets/img/poster/ucm_poster06.jpg" alt="">
-                        <ul class="overlay-btn">
-                            <li class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </li>
-                            <li><a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="popup-video btn">Watch Now</a></li>
-                            <li><a href="index.php?action=details_movie" class="btn">Details</a></li>
-                        </ul>
-                    </div>
-                    <div class="movie-content">
-                        <div class="top">
-                            <h5 class="title"><a href="index.php?action=details_movie">The Hikaru Night</a></h5>
-                            <span class="date">2021</span>
-                        </div>
-                        <div class="bottom">
-                            <ul>
-                                <li><span class="quality">hd</span></li>
-                                <li>
-                                    <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                    <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one">
-                <div class="movie-item movie-item-three mb-50">
-                    <div class="movie-poster">
-                        <img src="assets/img/poster/ucm_poster07.jpg" alt="">
-                        <ul class="overlay-btn">
-                            <li class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </li>
-                            <li><a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="popup-video btn">Watch Now</a></li>
-                            <li><a href="index.php?action=details_movie" class="btn">Details</a></li>
-                        </ul>
-                    </div>
-                    <div class="movie-content">
-                        <div class="top">
-                            <h5 class="title"><a href="index.php?action=details_movie">The Life Quotes</a></h5>
-                            <span class="date">2021</span>
-                        </div>
-                        <div class="bottom">
-                            <ul>
-                                <li><span class="quality">hd</span></li>
-                                <li>
-                                    <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                    <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one cat-two">
-                <div class="movie-item movie-item-three mb-50">
-                    <div class="movie-poster">
-                        <img src="assets/img/poster/ucm_poster08.jpg" alt="">
-                        <ul class="overlay-btn">
-                            <li class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </li>
-                            <li><a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="popup-video btn">Watch Now</a></li>
-                            <li><a href="index.php?action=details_movie" class="btn">Details</a></li>
-                        </ul>
-                    </div>
-                    <div class="movie-content">
-                        <div class="top">
-                            <h5 class="title"><a href="index.php?action=details_movie">The Beachball</a></h5>
-                            <span class="date">2021</span>
-                        </div>
-                        <div class="bottom">
-                            <ul>
-                                <li><span class="quality">hd</span></li>
-                                <li>
-                                    <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                    <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        </div>
+        <div class="row tr-movie-active dis_none">
+            <?php
+            $moviesPerPage = 8;
+            $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+            $startIndex = ($currentPage - 1) * $moviesPerPage;
+            $pagedMovies = array_slice($list_movie, $startIndex, $moviesPerPage);
+            foreach ($pagedMovies as $movie) {
+                echo '<div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">';
+                echo '<div class="movie-item movie-item-three mb-50">';
+                echo '<div class="movie-poster text-center equal-height">';
+                echo '<img src="../uploads/movie/' . $movie['image'] . '" alt="">';
+                echo '<ul class="overlay-btn">';
+                echo '<li class="rating">';
+                echo '<i class="fas fa-star"></i>';
+                echo '<i class="fas fa-star"></i>';
+                echo '<i class="fas fa-star"></i>';
+                echo '<i class="fas fa-star"></i>';
+                echo '<i class="fas fa-star"></i>';
+                echo '</li>';
+                echo '<li><a href="' . $movie['trailer_movie'] . '" class="popup-video btn">Watch Now</a></li>';
+                echo '<li><a href="index.php?action=details_movie&id=' . $movie['id_movie'] . '" class="btn">Details</a></li>';
+                echo '</ul>';
+                echo '</div>';
+                echo '<div class="movie-content">';
+                echo '<div class="top">';
+                echo '<h5 class="title"><a href="#">' . $movie['name_movie'] . '</a></h5>';
+                echo '<span class="date">' . $movie['year'] . '</span>';
+                echo '</div>';
+                echo '<div class="bottom">';
+                echo '<ul>';
+                echo '<li><span class="quality">hd</span></li>';
+                echo '<li>';
+                echo '<span class="duration"><i class="far fa-clock"></i> ' . $movie['time'] . '</span>';
+                echo '<span class="rating"><i class="fas fa-thumbs-up"></i>' . $movie['reviews'] . '</span>';
+                echo '</li>';
+                echo '</ul>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+            }
+            ?>
         </div>
         <div class="row">
             <div class="col-12">
                 <div class="pagination-wrap mt-30">
                     <nav>
                         <ul>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">Next</a></li>
+                            <?php
+                            $moviesList = isset($_POST['same_category']) && $_POST['same_category'] ? $list_same_category : $list_movie;
+                            $totalPages = ceil(count($moviesList) / $moviesPerPage);
+                            if ($currentPage > 1) {
+                                echo '<li><a href="index.php?action=list_movie&page=' . ($currentPage - 1) . '">Previous</a></li>';
+                            }
+                            for ($i = 1; $i <= $totalPages; $i++) {
+                                echo '<li' . ($i === $currentPage ? ' class="active"' : '') . '><a href="index.php?action=list_movie&page=' . $i . '">' . $i . '</a></li>';
+                            }
+                            if ($currentPage < $totalPages) {
+                                echo '<li><a href="index.php?action=list_movie&page=' . ($currentPage + 1) . '">Next</a></li>';
+                            }
+                            ?>
                         </ul>
                     </nav>
                 </div>
@@ -325,3 +175,19 @@
         </div>
     </div>
 </section>
+
+<style>
+    .equal-height img {
+        height: 300px;
+        width: auto;
+        object-fit: cover;
+    }
+
+    .movie-item {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .movie-item:hover {
+        transform: scale(1.05);
+    }
+</style>

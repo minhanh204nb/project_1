@@ -1,8 +1,15 @@
 <?php
+session_start();
+ob_start();
+extract($_SESSION['user']);
+if ($role != '1') {
+    header('location:../index.php?action=home');
+}
 include './models/pdo.php';
 include './models/category/category.php';
 include './models/movie/movie.php';
 include './models/movie/country.php';
+include './models/account/account.php';
 include './models/room/room.php';
 include './models/combo/combo.php';
 include './layouts/head.php';
@@ -29,16 +36,17 @@ if (isset($_GET['action'])) {
             include './controllers/category/insert_category.php';
             break;
         case 'delete_category':
-            if (isset($_GET['id']) && ($_GET['id'] >0)) {
-                // Delete the category by calling the delete_category function
-                delete_category($_GET['id']);
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $id_category = $_GET['id'];
+                delete_category($id_category);
             }
             // Reload the list of categories after deletion
-            $sql = "select * from category order by id_category";
-            $list_category = pdo_query($sql);
+            // $sql = "select * from category order by id_category";
+            // $list_category = pdo_query($sql);
+            $list_category = loadall_category();
             include './views/category/list_category.php';
             break;
-            
+
         case 'edit_category':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $list_category = loadone_category($_GET['id']);
@@ -58,44 +66,44 @@ if (isset($_GET['action'])) {
             // End category
 
             // Room
-            case 'room':
-                $list_room = loadall_room();
-                include './views/room/list_room.php';
-                break;
+        case 'room':
+            $list_room = loadall_room();
+            include './views/room/list_room.php';
+            break;
 
-            case 'insert_room':
-                if (isset($_POST['insert_room']) && $_POST['insert_room']) {
-                    $name = $_POST['name_room'];
-                    insert_room($name);
-                }
-                include './controllers/room/insert_room.php';
-                break;
-            case 'delete_room':
-                if (isset($_GET['id']) && ($_GET['id'] >0)) {
+        case 'insert_room':
+            if (isset($_POST['insert_room']) && $_POST['insert_room']) {
+                $name = $_POST['name_room'];
+                insert_room($name);
+            }
+            include './controllers/room/insert_room.php';
+            break;
+        case 'delete_room':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 // Delete the category by calling the delete_category function
-                    delete_room($_GET['id']);
-                }
-                // Reload the list of categories after deletion
-                $sql = "select * from room order by id_room";
-                $list_room = pdo_query($sql);
-                include './views/room/list_room.php';
-                break; 
-            case 'edit_room':
-                if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                    $list_room = loadone_room($_GET['id']);
-                }
-                include './controllers/room/update_room.php';
-                break;             
-            case 'update_room':
-                if (isset($_POST['update_room']) && ($_POST['update_room'])) {
-                    $name_room = $_POST['name_room'];
-                    $id_room = $_POST['id_room'];
-                    update_room($id_room, $name_room);
-                }
-                $sql = "select * from room order by id_room";
-                $list_room = pdo_query($sql);
-                include './views/room/list_room.php';
-                break;    
+                delete_room($_GET['id']);
+            }
+            // Reload the list of categories after deletion
+            $sql = "select * from room order by id_room";
+            $list_room = pdo_query($sql);
+            include './views/room/list_room.php';
+            break;
+        case 'edit_room':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $list_room = loadone_room($_GET['id']);
+            }
+            include './controllers/room/update_room.php';
+            break;
+        case 'update_room':
+            if (isset($_POST['update_room']) && ($_POST['update_room'])) {
+                $name_room = $_POST['name_room'];
+                $id_room = $_POST['id_room'];
+                update_room($id_room, $name_room);
+            }
+            $sql = "select * from room order by id_room";
+            $list_room = pdo_query($sql);
+            include './views/room/list_room.php';
+            break;
             // End Room
 
             // Combo
@@ -116,26 +124,26 @@ if (isset($_GET['action'])) {
                     // move_uploaded_file:di chuyển tệp đã tải lên đến đích mới
                 } else {
                 }
-                insert_combo($name,$img_combo,$price_combo,$mota);
+                insert_combo($name, $img_combo, $price_combo, $mota);
             }
             include './controllers/combo/insert_combo.php';
-            break;  
+            break;
         case 'delete_combo':
-            if (isset($_GET['id']) && ($_GET['id'] >0)) {
-            // Delete the category by calling the delete_category function
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                // Delete the category by calling the delete_category function
                 delete_combo($_GET['id']);
             }
             // Reload the list of categories after deletion
             $sql = "select * from combo order by id_combo";
             $list_combo = pdo_query($sql);
             include './views/combo/list_combo.php';
-            break; 
+            break;
         case 'edit_combo':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $list_combo = loadone_combo($_GET['id']);
             }
             include './controllers/combo/update_combo.php';
-            break;             
+            break;
         case 'update_combo':
             if (isset($_POST['update_combo']) && ($_POST['update_combo'])) {
                 $name_combo = $_POST['name_combo'];
@@ -149,14 +157,14 @@ if (isset($_GET['action'])) {
                     // move_uploaded_file:di chuyển tệp đã tải lên đến đích mới
                 } else {
                 }
-                update_combo($id_combo, $name_combo,$img_combo,$price_combo,$mota);
+                update_combo($id_combo, $name_combo, $img_combo, $price_combo, $mota);
             }
             $sql = "select * from combo order by id_combo";
             $list_combo = pdo_query($sql);
             include './views/combo/list_combo.php';
             break;
 
-    // Movie
+            // Movie
         case 'movie':
             $list_country = loadall_country();
             $list_category = loadall_category();
@@ -188,16 +196,115 @@ if (isset($_GET['action'])) {
             }
             $list_country = loadall_country();
             $list_category = loadall_category();
+            // $list_movie = loadall_movie();
             include './controllers/movie/insert_movie.php';
             break;
         case 'delete_movie':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                // Delete the movie by calling the delete_movie function
+                delete_movie($_GET['id']);
+            }
+            $list_country = loadall_country();
+            $list_category = loadall_category();
+            $list_movie = loadall_movie();
+            include './views/movie/list_movie.php';
             break;
         case 'edit_movie':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $list_movie = loadone_movie($_GET['id']);
+            }
+            $list_country = loadall_country();
+            $list_category = loadall_category();
+            // $list_movie = loadall_movie();
+            include './controllers/movie/update_movie.php';
             break;
         case 'update_movie':
+            if (isset($_POST['update_movie']) && ($_POST['update_movie'])) {
+                $id_movie = $_POST['id_movie'];
+                $name_movie = $_POST['name_movie'];
+                $content = $_POST['content'];
+                $id_country = $_POST['id_country']; // Fix variable name here
+                $year = $_POST['year'];
+                $time = $_POST['time'];
+                $reviews = $_POST['reviews'];
+                $author = $_POST['author'];
+                $performer = $_POST['performer'];
+                $age_limit = $_POST['age_limit'];
+                $trailer_movie = $_POST['trailer_movie'];
+                $id_category = $_POST['id_category'];
+                $action = $_POST['action'];
+                $image = $_FILES['image']['name'];
+                $target_dir = "../uploads/movie/";
+                $target_file = $target_dir . basename($image);
+                if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+                    // File upload successful
+                } else {
+                    // Handle file upload error
+                }
+                // $movie_to_edit = loadone_movie($_GET['id']);
+                update_movie($id_movie, $name_movie, $content, $id_country, $year, $time, $reviews, $author, $performer, $age_limit, $image, $trailer_movie, $id_category, $action);
+            }
+            // $list_country = loadall_country();
+            // $list_category = loadall_category();
+            $list_movie = loadall_movie();
+            include './views/movie/list_movie.php';
             break;
-        case'room':
-            
+        case 'account':
+            $list_account = loadall_account();
+            include './views/account/list_account.php';
+            break;
+        case 'insert_account':
+            if (isset($_POST['insert']) && $_POST['insert']) {
+                $name_clinet = $_POST['name_clinet'];
+                $user = $_POST['user'];
+                $password = $_POST['password'];
+                $phone_number = $_POST['phone_number'];
+                $email = $_POST['email'];
+                $address = $_POST['address'];
+                $action = $_POST['action'];
+                $role = $_POST['role'];
+                insert_account($name_clinet, $user, $password, $phone_number, $email, $address, $action, $role);
+            }
+            include './controllers/account/insert_account.php';
+            break;
+        case 'delete_account':
+            if (isset($_GET['id']) && ($_GET['id'] >= 0)) {
+                // Delete the movie by calling the delete_movie function
+                delete_account($_GET['id']);
+            }
+            $list_account = loadall_account();
+            include './views/account/list_account.php';
+            break;
+        case 'edit_account':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $list_account = loadone_account($_GET['id']);
+            }
+            include './controllers/account/update_account.php';
+            break;
+        case 'update_account':
+            if (isset($_POST['update_account']) && ($_POST['update_account'])) {
+                $id_account = $_GET['id_account'];
+                $name_clinet = $_POST['name_clinet'];
+                $user = $_POST['user'];
+                $password = $_POST['password'];
+                $phone_number = $_POST['phone_number'];
+                $email = $_POST['email'];
+                $address = $_POST['address'];
+                $action = $_POST['action'];
+                $role = $_POST['role'];
+                update_account($id_account, $name_clinet, $user, $password, $phone_number, $email, $address, $action, $role);
+            }
+            $list_account = loadall_account();
+            include './views/account/list_account.php';
+            break;
+        case 'tickets':
+            break;
+        case 'showtime':
+            break;
+        case 'logout':
+            if (isset($_SESSION['user'])) {
+                unset($_SESSION['user']);
+            }
             break;
         default:
             break;

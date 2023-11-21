@@ -11,7 +11,7 @@ function update_room($id_room, $name_room)
 }
 function delete_room($id_room)
 {
-    $sql = "DELETE FROM room WHERE id_room = ".$_GET['id'];
+    $sql = "DELETE FROM room WHERE id_room = ".$id_room;
    pdo_query($sql);
 }
 function loadall_room()

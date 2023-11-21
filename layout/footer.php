@@ -16,13 +16,13 @@
                                     <li class="menu-item-has-children"><a href="index.php?action=list_movie">Movie</a></li>
                                     <li><a href="index.php?action=combo">Combo</a></li>
                                     <li class="menu-item-has-children"><a href="index.php?action=blog">blog</a></li>
-                                    <li><a href="index.php?action=contacts">contacts</a></li>
-                                    <li><a href="">Your tickets</a></li>
+                                    <li><a href="index.php?action=contact">contacts</a></li>
+                                    <li><a href="index.php?action=your_ticket">Your tickets</a></li>
                                 </ul>
                                 <div class="footer-search">
-                                    <form action="#">
-                                        <input type="text" placeholder="Find Favorite Movie">
-                                        <button><i class="fas fa-search"></i></button>
+                                    <form action="index.php?action=search" method="post">
+                                        <input type="text" name="keysword" placeholder="Find Favorite Movie">
+                                        <button type="submit"><i class="fas fa-search"></i></button>
                                     </form>
                                 </div>
                             </nav>
@@ -42,7 +42,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-5">
+                    <!-- <div class="col-md-5">
                         <div class="footer-social">
                             <ul>
                                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -51,7 +51,7 @@
                                 <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

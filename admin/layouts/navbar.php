@@ -1,7 +1,7 @@
 <div class="header header-one">
     <div class="header-left header-left-one">
-        <a href="index.html" class="logo">
-            <!-- <img src="assets/img/img-05.jpg" alt="Logo"> -->
+        <a href="index.php" class="logo">
+            <!-- <img src="https://source.unsplash.com/random" alt="Logo"> -->
         </a>
         <a href="index.html" class="white-logo">
             <!-- <img src="assets/img/logo-white.png" alt="Logo"> -->
@@ -32,19 +32,8 @@
                     <span class="status online"></span>
                 </span>
             </a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="profile.html"><i data-feather="user" class="me-1"></i>
-                    Profile</a>
-                <a class="dropdown-item" href="settings.html"><i data-feather="settings" class="me-1"></i>
-                    Settings</a>
-                <a class="dropdown-item" href="login.html"><i data-feather="log-out" class="me-1"></i>
-                    Logout</a>
-            </div>
         </li>
         <li class="nav-item dropdown  flag-nav">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="" role="button">
-                <img src="https://source.unsplash.com/random" alt="" height="00"> <span>Đăng xuất</span>
-            </a>
         </li>
     </ul>
 </div>
