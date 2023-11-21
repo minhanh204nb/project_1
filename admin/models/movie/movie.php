@@ -55,6 +55,10 @@ function search_movie($keysword = "", $id_category)
     return $list_movie;
 }
 
+
+
+
+
 function load_movie_same_category($id_movie, $id_category)
 {
     $sql = "select * from movie where id_category=" . $id_category . " AND id_movie <> " . $id_movie;

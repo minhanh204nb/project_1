@@ -7,20 +7,27 @@
                     <h2 class="title">Search ...</h2>
                 </div>
             </div>
-            <!-- <div class="col-lg-6">
+            <div class="col-lg-6">
                 <div class="movie-page-meta">
-                    <form action="#" class="movie-filter-form">
-                        <select id="categoryFilter" name="id_category" class="custom-select">
+                    <form class="movie-filter-form" action="index.php?action=list_movie" method="post" id="filterForm">
+                        <input type="hidden" name="id_movie" value="<?php echo $id_movie; ?>">
+                        <select id="categoryFilter" class="custom-select" name="same_category" onchange="submitForm()">
                             <?php
                             foreach ($list_category as $category) {
-                                echo '';
-                                echo '<option value="' . $category['id_category'] . '"><a href="index.php">' . $category['name_category'] . '</a></option>';
+                                $selected = ($category['id_category'] == $id_category) ? 'selected' : '';
+                                echo '<option value="' . $category['id_category'] . '" ' . $selected . '>' . $category['name_category'] . '</option>';
                             }
                             ?>
                         </select>
+                        <input hidden type="submit" value="Apply Filter">
                     </form>
+                    <script>
+                        function submitForm() {
+                            document.getElementById("filterForm").submit();
+                        }
+                    </script>
                 </div>
-            </div> -->
+            </div>
         </div>
         <div class="row tr-movie-active">
             <?php

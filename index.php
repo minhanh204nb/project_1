@@ -2,13 +2,13 @@
 session_start();
 ob_start();
 include './models/pdo.php';
-include './admin/models/category/category.php';
-include './admin/models/movie/country.php';
-include './admin/models/movie/movie.php';
-include './admin/models/contact/contact.php';
-include './admin/models/account/account.php';
 include './layout/head.php';
 include './layout/navbar.php';
+include './admin/models/account/account.php';
+include './admin/models/movie/movie.php';
+include './admin/models/category/category.php';
+include './admin/models/movie/country.php';
+include './admin/models/contact/contact.php';
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -58,6 +58,7 @@ if (isset($_GET['action'])) {
                 $id_category = 0;
             }
             $list_movie = search_movie($keysword, $id_category);
+            $list_category = loadall_category();
             include './views/search.php';
             break;
         case 'blog':

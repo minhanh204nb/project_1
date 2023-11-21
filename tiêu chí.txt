@@ -1,0 +1,22 @@
+Tiêu chí được 5 điểm:
+hiển thị thể loại phim (ok)
+hiển thị thông tin phim(chi tiết phim) (ok)
+lựa chọn suất chiếu và vị trí ghế(ngày và giờ)
+đăng kí và đăng nhập (ok)
+
+về người dùng: đặt vé xem phim thành công(nhảy vào db khi đặt vé
+
+
+
+Về Admin:quản lí thể loại phim ,phòng phim, phim, suất chiếu
+
+Thang điểm cao hơn:
+lọc phim (rạp, tên loại phim)
+lịch sử đặt vé
+bình luận
+quản lí danh sách đặt vé xem phim
+xác thực cập nhật trạng thái đơn hàng(khi khách lấy vé hay chưa)
+validate đầy đủ
+(thêm rạp được điểm cao hơn)
+
+thang mắc : thanh toán online
