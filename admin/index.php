@@ -1,10 +1,10 @@
 <?php
-session_start();
-ob_start();
-extract($_SESSION['user']);
-if ($role != '1') {
-    header('location:../index.php?action=home');
-}
+// session_start();
+// ob_start();
+// extract($_SESSION['user']);
+// if ($role != '1') {
+//     header('location:../index.php?action=home');
+// }
 include './models/pdo.php';
 include './models/category/category.php';
 include './models/movie/movie.php';
@@ -74,7 +74,8 @@ if (isset($_GET['action'])) {
         case 'insert_room':
             if (isset($_POST['insert_room']) && $_POST['insert_room']) {
                 $name = $_POST['name_room'];
-                insert_room($name);
+                $action_room = $_POST['action_room'];
+                insert_room($name,$action_room);
             }
             include './controllers/room/insert_room.php';
             break;
@@ -98,7 +99,8 @@ if (isset($_GET['action'])) {
             if (isset($_POST['update_room']) && ($_POST['update_room'])) {
                 $name_room = $_POST['name_room'];
                 $id_room = $_POST['id_room'];
-                update_room($id_room, $name_room);
+                $action_room = $_POST['action_room'];
+                update_room($id_room, $name_room,$action_room);
             }
             $sql = "select * from room order by id_room";
             $list_room = pdo_query($sql);

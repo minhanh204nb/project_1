@@ -2,6 +2,13 @@
 if (is_array($list_combo)) {
     extract(($list_combo));
 }
+    $hinhpath="../upload/".$img;
+    if(is_file($hinhpath)){
+      $img_combo= "<img src='".$hinhpath."' height='80px'>";
+    }else{
+      $img_combo = "no photo";
+    }
+
 ?>
 <!<!DOCTYPE html>
     <html lang="en">

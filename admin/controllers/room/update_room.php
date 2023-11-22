@@ -32,13 +32,34 @@ if (is_array($list_room)) {
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>NAME ROOM<span class="text-danger">*</span></label>
-                                                <input type="text" name="name_room" class="form-control" required value="<?php if(isset($name_room)&&($name_room!="")) echo $name_room?>"></ </div>
+                                                <input type="text" name="name_room" class="form-control" required value="<?php if (isset($name_room) && ($name_room != "")) echo $name_room ?>"></ </div>
                                             </div>
                                         </div>
+
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="form-group row">
+                                                <label>STATUS ROOM<span class="text-danger">*</span></label>
+                                              
+                                                <div class="col-md-10">
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input type="radio" name="action_room" value="0" checked> Hoạt Động
+                                                        </label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input type="radio" name="action_room" value="1"> Không hoạt động
+                                                        </label>
+                                                    </div>
+                                                 
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                                 <div class="bank-details-btn ">
-                                    <input type="hidden" name="id_room" value="<?php if(isset($id_room)&&($id_room>0)) echo $id_room;?>">
+                                    <input type="hidden" name="id_room" value="<?php if (isset($id_room) && ($id_room > 0)) echo $id_room; ?>">
                                     <input type="submit" class="btn btn-primary me-2" name="update_room" value="UPDATE">
                                 </div>
                             </div>

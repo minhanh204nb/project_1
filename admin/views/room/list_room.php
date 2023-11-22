@@ -22,10 +22,15 @@
                                             extract(($room));
                                             $edit_room = "index.php?action=edit_room&id=" . $room['id_room'];
                                             $delete_room = "index.php?action=delete_room&id=" . $room['id_room'];
+                                            if ($room['action_room']==0 ){
+                                                $room['action_room'] = "Hoạt động";
+                                            }else{
+                                                $room['action_room'] = "Không hoạt động";
+                                            }
                                             echo "<tr>";
                                             echo "<td>" . $room["id_room"] . "</td>";
                                             echo "<td>" . $room["name_room"] . "</td>";
-                                            echo "<td>" . $room["action"] . "</td>";
+                                            echo "<td>" . $room["action_room"] . "</td>";
                                             echo "<td class='edit-delete-btn'>
                                             <a href='".$edit_room."' class='text-success'><i class='feather-edit-3 me-1'></i> Edit</a>
                                             <a href='" . $delete_room . "' onclick='return confirm(\"Bạn có chắc muốn xóa?\");' class='text-danger' data-bs-toggle='modal' data-bs-target='#deleteModal'><i class='feather-trash-2 me-1'></i> Delete</a></td>";

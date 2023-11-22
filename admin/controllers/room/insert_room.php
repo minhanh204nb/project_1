@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <body class="nk-body bg-lighter npc-default has-sidebar no-touch nk-nio-theme">
     <div class="main-wrapper">
         <div class="page-wrapper">
@@ -25,10 +26,28 @@
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>NAME ROOM<span class="text-danger">*</span></label>
-                                                <input type="text" name="name_room" class="form-control" required placeholder="name room"></ </div>
+                                                <input type="text" name="name_room" class="form-control" required placeholder="Name room"></ </div>
                                             </div>
                                         </div>
-                                        
+
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="form-group row">
+                                                <label>STATUS ROOM<span class="text-danger">*</span></label>
+                                              
+                                                <div class="col-md-10">
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input type="radio" name="action_room" value="0" checked> Hoạt Động
+                                                        </label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input type="radio" name="action_room" value="1"> Không hoạt động
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="bank-details-btn ">
