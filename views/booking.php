@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php include 'config.php'; ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +24,7 @@ $list_combo = loadall_combo();
             <div class="play">
                 <i class="bi bi-play-fill" id="play"></i>
             </div>
-            <form class="cont" action="" method="post">
+            <form action="/views/vnpay_create_payment.php" id="frmCreateOrder" class="cont" method="post">
                 <h2><?php echo $movie['name_movie']  ?></h2>
                 <hr>
                 <h5>SHOWTIME</h5>
@@ -37,16 +39,37 @@ $list_combo = loadall_combo();
                 <h5>Combos</h5>
                 <input type="text" name="combos" value="000.00 đ" readonly>
                 <hr>
-                <h3>Total Money</h3>
-                <input type="text" name="total" value="000.00 đ" readonly>
-                <li>--------------</li>
-                <br>
-                <input class="btn" onclick="pay()" name="redirect" type="submit" value="Thanh Toán">
-                <?php
-                if (isset($_POST['redirect']) && $_POST['redirect']) {
-                    header('Location: /vnpay_php/vnpay_pay.php');
-                }
-                ?>
+                <h3>Aount Money</h3>
+                <input hidden type="text" name="amount" value="000.00 đ" readonly>
+                <div class="form-group">
+                    <label hidden for="amount">Số tiền</label>
+                    <input class="form-control" data-val="true" data-val-number="The field amount must be a number." data-val-required="The amount field is required." id="amount" max="100000000" min="10000" name="amount" type="number" value=""readonly  style="color:white;background-color: transparent;border: none; " />
+                </div>
+                <h4>Chọn phương thức thanh toán</h4>
+                <div class="form-group">
+
+                    <input type="radio" checked="true" id="bankCode1" name="bankCode" value="">
+                    <label for="bankCode1">Cổng thanh toán VNPAYQR</label><br>
+
+                    <h5 hidden>Cách 2: Tách phương thức tại site của đơn vị kết nối</h5>
+                    <input hidden type="radio" id="bankCode2" name="bankCode" value="VNPAYQR">
+                    <label hidden for="bankCode2">Thanh toán bằng ứng dụng hỗ trợ VNPAYQR</label><br>
+
+                    <input  type="radio" id="bankCode3" name="bankCode" value="VNBANK">
+                    <label  for="bankCode3">Thanh toán qua thẻ ATM/Tài khoản nội địa</label><br>
+
+                    <input hidden type="radio" id="bankCode4" name="bankCode" value="INTCARD">
+                    <label hidden for="bankCode4">Thanh toán qua thẻ quốc tế</label><br>
+                </div>
+                <div class="form-group" hidden>
+                    <h5>Chọn ngôn ngữ giao diện thanh toán:</h5>
+                    <input type="radio" checked="true" id="language1" name="language" value="vn">
+                    <label for="language1">Tiếng việt</label><br>
+                    <input type="radio" id="language2" name="language" value="en">
+                    <label for="language2">Tiếng anh</label><br>
+                </div>
+                <hr>
+                <button type="submit" class="btn btn-default">Thanh toán</button>
             </form>
             <style>
                 input {
@@ -218,23 +241,21 @@ $list_combo = loadall_combo();
                 $("input[name='seats']").val(newSeatsValue);
                 // Toggle the selection class for styling
                 $(this).toggleClass("selected");
-                // Calculate and update the total price
-                updateTotalPrice();
+                // Calculate and update the amount price
+                updateamountPrice();
             });
 
-            function updateTotalPrice() {
+            function updateamountPrice() {
                 var selectedSeats = $("input[name='seats']").val();
                 var pricePerSeat = 65000; // Set your price per seat here
-                var total = selectedSeats.split(',').length * pricePerSeat;
-                // Update the tickets input field with the calculated total price
-                $("input[name='tickets']").val(total.toLocaleString('vi-VN') + ' đ');
-                // You can also update other fields if needed (e.g., combos, total money, etc.)
-                // $("input[name='combos']").val(total.toLocaleString('vi-VN') + ' đ');
-                $("input[name='total']").val(total.toLocaleString('vi-VN') + ' đ');
-                updateTotalPrice();
+                var amount = selectedSeats.split(',').length * pricePerSeat;
+                // Update the tickets input field with the calculated amount price
+                $("input[name='tickets']").val(amount.toLocaleString('vi-VN') + '');
+                // You can also update other fields if needed (e.g., combos, amount money, etc.)
+                // $("input[name='combos']").val(amount.toLocaleString('vi-VN') + ' đ');
+                $("input[name='amount']").val(amount);
             }
         });
-        updateTotalPrice();
     </script>
     <script>
         $(document).ready(function() {
@@ -308,17 +329,17 @@ $list_combo = loadall_combo();
                     combosPrice += selectedCombos[i] * parseFloat(comboData[i].price_combo);
                 }
                 $("input[name='combos']").val(combosPrice.toLocaleString('vi-VN') + ' đ');
-                updateTotalPrice();
+                updateamountPrice();
             }
 
-            function updateTotalPrice() {
-                var ticketsPrice = parseInt($("input[name='tickets']").val().replace(/[^\d]/g, '')) || 0;
-                var combosPrice = parseInt($("input[name='combos']").val().replace(/[^\d]/g, '')) || 0;
-                var total = ticketsPrice + combosPrice;
-                $("input[name='total']").val(total.toLocaleString('vi-VN') + ' đ');
+            function updateamountPrice() {
+                var ticketsPrice = parseFloat($("input[name='tickets']").val().replace(/[^\d.]/g, '')) || 0;
+                var combosPrice = parseFloat($("input[name='combos']").val().replace(/[^\d.]/g, '')) || 0;
+                var amount = ticketsPrice + combosPrice;
+                $("input[name='amount']").val(amount.toLocaleString('vi-VN') + '000');
             }
         });
-        updateTotalPrice();
+        updateamountPrice();
     </script>
     <!-- Add this JavaScript block at the end of your HTML -->
     <script>
@@ -371,6 +392,8 @@ $list_combo = loadall_combo();
             updateShowtimes(defaultShowtimes);
         });
     </script>
+
+
 
 
 </body>
