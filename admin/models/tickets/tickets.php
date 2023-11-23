@@ -8,7 +8,7 @@ function loadall_tickets()
 
 function loadone_ticket($id_showtime)
 {
-    $sql = "SELECT * FROM ticket WHERE id_showtime";
+    $sql = "SELECT * FROM ticket WHERE id_showtime = '$id_showtime'";
     $loadone_ticket = pdo_query_one($sql);
     return $loadone_ticket;
 }
