@@ -247,7 +247,7 @@ $list_combo = loadall_combo();
 
             function updateamountPrice() {
                 var selectedSeats = $("input[name='seats']").val();
-                var pricePerSeat = 65000; // Set your price per seat here
+                var pricePerSeat = 10000; // Set your price per seat here
                 var amount = selectedSeats.split(',').length * pricePerSeat;
                 // Update the tickets input field with the calculated amount price
                 $("input[name='tickets']").val(amount.toLocaleString('vi-VN') + '');
