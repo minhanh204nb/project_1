@@ -8,6 +8,10 @@ include './admin/models/account/account.php';
 include './admin/models/movie/movie.php';
 include './admin/models/category/category.php';
 include './admin/models/movie/country.php';
+include './admin/models/room/room.php';
+include './admin/models/combo/combo.php';
+include './admin/models/tickets/tickets.php';
+include './admin/models/showtime/showtime.php';
 include './admin/models/contact/contact.php';
 
 if (isset($_GET['action'])) {
@@ -71,6 +75,17 @@ if (isset($_GET['action'])) {
             include './views/combo.php';
             break;
         case 'booking':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $id_movie = $_GET['id'];
+                $list_movie = loadone_movie($id_movie);
+                $loadone_showtime = loadone_showtime_by_id_movie($id_movie);
+                // $showTimes = loadall_showtime_id( $movie['id_movie']);
+            }
+            $loadone_showtime = loadone_showtime_by_id_movie($id_movie);
+            $list_all_movie = loadall_movie();
+            $list_combo = loadall_combo();
+            // $list_room=loadall_room();
+            $list_movie = loadone_movie($id_movie);
             include './views/booking.php';
             break;
         case 'signup':

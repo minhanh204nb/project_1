@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,35 +7,47 @@
     <!-- <link rel="stylesheet" href="../assets/css/style_booking.css"> -->
     <title>Movie Ticket Booking Website</title>
 </head>
+<?php
+$id_movie = isset($_GET['id']) ? $_GET['id'] : 0;
+$movie = loadone_movie($id_movie);
+$loadone_showtime = loadone_showtime_by_id_movie($id_movie);
+$loadone_ticket = loadone_ticket($loadone_showtime[0]['id_showtime']); // Assuming you want the first showtime
+$list_combo = loadall_combo();
+?>
 
 <body style="background-color: black;">
     <div class="book">
         <div class="left">
-            <img src="https://source.unsplash.com/random" alt="" id="poster">
+            <img src="../uploads/movie/<?php echo $movie['image'] ?>" alt="" id="poster">
             <div class="play">
                 <i class="bi bi-play-fill" id="play"></i>
             </div>
-            <div class="cont">
-                <h2>Name MOVIE</h2>
+            <form class="cont" action="" method="post">
+                <h2><?php echo $movie['name_movie']  ?></h2>
                 <hr>
                 <h5>SHOWTIME</h5>
                 <input type="text" name="hours" value="" readonly>
                 <input type="text" name="month" value="" readonly>
                 <h5>ROOM</h5>
-                <input type="text" value="P210" readonly>
+                <input type="text" name="room" value="" readonly>
                 <h5>Seats</h5>
                 <input type="text" name="seats" value="" readonly>
                 <h5>Tickets</h5>
-                <input type="text" value="000.00 đ" readonly>
+                <input type="text" name="tickets" id="tickets" value="0 đ" readonly>
                 <h5>Combos</h5>
-                <input type="text" value="000.00 đ" readonly>
+                <input type="text" name="combos" value="000.00 đ" readonly>
                 <hr>
                 <h3>Total Money</h3>
-                <input type="text" value="000.00 đ" readonly>
+                <input type="text" name="total" value="000.00 đ" readonly>
                 <li>--------------</li>
                 <br>
-                <input class="btn" type="submit" value="Thanh Toán">
-            </div>
+                <input class="btn" onclick="pay()" name="redirect" type="submit" value="Thanh Toán">
+                <?php
+                if (isset($_POST['redirect']) && $_POST['redirect']) {
+                    header('Location: /vnpay_php/vnpay_pay.php');
+                }
+                ?>
+            </form>
             <style>
                 input {
                     background-color: #2E3037;
@@ -49,10 +60,28 @@
         <div class="right">
             <video src="../assets/video/Gadar2 Official Trailer - 11th August - Sunny Deol - Ameesha Patel - Anil Sharma - Zee Studios.mp4" id="video"></video>
             <div class="head_time">
-                <h1 id="title">NAME MOVIE</h1>
+                <h1 id="title"><?php echo $movie['name_movie'] ?></h1>
                 <div class="time">
-                    <h6><i class="bi bi-clock"></i> 165 minutes</h6>
-                    <button>ROOM</button>
+                    <h6><i class="bi bi-clock"></i><?php echo $movie['time'] ?></h6>
+                    <?php
+
+                    ?>
+                    <select class="btn min" name="id_room" id="id_room">
+                        <option value="">Chọn Phòng</option>
+                        <?php
+                        $list_room = loadall_room(); // Move this line outside the loop
+                        foreach ($loadone_showtime as $room) {
+                            $name = "";
+                            foreach ($list_room as $room_item) {
+                                if ($room_item['id_room'] == $room['id_room']) {
+                                    $name = $room_item['name_room'];
+                                    break; // No need to continue searching once a match is found
+                                }
+                            }
+                            echo '<option value="' . $room['id_room'] . '">' . $name . '</option>';
+                        }
+                        ?>
+                    </select>
                 </div>
             </div>
             <div class="date_type">
@@ -81,12 +110,12 @@
                     <h6 class="title">Show Time</h6>
                     <div class="card_month crd" id="showTimes">
                         <?php
-                        $showTimes = ["10:00", "12:30", "14:00", "17:00", "18:00", "20:00", "21:00", "22:30", "12:00", "12:30"];
-
+                        $showTimes = load_showtime_by_id_room($room['id_room']);
+                        // $showTimes = loadone_showtime_by_id_movie($_GET['id']);
                         foreach ($showTimes as $time) {
                             echo '<li>';
                             echo '<h6></h6>';
-                            echo '<h6>' . $time . '</h6>';
+                            echo '<h6>' . $time['start_time'] . '</h6>';
                             echo '</li>';
                         }
                         ?>
@@ -101,58 +130,19 @@
                 <?php
                 $rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
                 $columns = range(1, 9);
-
                 foreach ($rows as $row) {
                     echo '<div class="row">';
                     foreach ($columns as $column) {
                         $seat = $row . $column;
-                        echo '<li class="seat" data-seat="' . $seat . '">' . $seat . '</li>';
+                        echo '<li class="seat" data-seat="' . $seat . '">' . $seat . '  </li>';
+                        echo '  ';
                     }
                     echo '</div>';
                 }
                 ?>
             </div>
             <!-- Ticket  -->
-            <div class="ticket" id="ticket">
-                <div class="tic">
-                    <div class="barcode">
-                        <div class="card">
-                            <h6>ROW J</h6>
-                            <h6>7 September 2023</h6>
-                        </div>
-                        <div class="card">
-                            <h6>Seat 18</h6>
-                            <h6>23:00</h6>
-                        </div>
 
-                        <svg id="barcode"></svg>
-                        <h5>VEGUS CINEMA</h5>
-                    </div>
-                    <div class="tic_details">
-                        <div class="type">4DX</div>
-                        <h5 class="pvr"><span>Vegus</span> Cinema</h5>
-                        <h1>Jawan</h1>
-                        <div class="seat_det">
-                            <div class="seat_cr">
-                                <h6>ROW</h6>
-                                <h6>J</h6>
-                            </div>
-                            <div class="seat_cr">
-                                <h6>SEAT</h6>
-                                <h6>18</h6>
-                            </div>
-                            <div class="seat_cr">
-                                <h6>DATE</h6>
-                                <h6>7 <sub>sep</sub></h6>
-                            </div>
-                            <div class="seat_cr">
-                                <h6>TIME</h6>
-                                <h6>11:30 <sub>pm</sub></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <!-- Details  -->
             <div class="details" id="det">
                 <div class="details_chair">
@@ -161,20 +151,54 @@
                     <li>Selected</li>
                 </div>
             </div>
-            <button class="book_tic" id="book_ticket">
-                <i class="bi bi-arrow-left-short"></i>
-            </button>
-            <button class="book_tic" id="back_ticket">
-                <i class="bi bi-arrow-left-short"></i>
-            </button>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table border="1" class="datatable table table-stripped dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                    <tr style="text-align: center;">
+                                        <th>NAME COMBO</th>
+                                        <th>IMGER COMBO</th>
+                                        <th>PRICE COMBO</th>
+                                        <th colspan="1">DESCRIBE</th>
+                                        <th colspan="1">Thêm Combo</th>
+                                    </tr>
+                                    <?php
+                                    foreach ($list_combo as $combo) {
+                                        extract(($combo));
+                                        $hinhpath = "./uploads/combo/" . $combo['img_combo'];
+                                        if (is_file($hinhpath)) {
+                                            $img_combo = "<img src='" . $hinhpath . "' height='80px'>";
+                                        } else {
+                                            $img_combo = "no photo";
+                                        }
+                                        echo "<tr>";
+                                        echo "<td>" . $combo["name_combo"] . "</td>";
+                                        echo "<td>" . $img_combo . "</td>";
+                                        echo "<td>" . $combo["price_combo"] . "</td>";
+                                        echo "<td>" . $combo["mota"] . "</td>";
+                                        echo "<td class='edit-delete-btn'>";
+                                        echo ' <button>-</button>';
+                                        echo '<input type="text" name="quantity" value="0" min="0" >';
+                                        echo ' <button>+</button>';
+                                        echo "</td>";
+                                        echo "</tr>";
+                                    }
+                                    // 
+                                    ?>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-
     <script src="../assets/js/app1.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.5/JsBarcode.all.js" integrity="sha512-wkHtSbhQMx77jh9oKL0AlLBd15fOMoJUowEpAzmSG5q5Pg9oF+XoMLCitFmi7AOhIVhR6T6BsaHJr6ChuXaM/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
     <script>
         JsBarcode("#barcode", "J18800792023");
     </script>
@@ -184,7 +208,6 @@
                 var selectedSeat = $(this).data("seat");
                 var currentSeatsValue = $("input[name='seats']").val();
                 var newSeatsValue;
-
                 if (currentSeatsValue === "") {
                     newSeatsValue = selectedSeat;
                 } else {
@@ -192,70 +215,162 @@
                         currentSeatsValue.replace(',' + selectedSeat, '').replace(selectedSeat + ',', '').replace(selectedSeat, '') :
                         currentSeatsValue + ',' + selectedSeat;
                 }
-
                 $("input[name='seats']").val(newSeatsValue);
-
                 // Toggle the selection class for styling
                 $(this).toggleClass("selected");
+                // Calculate and update the total price
+                updateTotalPrice();
             });
+
+            function updateTotalPrice() {
+                var selectedSeats = $("input[name='seats']").val();
+                var pricePerSeat = 65000; // Set your price per seat here
+                var total = selectedSeats.split(',').length * pricePerSeat;
+                // Update the tickets input field with the calculated total price
+                $("input[name='tickets']").val(total.toLocaleString('vi-VN') + ' đ');
+                // You can also update other fields if needed (e.g., combos, total money, etc.)
+                // $("input[name='combos']").val(total.toLocaleString('vi-VN') + ' đ');
+                $("input[name='total']").val(total.toLocaleString('vi-VN') + ' đ');
+                updateTotalPrice();
+            }
         });
+        updateTotalPrice();
     </script>
-    <style>
-        .seat.selected {
-            background-color: yellow;
-            /* Change this to your desired color */
-            color: black;
-            /* Change this to your desired text color */
-        }
-    </style>
     <script>
         $(document).ready(function() {
             // Define an array of show times
-            var showTimes = [
-                "10:00", "12:30", "14:00", "17:00", "18:00", "20:00", "21:00", "22:30", "12:00", "12:30"
-            ];
-
             // Add click event listener to show time buttons
             $("#showTimes li").click(function() {
                 // Remove the 'selected' class from all show time buttons
                 $("#showTimes li").removeClass("selected");
-
                 var selectedTime = $(this).text().trim();
-
                 // Update the hours input field
                 $("input[name='hours']").val(selectedTime);
-
                 // Add the 'selected' class to the clicked button
                 $(this).addClass("selected");
             });
         });
     </script>
-    <style>
-        /* Add this style to highlight the selected show time button */
-        #showTimes li.selected {
-            background-color: #FF0000;
-        }
-    </style>
     <script>
         $(document).ready(function() {
             // Add click event listener to date points
             $(".date_point").click(function() {
                 // Remove the 'selected' class from all date points
                 $(".date_point").removeClass("selected");
-
                 var selectedDate = $(this).text().trim();
-
                 // Update the month input field
                 $("input[name='month']").val(selectedDate);
-
                 // Add the 'selected' class to the clicked date point
                 $(this).addClass("selected");
             });
         });
     </script>
+    <script>
+        $(document).ready(function() {
+            // Add change event listener to id_room select
+            $("#id_room").change(function() {
+                // Get the selected room name
+                var selectedRoomName = $("#id_room option:selected").text();
+                // Set the value of the "ROOM" input field to the selected room name
+                $("input[name='room']").val(selectedRoomName);
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var comboData = <?php echo json_encode($list_combo); ?>;
+            var selectedCombos = Array(comboData.length).fill(0);
+            document.querySelectorAll(".edit-delete-btn button:last-child").forEach(function(button, index) {
+                button.addEventListener("click", function() {
+                    updateQuantity(index, 1);
+                });
+            });
+            document.querySelectorAll(".edit-delete-btn button:first-child").forEach(function(button, index) {
+                button.addEventListener("click", function() {
+                    updateQuantity(index, -1);
+                });
+            });
 
+            function updateQuantity(index, value) {
+                var inputElement = document.querySelectorAll(".edit-delete-btn input")[index];
+                var quantity = parseInt(inputElement.value) + value;
+                // Kiểm tra nếu số lượng là lớn hơn hoặc bằng 0 thì mới cập nhật giá trị
+                if (quantity >= 0) {
+                    inputElement.value = quantity;
+                    selectedCombos[index] = quantity;
+                    updateComboPrice();
+                }
+            }
 
+            function updateComboPrice() {
+                var combosPrice = 0;
+                for (var i = 0; i < comboData.length; i++) {
+                    combosPrice += selectedCombos[i] * parseFloat(comboData[i].price_combo);
+                }
+                $("input[name='combos']").val(combosPrice.toLocaleString('vi-VN') + ' đ');
+                updateTotalPrice();
+            }
 
+            function updateTotalPrice() {
+                var ticketsPrice = parseInt($("input[name='tickets']").val().replace(/[^\d]/g, '')) || 0;
+                var combosPrice = parseInt($("input[name='combos']").val().replace(/[^\d]/g, '')) || 0;
+                var total = ticketsPrice + combosPrice;
+                $("input[name='total']").val(total.toLocaleString('vi-VN') + ' đ');
+            }
+        });
+        updateTotalPrice();
+    </script>
+    <!-- Add this JavaScript block at the end of your HTML -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Load all showtimes initially
+            var allShowtimes = <?php echo json_encode($loadone_showtime); ?>;
+            // Get the showtimes container
+            var showtimesContainer = document.getElementById("showTimes");
+            // Get the hours input field
+            var hoursInput = document.querySelector("input[name='hours']");
+            // Add change event listener to id_room select
+            document.getElementById("id_room").addEventListener("change", function() {
+                // Get the selected room ID
+                var selectedRoomId = this.value;
+                // Filter showtimes based on the selected room
+                var filteredShowtimes = allShowtimes.filter(function(showtime) {
+                    return showtime.id_room == selectedRoomId;
+                });
+                // Update the showtimes container
+                updateShowtimes(filteredShowtimes);
+            });
+            // Function to update showtimes in the DOM
+            function updateShowtimes(showtimes) {
+                // Clear existing showtimes
+                showtimesContainer.innerHTML = "";
+                // Add new showtimes to the container
+                showtimes.forEach(function(time) {
+                    var listItem = document.createElement("li");
+                    listItem.innerHTML = '<h6>' + time.start_time + '</h6>';
+                    // Add click event listener to the showtime item
+                    listItem.addEventListener("click", function() {
+                        // Update the hours input field with the selected showtime
+                        hoursInput.value = time.start_time;
+                        // Remove the 'selected' class from all showtime items
+                        var allShowtimeItems = showtimesContainer.querySelectorAll("li");
+                        allShowtimeItems.forEach(function(item) {
+                            item.classList.remove("selected");
+                        });
+                        // Add the 'selected' class to the clicked showtime item
+                        listItem.classList.add("selected");
+                    });
+                    showtimesContainer.appendChild(listItem);
+                });
+            }
+            // Initial update based on the default selected room
+            var defaultRoomId = document.getElementById("id_room").value;
+            var defaultShowtimes = allShowtimes.filter(function(showtime) {
+                return showtime.id_room == defaultRoomId;
+            });
+            updateShowtimes(defaultShowtimes);
+        });
+    </script>
 
 
 </body>

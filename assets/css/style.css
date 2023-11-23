@@ -2962,7 +2962,7 @@ label {
 
 .book {
   width: 100%;
-  height: 100%;
+  max-height: 1500px;
   /* border: 1px solid #fff; 
     */
   display: flex;
@@ -2972,7 +2972,7 @@ label {
 .right {
   width: 100%;
   position: relative;
-  height: 100%;
+  max-height: 1500px;
   /* border: 1px solid #fff; */
 }
 
@@ -2982,10 +2982,10 @@ label {
 }
 
 .book .left img {
-  margin-top: 19px;
+  margin-top: 15px;
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: 240px;
+  object-fit: contain;
 }
 
 .book .left .play {
@@ -3483,4 +3483,96 @@ label {
 .book .right .ticket .tic .tic_details .seat_det .seat_cr h6:nth-child(2) sub {
   font-size: 11px;
   font-weight: 600;
+}
+select.btn.min {
+  /* Add your desired styles for the select element */
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #2e3037;
+  border-radius: 5px;
+  outline: none;
+}
+
+select.btn.min option {
+  /* Add your desired styles for the options */
+  background-color: #2e3037;
+  color: #fff;
+}
+
+/* Cho phần body của card */
+.card-body {
+  padding: 20px;
+}
+
+/* Cho bảng */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* Cho các ô header */
+.table th {
+  text-align: center;
+  padding: 10px;
+  background-color: #f2f2f2;
+}
+
+/* Cho các ô dữ liệu */
+.table td {
+  color: white;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+/* Cho hình ảnh combo */
+.table img {
+  max-width: 80px;
+  max-height: 80px;
+}
+
+/* Cho các nút chỉnh sửa và xóa */
+
+.edit-delete-btn button {
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 0 5px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+}
+
+/* Hover style cho nút "+" và "-" */
+.edit-delete-btn button:hover {
+  background-color: #2980b9;
+}
+
+/* Input */
+.edit-delete-btn input {
+  width: 30px;
+  text-align: center;
+  margin: 0 5px;
+}
+
+.seat.selected {
+  background-color: yellow;
+  /* Change this to your desired color */
+  color: black;
+  /* Change this to your desired text color */
+}
+
+/* Add margin-bottom to create space between showtime items */
+#showTimes li {
+  margin-right: 15px;
+}
+
+/* Add hover style to highlight the selected showtime item */
+#showTimes li.selected {
+  background-color: #ff0000;
+}
+#showTimes li.selected {
+  background-color: #ff0000;
 }
