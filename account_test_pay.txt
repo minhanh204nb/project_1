@@ -3,3 +3,22 @@ STK : 9704198526191432198
 Tên chủ thẻ : NGUYEN VAN A
 NPH : 07/15
 OTP : 123456
+
+
+$vnp_Amount=1000000
+$vnp_BankCode=NCB
+$vnp_BankTranNo=VNP14198057
+$vnp_CardType=ATM
+$vnp_OrderInfo=9809
+$vnp_PayDate=20231124192027
+$vnp_ResponseCode=00
+$vnp_TmnCode=I1MTCNW2
+$vnp_TransactionNo=14198057
+$vnp_TransactionStatus=00
+$vnp_TxnRef=9809
+$vnp_SecureHash=447b1b34afd8db98d9220663d65a102a7d402f473a665aae70eb14168fb58bd11decc57297f96ce8305fc32e610fb1d77a1f6ff0d0ed6be799b1d4451d357571
+
+
+
+
+

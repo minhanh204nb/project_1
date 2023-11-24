@@ -43,8 +43,15 @@ $user = $_GET['user'];
                 <th scope="col">Tên Phim</th>
                 <th scope="col">Ghế</th>
                 <th scope="col">Rạp</th>
-                <th scope="col">Loại Vé</th>
+                <th scope="col">Phòng chiếu</th>
+                <th scope="col">Ghế</th>
+                <th scope="col">Ngày chiếu</th>
+                <th scope="col">Giờ chiếu</th>
+                <th scope="col">Giá vé</th>
+                <th scope="col">Giá combo</th>
+                <th scope="col">Tổng tiền</th>
                 <th scope="col">Thời Gian Đặt</th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -67,15 +74,7 @@ $user = $_GET['user'];
             ?>
         </tbody>
     </table>
-    <div class="note">
-        *Ghi Chú:
-        <div>
-            - Vé Phim 2D: Ở phòng số 1.
-        </div>
-        <div>
-            - Vé Phim 3D: Ở phòng số 2.
-        </div>
-    </div>
+
 </body>
 
 </html>

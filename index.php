@@ -13,6 +13,8 @@ include './admin/models/combo/combo.php';
 include './admin/models/tickets/tickets.php';
 include './admin/models/showtime/showtime.php';
 include './admin/models/contact/contact.php';
+include './admin/models/bill/bill.php';
+include './admin/models/vnpay/vnpay.php';
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -80,18 +82,38 @@ if (isset($_GET['action'])) {
                 $list_movie = loadone_movie($id_movie);
                 $loadone_showtime = loadone_showtime_by_id_movie($id_movie);
             }
-
-            // No need to load $loadone_showtime again, as you've already loaded it above
-
-            $list_all_movie = loadall_movie();
-            $list_combo = loadall_combo();
-            $list_room = loadall_room();
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pay'])) {
+                $id_account = $_POST['id_account'];
+                $price_tickets = $_POST['tickets'];
+                $price_combo = $_POST['combos'];
+                $name_movie = $_POST['name_movie'];
+                $cinema = $_POST['cinema'];
+                $room = $_POST['room'];
+                $seats = $_POST['seats'];
+                $show_day = $_POST['month'];
+                $showtime = $_POST['hours'];
+                $total_price = $_POST['amount'];
+                // Insert values into the database
+                insert_bill($id_account, $price_tickets, $price_combo, $name_movie, $cinema, $room, $seats, $show_day, $showtime, $total_price);
+            }
             $list_movie = loadone_movie($id_movie);
-
             include './views/booking.php';
             break;
-
-
+            // case 'insert_bill':
+            //     if (isset($_POST['pay'])) {
+            //         $id_account = $_POST['id_account'];
+            //         $price_tickets = $_POST['tickets'];
+            //         $price_combo = $_POST['combos'];
+            //         $name_movie = $_POST['name_movie'];
+            //         $cinema = $_POST['cinema'];
+            //         $room = $_POST['room'];
+            //         $seats = $_POST['seats'];
+            //         $show_day = $_POST['month'];
+            //         $showtime = $_POST['hours'];
+            //         $total_price = $_POST['amount'];
+            //         insert_bill($id_account, $price_tickets, $price_combo, $name_movie, $cinema, $room, $seats, $show_day, $showtime, $total_price);
+            //     }
+            //     break;
         case 'signup':
             if (isset($_POST['signup']) && $_POST['signup']) {
                 $name_clinet = $_POST['name_clinet'];
@@ -144,6 +166,24 @@ if (isset($_GET['action'])) {
                 insert_contact($name, $email, $title, $content);
             }
             include './views/contacts.php';
+            break;
+        case 'insert_vnpay':
+            if (isset($_POST['insert_vnpay']) && $_POST['insert_vnpay']) {
+                $vnp_Amount = $_POST['vnp_Amount'];
+                $vnp_BankCode = $_POST['vnp_BankCode'];
+                $vnp_BankTranNo = $_POST['vnp_BankTranNo'];
+                $vnp_CardType = $_POST['vnp_CardType'];
+                $vnp_OrderInfo = $_POST['vnp_OrderInfo'];
+                $vnp_PayDate = $_POST['vnp_PayDate'];
+                $vnp_ResponseCode = $_POST['vnp_ResponseCode'];
+                $vnp_TmnCode = $_POST['vnp_TmnCode'];
+                $vnp_TransactionNo = $_POST['vnp_TransactionNo'];
+                $vnp_TransactionStatus = $_POST['vnp_TransactionStatus'];
+                $vnp_TxnRef = $_POST['vnp_TxnRef'];
+                $vnp_SecureHash = $_POST['vnp_SecureHash'];
+                insert_vnpay($vnp_Amount, $vnp_BankCode, $vnp_BankTranNo, $vnp_CardType, $vnp_OrderInfo, $vnp_PayDate, $vnp_ResponseCode, $vnp_TmnCode, $vnp_TransactionNo, $vnp_TransactionStatus, $vnp_TxnRef, $vnp_SecureHash);
+                header('location: index.php?action=home');
+            }
             break;
         default:
             // include './views/home.php';
