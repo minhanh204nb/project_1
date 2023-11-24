@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-include 'config.php';
-// include './admin/models/bill/bill.php';
-?>
+<?php include 'config.php'; ?>
 
 <head>
     <meta charset="UTF-8">
@@ -29,7 +26,7 @@ $list_combo = loadall_combo();
                 <i class="bi bi-play-fill" id="play"></i>
             </div>
             <form action="/views/vnpay_create_payment.php" id="frmCreateOrder" class="cont" method="post">
-                <h2><?php echo $movie['name_movie'] ?></h2>
+                <h2><?php echo $movie['name_movie']  ?></h2>
                 <hr>
                 <h5>SHOWTIME</h5>
                 <input type="text" name="hours" value="" readonly>
@@ -45,20 +42,25 @@ $list_combo = loadall_combo();
                 <h5>Combos</h5>
                 <input type="text" name="combos" value="000.00 đ" readonly>
                 <hr>
-                <h3>Amount Money</h3>
+                <h3>Aount Money</h3>
+                <input hidden type="text" name="amount" value="000.00 đ" readonly>
                 <div class="form-group">
-                    <label for="amount">Số tiền</label>
-                    <input class="form-control" data-val="true" data-val-number="The field amount must be a number." data-val-required="The amount field is required." id="amount" max="100000000" min="10000" name="amount" type="number" value="" readonly style="color:white;background-color: transparent;border: none; " />
+                    <label hidden for="amount">Số tiền</label>
+                    <input class="form-control" data-val="true" data-val-number="The field amount must be a number." data-val-required="The amount field is required." id="amount" max="100000000" min="10000" name="amount" type="number" value=""readonly  style="color:white;background-color: transparent;border: none; " />
                 </div>
                 <h4>Chọn phương thức thanh toán</h4>
                 <div class="form-group">
-                    <input type="radio" id="bankCode1" name="bankCode" value="">
+
+                    <input type="radio" checked="true" id="bankCode1" name="bankCode" value="">
                     <label for="bankCode1">Cổng thanh toán VNPAYQR</label><br>
+
                     <h5 hidden>Cách 2: Tách phương thức tại site của đơn vị kết nối</h5>
                     <input hidden type="radio" id="bankCode2" name="bankCode" value="VNPAYQR">
                     <label hidden for="bankCode2">Thanh toán bằng ứng dụng hỗ trợ VNPAYQR</label><br>
-                    <input type="radio" checked="true" id="bankCode3" name="bankCode" value="VNBANK">
-                    <label for="bankCode3">Thanh toán qua thẻ ATM/Tài khoản nội địa</label><br>
+
+                    <input  type="radio" id="bankCode3" name="bankCode" value="VNBANK">
+                    <label  for="bankCode3">Thanh toán qua thẻ ATM/Tài khoản nội địa</label><br>
+
                     <input hidden type="radio" id="bankCode4" name="bankCode" value="INTCARD">
                     <label hidden for="bankCode4">Thanh toán qua thẻ quốc tế</label><br>
                 </div>
@@ -70,9 +72,7 @@ $list_combo = loadall_combo();
                     <label for="language2">Tiếng anh</label><br>
                 </div>
                 <hr>
-                <input type="hidden" name="id_account" value="<?php echo $id_account ?>">
-                <input type="hidden" name="name_movie" value="<?php echo $movie['name_movie'] ?>">
-                <input type="submit" name="pay" class="btn btn-default" value="Thanh toán">
+                <button type="submit" class="btn btn-default">Thanh toán</button>
             </form>
 
             <?php
@@ -270,7 +270,7 @@ $list_combo = loadall_combo();
 
             function updateamountPrice() {
                 var selectedSeats = $("input[name='seats']").val();
-                var pricePerSeat = 10000; // Set your price per seat here
+                var pricePerSeat = 65000; // Set your price per seat here
                 var amount = selectedSeats.split(',').length * pricePerSeat;
                 // Update the tickets input field with the calculated amount price
                 $("input[name='tickets']").val(amount.toLocaleString('vi-VN') + '');

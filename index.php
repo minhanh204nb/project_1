@@ -81,39 +81,17 @@ if (isset($_GET['action'])) {
                 $id_movie = $_GET['id'];
                 $list_movie = loadone_movie($id_movie);
                 $loadone_showtime = loadone_showtime_by_id_movie($id_movie);
+                // No need to load $loadone_showtime again, as you've already loaded it above
             }
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pay'])) {
-                $id_account = $_POST['id_account'];
-                $price_tickets = $_POST['tickets'];
-                $price_combo = $_POST['combos'];
-                $name_movie = $_POST['name_movie'];
-                $cinema = $_POST['cinema'];
-                $room = $_POST['room'];
-                $seats = $_POST['seats'];
-                $show_day = $_POST['month'];
-                $showtime = $_POST['hours'];
-                $total_price = $_POST['amount'];
-                // Insert values into the database
-                insert_bill($id_account, $price_tickets, $price_combo, $name_movie, $cinema, $room, $seats, $show_day, $showtime, $total_price);
-            }
+            $list_all_movie = loadall_movie();
+            $list_combo = loadall_combo();
+            $list_room = loadall_room();
             $list_movie = loadone_movie($id_movie);
+
             include './views/booking.php';
             break;
-            // case 'insert_bill':
-            //     if (isset($_POST['pay'])) {
-            //         $id_account = $_POST['id_account'];
-            //         $price_tickets = $_POST['tickets'];
-            //         $price_combo = $_POST['combos'];
-            //         $name_movie = $_POST['name_movie'];
-            //         $cinema = $_POST['cinema'];
-            //         $room = $_POST['room'];
-            //         $seats = $_POST['seats'];
-            //         $show_day = $_POST['month'];
-            //         $showtime = $_POST['hours'];
-            //         $total_price = $_POST['amount'];
-            //         insert_bill($id_account, $price_tickets, $price_combo, $name_movie, $cinema, $room, $seats, $show_day, $showtime, $total_price);
-            //     }
-            //     break;
+
+
         case 'signup':
             if (isset($_POST['signup']) && $_POST['signup']) {
                 $name_clinet = $_POST['name_clinet'];
