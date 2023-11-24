@@ -8,15 +8,15 @@ function update_movie($id_movie, $name_movie, $content, $id_country, $year, $tim
 {
 
     if ($image != "")
-        $sql = "UPDATE movie SET name_movie='$name_movie',content='$content',$id_country='$id_country',year='$year',time='$time',reviews='$reviews',author='$author',performer='$performer',age_limit='$age_limit',image='$image' ,trailer_movie='$trailer_movie',id_category='$id_category' ,action='$action' WHERE id_movie='$id_movie'";
+        $sql = "UPDATE movie SET name_movie='$name_movie',content='$content',$id_country='$id_country',year='$year',time='$time',reviews='$reviews',author='$author',performer='$performer',age_limit='$age_limit',image='$image' ,trailer_movie='$trailer_movie',id_category='$id_category' ,action='$action' WHERE id_movie=".$id_movie;
     else
-        $sql = "UPDATE movie SET name_movie='$name_movie',content='$content',$id_country='$id_country',year='$year',time='$time',reviews='$reviews',author='$author',performer='$performer',age_limit='$age_limit',trailer_movie='$trailer_movie',id_category='$id_category' ,action='$action' WHERE id_movie='$id_movie'";
+        $sql = "UPDATE movie SET name_movie='$name_movie',content='$content',$id_country='$id_country',year='$year',time='$time',reviews='$reviews',author='$author',performer='$performer',age_limit='$age_limit',trailer_movie='$trailer_movie',id_category='$id_category' ,action='$action' WHERE id_movie=".$id_movie;
     pdo_execute($sql);
 }
 function delete_movie($id_movie)
 {
 
-    $sql = "DELETE FROM movie WHERE id_movie = '$id_movie'";
+    $sql = "DELETE FROM movie WHERE id_movie = ".$_GET['id'];
     pdo_execute($sql);
 }
 

@@ -12,6 +12,7 @@ include './models/movie/country.php';
 include './models/account/account.php';
 include './models/room/room.php';
 include './models/combo/combo.php';
+include './models/showtime/showtime.php';
 include './layouts/head.php';
 include './layouts/navbar.php';
 include './layouts/sidebar.php';
@@ -75,7 +76,7 @@ if (isset($_GET['action'])) {
             if (isset($_POST['insert_room']) && $_POST['insert_room']) {
                 $name = $_POST['name_room'];
                 $action_room = $_POST['action_room'];
-                insert_room($name,$action_room);
+                insert_room($name, $action_room);
             }
             include './controllers/room/insert_room.php';
             break;
@@ -100,7 +101,7 @@ if (isset($_GET['action'])) {
                 $name_room = $_POST['name_room'];
                 $id_room = $_POST['id_room'];
                 $action_room = $_POST['action_room'];
-                update_room($id_room, $name_room,$action_room);
+                update_room($id_room, $name_room, $action_room);
             }
             $sql = "select * from room order by id_room";
             $list_room = pdo_query($sql);
@@ -165,6 +166,80 @@ if (isset($_GET['action'])) {
             $list_combo = pdo_query($sql);
             include './views/combo/list_combo.php';
             break;
+            // END COMBO
+
+            // SHOW TIME
+        case 'showtime':
+            $list_movie = loadall_movie();
+            $list_room = loadall_room();
+            $list_showtime = loadall_showtime();
+            $list_action = loadall_action();
+            include './views/showtime/list_showtime.php';
+            break;
+        case 'insert_showtime':
+            if (isset($_POST['insert_showtime']) && $_POST['insert_showtime']) {
+                $room = $_POST['id_room'];
+                $movie = $_POST['id_movie'];
+                $show_date = $_POST['show_date'];
+                $start_time = $_POST['start_time'];
+                $end_time = $_POST['end_time'];
+                $action = $_POST['id_action'];
+                insert_showtime($room, $movie, $show_date, $start_time, $end_time, $action);
+            }
+            $list_movie = loadall_movie();
+            $list_room = loadall_room();
+            $list_showtime = loadall_showtime();
+            $list_action = loadall_action();
+            include './controllers/showtime/insert_showtime.php';
+            break;
+
+        case 'delete_showtime':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                // Delete the category by calling the delete_category function
+                delete_showtime($_GET['id']);
+            }
+            // Reload the list of categories after deletion
+            $sql = "select * from showtime order by id_showtime";
+            $list_movie = loadall_movie();
+            $list_room = loadall_room();
+            $list_showtime = loadall_showtime();
+            $list_action = loadall_action();
+            $list_showtime = pdo_query($sql);
+            include './views/showtime/list_showtime.php';
+            break;
+
+        case 'edit_showtime':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $list_showtime = loadone_showtime($_GET['id']);
+            }
+            $list_movie = loadall_movie();
+            $list_room = loadall_room();
+            $list_showtime = loadall_showtime();
+            $list_action = loadall_action();
+            include './controllers/showtime/update_showtime.php';
+            break;
+
+        case 'update_showtime':
+            if (isset($_POST['update_showtime']) && ($_POST['update_showtime'])) {
+                $room = $_POST['id_room'];
+                $movie = $_POST['id_movie'];
+                $show_date = $_POST['show_date'];
+                $start_time = $_POST['start_time'];
+                $end_time = $_POST['end_time'];
+                $action = $_POST['id_action'];
+                $id_showtime = $_POST["id_showtime"];
+                update_showtime($id_showtime,$room,$movie,$show_date,$start_time,$end_time,$action);
+            }
+           
+            $sql = "select * from showtime order by id_showtime";
+            $list_showtime = pdo_query($sql);
+            $list_movie = loadall_movie();
+            $list_room = loadall_room();
+            $list_showtime = loadall_showtime();
+            $list_action = loadall_action();
+            include './views/showtime/list_showtime.php';
+            break;
+            // END SHOWTIME
 
             // Movie
         case 'movie':
@@ -246,8 +321,8 @@ if (isset($_GET['action'])) {
                 // $movie_to_edit = loadone_movie($_GET['id']);
                 update_movie($id_movie, $name_movie, $content, $id_country, $year, $time, $reviews, $author, $performer, $age_limit, $image, $trailer_movie, $id_category, $action);
             }
-            // $list_country = loadall_country();
-            // $list_category = loadall_category();
+            $list_country = loadall_country();
+            $list_category = loadall_category();
             $list_movie = loadall_movie();
             include './views/movie/list_movie.php';
             break;
