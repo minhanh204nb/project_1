@@ -2,13 +2,17 @@
 session_start();
 ob_start();
 include './models/pdo.php';
-include './admin/models/category/category.php';
-include './admin/models/movie/country.php';
-include './admin/models/movie/movie.php';
-include './admin/models/contact/contact.php';
-include './admin/models/account/account.php';
 include './layout/head.php';
 include './layout/navbar.php';
+include './admin/models/account/account.php';
+include './admin/models/movie/movie.php';
+include './admin/models/category/category.php';
+include './admin/models/movie/country.php';
+include './admin/models/room/room.php';
+include './admin/models/combo/combo.php';
+include './admin/models/tickets/tickets.php';
+include './admin/models/showtime/showtime.php';
+include './admin/models/contact/contact.php';
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -58,6 +62,7 @@ if (isset($_GET['action'])) {
                 $id_category = 0;
             }
             $list_movie = search_movie($keysword, $id_category);
+            $list_category = loadall_category();
             include './views/search.php';
             break;
         case 'blog':
@@ -70,8 +75,23 @@ if (isset($_GET['action'])) {
             include './views/combo.php';
             break;
         case 'booking':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $id_movie = $_GET['id'];
+                $list_movie = loadone_movie($id_movie);
+                $loadone_showtime = loadone_showtime_by_id_movie($id_movie);
+            }
+
+            // No need to load $loadone_showtime again, as you've already loaded it above
+
+            $list_all_movie = loadall_movie();
+            $list_combo = loadall_combo();
+            $list_room = loadall_room();
+            $list_movie = loadone_movie($id_movie);
+
             include './views/booking.php';
             break;
+
+
         case 'signup':
             if (isset($_POST['signup']) && $_POST['signup']) {
                 $name_clinet = $_POST['name_clinet'];

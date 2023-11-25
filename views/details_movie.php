@@ -31,6 +31,7 @@ if ($movie) {
                                     }
                                 }
                                 ?>
+                                
                                 <li class="category">
                                     <a href="#"><?php echo $movie['id_category']; ?></a>
                                 </li>
@@ -57,7 +58,7 @@ if ($movie) {
                                 <!-- <li class="watch"><a href="index.php?action=booking" class="btn popup-video"><i class="fas fa-play"></i>BOOKING</a></li> -->
                                 <?php
                                 if (isset($_SESSION['user'])) {
-                                    echo '  <li class="watch"><a href="index.php?action=booking" class="btn"><i class="fas fa-play"></i>BOOKING</a></li>';
+                                    echo '  <li class="watch"><a href="index.php?action=booking&id=' . $movie['id_movie'] . '"" class="btn"><i class="fas fa-play"></i>BOOKING</a></li>';
                                 } else {
                                     echo '  <li class="watch"><a href="index.php?action=signin" class="btn"><i class="fas fa-play"></i>BOOKING</a></li>';
                                 }
