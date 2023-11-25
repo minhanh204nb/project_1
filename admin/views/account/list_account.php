@@ -53,7 +53,7 @@
                                                     echo '<a href="index.php?action=edit_account">' . $account['name_clinet'] . '<span>' . $account['phone_number'] . '</span></a>';
                                                     echo '</h2>';
                                                     echo '</td>';
-                                                    echo '<td><a href="mailto:' . $account['email'] . '" class="__cf_email__" data-cfemail="' . $account['email_cf'] . '">' . $account['email'] . '</a></td>';
+                                                    echo '<td><a href="mailto:' . $account['email'] . '" class="__cf_email__">' . $account['email'] . '</a></td>';
                                                     echo '<td>' . $account['user'] . '</td>';
                                                     echo '<td>' . $account['password'] . '</td>';
                                                     echo '<td>' . $account['address'] . '</td>';
