@@ -1,6 +1,9 @@
 <?php
 session_start();
 ob_start();
+
+extract($_SESSION['user']);
+
 include './models/pdo.php';
 include './layout/head.php';
 include './layout/navbar.php';
@@ -23,6 +26,10 @@ if (isset($_GET['action'])) {
     // }
     switch ($action) {
         case 'home':
+            if ($role === '1') {
+                header('location:../admin/index.php?action=dashboard');
+                exit();
+            }
             $list_category = loadall_category();
             $list_country = loadall_country();
             $list_movie_limit = loadlimit_movie(4);

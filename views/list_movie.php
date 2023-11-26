@@ -3,11 +3,11 @@
         <div class="row">
             <div class="col-12">
                 <div class="breadcrumb-content">
-                    <h2 class="title">Our <span>Movie</span></h2>
+                    <h2 class="title">Danh Sách <span>Phim</span></h2>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.php?action=home">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Movie</li>
+                            <li class="breadcrumb-item"><a href="index.php?action=home">Trang chủ</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Danh sách phim</li>
                         </ol>
                     </nav>
                 </div>
@@ -75,8 +75,8 @@
                 echo '<i class="fas fa-star"></i>';
                 echo '<i class="fas fa-star"></i>';
                 echo '</li>';
-                echo '<li><a href="' . $same_category['trailer_movie'] . '" class="popup-video btn">Watch Now</a></li>';
-                echo '<li><a href="index.php?action=details_movie&id=' . $same_category['id_movie'] . '" class="btn">Details</a></li>';
+                echo '<li><a href="' . $same_category['trailer_movie'] . '" class="popup-video btn">XEM TRAILER</a></li>';
+                echo '<li><a href="index.php?action=details_movie&id=' . $same_category['id_movie'] . '" class="btn">XEM CHI TIẾT</a></li>';
                 echo '</ul>';
                 echo '</div>';
                 echo '<div class="movie-content">';
@@ -102,8 +102,8 @@
         <div class="row align-items-end mb-60 dis_none">
             <div class="col-lg-6">
                 <div class="section-title text-center text-lg-left">
-                    <span class="sub-title">ONLINE STREAMING</span>
-                    <h2 class="title">All Movies</h2>
+                    <span class="sub-title">Hãy đặt ngay</span>
+                    <h2 class="title">TẤT CẢ PHIM</h2>
                 </div>
             </div>
         </div>
@@ -126,8 +126,8 @@
                 echo '<i class="fas fa-star"></i>';
                 echo '<i class="fas fa-star"></i>';
                 echo '</li>';
-                echo '<li><a href="' . $movie['trailer_movie'] . '" class="popup-video btn">Watch Now</a></li>';
-                echo '<li><a href="index.php?action=details_movie&id=' . $movie['id_movie'] . '" class="btn">Details</a></li>';
+                echo '<li><a href="' . $movie['trailer_movie'] . '" class="popup-video btn">XEM TRAILER</a></li>';
+                echo '<li><a href="index.php?action=details_movie&id=' . $movie['id_movie'] . '" class="btn">XEM CHI TIẾT</a></li>';
                 echo '</ul>';
                 echo '</div>';
                 echo '<div class="movie-content">';
@@ -159,13 +159,13 @@
                             $moviesList = isset($_POST['same_category']) && $_POST['same_category'] ? $list_same_category : $list_movie;
                             $totalPages = ceil(count($moviesList) / $moviesPerPage);
                             if ($currentPage > 1) {
-                                echo '<li><a href="index.php?action=list_movie&page=' . ($currentPage - 1) . '">Previous</a></li>';
+                                echo '<li><a href="index.php?action=list_movie&page=' . ($currentPage - 1) . '">QUAY LẠI</a></li>';
                             }
                             for ($i = 1; $i <= $totalPages; $i++) {
                                 echo '<li' . ($i === $currentPage ? ' class="active"' : '') . '><a href="index.php?action=list_movie&page=' . $i . '">' . $i . '</a></li>';
                             }
                             if ($currentPage < $totalPages) {
-                                echo '<li><a href="index.php?action=list_movie&page=' . ($currentPage + 1) . '">Next</a></li>';
+                                echo '<li><a href="index.php?action=list_movie&page=' . ($currentPage + 1) . '">TIẾP</a></li>';
                             }
                             ?>
                         </ul>

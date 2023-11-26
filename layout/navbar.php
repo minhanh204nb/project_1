@@ -20,23 +20,23 @@ extract($_SESSION['user']);
                             </div>
                             <div class="navbar-wrap main-menu d-none d-lg-flex">
                                 <ul class="navigation">
-                                    <li class="active menu-item-has-children"><a href="index.php?action=home">Home</a>
+                                    <li class="active menu-item-has-children"><a href="index.php?action=home">TRANG CHỦ</a>
                                     </li>
-                                    <li class="menu-item-has-children"><a href="index.php?action=list_movie">Movie</a>
+                                    <li class="menu-item-has-children"><a href="index.php?action=list_movie">DANH SÁCH PHIM</a>
                                     </li>
-                                    <li><a href="index.php?action=combo">Combo</a></li>
-                                    <li class="menu-item-has-children"><a href="index.php?action=blog">blog</a>
+                                    <li><a href="index.php?action=combo">ƯU ĐÃI</a></li>
+                                    <li class="menu-item-has-children"><a href="index.php?action=blog">TIN TỨC</a>
                                     </li>
-                                    <li><a href="index.php?action=contact">contacts</a></li>
+                                    <li><a href="index.php?action=contact">LIÊN HỆ</a></li>
                                     <?php
                                     if (isset($_SESSION['user'])) {
                                         if ($role == '1') {
                                             echo '  <li><a href="../admin/index.php?action=dashboard">Admin</a></li>';
                                         } else {
-                                            echo '  <li><a href="index.php?action=your_ticket">Your tickets</a></li>';
+                                            echo '  <li><a href="index.php?action=your_ticket">Vé của tôi</a></li>';
                                         }
                                     } else {
-                                        echo '  <li><a href="index.php?action=signin">Your tickets</a></li>';
+                                        echo '  <li><a href="index.php?action=signin">Vé của tôi</a></li>';
                                     }
                                     ?>
                                 </ul>
@@ -46,34 +46,34 @@ extract($_SESSION['user']);
                                     <li class="d-none d-xl-block">
                                         <div class="footer-search">
                                             <form action="index.php?action=search" method="post">
-                                                <input type="text" name="keysword" placeholder="Find Favorite Movie">
+                                                <input type="text" name="keysword" placeholder="Tìm kiếm phim mà bạn muốn ...">
                                                 <button type="submit"><i class="fas fa-search"></i></button>
                                             </form>
                                         </div>
                                     </li>
-                                    <li class="header-lang">
+                                    <!-- <li class="header-lang">
                                         <form action="#">
                                             <div class="icon"><i class="flaticon-globe"></i></div>
                                             <select id="lang-dropdown">
-                                                <option value="">EN</option>
                                                 <option value="">VN</option>
+                                                <option value="">EN</option>
                                                 <option value="">AR</option>
                                                 <option value="">TU</option>
                                             </select>
                                         </form>
-                                    </li>
+                                    </li> -->
                                     <?php
                                     if (isset($_SESSION['user'])) {
-                                        echo '<li class="header-btn"><a href="index.php?action=logout" class="btn">' . $user . '</a></li>';
+                                        echo '<li class="header-btn"><a href="#" class="btn">Chào ' . $user . '</a></li>';
+                                        echo '<li class="header-btn"><a href="index.php?action=logout" class="btn">ĐĂNG XUẤT</a></li>';
                                     } else {
-                                        echo '<li class="header-btn"><a href="index.php?action=signin" class="btn">Sign In</a></li>';
+                                        echo '<li class="header-btn"><a href="index.php?action=signin" class="btn">ĐĂNG NHẬP</a></li>';
                                     }
                                     ?>
                                 </ul>
                             </div>
                         </nav>
                     </div>
-
                     <!-- Mobile Menu  -->
                     <div class="mobile-menu">
                         <div class="close-btn"><i class="fas fa-times"></i></div>
@@ -124,9 +124,109 @@ extract($_SESSION['user']);
                     </div>
                     <div class="menu-backdrop"></div>
                     <!-- End Mobile Menu -->
-
                 </div>
             </div>
         </div>
     </div>
 </header>
+<style>
+    .menu-wrap {
+        display: flex;
+        /* align-items: center; */
+        height: 80px;
+        /* flex-wrap: nowrap; */
+    }
+
+    .menu-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        flex-direction: column;
+        /* flex-wrap: nowrap; */
+    }
+
+    /* Căn giữa logo */
+    .logo {
+        flex: 0 0 auto;
+    }
+
+    /* Căn giữa menu */
+    .navbar-wrap {
+        flex: 1;
+    }
+
+    /* Căn giữa các phần tử con trong menu */
+    .navigation {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+
+
+    /* Định dạng các mục menu */
+    .navigation li a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 14px;
+        transition: color 0.3s ease-in-out;
+    }
+
+    /* .navigation li a:hover {
+        color: #ff6600;
+    } */
+
+    /* Định dạng phần tìm kiếm */
+    /* .footer-search {
+        flex: 0 0 auto;
+    }
+
+    .footer-search input {
+        padding: 8px 15px;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+    }
+
+    .footer-search button {
+        background-color: #ff6600;
+        color: #fff;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+    } */
+
+    /* Định dạng phần user và logout */
+    /* .header-btn a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 14px;
+        margin-right: 15px;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .header-btn a:hover {
+        color: #ff6600;
+    } */
+
+    /* .btn {
+        background-color: #ff6600;
+        color: #fff;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 14px;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+
+    .btn:hover {
+        background-color: #333;
+        color: #fff;
+    } */
+</style>

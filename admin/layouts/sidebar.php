@@ -4,7 +4,7 @@
             <ul>
                 <li class="menu-title"><span>Main</span></li>
                 <li class="active">
-                    <a href="../index.php?action=home"><i data-feather="home"></i> <span>Home</span></a>
+                    <a href="../index.php"><i data-feather="home"></i> <span>Home</span></a>
                 </li>
                 <li class="">
                     <a href="index.php?action=dashboard"><i data-feather="home"></i> <span>Dashboard</span></a>
@@ -29,6 +29,9 @@
                 </li>
                 <li>
                     <a href="index.php?action=showtime"><i data-feather="settings"></i> <span>Showtime</span></a>
+                </li>
+                <li>
+                    <a href="index.php?action=logout"><i data-feather="settings"></i> <span>Đăng xuất</span></a>
                 </li>
             </ul>
         </div>

@@ -142,9 +142,9 @@ extract($_SESSION['user']);
                 <div class="info">
                     <h4><strong>Thông tin liên hệ</strong></h4>
                     <h6>Liên hệ</h6>
-                    <p>Name: <?php echo $name_clinet ?> </p>
+                    <p>Tên: <?php echo $name_clinet ?> </p>
                     <p>Email: <?php echo $email ?> </p>
-                    <p>Tel: <?php echo $phone_number ?> </p>
+                    <p>Số điện thoại : <?php echo $phone_number ?> </p>
                 </div>
             </div>
         </div>
