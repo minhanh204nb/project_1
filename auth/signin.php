@@ -29,21 +29,21 @@
                             </a>
 
                             <div class="sign__group">
-                                <input type="text" class="sign__input" name="user" placeholder="User"  required />
+                                <input type="text" class="sign__input" name="user" placeholder="Tên tài khoản"  required />
                             </div>
 
                             <div class="sign__group">
-                                <input type="password" class="sign__input" name="password" placeholder="Password" required />
+                                <input type="password" class="sign__input" name="password" placeholder="Mật khẩu" required />
                             </div>
 
                             <div class="sign__group sign__group--checkbox">
                                 <input id="remember" name="remember" type="checkbox" checked="checked" />
-                                <label for="remember">Remember Me</label>
+                                <label for="remember">Nhớ lần sau</label>
                             </div>
-                            <input class="sign__btn" type="submit" name="signin" value="Sign In">
+                            <input class="sign__btn" type="submit" name="signin" value="ĐĂNG NHẬP">
                             <!-- <button class="sign__btn" type="button">Sign in</button> -->
 
-                            <span class="sign__delimiter">or</span>
+                            <span class="sign__delimiter">Hoặc</span>
 
                             <div class="sign__social">
                                 <a class="fb" href="#"><svg viewBox="0 0 9 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -57,10 +57,10 @@
                                     </svg></a>
                             </div>
 
-                            <span class="sign__text">Don't have an account?
-                                <a href="index.php?action=signup">Sign up!</a></span>
+                            <span class="sign__text">Bạn chưa có tài khoản ? 
+                                <a href="index.php?action=signup">ĐĂNG KÝ</a></span>
 
-                            <span class="sign__text"><a href="index.php?action=forgot">Forgot password?</a></span>
+                            <span class="sign__text"><a href="index.php?action=forgot">Quên mật khẩu </a></span>
                         </form>
                         <!-- end authorization form -->
                     </div>
