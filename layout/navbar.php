@@ -14,13 +14,13 @@ extract($_SESSION['user']);
                     <div class="menu-wrap">
                         <nav class="menu-nav show">
                             <div class="logo">
-                                <a href="index.php?action=home">
+                                <a href="index.php">
                                     <img src="assets/img/logo/logo.png" alt="Logo">
                                 </a>
                             </div>
                             <div class="navbar-wrap main-menu d-none d-lg-flex">
                                 <ul class="navigation">
-                                    <li class="active menu-item-has-children"><a href="index.php?action=home">TRANG CHỦ</a>
+                                    <li class="active menu-item-has-children"><a href="index.php">TRANG CHỦ</a>
                                     </li>
                                     <li class="menu-item-has-children"><a href="index.php?action=list_movie">DANH SÁCH PHIM</a>
                                     </li>
