@@ -3,8 +3,8 @@
         <div class="row align-items-end mb-60">
             <div class="col-lg-6">
                 <div class="section-title text-center text-lg-left">
-                    <span class="sub-title">ONLINE STREAMING</span>
-                    <h2 class="title">Search ...</h2>
+                    <span class="sub-title">kết quả</span>
+                    <h2 class="title">Tìm kiếm ...</h2>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -52,8 +52,8 @@
                 echo '<i class="fas fa-star"></i>';
                 echo '<i class="fas fa-star"></i>';
                 echo '</li>';
-                echo '<li><a href="' . $movie['trailer_movie'] . '" class="popup-video btn">Watch Now</a></li>';
-                echo '<li><a href="index.php?action=details_movie&id=' . $movie['id_movie'] . '" class="btn">Details</a></li>';
+                echo '<li><a href="' . $movie['trailer_movie'] . '" class="popup-video btn">XEM TRAILER</a></li>';
+                echo '<li><a href="index.php?action=details_movie&id=' . $movie['id_movie'] . '" class="btn">XEM CHI TIẾT</a></li>';
                 echo '</ul>';
                 echo '</div>';
                 echo '<div class="movie-content">';
@@ -87,7 +87,7 @@
 
                             // Previous button
                             if ($currentPage > 1) {
-                                echo '<li><a href="index.php?action=list_movie&page=' . ($currentPage - 1) . '">Previous</a></li>';
+                                echo '<li><a href="index.php?action=list_movie&page=' . ($currentPage - 1) . '">QUAY LẠI</a></li>';
                             }
 
                             // Page numbers
@@ -97,7 +97,7 @@
 
                             // Next button
                             if ($currentPage < $totalPages) {
-                                echo '<li><a href="index.php?action=list_movie&page=' . ($currentPage + 1) . '">Next</a></li>';
+                                echo '<li><a href="index.php?action=list_movie&page=' . ($currentPage + 1) . '">TIẾP</a></li>';
                             }
                             ?>
                         </ul>
