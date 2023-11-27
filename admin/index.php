@@ -1,10 +1,10 @@
 <?php
-// session_start();
-// ob_start();
-// extract($_SESSION['user']);
-// if ($role != '1') {
-//     header('location:../index.php?action=home');
-// }
+session_start();
+ob_start();
+extract($_SESSION['user']);
+if ($role !== '1') {
+    header('location:../index.php?action=home');
+}
 include './models/pdo.php';
 include './models/category/category.php';
 include './models/movie/movie.php';

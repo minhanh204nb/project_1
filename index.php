@@ -1,6 +1,9 @@
 <?php
 session_start();
 ob_start();
+
+extract($_SESSION['user']);
+
 include './models/pdo.php';
 include './layout/head.php';
 include './layout/navbar.php';
@@ -13,14 +16,17 @@ include './admin/models/combo/combo.php';
 include './admin/models/tickets/tickets.php';
 include './admin/models/showtime/showtime.php';
 include './admin/models/contact/contact.php';
+include './admin/models/bill/bill.php';
+include './admin/models/vnpay/vnpay.php';
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
-    // if ($action !== 'booking' and $action !== 'signup' and $action !== 'signin' and $action !==  'forgot') {
-    //     include './layout/navbar.php';
-    // }
     switch ($action) {
         case 'home':
+            if ($role === '1') {
+                header('location:../admin/index.php?action=dashboard');
+                exit();
+            }
             $list_category = loadall_category();
             $list_country = loadall_country();
             $list_movie_limit = loadlimit_movie(4);
@@ -80,18 +86,9 @@ if (isset($_GET['action'])) {
                 $list_movie = loadone_movie($id_movie);
                 $loadone_showtime = loadone_showtime_by_id_movie($id_movie);
             }
-
-            // No need to load $loadone_showtime again, as you've already loaded it above
-
-            $list_all_movie = loadall_movie();
-            $list_combo = loadall_combo();
-            $list_room = loadall_room();
             $list_movie = loadone_movie($id_movie);
-
             include './views/booking.php';
             break;
-
-
         case 'signup':
             if (isset($_POST['signup']) && $_POST['signup']) {
                 $name_clinet = $_POST['name_clinet'];
@@ -135,6 +132,11 @@ if (isset($_GET['action'])) {
         case 'your_ticket':
             include './views/your_tickets.php';
             break;
+        case 'bookingHistory':
+            $list_bill = loadbill_by_id_account($id_account);
+            // $list_bill_by_id_account = loadbill_by_id_account($id_account);
+            include './views/account/bookingHistory.php';
+            break;
         case 'contact':
             if (isset($_POST['send']) && $_POST['send']) {
                 $name = $_POST['name'];
@@ -145,8 +147,37 @@ if (isset($_GET['action'])) {
             }
             include './views/contacts.php';
             break;
+        case 'insert_vnpay':
+            if (isset($_POST['insert_vnpay']) && $_POST['insert_vnpay']) {
+                $vnp_Amount = $_POST['vnp_Amount'];
+                $vnp_BankCode = $_POST['vnp_BankCode'];
+                $vnp_BankTranNo = $_POST['vnp_BankTranNo'];
+                $vnp_CardType = $_POST['vnp_CardType'];
+                $vnp_OrderInfo = $_POST['vnp_OrderInfo'];
+                $vnp_PayDate = $_POST['vnp_PayDate'];
+                $vnp_ResponseCode = $_POST['vnp_ResponseCode'];
+                $vnp_TmnCode = $_POST['vnp_TmnCode'];
+                $vnp_TransactionNo = $_POST['vnp_TransactionNo'];
+                $vnp_TransactionStatus = $_POST['vnp_TransactionStatus'];
+                $vnp_TxnRef = $_POST['vnp_TxnRef'];
+                $vnp_SecureHash = $_POST['vnp_SecureHash'];
+                // bill
+                $id_account = $_POST['id_account'];
+                $price_tickets = $_POST['tickets'];
+                $price_combo = $_POST['combos'];
+                $name_movie = $_POST['name_movie'];
+                $cinema = $_POST['cinema'];
+                $room = $_POST['room'];
+                $seats = $_POST['seats'];
+                $show_day = $_POST['month'];
+                $showtime = $_POST['hours'];
+                $total_price = $_POST['amount'];
+                insert_bill($id_account, $price_tickets, $price_combo, $name_movie, $cinema, $room, $seats, $show_day, $showtime, $total_price);
+                insert_vnpay($vnp_Amount, $vnp_BankCode, $vnp_BankTranNo, $vnp_CardType, $vnp_OrderInfo, $vnp_PayDate, $vnp_ResponseCode, $vnp_TmnCode, $vnp_TransactionNo, $vnp_TransactionStatus, $vnp_TxnRef, $vnp_SecureHash);
+                header('location: index.php?action=home');
+            }
+            break;
         default:
-            // include './views/home.php';
             break;
     }
 } else {
@@ -158,7 +189,5 @@ if (isset($_GET['action'])) {
     include './layout/header.php';
     include './views/home.php';
 }
-// if ($action !== 'booking' and $action !== 'signup' and $action !== 'signin' and $action !== 'forgot') {
-//     include './layout/footer.php';
-// }
+
 include './layout/footer.php';

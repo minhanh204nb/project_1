@@ -11,7 +11,7 @@ về người dùng: đặt vé xem phim thành công(nhảy vào db khi đặt 
 Về Admin:quản lí thể loại phim ,phòng phim, phim, suất chiếu
 
 Thang điểm cao hơn:
-lọc phim (rạp, tên loại phim)
+lọc phim (rạp, tên loại phim)(ok)
 lịch sử đặt vé
 bình luận
 quản lí danh sách đặt vé xem phim

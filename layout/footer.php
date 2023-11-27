@@ -12,16 +12,16 @@
                         <div class="footer-menu">
                             <nav>
                                 <ul class="navigation">
-                                    <li><a href="index.php?action=home">Home</a></li>
-                                    <li class="menu-item-has-children"><a href="index.php?action=list_movie">Movie</a></li>
-                                    <li><a href="index.php?action=combo">Combo</a></li>
-                                    <li class="menu-item-has-children"><a href="index.php?action=blog">blog</a></li>
-                                    <li><a href="index.php?action=contact">contacts</a></li>
-                                    <li><a href="index.php?action=your_ticket">Your tickets</a></li>
+                                    <li><a href="index.php?action=home">TRANG CHỦ</a></li>
+                                    <li class="menu-item-has-children"><a href="index.php?action=list_movie">DANH SÁCH PHIM</a></li>
+                                    <li><a href="index.php?action=combo">ƯU ĐÃI</a></li>
+                                    <li class="menu-item-has-children"><a href="index.php?action=blog">TIN TỨC</a></li>
+                                    <li><a href="index.php?action=contact">LIÊN HỆ</a></li>
+                                    <li><a href="index.php?action=your_ticket">VÉ CỦA TÔI</a></li>
                                 </ul>
                                 <div class="footer-search">
                                     <form action="index.php?action=search" method="post">
-                                        <input type="text" name="keysword" placeholder="Find Favorite Movie">
+                                        <input type="text" name="keysword" placeholder="Nhập tên phim mà bạn muốn tìm ...">
                                         <button type="submit"><i class="fas fa-search"></i></button>
                                     </form>
                                 </div>
@@ -32,7 +32,7 @@
             </div>
             <div class="footer-quick-link-wrap">
                 <div class="row align-items-center">
-                    <div class="col-md-7">
+                    <!-- <div class="col-md-7">
                         <div class="quick-link-list">
                             <ul>
                                 <li><a href="#">FAQ</a></li>
@@ -41,7 +41,7 @@
                                 <li><a href="#">Privacy</a></li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- <div class="col-md-5">
                         <div class="footer-social">
                             <ul>
@@ -61,7 +61,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="copyright-text">
-                        <p>Copyright © 2021. All Rights Reserved By <a href="index.html">Movflx</a></p>
+                        <p>Bản quyền © 2023. Mọi quyền đều thuộc về <a href="index.html">Movflx</a></p>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">

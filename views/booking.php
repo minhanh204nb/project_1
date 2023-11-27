@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'config.php'; ?>
+<?php
+session_start();
+include 'config.php';
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -17,6 +20,7 @@ $loadone_ticket = loadone_ticket($loadone_showtime[0]['id_showtime']); // Assumi
 $list_combo = loadall_combo();
 ?>
 
+
 <body style="background-color: black;">
     <div class="book">
         <div class="left">
@@ -25,51 +29,42 @@ $list_combo = loadall_combo();
                 <i class="bi bi-play-fill" id="play"></i>
             </div>
             <form action="/views/vnpay_create_payment.php" id="frmCreateOrder" class="cont" method="post">
-                <h2><?php echo $movie['name_movie']  ?></h2>
+                <h2><?php echo $movie['name_movie'] ?></h2>
                 <hr>
-                <h5>SHOWTIME</h5>
+                <h5>Suất chiếu</h5>
                 <input type="text" name="hours" value="" readonly>
                 <input type="text" name="month" value="" readonly>
-                <h5>ROOM</h5>
+                <h5>Rạp</h5>
+                <input type="text" name="cinema" value="CGV" readonly>
+                <h5>Phòng</h5>
                 <input type="text" name="room" value="" readonly>
-                <h5>Seats</h5>
+                <h5>Vị trí ghế</h5>
                 <input type="text" name="seats" value="" readonly>
-                <h5>Tickets</h5>
-                <input type="text" name="tickets" id="tickets" value="0 đ" readonly>
-                <h5>Combos</h5>
-                <input type="text" name="combos" value="000.00 đ" readonly>
+                <h5>Giá vé</h5>
+                <input type="text" name="tickets" id="tickets" value="0" readonly>
+                <h5>Giá combo</h5>
+                <input type="text" name="combos" value="0" readonly>
                 <hr>
-                <h3>Aount Money</h3>
-                <input hidden type="text" name="amount" value="000.00 đ" readonly>
+                <h3>Tổng tiền</h3>
                 <div class="form-group">
-                    <label hidden for="amount">Số tiền</label>
-                    <input class="form-control" data-val="true" data-val-number="The field amount must be a number." data-val-required="The amount field is required." id="amount" max="100000000" min="10000" name="amount" type="number" value=""readonly  style="color:white;background-color: transparent;border: none; " />
+                    <input class="form-control" data-val="true" data-val-number="The field amount must be a number." data-val-required="The amount field is required." id="amount" max="100000000" min="10000" name="amount" type="number" value="0" readonly style="color:white;background-color: transparent;border: none; " />
                 </div>
                 <h4>Chọn phương thức thanh toán</h4>
                 <div class="form-group">
-
-                    <input type="radio" checked="true" id="bankCode1" name="bankCode" value="">
+                    <input type="radio" id="bankCode1" name="bankCode" value="">
                     <label for="bankCode1">Cổng thanh toán VNPAYQR</label><br>
-
                     <h5 hidden>Cách 2: Tách phương thức tại site của đơn vị kết nối</h5>
                     <input hidden type="radio" id="bankCode2" name="bankCode" value="VNPAYQR">
                     <label hidden for="bankCode2">Thanh toán bằng ứng dụng hỗ trợ VNPAYQR</label><br>
-
-                    <input  type="radio" id="bankCode3" name="bankCode" value="VNBANK">
-                    <label  for="bankCode3">Thanh toán qua thẻ ATM/Tài khoản nội địa</label><br>
-
+                    <input type="radio" checked="true" id="bankCode3" name="bankCode" value="VNBANK">
+                    <label for="bankCode3">Thanh toán qua thẻ ATM/Tài khoản nội địa</label><br>
                     <input hidden type="radio" id="bankCode4" name="bankCode" value="INTCARD">
                     <label hidden for="bankCode4">Thanh toán qua thẻ quốc tế</label><br>
                 </div>
-                <div class="form-group" hidden>
-                    <h5>Chọn ngôn ngữ giao diện thanh toán:</h5>
-                    <input type="radio" checked="true" id="language1" name="language" value="vn">
-                    <label for="language1">Tiếng việt</label><br>
-                    <input type="radio" id="language2" name="language" value="en">
-                    <label for="language2">Tiếng anh</label><br>
-                </div>
                 <hr>
-                <button type="submit" class="btn btn-default">Thanh toán</button>
+                <input type="hidden" name="id_account" value="<?php echo $id_account ?>">
+                <input type="hidden" name="name_movie" value="<?php echo $movie['name_movie'] ?>">
+                <input type="submit" name="redirect" class="btn btn-default" value="Thanh toán">
             </form>
             <style>
                 input {
@@ -112,7 +107,7 @@ $list_combo = loadall_combo();
                 // Set the starting date as the current date
                 $currentDate = new DateTime();
                 // Create an array to store the day abbreviations
-                $dayAbbreviations = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+                $dayAbbreviations = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
                 // Output the left card and date points
                 echo '<div class="left_card">';
                 echo '<div class="card_month crd">';
@@ -130,7 +125,7 @@ $list_combo = loadall_combo();
                 echo '</div>';
                 ?>
                 <div class="right_card">
-                    <h6 class="title">Show Time</h6>
+                    <h6 class="title">Chọn suất chiếu</h6>
                     <div class="card_month crd" id="showTimes">
                         <?php
                         $showTimes = load_showtime_by_id_room($room['id_room']);
@@ -146,7 +141,7 @@ $list_combo = loadall_combo();
                 </div>
             </div>
             <div class="screen" id="screen">
-                Screen
+                Màn hình
             </div>
             <!-- chairs  -->
             <div class="chair" id="chair">
@@ -169,9 +164,9 @@ $list_combo = loadall_combo();
             <!-- Details  -->
             <div class="details" id="det">
                 <div class="details_chair">
-                    <li>Avalable</li>
-                    <li>Booked</li>
-                    <li>Selected</li>
+                    <li>Có thể đặt</li>
+                    <li>Đã có người đặt</li>
+                    <li>Bạn chọn</li>
                 </div>
             </div>
             <div class="card-body">
@@ -181,11 +176,11 @@ $list_combo = loadall_combo();
                             <div class="col-sm-12">
                                 <table border="1" class="datatable table table-stripped dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                     <tr style="text-align: center;">
-                                        <th>NAME COMBO</th>
-                                        <th>IMGER COMBO</th>
-                                        <th>PRICE COMBO</th>
-                                        <th colspan="1">DESCRIBE</th>
-                                        <th colspan="1">Thêm Combo</th>
+                                        <th>TÊN COMBO</th>
+                                        <th>ẢNH MINH HỌA</th>
+                                        <th>GIÁ COMBO</th>
+                                        <th colspan="1">MÔ TẢ</th>
+                                        <th colspan="1">CHỌN COMBO</th>
                                     </tr>
                                     <?php
                                     foreach ($list_combo as $combo) {
@@ -328,7 +323,7 @@ $list_combo = loadall_combo();
                 for (var i = 0; i < comboData.length; i++) {
                     combosPrice += selectedCombos[i] * parseFloat(comboData[i].price_combo);
                 }
-                $("input[name='combos']").val(combosPrice.toLocaleString('vi-VN') + ' đ');
+                $("input[name='combos']").val(combosPrice.toLocaleString('vi-VN') + '');
                 updateamountPrice();
             }
 

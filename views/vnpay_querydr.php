@@ -24,7 +24,7 @@
             <h3>Querydr</h3>
         </div>
         <div style="width: 100% ;border-bottom: 2px solid black;padding-bottom: 20px">
-            <form action="/vnpay_php/vnpay_querydr.php" id="frmCreateOrder" method="post">
+            <form action="/views/vnpay_querydr.php" id="frmCreateOrder" method="post">
                 <div class="form-group">
                     <label>Mã GD thanh toán cần quy vấn (vnp_TxnRef):</label>
                     <input class="form-control" data-val="true" name="txnRef" type="text" value="" />

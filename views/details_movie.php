@@ -16,7 +16,7 @@ if ($movie) {
                 </div>
                 <div class="col-xl-6 col-lg-8">
                     <div class="movie-details-content">
-                        <h5>New Episodes</h5>
+                        <!-- <h5>New Episodes</h5> -->
                         <h2><span><?php echo $movie['name_movie']; ?></span></h2>
                         <div class="banner-meta">
                             <ul>
@@ -31,7 +31,7 @@ if ($movie) {
                                     }
                                 }
                                 ?>
-                                
+
                                 <li class="category">
                                     <a href="#"><?php echo $movie['id_category']; ?></a>
                                 </li>
@@ -50,17 +50,17 @@ if ($movie) {
                         <p><?php echo $movie['content']; ?></p>
                         <div class="movie-details-prime">
                             <ul>
-                                <li class="share"><a href="#"><i class="fas fa-share-alt"></i> Share</a></li>
+                                <li class="share"><a href="#"><i class="fas fa-share-alt"></i>Chia sẻ</a></li>
                                 <li class="streaming">
-                                    <h6>Prime Video</h6>
-                                    <span>Streaming Channels</span>
+                                    
+                                    <!-- <h6>Prime Video</h6>
+                                    <span>Streaming Channels</span> -->
                                 </li>
-                                <!-- <li class="watch"><a href="index.php?action=booking" class="btn popup-video"><i class="fas fa-play"></i>BOOKING</a></li> -->
                                 <?php
                                 if (isset($_SESSION['user'])) {
-                                    echo '  <li class="watch"><a href="index.php?action=booking&id=' . $movie['id_movie'] . '"" class="btn"><i class="fas fa-play"></i>BOOKING</a></li>';
+                                    echo '  <li class="watch"><a href="index.php?action=booking&id=' . $movie['id_movie'] . '"" class="btn"><i class="fas fa-play"></i>ĐẶT VÉ NGAY</a></li>';
                                 } else {
-                                    echo '  <li class="watch"><a href="index.php?action=signin" class="btn"><i class="fas fa-play"></i>BOOKING</a></li>';
+                                    echo '  <li class="watch"><a href="index.php?action=signin" class="btn"><i class="fas fa-play"></i>ĐẶT VÉ NGAY</a></li>';
                                 }
                                 ?>
                             </ul>
@@ -73,7 +73,7 @@ if ($movie) {
             <div class="row">
                 <div class="col-12">
                     <div class="movie-history-wrap">
-                        <h3 class="title">About <span>History</span></h3>
+                        <h3 class="title">TÓM TẮT <span>PHIM</span></h3>
                         <p><?php echo $movie['content']; ?></p>
                     </div>
                 </div>
@@ -93,8 +93,8 @@ if ($movie) {
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="section-title text-center mb-50">
-                    <span class="sub-title">Best TV Series</span>
-                    <h2 class="title">Same Category <?php echo  $movie['id_category'] ?></h2>
+                    <span class="sub-title">những phim có cùng</span>
+                    <h2 class="title">THỂ LOẠI <?php echo  $movie['id_category'] ?></h2>
                 </div>
             </div>
         </div>
