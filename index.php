@@ -21,9 +21,6 @@ include './admin/models/vnpay/vnpay.php';
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
-    // if ($action !== 'booking' and $action !== 'signup' and $action !== 'signin' and $action !==  'forgot') {
-    //     include './layout/navbar.php';
-    // }
     switch ($action) {
         case 'home':
             if ($role === '1') {
@@ -92,21 +89,6 @@ if (isset($_GET['action'])) {
             $list_movie = loadone_movie($id_movie);
             include './views/booking.php';
             break;
-            // case 'insert_bill':
-            //     if (isset($_POST['pay'])) {
-            //         $id_account = $_POST['id_account'];
-            //         $price_tickets = $_POST['tickets'];
-            //         $price_combo = $_POST['combos'];
-            //         $name_movie = $_POST['name_movie'];
-            //         $cinema = $_POST['cinema'];
-            //         $room = $_POST['room'];
-            //         $seats = $_POST['seats'];
-            //         $show_day = $_POST['month'];
-            //         $showtime = $_POST['hours'];
-            //         $total_price = $_POST['amount'];
-            //         insert_bill($id_account, $price_tickets, $price_combo, $name_movie, $cinema, $room, $seats, $show_day, $showtime, $total_price);
-            //     }
-            //     break;
         case 'signup':
             if (isset($_POST['signup']) && $_POST['signup']) {
                 $name_clinet = $_POST['name_clinet'];
@@ -150,6 +132,11 @@ if (isset($_GET['action'])) {
         case 'your_ticket':
             include './views/your_tickets.php';
             break;
+        case 'bookingHistory':
+            $list_bill = loadbill_by_id_account($id_account);
+            // $list_bill_by_id_account = loadbill_by_id_account($id_account);
+            include './views/account/bookingHistory.php';
+            break;
         case 'contact':
             if (isset($_POST['send']) && $_POST['send']) {
                 $name = $_POST['name'];
@@ -174,7 +161,7 @@ if (isset($_GET['action'])) {
                 $vnp_TransactionStatus = $_POST['vnp_TransactionStatus'];
                 $vnp_TxnRef = $_POST['vnp_TxnRef'];
                 $vnp_SecureHash = $_POST['vnp_SecureHash'];
-
+                // bill
                 $id_account = $_POST['id_account'];
                 $price_tickets = $_POST['tickets'];
                 $price_combo = $_POST['combos'];
@@ -191,7 +178,6 @@ if (isset($_GET['action'])) {
             }
             break;
         default:
-            // include './views/home.php';
             break;
     }
 } else {
@@ -203,7 +189,5 @@ if (isset($_GET['action'])) {
     include './layout/header.php';
     include './views/home.php';
 }
-// if ($action !== 'booking' and $action !== 'signup' and $action !== 'signin' and $action !== 'forgot') {
-//     include './layout/footer.php';
-// }
+
 include './layout/footer.php';

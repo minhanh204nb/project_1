@@ -75,14 +75,13 @@ extract($_SESSION['user']);
                         </nav>
                     </div>
                     <!-- Mobile Menu  -->
-                    <div class="mobile-menu">
+                    <!-- <div class="mobile-menu">
                         <div class="close-btn"><i class="fas fa-times"></i></div>
 
                         <nav class="menu-box">
                             <div class="nav-logo"><a href="index.html"><img src="assets/img/logo/logo.png" alt="" title=""></a>
                             </div>
                             <div class="menu-outer">
-                                <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
 
                                 <ul class="navigation">
                                     <li class="active menu-item-has-children"><a href="#">Home</a>
@@ -121,8 +120,8 @@ extract($_SESSION['user']);
                                 </ul>
                             </div>
                         </nav>
-                    </div>
-                    <div class="menu-backdrop"></div>
+                    </div> -->
+                    <!-- <div class="menu-backdrop"></div> -->
                     <!-- End Mobile Menu -->
                 </div>
             </div>
@@ -130,6 +129,7 @@ extract($_SESSION['user']);
     </div>
 </header>
 <style>
+    
     .menu-wrap {
         display: flex;
         /* align-items: center; */
