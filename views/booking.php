@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+session_start();
 include 'config.php';
-// include './admin/models/bill/bill.php';
 ?>
 
 <head>
@@ -61,38 +61,11 @@ $list_combo = loadall_combo();
                     <input hidden type="radio" id="bankCode4" name="bankCode" value="INTCARD">
                     <label hidden for="bankCode4">Thanh toán qua thẻ quốc tế</label><br>
                 </div>
-                <div class="form-group" hidden>
-                    <h5>Chọn ngôn ngữ giao diện thanh toán:</h5>
-                    <input type="radio" checked="true" id="language1" name="language" value="vn">
-                    <label for="language1">Tiếng việt</label><br>
-                    <input type="radio" id="language2" name="language" value="en">
-                    <label for="language2">Tiếng anh</label><br>
-                </div>
                 <hr>
                 <input type="hidden" name="id_account" value="<?php echo $id_account ?>">
                 <input type="hidden" name="name_movie" value="<?php echo $movie['name_movie'] ?>">
-                <input type="submit" name="pay" class="btn btn-default" value="Thanh toán">
+                <input type="submit" name="redirect" class="btn btn-default" value="Thanh toán">
             </form>
-
-            <?php
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pay'])) {
-                $id_account = $_POST['id_account'];
-                $price_tickets = $_POST['tickets'];
-                $price_combo = $_POST['combos'];
-                $name_movie = $_POST['name_movie'];
-                $cinema = $_POST['cinema'];
-                $room = $_POST['room'];
-                $seats = $_POST['seats'];
-                $show_day = $_POST['month'];
-                $showtime = $_POST['hours'];
-                $total_price = $_POST['amount'];
-                // Insert values into the database
-                insert_bill($id_account, $price_tickets, $price_combo, $name_movie, $cinema, $room, $seats, $show_day, $showtime, $total_price);
-            }
-            ?>
-
-
-
             <style>
                 input {
                     background-color: #2E3037;

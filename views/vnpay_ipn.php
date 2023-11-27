@@ -20,6 +20,8 @@ foreach ($_GET as $key => $value) {
     }
 }
 
+
+
 $vnp_SecureHash = $inputData['vnp_SecureHash'];
 unset($inputData['vnp_SecureHash']);
 ksort($inputData);

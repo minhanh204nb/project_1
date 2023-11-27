@@ -89,20 +89,6 @@ if (isset($_GET['action'])) {
                 $list_movie = loadone_movie($id_movie);
                 $loadone_showtime = loadone_showtime_by_id_movie($id_movie);
             }
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pay'])) {
-                $id_account = $_POST['id_account'];
-                $price_tickets = $_POST['tickets'];
-                $price_combo = $_POST['combos'];
-                $name_movie = $_POST['name_movie'];
-                $cinema = $_POST['cinema'];
-                $room = $_POST['room'];
-                $seats = $_POST['seats'];
-                $show_day = $_POST['month'];
-                $showtime = $_POST['hours'];
-                $total_price = $_POST['amount'];
-                // Insert values into the database
-                insert_bill($id_account, $price_tickets, $price_combo, $name_movie, $cinema, $room, $seats, $show_day, $showtime, $total_price);
-            }
             $list_movie = loadone_movie($id_movie);
             include './views/booking.php';
             break;
@@ -188,6 +174,18 @@ if (isset($_GET['action'])) {
                 $vnp_TransactionStatus = $_POST['vnp_TransactionStatus'];
                 $vnp_TxnRef = $_POST['vnp_TxnRef'];
                 $vnp_SecureHash = $_POST['vnp_SecureHash'];
+
+                $id_account = $_POST['id_account'];
+                $price_tickets = $_POST['tickets'];
+                $price_combo = $_POST['combos'];
+                $name_movie = $_POST['name_movie'];
+                $cinema = $_POST['cinema'];
+                $room = $_POST['room'];
+                $seats = $_POST['seats'];
+                $show_day = $_POST['month'];
+                $showtime = $_POST['hours'];
+                $total_price = $_POST['amount'];
+                insert_bill($id_account, $price_tickets, $price_combo, $name_movie, $cinema, $room, $seats, $show_day, $showtime, $total_price);
                 insert_vnpay($vnp_Amount, $vnp_BankCode, $vnp_BankTranNo, $vnp_CardType, $vnp_OrderInfo, $vnp_PayDate, $vnp_ResponseCode, $vnp_TmnCode, $vnp_TransactionNo, $vnp_TransactionStatus, $vnp_TxnRef, $vnp_SecureHash);
                 header('location: index.php?action=home');
             }

@@ -1,4 +1,32 @@
+
 <?php
+session_start();
+
+// Xử lý dữ liệu từ form
+$hours = $_POST['hours'];
+$month = $_POST['month'];
+$cinema = $_POST['cinema'];
+$room = $_POST['room'];
+$seats = $_POST['seats'];
+$tickets = $_POST['tickets'];
+$combos = $_POST['combos'];
+$amount = $_POST['amount'];
+$id_account = $_POST['id_account'];
+$name_movie = $_POST['name_movie'];
+
+// Lưu thông tin vào session
+$_SESSION['booking_info'] = [
+    'hours' => $hours,
+    'month' => $month,
+    'cinema' => $cinema,
+    'room' => $room,
+    'seats' => $seats,
+    'tickets' => $tickets,
+    'combos' => $combos,
+    'amount' => $amount,
+    'id_account' => $id_account,
+    'name_movie' => $name_movie,
+];
 
 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 date_default_timezone_set('Asia/Ho_Chi_Minh');
@@ -11,10 +39,12 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
 require_once("./config.php");
 
 
+
+
 $vnp_TxnRef = rand(1, 10000); //Mã giao dịch thanh toán tham chiếu của merchant
 $vnp_Amount = $_POST['amount']; // Số tiền thanh toán
-$vnp_Locale = $_POST['language']; //Ngôn ngữ chuyển hướng thanh toán
-$vnp_BankCode = $_POST['bankCode']; //Mã phương thức thanh toán
+$vnp_Locale = "vn"; //Ngôn ngữ chuyển hướng thanh toán
+$vnp_BankCode = "NCB"; //Mã phương thức thanh toán
 $vnp_IpAddr = $_SERVER['REMOTE_ADDR']; //IP Khách hàng thanh toán
 
 
@@ -40,6 +70,10 @@ if (isset($vnp_BankCode) && $vnp_BankCode != "") {
     $inputData['vnp_BankCode'] = $vnp_BankCode;
 }
 
+if (isset($vnp_Bill_State) && $vnp_Bill_State != "") {
+    $inputData['vnp_Bill_State'] = $vnp_Bill_State;
+}
+
 ksort($inputData);
 $query = "";
 $i = 0;
@@ -59,5 +93,12 @@ if (isset($vnp_HashSecret)) {
     $vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret); //  
     $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
 }
-header('Location: ' . $vnp_Url);
-die();
+$returnData = array(
+    'code' => '00', 'message' => 'success', 'data' => $vnp_Url
+);
+if (isset($_POST['redirect'])) {
+    header('Location: ' . $vnp_Url);
+    die();
+} else {
+    echo json_encode($returnData);
+}

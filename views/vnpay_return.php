@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php include './admin/models/vnpay/vnpay.php';
+session_start();
+$booking_info = isset($_SESSION['booking_info']) ? $_SESSION['booking_info'] : [];
 ?>
 
 
@@ -102,20 +104,33 @@
             <p>&copy; VNPAY <?php echo date('Y') ?></p>
         </footer>
     </div>
-    
+
     <form action="../index?action=insert_vnpay" method="post">
-        <input type="text"  name="vnp_Amount" value="<?php echo $_GET['vnp_Amount'] ?>">
-        <input type="text"  name="vnp_BankCode" value="<?php echo $_GET['vnp_BankCode'] ?>">
-        <input type="text"  name="vnp_BankTranNo" value="<?php echo $_GET['vnp_BankTranNo'] ?>">
-        <input type="text"  name="vnp_CardType" value="<?php echo $_GET['vnp_CardType'] ?>">
-        <input type="text"  name="vnp_OrderInfo" value="<?php echo $_GET['vnp_OrderInfo'] ?>">
-        <input type="text"  name="vnp_PayDate" value="<?php echo $_GET['vnp_PayDate'] ?>">
-        <input type="text"  name="vnp_ResponseCode" value="<?php echo $_GET['vnp_ResponseCode'] ?>">
-        <input type="text"  name="vnp_TmnCode" value="<?php echo $_GET['vnp_TmnCode'] ?>">
-        <input type="text"  name="vnp_TransactionNo" value="<?php echo $_GET['vnp_TransactionNo'] ?>">
-        <input type="text"  name="vnp_TransactionStatus" value="<?php echo $_GET['vnp_TransactionStatus'] ?>">
-        <input type="text"  name="vnp_TxnRef" value="<?php echo $_GET['vnp_TxnRef'] ?>">
-        <input type="text"  name="vnp_SecureHash" value="<?php echo $_GET['vnp_SecureHash'] ?>">
+        <input type="text" hidden name="vnp_Amount" value="<?php echo $_GET['vnp_Amount'] ?>">
+        <input type="text" hidden name="vnp_BankCode" value="<?php echo $_GET['vnp_BankCode'] ?>">
+        <input type="text" hidden name="vnp_BankTranNo" value="<?php echo $_GET['vnp_BankTranNo'] ?>">
+        <input type="text" hidden name="vnp_CardType" value="<?php echo $_GET['vnp_CardType'] ?>">
+        <input type="text" hidden name="vnp_OrderInfo" value="<?php echo $_GET['vnp_OrderInfo'] ?>">
+        <input type="text" hidden name="vnp_PayDate" value="<?php echo $_GET['vnp_PayDate'] ?>">
+        <input type="text" hidden name="vnp_ResponseCode" value="<?php echo $_GET['vnp_ResponseCode'] ?>">
+        <input type="text" hidden name="vnp_TmnCode" value="<?php echo $_GET['vnp_TmnCode'] ?>">
+        <input type="text" hidden name="vnp_TransactionNo" value="<?php echo $_GET['vnp_TransactionNo'] ?>">
+        <input type="text" hidden name="vnp_TransactionStatus" value="<?php echo $_GET['vnp_TransactionStatus'] ?>">
+        <input type="text" hidden name="vnp_TxnRef" value="<?php echo $_GET['vnp_TxnRef'] ?>">
+        <input type="text" hidden name="vnp_SecureHash" value="<?php echo $_GET['vnp_SecureHash'] ?>">
+        <?php
+        if ($_GET['vnp_ResponseCode'] === '00') {
+            echo '<input type="text" hidden name="id_account" value="' . $booking_info['id_account'] . '">';
+            echo '<input type="text" hidden name="tickets" value="' . $booking_info['tickets'] . '">';
+            echo '<input type="text" hidden name="combos" value="' . $booking_info['combos'] . '">';
+            echo '<input type="text" hidden name="name_movie" value="' . $booking_info['name_movie'] . '">';
+            echo '<input type="text" hidden name="cinema" value="' . $booking_info['cinema'] . '">';
+            echo '<input type="text" hidden name="room" value="' . $booking_info['room'] . '">';
+            echo '<input type="text" hidden name="seats" value="' . $booking_info['seats'] . '">';
+            echo '<input type="text" hidden name="month" value="' . $booking_info['month'] . '">';
+            echo '<input type="text" hidden name="hours" value="' . $booking_info['hours'] . '">';
+            echo '<input type="text" hidden name="amount" value="' . $booking_info['amount'] . '">';
+        } ?>
         <input type="submit" name="insert_vnpay" value="HOME">
     </form>
 </body>

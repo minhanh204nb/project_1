@@ -30,11 +30,7 @@ extract($_SESSION['user']);
                                     <li><a href="index.php?action=contact">LIÊN HỆ</a></li>
                                     <?php
                                     if (isset($_SESSION['user'])) {
-                                        if ($role == '1') {
-                                            echo '  <li><a href="../admin/index.php?action=dashboard">Admin</a></li>';
-                                        } else {
-                                            echo '  <li><a href="index.php?action=your_ticket">Vé của tôi</a></li>';
-                                        }
+                                        echo '  <li><a href="index.php?action=your_ticket">Vé của tôi</a></li>';
                                     } else {
                                         echo '  <li><a href="index.php?action=signin">Vé của tôi</a></li>';
                                     }
@@ -64,7 +60,11 @@ extract($_SESSION['user']);
                                     </li> -->
                                     <?php
                                     if (isset($_SESSION['user'])) {
-                                        echo '<li class="header-btn"><a href="#" class="btn">Chào ' . $user . '</a></li>';
+                                        if ($role == '1') {
+                                            echo '<li class="header-btn"><a href="../admin/index.php?action=dashboard" class="btn">Chào ' . $user . '</a></li>';
+                                        } else {
+                                            echo '<li class="header-btn"><a href="#" class="btn">Chào ' . $user . '</a></li>';
+                                        }
                                         echo '<li class="header-btn"><a href="index.php?action=logout" class="btn">ĐĂNG XUẤT</a></li>';
                                     } else {
                                         echo '<li class="header-btn"><a href="index.php?action=signin" class="btn">ĐĂNG NHẬP</a></li>';
