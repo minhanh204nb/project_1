@@ -174,7 +174,7 @@ if (isset($_GET['action'])) {
                 $total_price = $_POST['amount'];
                 insert_bill($id_account, $price_tickets, $price_combo, $name_movie, $cinema, $room, $seats, $show_day, $showtime, $total_price);
                 insert_vnpay($vnp_Amount, $vnp_BankCode, $vnp_BankTranNo, $vnp_CardType, $vnp_OrderInfo, $vnp_PayDate, $vnp_ResponseCode, $vnp_TmnCode, $vnp_TransactionNo, $vnp_TransactionStatus, $vnp_TxnRef, $vnp_SecureHash);
-                header('location: index.php?action=home');
+                header('location: index.php?action=bookingHistory');
             }
             break;
         default:

@@ -125,8 +125,9 @@ extract($_SESSION['user']);
                     <a href="#" class="list-group-item list-group-item-action info">THÔNG TIN CHUNG</a>
                     <a href="views/account/edit_info.php" class="list-group-item list-group-item-action history popup-video">CHI TIẾT TÀI KHOẢN</a>
                     <a href="views/account/voucher.php" class="list-group-item list-group-item-action changeInfo popup-video">VOUCHER</a>
-                    <a href="./index.php?action=bookingHistory" class="list-group-item list-group-item-action changePass popup-video">LỊCH SỬ GIAO DỊCH</a>
+                    <a href="./index.php?action=bookingHistory" class="list-group-item list-group-item-action changePass">LỊCH SỬ GIAO DỊCH</a>
                 </div>
+                <!-- ./index.php?action=bookingHistory -->
             </div>
             <div class="col-md-9 col-sm-9 col-12">
                 <div class="title">
