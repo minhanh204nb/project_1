@@ -104,8 +104,16 @@ $booking_info = isset($_SESSION['booking_info']) ? $_SESSION['booking_info'] : [
             <p>&copy; VNPAY <?php echo date('Y') ?></p>
         </footer>
     </div>
+    <?php
+    $url_return = "";
+    if ($_GET['vnp_ResponseCode'] == '00') {
+        $url_return = "../index.php?action=insert_vnpay";
+    } else {
+        $url_return = "../index.php";
+    }
+    ?>
 
-    <form action="../index?action=insert_vnpay" method="post">
+    <form action="<?php echo $url_return ?>" method="post">
         <input type="text" hidden name="vnp_Amount" value="<?php echo $_GET['vnp_Amount'] ?>">
         <input type="text" hidden name="vnp_BankCode" value="<?php echo $_GET['vnp_BankCode'] ?>">
         <input type="text" hidden name="vnp_BankTranNo" value="<?php echo $_GET['vnp_BankTranNo'] ?>">
