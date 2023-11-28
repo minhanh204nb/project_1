@@ -27,7 +27,9 @@
             color: black;
         }
 
-        .title-info {
+        .title-info h3 {
+            margin-top: 50px;
+            color: black;
             text-align: center;
             margin-bottom: 20px;
         }
@@ -38,6 +40,7 @@
     <div class="title-info">
         <h3>Lịch sử đặt vé</h3>
     </div>
+
     <table>
         <tr>
             <th>STT</th>
@@ -52,6 +55,7 @@
             <th>Tổng tiền</th>
             <th>Thời Gian Đặt</th>
             <th>Action</th>
+            <th>Mã thanh toán</th>
         </tr>
         <?php
         $stt = 1;
@@ -69,6 +73,7 @@
             echo '<td>' . $bill['total_price'] . '</td>';
             echo '<td>' . $bill['booking_date'] . '</td>';
             echo '<td>đã thanh toán</td>';
+            echo '<td>' . $bill['vnp_TxnRef'] . '</td>';
             echo "</tr>";
         }
         ?>

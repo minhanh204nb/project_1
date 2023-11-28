@@ -130,6 +130,7 @@ $booking_info = isset($_SESSION['booking_info']) ? $_SESSION['booking_info'] : [
         <?php
         if ($_GET['vnp_ResponseCode'] === '00') {
             echo '<input type="text" hidden name="id_account" value="' . $booking_info['id_account'] . '">';
+            echo '<input type="text" hidden name="vnp_TxnRef" value="' . $_GET['vnp_TxnRef'] . '">';
             echo '<input type="text" hidden name="tickets" value="' . $booking_info['tickets'] . '">';
             echo '<input type="text" hidden name="combos" value="' . $booking_info['combos'] . '">';
             echo '<input type="text" hidden name="name_movie" value="' . $booking_info['name_movie'] . '">';

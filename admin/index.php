@@ -17,6 +17,7 @@ include './models/room/room.php';
 include './models/combo/combo.php';
 include './models/showtime/showtime.php';
 include './models/contact/contact.php';
+include './models/bill/bill.php';
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -378,6 +379,23 @@ if (isset($_GET['action'])) {
             include './views/account/list_account.php';
             break;
         case 'bill':
+            $list_bill = loadall_bill();
+            $list_account = loadall_account();
+            include './views/bill/list_bill.php';
+            break;
+        case 'details_bill':
+            $list_bill = loadbill_by_id_bill($_GET['id']);
+            $list_account = loadall_account();
+            include './views/bill/details_bill.php';
+            break;
+        case 'delete_bill':
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $id_bill = $_GET['id'];
+                delete_bill($id_bill);
+                header('location: ./views/bill/list_bill.php');
+            }
+            $list_bill = loadall_bill();
+            $list_account = loadall_account();
             include './views/bill/list_bill.php';
             break;
         case 'contact':
