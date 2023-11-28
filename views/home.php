@@ -3,8 +3,8 @@
         <div class="row align-items-end mb-60">
             <div class="col-lg-6">
                 <div class="section-title text-center text-lg-left">
-                    <span class="sub-title">ONLINE STREAMING</span>
-                    <h2 class="title">New Release Movies</h2>
+                    <span class="sub-title">Hãy xem ngay nào</span>
+                    <h2 class="title">Phim mới phát hành</h2>
                 </div>
             </div>
         </div>
@@ -23,8 +23,8 @@
                 echo '<i class="fas fa-star"></i>';
                 echo '<i class="fas fa-star"></i>';
                 echo '</li>';
-                echo '<li><a href="' . $movie['trailer_movie'] . '" class="popup-video btn">Watch Now</a></li>';
-                echo '<li><a href="index.php?action=details_movie&id=' . $movie['id_movie'] . '" class="btn">Details</a></li>';
+                echo '<li><a href="' . $movie['trailer_movie'] . '" class="popup-video btn">Xem Trailer</a></li>';
+                echo '<li><a href="index.php?action=details_movie&id=' . $movie['id_movie'] . '" class="btn">Xem Chi Tiết</a></li>';
                 echo '</ul>';
                 echo '</div>';
                 echo '<div class="movie-content">';
@@ -81,8 +81,8 @@
             <div class="col-xl-5 col-lg-6">
                 <div class="services-content-wrap">
                     <div class="section-title mb-40">
-                        <span class="sub-title">ONLINE STREAMING</span>
-                        <h2 class="title">Download Your Shows Watch Offline.</h2>
+                        <span class="sub-title">Ứng dụng</span>
+                        <h2 class="title">TẢI XUỐNG ỨNG DỤNG ĐỂ CÓ THỂ ĐẶT VÉ Ở MỌI NƠI NGAY TRÊN ĐIỆN THOẠI CỦA BẠN</h2>
                     </div>
                     <div class="services-list">
                         <ul>
@@ -91,7 +91,7 @@
                                     <i class="flaticon-television"></i>
                                 </div>
                                 <div class="content">
-                                    <h5>Enjoy on Your TV.</h5>
+                                    <h5>Cập nhật tin tức phim mới nhất</h5>
                                     <p>
                                         Lorem ipsum dolor sit amet, consecetur adipiscing
                                         elit, sed do eiusmod tempor.
@@ -103,7 +103,7 @@
                                     <i class="flaticon-video-camera"></i>
                                 </div>
                                 <div class="content">
-                                    <h5>Watch Everywhere.</h5>
+                                    <h5>Đặt vé ở mọi nơi</h5>
                                     <p>
                                         Lorem ipsum dolor sit amet, consecetur adipiscing
                                         elit, sed do eiusmod tempor.
@@ -125,8 +125,8 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="section-title title-style-three text-center mb-70">
-                    <span class="sub-title">top rated movies</span>
-                    <h2 class="title">Top Online Shows Watch</h2>
+                    <span class="sub-title">Tại sao không thử xem</span>
+                    <h2 class="title">Những phim được yêu thích nhất</h2>
                 </div>
             </div>
         </div>
@@ -149,10 +149,10 @@
                 echo '<img src="../uploads/movie/' . $movie['image'] . '" alt="">';
                 echo '<ul class="overlay-btn">';
                 echo '<li>';
-                echo '<a href="' . $movie['trailer_movie'] . '" class="popup-video btn">Watch Now</a>';
+                echo '<a href="' . $movie['trailer_movie'] . '" class="popup-video btn">XEM TRAILER</a>';
                 echo '</li>';
                 echo '<li>';
-                echo '<li><a href="index.php?action=details_movie&id=' . $movie['id_movie'] . '" class="btn">Details</a></li>';
+                echo '<li><a href="index.php?action=details_movie&id=' . $movie['id_movie'] . '" class="btn">XEM CHI TIẾT</a></li>';
                 echo '</li>';
                 echo '</ul>';
                 echo '</div>';
@@ -204,13 +204,13 @@
                             // Calculate the total number of pages
                             $totalPages = ceil(count($list_movie) / $moviesPerPage);
                             if ($currentPage > 1) {
-                                echo '<li><a href="index.php?action=home&page=' . ($currentPage - 1) . '">Previous</a></li>';
+                                echo '<li><a href="index.php?action=home&page=' . ($currentPage - 1) . '">QUAY LẠI</a></li>';
                             }
                             for ($i = 1; $i <= $totalPages; $i++) {
                                 echo '<li' . ($i === $currentPage ? ' class="active"' : '') . '><a href="index.php?action=home&page=' . $i . '">' . $i . '</a></li>';
                             }
                             if ($currentPage < $totalPages) {
-                                echo '<li><a href="index.php?action=home&page=' . ($currentPage + 1) . '">Next</a></li>';
+                                echo '<li><a href="index.php?action=home&page=' . ($currentPage + 1) . '">TIẾP</a></li>';
                             }
                             ?>
                         </ul>
@@ -218,7 +218,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </section>
 

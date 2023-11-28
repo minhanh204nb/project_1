@@ -36,13 +36,13 @@
 
                             <div class="sign__group sign__group--checkbox">
                                 <input id="remember" name="remember" type="checkbox" checked="checked" />
-                                <label for="remember">I agree to the Privacy Policy</label>
+                                <label for="remember">Tôi chấp nhận mọi điều khoản</label>
                             </div>
 
-                            <button class="sign__btn" type="button">SEND</button>
+                            <button class="sign__btn" type="button">GỬI</button>
 
                            
-                            <span class="sign__text">We will send a password to your Email</span>
+                            <span class="sign__text">Chúng tôi sẽ gửi mật khẩu đến email của bạn</span>
                             <!-- end authorization form -->
                     </div>
                 </div>

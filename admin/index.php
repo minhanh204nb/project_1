@@ -1,10 +1,10 @@
 <?php
-// session_start();
-// ob_start();
-// extract($_SESSION['user']);
-// if ($role != '1') {
-//     header('location:../index.php?action=home');
-// }
+session_start();
+ob_start();
+extract($_SESSION['user']);
+if ($role !== '1') {
+    header('location:../index.php?action=home');
+}
 include './models/pdo.php';
 include './models/category/category.php';
 include './models/movie/movie.php';
@@ -229,11 +229,11 @@ if (isset($_GET['action'])) {
                 $end_time = $_POST['end_time'];
                 $action = $_POST['id_action'];
                 $id_showtime = $_POST['id_showtime'];
-               update_showtime($id_showtime,$room,$movie,$show_date,$start_time,$end_time,$action);
+                update_showtime($id_showtime, $room, $movie, $show_date, $start_time, $end_time, $action);
             }
-           
+
             
-           
+
             $list_movie = loadall_movie();
             $list_room = loadall_room();
             $list_showtime = loadall_showtime();
@@ -377,11 +377,10 @@ if (isset($_GET['action'])) {
             break;
         case 'tickets':
             break;
-        case 'showtime':
-            break;
         case 'logout':
             if (isset($_SESSION['user'])) {
                 unset($_SESSION['user']);
+                header('Location: ../index.php?action=home');
             }
             break;
         default:

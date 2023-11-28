@@ -125,8 +125,9 @@ extract($_SESSION['user']);
                     <a href="#" class="list-group-item list-group-item-action info">THÔNG TIN CHUNG</a>
                     <a href="views/account/edit_info.php" class="list-group-item list-group-item-action history popup-video">CHI TIẾT TÀI KHOẢN</a>
                     <a href="views/account/voucher.php" class="list-group-item list-group-item-action changeInfo popup-video">VOUCHER</a>
-                    <a href="views/account/bookingHistory.php" class="list-group-item list-group-item-action changePass popup-video">LỊCH SỬ GIAO DỊCH</a>
+                    <a href="./index.php?action=bookingHistory" class="list-group-item list-group-item-action changePass">LỊCH SỬ GIAO DỊCH</a>
                 </div>
+                <!-- ./index.php?action=bookingHistory -->
             </div>
             <div class="col-md-9 col-sm-9 col-12">
                 <div class="title">
@@ -134,7 +135,7 @@ extract($_SESSION['user']);
                 </div>
                 <div class="author">
                     <div class="avatar">
-                        <img class="avatar" src="https://source.unsplash.com/random" alt="">
+                        <img class="avatar" src="../assets/img/images/avatar.jpg" alt="">
                     </div>
                     <h4><strong>Xin chào <?php echo $name_clinet ?></strong></h4>
                     <span>Với trang này, bạn sẽ quản lý được tất cả thông tin tài khoản của mình.</span>
@@ -142,9 +143,9 @@ extract($_SESSION['user']);
                 <div class="info">
                     <h4><strong>Thông tin liên hệ</strong></h4>
                     <h6>Liên hệ</h6>
-                    <p>Name: <?php echo $name_clinet ?> </p>
+                    <p>Tên: <?php echo $name_clinet ?> </p>
                     <p>Email: <?php echo $email ?> </p>
-                    <p>Tel: <?php echo $phone_number ?> </p>
+                    <p>Số điện thoại : <?php echo $phone_number ?> </p>
                 </div>
             </div>
         </div>

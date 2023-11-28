@@ -3,11 +3,11 @@
         <div class="row">
             <div class="col-12">
                 <div class="breadcrumb-content">
-                    <h2 class="title">Contact Us</h2>
+                    <h2 class="title">LIÊN HỆ</h2>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.php?action=home">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                            <li class="breadcrumb-item"><a href="index.php?action=home">TRANG CHỦ</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">LIÊN HỆ</li>
                         </ol>
                     </nav>
                 </div>
@@ -24,44 +24,44 @@
             <div class="col-xl-8 col-lg-7">
                 <div class="contact-form-wrap">
                     <div class="widget-title mb-50">
-                        <h5 class="title">Contact Form</h5>
+                        <h5 class="title">Form Liên Hệ</h5>
                     </div>
                     <div class="contact-form">
                         <form action="index.php?action=contact" method="post">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" name="name" placeholder="Your Name *">
+                                    <input type="text" name="name" placeholder="Tên của bạn *" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" name="email" placeholder="Your Email *">
+                                    <input type="email" name="email" placeholder="Địa chỉ email của bạn *" required>
                                 </div>
                             </div>
-                            <input type="text" name="title" placeholder="Subject *">
-                            <textarea name="content" placeholder="Type Your Message..."></textarea>
-                            <input class="btn" type="submit" name="send" value="Send Message">
+                            <input type="text" name="title" placeholder="Tiêu đề ">
+                            <textarea name="content" placeholder="Nội dung . . . "></textarea>
+                            <input class="btn" type="submit" name="send" value="GỬI">
                         </form>
                     </div>
                 </div>
             </div>
             <div class="col-xl-4 col-lg-5">
                 <div class="widget-title mb-50">
-                    <h5 class="title">Information</h5>
+                    <h5 class="title">Thông tin</h5>
                 </div>
                 <div class="contact-info-wrap">
-                    <p><span>Find solutions :</span> to common problems, or get help from a support agent industry's standard .</p>
+                    <p><span>Bạn gặp vấn đề, sự cố :</span> hãy liên hệ với chúng tôi để được hỗ trợ sớm nhất .</p>
                     <div class="contact-info-list">
                         <ul>
                             <li>
                                 <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
-                                <p><span>Address :</span> W38 Park Road New York</p>
+                                <p><span>Địa chỉ :</span> Minh Khai - Cầu Diễn - Hà Nội</p>
                             </li>
                             <li>
                                 <div class="icon"><i class="fas fa-phone-alt"></i></div>
-                                <p><span>Phone :</span> (09) 123 854 365</p>
+                                <p><span>Số điện thoại :</span> +84979620125</p>
                             </li>
                             <li>
                                 <div class="icon"><i class="fas fa-envelope"></i></div>
-                                <p><span>Email :</span> <a href="https://themebeyond.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c8bbbdb8b8a7babc88a5a7beaea4b0e6aba7a5">[email&#160;protected]</a></p>
+                                <p><span>Email :</span> <a href="" type="email">anhtmph41558@fpt.edu.vn</a></p>
                             </li>
                         </ul>
                     </div>

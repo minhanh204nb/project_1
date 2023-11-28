@@ -1,33 +1,35 @@
-<?php
-include_once("db/connect.php");
-session_start();
-$user = $_GET['user'];
-?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>History booking</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <style>
+        table {
+            margin: 120px auto;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        td {
+            color: black;
+        }
+
         .title-info {
             text-align: center;
             margin-bottom: 20px;
-        }
-
-        .note {
-            font-size: small;
-            font-style: italic;
-        }
-
-        label {
-            font-weight: bold;
         }
     </style>
 </head>
@@ -36,46 +38,41 @@ $user = $_GET['user'];
     <div class="title-info">
         <h3>Lịch sử đặt vé</h3>
     </div>
-    <table id="historyBooking" class="table table-striped table-bordered" style="width:100%">
-        <thead>
-            <tr>
-                <th scope="col">STT</th>
-                <th scope="col">Tên Phim</th>
-                <th scope="col">Ghế</th>
-                <th scope="col">Rạp</th>
-                <th scope="col">Loại Vé</th>
-                <th scope="col">Thời Gian Đặt</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            $stt = 0;
-            $sql_bookingH = mysqli_query($mysqli, "SELECT movie_name,`booking_seat`,`booking_ticket`,`booking_time`,`theaters_name` FROM `booking`,users,movie,theaters 
-    WHERE booking_user = user_id and booking_movie = movie_id and booking_theater = theaters_id and user_email = '$user' ");
-            while ($row_bookingH = mysqli_fetch_array($sql_bookingH)) {
-            ?>
-                <tr>
-                    <th scope="row"><?php echo $stt += 1; ?></th>
-                    <td><?php echo $row_bookingH['movie_name']; ?></td>
-                    <td><?php echo $row_bookingH['booking_seat']; ?></td>
-                    <td><?php echo $row_bookingH['theaters_name']; ?></td>
-                    <td><?php echo $row_bookingH['booking_ticket']; ?></td>
-                    <td><?php echo $row_bookingH['booking_time']; ?></td>
-                </tr>
-            <?php
-            }
-            ?>
-        </tbody>
+    <table>
+        <tr>
+            <th>STT</th>
+            <th>Tên Phim</th>
+            <th>Rạp</th>
+            <th>Phòng chiếu</th>
+            <th>Ghế</th>
+            <th>Ngày chiếu</th>
+            <th>Giờ chiếu</th>
+            <th>Giá vé</th>
+            <th>Giá combo</th>
+            <th>Tổng tiền</th>
+            <th>Thời Gian Đặt</th>
+            <th>Action</th>
+        </tr>
+        <?php
+        $stt = 1;
+        foreach ($list_bill as $bill) {
+            echo "<tr>";
+            echo '<td>' . $stt++ . '</td>';
+            echo '<td>' . $bill['name_movie'] . '</td>';
+            echo '<td>' . $bill['cinema'] . '</td>';
+            echo '<td>' . $bill['room'] . '</td>';
+            echo '<td>' . $bill['seats'] . '</td>';
+            echo '<td>' . $bill['show_day'] . '</td>';
+            echo '<td>' . $bill['showtime'] . '</td>';
+            echo '<td>' . $bill['price_tickets'] . '</td>';
+            echo '<td>' . $bill['price_combo'] . '</td>';
+            echo '<td>' . $bill['total_price'] . '</td>';
+            echo '<td>' . $bill['booking_date'] . '</td>';
+            echo '<td>đã thanh toán</td>';
+            echo "</tr>";
+        }
+        ?>
     </table>
-    <div class="note">
-        *Ghi Chú:
-        <div>
-            - Vé Phim 2D: Ở phòng số 1.
-        </div>
-        <div>
-            - Vé Phim 3D: Ở phòng số 2.
-        </div>
-    </div>
 </body>
 
 </html>
