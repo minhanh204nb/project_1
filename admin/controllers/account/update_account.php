@@ -58,6 +58,7 @@ if (is_array($list_account)) {
                                     <div class="form-group">
                                         <label>Role</label>
                                         <input type="text" class="form-control" name="role" value="<?php if(isset($role)&&($role!="")) echo $role?>">
+                                        <input type="text" class="form-control" name="id_account" value="<?php if(isset($id_account)&&($id_account!="")) echo $id_account?>">
                                     </div>
                                 </div>
                             </div>

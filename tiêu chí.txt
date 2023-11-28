@@ -12,7 +12,7 @@ Về Admin:quản lí thể loại phim ,phòng phim, phim, suất chiếu
 
 Thang điểm cao hơn:
 lọc phim (rạp, tên loại phim)(ok)
-lịch sử đặt vé
+lịch sử đặt vé (ok)
 bình luận
 quản lí danh sách đặt vé xem phim
 xác thực cập nhật trạng thái đơn hàng(khi khách lấy vé hay chưa)

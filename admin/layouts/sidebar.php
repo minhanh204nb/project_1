@@ -31,6 +31,12 @@
                     <a href="index.php?action=showtime"><i data-feather="settings"></i> <span>Showtime</span></a>
                 </li>
                 <li>
+                    <a href="index.php?action=bill"><i data-feather="settings"></i> <span>Danh sách đặt vé xem phim</span></a>
+                </li>
+                <li>
+                    <a href="index.php?action=contact"><i data-feather="settings"></i> <span>Liên Hệ</span></a>
+                </li>
+                <li>
                     <a href="index.php?action=logout"><i data-feather="settings"></i> <span>Đăng xuất</span></a>
                 </li>
             </ul>

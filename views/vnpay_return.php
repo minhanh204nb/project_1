@@ -59,16 +59,12 @@ $booking_info = isset($_SESSION['booking_info']) ? $_SESSION['booking_info'] : [
                 <label><?php echo $user ?></label>
             </div>
             <div class="form-group">
-                <label>Số tiền:</label>
+                <label>Số tiền :</label>
                 <label><?php echo $_GET['vnp_Amount'] ?></label>
             </div>
             <div class="form-group">
-                <label>Nội dung thanh toán:</label>
+                <label>Nội dung thanh toán :</label>
                 <label><?php echo $_GET['vnp_OrderInfo'] ?></label>
-            </div>
-            <div class="form-group">
-                <label>Mã phản hồi (vnp_ResponseCode):</label>
-                <label><?php echo $_GET['vnp_ResponseCode'] ?></label>
             </div>
             <div class="form-group">
                 <label>Mã GD Tại VNPAY:</label>
@@ -80,7 +76,12 @@ $booking_info = isset($_SESSION['booking_info']) ? $_SESSION['booking_info'] : [
             </div>
             <div class="form-group">
                 <label>Thời gian thanh toán:</label>
-                <label><?php echo $_GET['vnp_PayDate'] ?></label>
+                <?php
+                $payDate = $_GET['vnp_PayDate'];
+                $dateTime = new DateTime($payDate);
+                $formattedDate = $dateTime->format('H:i:s - d/m/Y');
+                ?>
+                <label><?php echo $formattedDate; ?></label>
             </div>
             <div class="form-group">
                 <label>Kết quả:</label>
@@ -88,12 +89,12 @@ $booking_info = isset($_SESSION['booking_info']) ? $_SESSION['booking_info'] : [
                     <?php
                     if ($secureHash == $vnp_SecureHash) {
                         if ($_GET['vnp_ResponseCode'] == '00') {
-                            echo "<span style='color:blue'>GD Thanh cong</span>";
+                            echo "<span style='color:blue'>Giao dịch thành công</span>";
                         } else {
-                            echo "<span style='color:red'>GD Khong thanh cong</span>";
+                            echo "<span style='color:red'>Giao dịch không thành công</span>";
                         }
                     } else {
-                        echo "<span style='color:red'>Chu ky khong hop le</span>";
+                        echo "<span style='color:red'>Chữ ký không hợp lệ</span>";
                     }
                     ?>
                 </label>
@@ -113,7 +114,7 @@ $booking_info = isset($_SESSION['booking_info']) ? $_SESSION['booking_info'] : [
     }
     ?>
 
-    <form action="<?php echo $url_return ?>" method="post">
+    <form action="<?php echo $url_return ?>" method="post" class="center-btn">
         <input type="text" hidden name="vnp_Amount" value="<?php echo $_GET['vnp_Amount'] ?>">
         <input type="text" hidden name="vnp_BankCode" value="<?php echo $_GET['vnp_BankCode'] ?>">
         <input type="text" hidden name="vnp_BankTranNo" value="<?php echo $_GET['vnp_BankTranNo'] ?>">
@@ -139,11 +140,25 @@ $booking_info = isset($_SESSION['booking_info']) ? $_SESSION['booking_info'] : [
             echo '<input type="text" hidden name="hours" value="' . $booking_info['hours'] . '">';
             echo '<input type="text" hidden name="amount" value="' . $booking_info['amount'] . '">';
         } ?>
-        <input type="submit" name="insert_vnpay" value="HOME">
+        <input type="submit" name="insert_vnpay" value="HOME" class="btn">
     </form>
 </body>
 
 <style>
+    .btn {
+        background-color: #007bff;
+        color: #f8f9fa;
+        font-weight: bold;
+        font-size: 20px;
+        width: 150px;
+        height: 50px;
+    }
+
+    .center-btn :hover {
+        color: white;
+        border: 2px solid yellow;
+    }
+
     body {
         background-color: #f8f9fa;
         padding-top: 50px;
@@ -186,7 +201,12 @@ $booking_info = isset($_SESSION['booking_info']) ? $_SESSION['booking_info'] : [
         color: #6c757d;
     }
 
-    /* Add more styling as needed */
+    /* Center the Home button */
+    .center-btn {
+        margin-top: 30px;
+        text-align: center;
+    }
 </style>
+
 
 </html>
