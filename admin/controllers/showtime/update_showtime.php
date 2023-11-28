@@ -1,10 +1,9 @@
-<?php
-if (is_array($list_showtime)) {
-    extract(($list_showtime));
-}
-
-
-?>
+ <?php
+    if (is_array($list_showtime)) {
+        extract(($list_showtime));
+    }
+    ?>
+   
 <!<!DOCTYPE html>
     <html lang="en">
 
@@ -28,7 +27,7 @@ if (is_array($list_showtime)) {
 
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
-
+   
     <body class="nk-body bg-lighter npc-default has-sidebar no-touch nk-nio-theme">
         <div class="main-wrapper">
             <div class="page-wrapper">
@@ -56,18 +55,18 @@ if (is_array($list_showtime)) {
                                                     <label>ROOM</label>
                                                     <select class="select" name="id_room">
                                                         <?php
-                                                        foreach ($list_room as $room) {
-                                                            if($id_room == $id_showtime){
-                                                            echo ' <option value="' . $room['id_room'] . '"selected>' . $room['name_room'] . '</option>';
-                                                            }else{
-                                                            echo ' <option value="' . $room['id_room'] . '">' . $room['name_room'] . '</option>';
-
+                                                       
+                                                        foreach ($list_showtime as $showtime) {
+                                                            foreach ($list_room as $room) {
+                                                                if ($room['id_room'] === $showtime['id_room']) {
+                                                                    echo ' <option value="' . $room['id_room'] . '">' . $room['name_room'] . '</option>';
+                                                                }
                                                             }
                                                         }
                                                         ?>
 
-                                                       
-                                                        
+
+
                                                     </select>
                                                 </div>
                                             </div>
@@ -77,12 +76,12 @@ if (is_array($list_showtime)) {
                                                     <label>MOVIE</label>
                                                     <select class="select" name="id_movie">
                                                         <?php
-                                                        foreach ($list_movie as $movie) {
-                                                            if($id_movie == $id_showtime){
-                                                            echo ' <option value="' . $movie['id_movie'] . '"selected>' . $movie['name_movie'] . '</option>';
-                                                            }else{
-                                                            echo ' <option value="' . $movie['id_movie'] . '">' . $movie['name_movie'] . '</option>';
-
+                                                        
+                                                        foreach ($list_showtime as $showtime) {
+                                                            foreach ($list_movie as $movie) {
+                                                                if ($movie['id_movie'] === $showtime['id_movie']) {
+                                                                    echo ' <option value="' . $movie['id_movie'] . '">' . $movie['name_movie'] . '</option>';
+                                                                }
                                                             }
                                                         }
                                                         ?>
@@ -117,12 +116,13 @@ if (is_array($list_showtime)) {
                                                     <label>Trạng thái</label>
                                                     <select class="select" name="id_action">
                                                         <?php
-                                                        foreach ($list_action as $action) {
-                                                            if($id_action==$id_showtime){
-                                                            echo ' <option value="' . $action['id_action'] . '"selected >' . $action['action_rap'] . '</option>';
-                                                            }else{
-                                                                echo ' <option value="' . $action['id_action'] . '">' . $action['action_rap'] . '</option>';
-                                                            
+                                                        
+                                                        foreach ($list_showtime as $showtime) {
+                                                            foreach ($list_action as $action) {
+                                                                // echo ' <option value="' . $action['id_action'] . '">' . $action['action_rap'] . '</option>';
+                                                                if ($action['id_action'] === $showtime['id_action']) {
+                                                                    echo ' <option value="' . $action['id_action'] . '">' . $action['action_rap'] . '</option>';
+                                                                }
                                                             }
                                                         }
                                                         ?>
@@ -131,11 +131,17 @@ if (is_array($list_showtime)) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="bank-details-btn ">
+                                    <div class=" blog-categories-btn pt-0">
+                                        <div class="bank-details-btn ">
+                                            <!-- <button name="insert" class="btn btn-primary me-2">Add Movie</button> -->
+                                            
                                         <input type="hidden" name="id_showtime" value="<?php if (isset($id_showtime) && ($id_showtime > 0)) echo $id_showtime; ?>">
-                                        <input type="submit" class="btn btn-primary me-2" name="update_showtime" value="UPDATE">
+
+                                            <input type="submit" name="update_showtime" class="btn btn-primary me-2" value="UPDATE SHOWTIME">
+                                        </div>
                                     </div>
                                 </div>
+                                
                             </form>
                         </div>
                     </div>
@@ -156,6 +162,7 @@ if (is_array($list_showtime)) {
             <script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
             <script src="assets/js/script.js"></script>
+           
     </body>
 
     </html>

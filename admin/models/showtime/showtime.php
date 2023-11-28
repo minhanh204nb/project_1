@@ -6,8 +6,9 @@ function insert_showtime($id_room,$id_movie ,$show_date,$start_time,$end_time,$i
 }
 function update_showtime($id_showtime,$id_room,$id_movie ,$show_date,$start_time,$end_time,$id_action)
 {
-    $sql = "UPDATE showtime SET id_room = '".$id_room."',id_movie = '".$id_movie."',show_date = '".$show_date."',start_time = '".$start_time."',end_time = '".$end_time."',id_action = '".$id_action."' WHERE id_showtime = ".$id_showtime;
-    pdo_execute1($sql);
+    // $sql = "UPDATE showtime SET id_room = '".$id_room."',id_movie = '".$id_movie."',show_date = '".$show_date."',start_time = '".$start_time."',end_time = '".$end_time."',id_action = '".$id_action."' WHERE `id_showtime` = ".$id_showtime;
+    $sql = "UPDATE showtime SET id_room='$id_room',id_movie='$id_movie',$show_date='$show_date',start_time='$start_time',end_time='$end_time',id_action='$id_action' WHERE id_showtime=".$id_showtime;
+    pdo_execute($sql);
 }
 function delete_showtime($id_showtime)
 {
@@ -29,7 +30,7 @@ function loadone_showtime($id_showtime)
 
 function loadall_action()
 {
-    $sql = "select * from action order by id_action asc";
+    $sql = "select * from action_room order by id_action asc";
     $list_action = pdo_query($sql);
     return $list_action;
 }
