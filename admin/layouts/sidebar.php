@@ -25,10 +25,13 @@
                     <a href="index.php?action=account"><i data-feather="settings"></i> <span>Account</span></a>
                 </li>
                 <li>
-                    <a href="index.php?action=tickets"><i data-feather="settings"></i> <span>Tickets</span></a>
+                    <a href="index.php?action=showtime"><i data-feather="settings"></i> <span>Showtime</span></a>
                 </li>
                 <li>
-                    <a href="index.php?action=showtime"><i data-feather="settings"></i> <span>Showtime</span></a>
+                    <a href="index.php?action=bill"><i data-feather="settings"></i> <span>Danh sách đặt vé xem phim</span></a>
+                </li>
+                <li>
+                    <a href="index.php?action=contact"><i data-feather="settings"></i> <span>Liên Hệ</span></a>
                 </li>
                 <li>
                     <a href="index.php?action=logout"><i data-feather="settings"></i> <span>Đăng xuất</span></a>

@@ -6,16 +6,18 @@ if ($role !== '1') {
     header('location:../index.php?action=home');
 }
 include './models/pdo.php';
-include './models/category/category.php';
+include './layouts/head.php';
+include './layouts/navbar.php';
+include './layouts/sidebar.php';
 include './models/movie/movie.php';
+include './models/category/category.php';
 include './models/movie/country.php';
 include './models/account/account.php';
 include './models/room/room.php';
 include './models/combo/combo.php';
 include './models/showtime/showtime.php';
-include './layouts/head.php';
-include './layouts/navbar.php';
-include './layouts/sidebar.php';
+include './models/contact/contact.php';
+include './models/bill/bill.php';
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -361,7 +363,7 @@ if (isset($_GET['action'])) {
             break;
         case 'update_account':
             if (isset($_POST['update_account']) && ($_POST['update_account'])) {
-                $id_account = $_GET['id_account'];
+                $id_account = $_POST['id_account'];
                 $name_clinet = $_POST['name_clinet'];
                 $user = $_POST['user'];
                 $password = $_POST['password'];
@@ -372,10 +374,41 @@ if (isset($_GET['action'])) {
                 $role = $_POST['role'];
                 update_account($id_account, $name_clinet, $user, $password, $phone_number, $email, $address, $action, $role);
             }
-            $list_account = loadall_account();
+            $sql = "SELECT * FROM account ORDER BY id_account";
+            $list_account = pdo_query($sql);
+            // $list_account = loadall_account();
             include './views/account/list_account.php';
             break;
-        case 'tickets':
+        case 'bill':
+            $list_bill = loadall_bill();
+            $list_account = loadall_account();
+            include './views/bill/list_bill.php';
+            break;
+        case 'details_bill':
+            $list_bill = loadbill_by_id_bill($_GET['id']);
+            $list_account = loadall_account();
+            include './views/bill/details_bill.php';
+            break;
+        case 'delete_bill':
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $id_bill = $_GET['id'];
+                delete_bill($id_bill);
+                header('location: ./views/bill/list_bill.php');
+            }
+            $list_bill = loadall_bill();
+            $list_account = loadall_account();
+            include './views/bill/list_bill.php';
+            break;
+        case 'contact':
+            $list_contact = loadall_contact();
+            include './views/contact/contact.php';
+            break;
+        case 'delete_contact':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                delete_contact($_GET['id']);
+            }
+            $list_contact = loadall_contact();
+            include './views/contact/contact.php';
             break;
         case 'logout':
             if (isset($_SESSION['user'])) {

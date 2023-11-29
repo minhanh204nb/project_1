@@ -65,8 +65,8 @@
                                                     }
                                                     echo '<td><span class="badge badge-pill bg-success-light">' . $role . '</span></td>';
                                                     echo '<td class="text-end">';
-                                                    $edit_account = 'index.php?action=edit_account&id=' . $account['id_account'];
-                                                    $delete_account = 'index.php?action=detete_account&id=' . $account['id_account'];
+                                                    $edit_account = "index.php?action=edit_account&id=" . $account['id_account'];
+                                                    $delete_account = "index.php?action=delete_account&id=" . $account['id_account'];
                                                     echo '<a href="' . $edit_account . '"  class="btn btn-sm btn-white text-success me-2"><i class="far fa-edit me-1"></i> Edit</a>';
                                                     echo '<a href="' . $delete_account . '"onclick="return confirm(\'Bạn có chắc muốn xóa?\');" class="btn btn-sm btn-white text-danger me-2"><i class="far fa-trash-alt me-1"></i>Delete</a>';
                                                     echo '</td>';

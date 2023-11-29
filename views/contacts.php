@@ -36,7 +36,7 @@
                                     <input type="email" name="email" placeholder="Địa chỉ email của bạn *" required>
                                 </div>
                             </div>
-                            <input type="text" name="title" placeholder="Tiêu đề ">
+                            <input type="text" name="title" maxlength="30" placeholder="Tiêu đề ">
                             <textarea name="content" placeholder="Nội dung . . . "></textarea>
                             <input class="btn" type="submit" name="send" value="GỬI">
                         </form>

@@ -18,16 +18,18 @@ function update_account($id_account, $name_clinet, $user, $password, $phone_numb
 }
 function delete_account($id_account)
 {
-    $sql = "DELETE FROM account WHERE id_account = ".$id_account;
+    $sql = "DELETE FROM account WHERE id_account = '$id_account'";
     pdo_execute($sql);
 }
 function loadone_account($id_account)
 {
-    $sql = "SELECT * FROM account WHERE id_account = '$id_account'";
-    return pdo_query_one($sql);
+    $sql = "SELECT * from account where id_account=" . $id_account;
+    $list_account = pdo_query_one($sql);
+    return $list_account;
 }
-function check_user($user,$password){
-    $sql="select * from account where user='".$user."' AND password='".$password."'";
-    $sp=pdo_query_one($sql);
+function check_user($user, $password)
+{
+    $sql = "select * from account where user='" . $user . "' AND password='" . $password . "'";
+    $sp = pdo_query_one($sql);
     return $sp;
 }

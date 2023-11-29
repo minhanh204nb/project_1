@@ -18,6 +18,7 @@ include './admin/models/showtime/showtime.php';
 include './admin/models/contact/contact.php';
 include './admin/models/bill/bill.php';
 include './admin/models/vnpay/vnpay.php';
+include './admin/models/seats/seat.php';
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -78,16 +79,8 @@ if (isset($_GET['action'])) {
             include './views/details_blog.php';
             break;
         case 'combo':
+            $list_combo = loadall_combo();
             include './views/combo.php';
-            break;
-        case 'booking':
-            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                $id_movie = $_GET['id'];
-                $list_movie = loadone_movie($id_movie);
-                $loadone_showtime = loadone_showtime_by_id_movie($id_movie);
-            }
-            $list_movie = loadone_movie($id_movie);
-            include './views/booking.php';
             break;
         case 'signup':
             if (isset($_POST['signup']) && $_POST['signup']) {
@@ -147,6 +140,19 @@ if (isset($_GET['action'])) {
             }
             include './views/contacts.php';
             break;
+        case 'booking':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $id_movie = $_GET['id'];
+                $list_movie = loadone_movie($id_movie);
+                $loadone_showtime = loadone_showtime_by_id_movie($id_movie);
+            }
+            $id_movie = $_GET['id'];
+            $list_movie = loadone_movie($id_movie);
+            $list_seat = load_seat_by_id_movie($id_movie);
+            $list_showtime = loadone_showtime_by_id_movie($id_movie);
+            // $list_seat = loadall_seat();
+            include './views/booking.php';
+            break;
         case 'insert_vnpay':
             if (isset($_POST['insert_vnpay']) && $_POST['insert_vnpay']) {
                 $vnp_Amount = $_POST['vnp_Amount'];
@@ -163,6 +169,7 @@ if (isset($_GET['action'])) {
                 $vnp_SecureHash = $_POST['vnp_SecureHash'];
                 // bill
                 $id_account = $_POST['id_account'];
+                $vnp_TxnRef = $_POST['vnp_TxnRef'];
                 $price_tickets = $_POST['tickets'];
                 $price_combo = $_POST['combos'];
                 $name_movie = $_POST['name_movie'];
@@ -171,8 +178,10 @@ if (isset($_GET['action'])) {
                 $seats = $_POST['seats'];
                 $show_day = $_POST['month'];
                 $showtime = $_POST['hours'];
+                $id_movie = $_POST['id_movie'];
                 $total_price = $_POST['amount'];
-                insert_bill($id_account, $price_tickets, $price_combo, $name_movie, $cinema, $room, $seats, $show_day, $showtime, $total_price);
+                insert_seat($id_movie, '15', $seats);
+                insert_bill($id_account, $vnp_TxnRef, $price_tickets, $price_combo, $name_movie, $cinema, $room, $seats, $show_day, $showtime, $total_price);
                 insert_vnpay($vnp_Amount, $vnp_BankCode, $vnp_BankTranNo, $vnp_CardType, $vnp_OrderInfo, $vnp_PayDate, $vnp_ResponseCode, $vnp_TmnCode, $vnp_TransactionNo, $vnp_TransactionStatus, $vnp_TxnRef, $vnp_SecureHash);
                 header('location: index.php?action=bookingHistory');
             }
