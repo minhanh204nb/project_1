@@ -149,6 +149,7 @@ if (isset($_GET['action'])) {
             $id_movie = $_GET['id'];
             $list_movie = loadone_movie($id_movie);
             $list_seat = load_seat_by_id_movie($id_movie);
+            $list_showtime = loadone_showtime_by_id_movie($id_movie);
             // $list_seat = loadall_seat();
             include './views/booking.php';
             break;

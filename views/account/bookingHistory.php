@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
         table {
+            padding: 1000px;
             margin: 120px auto;
             width: 100%;
             border-collapse: collapse;
@@ -25,6 +26,10 @@
 
         td {
             color: black;
+        }
+
+        .ttrr {
+            height: 150px;
         }
 
         .title-info h3 {
@@ -60,7 +65,7 @@
         <?php
         $stt = 1;
         foreach ($list_bill as $bill) {
-            echo "<tr>";
+            echo "<tr class='ttrr'>";
             echo '<td>' . $stt++ . '</td>';
             echo '<td>' . $bill['name_movie'] . '</td>';
             echo '<td>' . $bill['cinema'] . '</td>';

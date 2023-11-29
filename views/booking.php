@@ -16,7 +16,6 @@ include 'config.php';
 $id_movie = isset($_GET['id']) ? $_GET['id'] : 0;
 $movie = loadone_movie($id_movie);
 $loadone_showtime = loadone_showtime_by_id_movie($id_movie);
-// $loadone_ticket = loadone_ticket($loadone_showtime[0]['id_showtime']);
 $list_combo = loadall_combo();
 ?>
 
@@ -109,11 +108,11 @@ $list_combo = loadall_combo();
                 echo '<div class="left_card">';
                 echo '<div class="card_month crd">';
                 // Loop to generate the next 14 date points (for two weeks)
-                for ($i = 0; $i < 14; $i++) {
+                for ($i = 0; $i < 10; $i++) {
                     // Output the day abbreviation and day of the month
                     echo '<li>';
-                    echo '<h6>' . $dayAbbreviations[$currentDate->format('N') - 1] . '</h6>';
-                    echo '<h6 class="date_point">' . $currentDate->format('j') . '</h6>';
+                    echo '<h6 class="date_point not_pick">' . $dayAbbreviations[$currentDate->format('N') - 1] . '</h6>';
+                    echo '<h6 class="date_point">' . $currentDate->format('d/m') . '</h6>';
                     echo '</li>';
                     // Move to the next day
                     $currentDate->add(new DateInterval('P1D'));
@@ -121,9 +120,40 @@ $list_combo = loadall_combo();
                 echo '</div>';
                 echo '</div>';
                 ?>
+                <style>
+                    .not_pick {
+                        pointer-events: none;
+                    }
+
+                    /* CSS */
+                    .my-element {
+                        background-color: blue;
+                        /* Màu mặc định */
+                        transition: background-color 0.3s ease;
+                        /* Hiệu ứng chuyển đổi */
+                    }
+
+                    .my-element:hover {
+                        background-color: green;
+                        /* Màu khi hover */
+                    }
+
+                    .date_point {
+                        margin-left: 10px;
+                        margin-right: 30px;
+                    }
+
+                    .required-div:empty::before {
+                        content: "Vui lòng chọn phòng và xuất chiếu mong muốn . . .";
+                        color: red;
+                    }
+                </style>
+
+                <!-- <div class="required-div"></div> -->
+
                 <div class="right_card">
                     <h6 class="title">Chọn suất chiếu</h6>
-                    <div class="card_month crd" id="showTimes">
+                    <div class="card_month crd required-div" id="showTimes" required>
                         <?php
                         $showTimes = load_showtime_by_id_room($room['id_room']);
                         // $showTimes = loadone_showtime_by_id_movie($_GET['id']);
@@ -140,6 +170,17 @@ $list_combo = loadall_combo();
             <div class="screen" id="screen">
                 Màn hình
             </div>
+            <!-- <?php
+                    $fdg = ' <input type="text" name="hours" value="" readonly>';
+                    foreach ($list_showtime as $showtime) {
+                        echo ' <h4>' . $showtime['id_showtime'] . '</h4> ';
+                        // echo ' <h4>' . $id_showtime . '</h4> ';
+                    }
+                    if ($time['start_time'] === $fdg) {
+                        echo ' <h4>1234567</h4> ';
+                    }
+                    ?> -->
+
             <div class="chair" id="chair">
                 <?php
                 $rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
@@ -149,7 +190,7 @@ $list_combo = loadall_combo();
                     foreach ($columns as $column) {
                         $seat = $row . $column;
                         // echo' <input class="seat" data-seat="' . $seat . '" type="text" value="'.$seat.'" > ';
-                        echo '<li class="seat red' . $seat . '" " data-seat="' . $seat . '">' . $seat . '  </li>';
+                        echo '<li class="seat red' . $seat . '" " data-seat="' . $seat . ',">' . $seat . '  </li>';
                     }
                     echo '</div>';
                 }
@@ -208,7 +249,7 @@ $list_combo = loadall_combo();
                                         echo "<td>" . $combo["mota"] . "</td>";
                                         echo "<td class='edit-delete-btn'>";
                                         echo ' <button>-</button>';
-                                        echo '<input type="text" name="quantity" value="0" min="0" >';
+                                        echo '<input type="text" name="quantity" value="0" min="0" max="1000">';
                                         echo ' <button>+</button>';
                                         echo "</td>";
                                         echo "</tr>";
@@ -241,7 +282,7 @@ $list_combo = loadall_combo();
                 } else {
                     newSeatsValue = currentSeatsValue.includes(selectedSeat) ?
                         currentSeatsValue.replace(',' + selectedSeat, '').replace(selectedSeat + ',', '').replace(selectedSeat, '') :
-                        currentSeatsValue + ',' + selectedSeat;
+                        currentSeatsValue + '' + selectedSeat;
                 }
                 $("input[name='seats']").val(newSeatsValue);
                 // Toggle the selection class for styling
@@ -255,7 +296,7 @@ $list_combo = loadall_combo();
                 var pricePerSeat = 10000; // Set your price per seat here
                 var amount = selectedSeats.split(',').length * pricePerSeat;
                 // Update the tickets input field with the calculated amount price
-                $("input[name='tickets']").val(amount.toLocaleString('vi-VN') + '');
+                $("input[name='tickets']").val(amount.toLocaleString('vi-VN') + ' VND');
                 // You can also update other fields if needed (e.g., combos, amount money, etc.)
                 // $("input[name='combos']").val(amount.toLocaleString('vi-VN') + ' đ');
                 $("input[name='amount']").val(amount);
@@ -333,7 +374,7 @@ $list_combo = loadall_combo();
                 for (var i = 0; i < comboData.length; i++) {
                     combosPrice += selectedCombos[i] * parseFloat(comboData[i].price_combo);
                 }
-                $("input[name='combos']").val(combosPrice.toLocaleString('vi-VN') + '');
+                $("input[name='combos']").val(combosPrice.toLocaleString('vi-VN') + ' VND');
                 updateamountPrice();
             }
 
