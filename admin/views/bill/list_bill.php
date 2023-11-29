@@ -162,7 +162,6 @@
             </div>
         </div>
         <div class="row">
-            <!-- dropdown dropdown-action -->
             <?php
             foreach ($list_bill as $bill) {
                 // extract($list_bill);
@@ -252,49 +251,63 @@
                 echo '</div>';
             }
             ?>
-            <style>
-                /* Ẩn menu dropdown ban đầu */
-                .dropdown-menu {
-                    display: none;
-                }
 
-                /* Hiển thị menu dropdown khi class "dropdown" được nhấp vào */
-                .dropdown.show .dropdown-menu {
-                    display: block;
-                }
-            </style>
-            <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-            <script>
-                $(document).ready(function() {
-                    // Bắt sự kiện khi class "dropdown" được nhấp vào
-                    $('.dropdown').click(function() {
-                        // Đảm bảo chỉ có một menu dropdown được hiển thị tại một thời điểm
-                        $('.dropdown').not(this).removeClass('show');
-                        // Toggle class "show" cho menu dropdown được nhấp vào
-                        $(this).toggleClass('show');
-                    });
+            <div class="row">
+                <div class="col-sm-12 col-md-5">
+                    <!-- <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 1 to 10 of 12 entries</div> -->
+                </div>
+                <div class="col-sm-12 col-md-7">
+                    <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+                        <ul class="pagination">
+                            <li class="paginate_button page-item <?php echo $previous_class; ?>">
+                                <a class="page-link" href="?action=bill&page=<?php echo $previous_page; ?>">Previous</a>
+                            </li>
 
-                    // Bắt sự kiện khi click bên ngoài menu dropdown để ẩn nó
-                    $(document).click(function(event) {
-                        if (!$(event.target).closest('.dropdown').length) {
-                            $('.dropdown').removeClass('show');
-                        }
-                    });
-                });
-            </script>
+                            <?php foreach ($page_range as $page) : ?>
+                                <li class="paginate_button page-item <?php echo ($page == $current_page) ? 'active' : ''; ?>">
+                                    <a class="page-link" href="?action=bill&page=<?php echo $page; ?>"><?php echo $page; ?></a>
+                                </li>
+                            <?php endforeach; ?>
 
-            <div class="col-lg-12">
-                <div class="invoice-load-btn">
-                    <a href="#" class="btn">
-                        <span class="spinner-border text-primary"></span>
-                        <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">Tải thêm
-                            </font>
-                        </font>
-                    </a>
+                            <li class="paginate_button page-item <?php echo $next_class; ?>">
+                                <a class="page-link" href="?action=bill&page=<?php echo $next_page; ?>">Next</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<style>
+    /* Ẩn menu dropdown ban đầu */
+    .dropdown-menu {
+        display: none;
+    }
+
+    /* Hiển thị menu dropdown khi class "dropdown" được nhấp vào */
+    .dropdown.show .dropdown-menu {
+        display: block;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // Bắt sự kiện khi class "dropdown" được nhấp vào
+        $('.dropdown').click(function() {
+            // Đảm bảo chỉ có một menu dropdown được hiển thị tại một thời điểm
+            $('.dropdown').not(this).removeClass('show');
+            // Toggle class "show" cho menu dropdown được nhấp vào
+            $(this).toggleClass('show');
+        });
+
+        // Bắt sự kiện khi click bên ngoài menu dropdown để ẩn nó
+        $(document).click(function(event) {
+            if (!$(event.target).closest('.dropdown').length) {
+                $('.dropdown').removeClass('show');
+            }
+        });
+    });
+</script>

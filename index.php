@@ -78,6 +78,7 @@ if (isset($_GET['action'])) {
             include './views/details_blog.php';
             break;
         case 'combo':
+            $list_combo=loadall_combo();
             include './views/combo.php';
             break;
         case 'booking':
