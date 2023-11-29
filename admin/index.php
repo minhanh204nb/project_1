@@ -197,10 +197,9 @@ if (isset($_GET['action'])) {
 
         case 'delete_showtime':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-               
+
                 delete_showtime($_GET['id']);
             }
-       
             $sql = "select * from showtime order by id_showtime";
             $list_movie = loadall_movie();
             $list_room = loadall_room();
@@ -210,17 +209,17 @@ if (isset($_GET['action'])) {
             include './views/showtime/list_showtime.php';
             break;
 
-            case 'edit_showtime':
-                if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                    $list_showtime = loadone_showtime($_GET['id']);
-                }
-                $list_movie = loadall_movie();
+        case 'edit_showtime':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $list_showtime = loadone_showtime($_GET['id']);
+            }
+            $list_movie = loadall_movie();
             $list_room = loadall_room();
             $list_showtime = loadall_showtime();
             $list_action = loadall_action();
-                // $list_movie = loadall_movie();
-                include './controllers/showtime/update_showtime.php';
-                break;
+            // $list_movie = loadall_movie();
+            include './controllers/showtime/update_showtime.php';
+            break;
 
         case 'update_showtime':
             if (isset($_POST['update_showtime']) && ($_POST['update_showtime'])) {
@@ -234,7 +233,7 @@ if (isset($_GET['action'])) {
                 update_showtime($id_showtime, $room, $movie, $show_date, $start_time, $end_time, $action);
             }
 
-            
+
 
             $list_movie = loadall_movie();
             $list_room = loadall_room();

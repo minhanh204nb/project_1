@@ -23,34 +23,34 @@
                                             <th colspan="2">ACTION</th>
                                         </tr>
                                         <?php
-                                      
 
-                                 
 
-                                  
+
+
+
 
                                         foreach ($list_showtime as $showtime) {
                                             extract(($showtime));
 
-                                            
-                                            foreach($list_room as $room){
+
+                                            foreach ($list_room as $room) {
                                                 extract($room);
-                                               
-                                                if($showtime['id_room']=== $room['id_room']){
+
+                                                if ($showtime['id_room'] === $room['id_room']) {
                                                     $showtime['id_room'] = $room['name_room'];
                                                     break;
                                                 }
                                             }
-                                           
-                                            foreach($list_action as $action){
+
+                                            foreach ($list_action as $action) {
                                                 extract($action);
-                                                if($showtime['id_action'] ===$action["id_action"]){
-                                                    $showtime['id_action'] =$action["action_rap"];
+                                                if ($showtime['id_action'] === $action["id_action"]) {
+                                                    $showtime['id_action'] = $action["action_rap"];
                                                     break;
                                                 }
                                             }
 
-                                            foreach ($list_movie as $movie){
+                                            foreach ($list_movie as $movie) {
                                                 extract($movie);
                                                 $hinhpath = "../uploads/movie/" . $movie['image'];
                                                 if (is_file($hinhpath)) {
@@ -58,19 +58,19 @@
                                                 } else {
                                                     $image = "no photo";
                                                 }
-                                                if($showtime['id_movie']=== $movie['id_movie']){
+                                                if ($showtime['id_movie'] === $movie['id_movie']) {
                                                     $showtime['id_movie'] = $movie['name_movie'];
                                                     break;
                                                 }
                                             }
 
-                                            
 
-                                            
+
+
 
                                             $edit_showtime = "index.php?action=edit_showtime&id=" . $showtime['id_showtime'];
                                             $delete_showtime = "index.php?action=delete_showtime&id=" . $showtime['id_showtime'];
-                                         
+
                                             echo "<tr>";
                                             echo "<td>" . $showtime["id_showtime"] . "</td>";
                                             echo "<td>" . $room["name_room"] . "</td>";
