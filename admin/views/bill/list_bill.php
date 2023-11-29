@@ -89,7 +89,7 @@
                             <div class="inovices-dash-count">
                                 <div class="inovices-amount">
                                     <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">$4,5884</font>
+                                    <font style="vertical-align: inherit;"><?php echo total_price_bill(); ?> VND</font>
                                     </font>
                                 </div>
                             </div>

@@ -13,6 +13,7 @@ $combos = $_POST['combos'];
 $amount = $_POST['amount'];
 $id_account = $_POST['id_account'];
 $name_movie = $_POST['name_movie'];
+$id_movie = $_POST['id_movie'];
 
 // Lưu thông tin vào session
 $_SESSION['booking_info'] = [
@@ -26,6 +27,7 @@ $_SESSION['booking_info'] = [
     'amount' => $amount,
     'id_account' => $id_account,
     'name_movie' => $name_movie,
+    'id_movie' => $id_movie,
 ];
 
 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);

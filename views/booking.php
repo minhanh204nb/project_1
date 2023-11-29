@@ -16,10 +16,9 @@ include 'config.php';
 $id_movie = isset($_GET['id']) ? $_GET['id'] : 0;
 $movie = loadone_movie($id_movie);
 $loadone_showtime = loadone_showtime_by_id_movie($id_movie);
-$loadone_ticket = loadone_ticket($loadone_showtime[0]['id_showtime']); // Assuming you want the first showtime
+// $loadone_ticket = loadone_ticket($loadone_showtime[0]['id_showtime']);
 $list_combo = loadall_combo();
 ?>
-
 
 <body style="background-color: black;">
     <div class="book">
@@ -36,6 +35,7 @@ $list_combo = loadall_combo();
                 <input type="text" name="month" value="" readonly>
                 <h5>Rạp</h5>
                 <input type="text" name="cinema" value="CGV" readonly>
+                <input type="text" hidden name="id_movie" value="<?php echo $movie['id_movie'] ?>" readonly>
                 <h5>Phòng</h5>
                 <input type="text" name="room" value="" readonly>
                 <h5>Vị trí ghế</h5>
@@ -81,9 +81,6 @@ $list_combo = loadall_combo();
                 <h1 id="title"><?php echo $movie['name_movie'] ?></h1>
                 <div class="time">
                     <h6><i class="bi bi-clock"></i><?php echo $movie['time'] ?></h6>
-                    <?php
-
-                    ?>
                     <select class="btn min" name="id_room" id="id_room">
                         <option value="">Chọn Phòng</option>
                         <?php
@@ -143,7 +140,6 @@ $list_combo = loadall_combo();
             <div class="screen" id="screen">
                 Màn hình
             </div>
-            <!-- chairs  -->
             <div class="chair" id="chair">
                 <?php
                 $rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
@@ -152,16 +148,30 @@ $list_combo = loadall_combo();
                     echo '<div class="row">';
                     foreach ($columns as $column) {
                         $seat = $row . $column;
-                        echo '<li class="seat" data-seat="' . $seat . '">' . $seat . '  </li>';
-                        echo '  ';
+                        // echo' <input class="seat" data-seat="' . $seat . '" type="text" value="'.$seat.'" > ';
+                        echo '<li class="seat red' . $seat . '" " data-seat="' . $seat . '">' . $seat . '  </li>';
                     }
                     echo '</div>';
                 }
                 ?>
             </div>
-            <!-- Ticket  -->
-
-            <!-- Details  -->
+            <style>
+                <?php
+                foreach ($list_seat as $seat) {
+                    $seatString = $seat['custom_seat'];
+                    $seats = explode(',', $seatString);
+                    $seatClasses = array_map(function ($seat) {
+                        return ".red" . strtolower($seat);
+                    }, $seats);
+                    $resultString = implode(',', $seatClasses);
+                    echo $resultString;
+                    echo '.red' . $resultString . '{
+                        pointer-events: none;
+                        background-color: red !important;
+                    }';
+                }
+                ?>
+            </style>
             <div class="details" id="det">
                 <div class="details_chair">
                     <li>Có thể đặt</li>
@@ -387,10 +397,6 @@ $list_combo = loadall_combo();
             updateShowtimes(defaultShowtimes);
         });
     </script>
-
-
-
-
 </body>
 
 </html>

@@ -137,6 +137,7 @@ $booking_info = isset($_SESSION['booking_info']) ? $_SESSION['booking_info'] : [
             echo '<input type="text" hidden name="cinema" value="' . $booking_info['cinema'] . '">';
             echo '<input type="text" hidden name="room" value="' . $booking_info['room'] . '">';
             echo '<input type="text" hidden name="seats" value="' . $booking_info['seats'] . '">';
+            echo '<input type="text" hidden name="id_movie" value="' . $booking_info['id_movie'] . '">';
             echo '<input type="text" hidden name="month" value="' . $booking_info['month'] . '">';
             echo '<input type="text" hidden name="hours" value="' . $booking_info['hours'] . '">';
             echo '<input type="text" hidden name="amount" value="' . $booking_info['amount'] . '">';
