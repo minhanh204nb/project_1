@@ -408,6 +408,14 @@ if (isset($_GET['action'])) {
             include './views/contact/contact.php';
             break;
         case 'comment':
+            $list_comment = loadall_comment();
+            include './views/comment/list_comment.php';
+            break;
+        case 'delete_comment':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                delete_comment($_GET['id']);
+            }
+            $list_comment = loadall_comment();
             include './views/comment/list_comment.php';
             break;
         case 'logout':
