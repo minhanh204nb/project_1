@@ -6,7 +6,7 @@ function insert_comment($name_user, $id_movie, $content)
 }
 function load_comment_by_id_movie($id_movie)
 {
-    $sql = "SELECT * FROM comment WHERE id_movie = '$id_movie'";
+    $sql = "SELECT * FROM comment WHERE id_movie = '$id_movie' ORDER BY id_comment desc LIMIT 3";
     $list_comment = pdo_query($sql);
     return $list_comment;
 }

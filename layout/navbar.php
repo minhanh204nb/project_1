@@ -66,7 +66,7 @@
                                             echo '<nav class="user-menu">';
                                             echo '<li class="header-btn"><a href="#" class="btn">Chào ' . $user . '</a>';
                                             echo '<ul class="dropdown-menu">';
-                                            echo '<li class="header-btn"><a href="#" class="btn">Thông tin</a></li>';
+                                            echo '<li class="header-btn"><a href="index.php?action=information" class="btn">Thông tin</a></li>';
                                             echo '<li class="header-btn"><a href="index.php?action=logout" class="btn">Đăng xuất</a></li>';
                                             echo '</ul>';
                                             echo '</li>';

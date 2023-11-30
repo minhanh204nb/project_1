@@ -136,13 +136,13 @@ if (isset($_GET['action'])) {
         case 'forgot':
             include './auth/forgot.php';
             break;
-        case 'your_ticket':
-            include './views/your_tickets.php';
+        case 'information':
+            include './views/information.php';
             break;
         case 'bookingHistory':
             $list_bill = loadbill_by_id_account($id_account);
             // $list_bill_by_id_account = loadbill_by_id_account($id_account);
-            include './views/account/bookingHistory.php';
+            include './views/bookingHistory.php';
             break;
         case 'contact':
             if (isset($_POST['send']) && $_POST['send']) {

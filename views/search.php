@@ -4,7 +4,7 @@
             <div class="col-lg-6">
                 <div class="section-title text-center text-lg-left">
                     <span class="sub-title">kết quả</span>
-                    <h2 class="title">Tìm kiếm ...</h2>
+                    <h2 class="title">Tìm kiếm của : <?php echo $keysword ?></h2>
                 </div>
             </div>
             <div class="col-lg-6">

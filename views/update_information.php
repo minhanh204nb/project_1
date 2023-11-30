@@ -77,42 +77,42 @@
                     <form action="#" class="form form--profile">
                         <div class="row row--form">
                             <div class="col-12">
-                                <h4 class="form__title">Profile details</h4>
+                                <h4 class="form__title">CHI TIẾT TÀI KHOẢN</h4>
                             </div>
                             <div class="col-12 col-md-6 col-lg-12 col-xl-6">
                                 <div class="form__group">
-                                    <label class="form__label" for="firstname">Name client</label>
+                                    <label class="form__label" for="firstname">TÊN NGƯỜI DÙNG</label>
                                     <input id="firstname" type="text" name="firstname" class="form__input" value="Minh Anh">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 col-lg-12 col-xl-6">
                                 <div class="form__group">
-                                    <label class="form__label" for="email">Email</label>
+                                    <label class="form__label" for="email">EMAIL</label>
                                     <input id="email" type="text" name="email" class="form__input" readonly value="email@email.com">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 col-lg-12 col-xl-6">
                                 <div class="form__group">
-                                    <label class="form__label" for="username">User</label>
+                                    <label class="form__label" for="username">TÊN TÀI KHOẢN</label>
                                     <input id="username" type="text" name="user" class="form__input" value="user" readonly>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 col-lg-12 col-xl-6">
                                 <div class="form__group">
-                                    <label class="form__label" for="lastname">Phone</label>
+                                    <label class="form__label" for="lastname">SỐ ĐIỆN THOẠI</label>
                                     <input id="lastname" type="text" name="address" class="form__input" value="+84">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                                <div class="form__group">
+                                    <label class="form__label" for="lastname">ĐỊA CHỈ</label>
+                                    <input id="lastname" type="text" name="address" class="form__input" value="HN">
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 col-lg-12 col-xl-6">
                                 <div class="form__group">
                                     <label class="form__label" for="lastname">Password</label>
                                     <input id="lastname" type="tel" name="address" class="form__input" value="123">
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-12 col-xl-6">
-                                <div class="form__group">
-                                    <label class="form__label" for="lastname">Address</label>
-                                    <input id="lastname" type="text" name="address" class="form__input" value="HN">
                                 </div>
                             </div>
                             <div class="col-12">

@@ -81,6 +81,23 @@ if ($movie) {
             <hr>
             <div class="row">
                 <div class="blog-comment mb-10">
+                    <div class="contact-form-wrap">
+                        <div class="widget-title mb-50">
+                            <h5 class="title">Bình luận : </h5>
+                        </div>
+                        <div class="contact-form">
+                            <form action="index.php?action=details_movie&id=<?php echo $movie['id_movie'] ?>" method="post">
+                                <input hidden type="text" name="name_user" value="<?php echo $name_clinet ?>">
+                                <input hidden type="text" name="id_movie" value="<?php echo $movie['id_movie'] ?>">
+                                <textarea name="content" required placeholder="Nội dung bình luận . . ."></textarea>
+                                <input class="btn" name="submit" type="submit" value="Gủi">
+                                <!-- <button name="submit" class="btn">Gủi</button> -->
+                            </form>
+                        </div>
+                    </div>
+                    <div class="widget-title mb-45">
+                        <h5 class="title">Bình luận mới : </h5>
+                    </div>
                     <?php foreach ($list_comment as $comment) : ?>
                         <ul>
                             <li>
@@ -100,20 +117,7 @@ if ($movie) {
                         </ul>
                     <?php endforeach; ?>
                 </div>
-                <div class="contact-form-wrap">
-                    <div class="widget-title mb-50">
-                        <h5 class="title">Bình luận : </h5>
-                    </div>
-                    <div class="contact-form">
-                        <form action="index.php?action=details_movie&id=<?php echo $movie['id_movie'] ?>" method="post">
-                            <input hidden type="text" name="name_user" value="<?php echo $name_clinet ?>">
-                            <input hidden type="text" name="id_movie" value="<?php echo $movie['id_movie'] ?>">
-                            <textarea name="content" placeholder="Nội dung bình luận . . ."></textarea>
-                            <input class="btn" name="submit" type="submit" value="Gủi">
-                            <!-- <button name="submit" class="btn">Gủi</button> -->
-                        </form>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>
