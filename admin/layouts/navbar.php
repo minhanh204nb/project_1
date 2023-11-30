@@ -26,11 +26,11 @@
 
         <li class="nav-item dropdown main-drop">
             <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
-                <span>Admin</span>
                 <span class="user-img">
-                    <img src="https://source.unsplash.com/random" alt="">
+                    <img src="assets/img/avatar.jpg" alt="">
                     <span class="status online"></span>
                 </span>
+                <span>Admin </span>
             </a>
         </li>
         <li class="nav-item dropdown  flag-nav">
