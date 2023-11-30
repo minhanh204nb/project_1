@@ -5,8 +5,7 @@ extract($_SESSION['user']);
 if ($role === '1') {
     header('location:../admin/index.php?action=dashboard');
 }
-
-include './models/pdo.php';
+include './admin/models/pdo.php';
 include './layout/head.php';
 include './layout/navbar.php';
 include './admin/models/account/account.php';
