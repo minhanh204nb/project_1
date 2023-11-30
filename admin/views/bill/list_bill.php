@@ -245,6 +245,13 @@
                 echo '</font>';
                 echo '</span>';
                 echo '</div>';
+                echo '<div class="col-auto">';
+                echo '<span class="badge bg-success-dark">';
+                echo '<font style="vertical-align: inherit;">';
+                echo '<font style="vertical-align: inherit;">Đã nhận vé</font>';
+                echo '</font>';
+                echo '</span>';
+                echo '</div>';
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';

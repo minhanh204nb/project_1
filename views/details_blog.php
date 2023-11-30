@@ -63,9 +63,9 @@
                 </div>
 
                 <div class="blog-comment mb-80">
-                    <div class="widget-title mb-45">
-                        <h5 class="title">Comment's (02)</h5>
-                    </div>
+                        <div class="widget-title mb-45">
+                            <h5 class="title">Comment's (02)</h5>
+                        </div>
                     <ul>
                         <li>
                             <div class="single-comment">

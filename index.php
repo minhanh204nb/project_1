@@ -1,8 +1,10 @@
 <?php
 session_start();
 ob_start();
-
 extract($_SESSION['user']);
+if ($role === '1') {
+    header('location:../admin/index.php?action=dashboard');
+}
 
 include './models/pdo.php';
 include './layout/head.php';
@@ -19,15 +21,16 @@ include './admin/models/contact/contact.php';
 include './admin/models/bill/bill.php';
 include './admin/models/vnpay/vnpay.php';
 include './admin/models/seats/seat.php';
+include './admin/models/comment/comment.php';
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
     switch ($action) {
         case 'home':
-            if ($role === '1') {
-                header('location:../admin/index.php?action=dashboard');
-                exit();
-            }
+            // if ($role === '1') {
+            //     header('location:../admin/index.php?action=dashboard');
+            //     exit();
+            // }
             $list_category = loadall_category();
             $list_country = loadall_country();
             $list_movie_limit = loadlimit_movie(4);
@@ -50,6 +53,17 @@ if (isset($_GET['action'])) {
                 $list_movie = loadone_movie($id_movie);
                 $id_category = isset($_POST['same_category']) ? $_POST['same_category'] : 1;
                 $list_same_category = load_movie_same_category_limit($id_movie, $id_category);
+                $list_comment = load_comment_by_id_movie($id_movie);
+            }
+            if (isset($_POST['submit']) && ($_POST['submit'])) {
+                if (isset($_SESSION['user'])) {
+                    $name_user = $_POST['name_user'];
+                    $id_movie_comment = $_POST['id_movie'];
+                    $content = $_POST['content'];
+                    insert_comment($name_user, $id_movie_comment, $content);
+                } else {
+                    header('Location: index.php?action=signin');
+                }
             }
             $list_all_movie = loadall_movie();
             $list_movie = loadone_movie($id_movie);

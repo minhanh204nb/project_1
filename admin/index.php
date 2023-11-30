@@ -18,6 +18,7 @@ include './models/combo/combo.php';
 include './models/showtime/showtime.php';
 include './models/contact/contact.php';
 include './models/bill/bill.php';
+include './models/comment/comment.php';
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -109,9 +110,6 @@ if (isset($_GET['action'])) {
             $list_room = pdo_query($sql);
             include './views/room/list_room.php';
             break;
-            // End Room
-
-            // Combo
         case 'combo':
             $list_combo = loadall_combo();
             include './views/combo/list_combo.php';
@@ -408,6 +406,9 @@ if (isset($_GET['action'])) {
             }
             $list_contact = loadall_contact();
             include './views/contact/contact.php';
+            break;
+        case 'comment':
+            include './views/comment/list_comment.php';
             break;
         case 'logout':
             if (isset($_SESSION['user'])) {
