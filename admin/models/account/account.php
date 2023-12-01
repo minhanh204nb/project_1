@@ -13,7 +13,12 @@ function insert_account($name_clinet, $user, $password, $phone_number, $email, $
 
 function update_account($id_account, $name_clinet, $user, $password, $phone_number, $email, $address, $action, $role)
 {
-    $sql = "UPDATE account SET name_clinet = '$name_clinet', email = '$email',user='$user',password='$password',phone_number='$phone_number', address = '$address',action='$action', role = '$role ' WHERE id_account = '$id_account";
+    $sql = "UPDATE account SET name_clinet = '$name_clinet',user='$user',password='$password',phone_number='$phone_number', email = '$email', address = '$address',action='$action', role = '$role ' WHERE id_account = '$id_account'";
+    pdo_execute($sql);
+}
+function update_password($id_account, $password)
+{
+    $sql = "UPDATE account SET password = '$password' WHERE id_account = '$id_account'";
     pdo_execute($sql);
 }
 function delete_account($id_account)

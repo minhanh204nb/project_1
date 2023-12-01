@@ -8,15 +8,15 @@ function update_movie($id_movie, $name_movie, $content, $id_country, $year, $tim
 {
 
     if ($image != "")
-        $sql = "UPDATE movie SET name_movie='$name_movie',content='$content',$id_country='$id_country',year='$year',time='$time',reviews='$reviews',author='$author',performer='$performer',age_limit='$age_limit',image='$image' ,trailer_movie='$trailer_movie',id_category='$id_category' ,action='$action' WHERE id_movie=".$id_movie;
+        $sql = "UPDATE movie SET name_movie='$name_movie',content='$content',$id_country='$id_country',year='$year',time='$time',reviews='$reviews',author='$author',performer='$performer',age_limit='$age_limit',image='$image' ,trailer_movie='$trailer_movie',id_category='$id_category' ,action='$action' WHERE id_movie=" . $id_movie;
     else
-        $sql = "UPDATE movie SET name_movie='$name_movie',content='$content',$id_country='$id_country',year='$year',time='$time',reviews='$reviews',author='$author',performer='$performer',age_limit='$age_limit',trailer_movie='$trailer_movie',id_category='$id_category' ,action='$action' WHERE id_movie=".$id_movie;
+        $sql = "UPDATE movie SET name_movie='$name_movie',content='$content',$id_country='$id_country',year='$year',time='$time',reviews='$reviews',author='$author',performer='$performer',age_limit='$age_limit',trailer_movie='$trailer_movie',id_category='$id_category' ,action='$action' WHERE id_movie=" . $id_movie;
     pdo_execute($sql);
 }
 function delete_movie($id_movie)
 {
 
-    $sql = "DELETE FROM movie WHERE id_movie = ".$_GET['id'];
+    $sql = "DELETE FROM movie WHERE id_movie = " . $_GET['id'];
     pdo_execute($sql);
 }
 
@@ -41,6 +41,9 @@ function loadone_movie($id_movie)
     $sql = "SELECT * FROM movie WHERE id_movie = '$id_movie'";
     return pdo_query_one($sql);
 }
+
+
+
 function search_movie($keysword = "", $id_category)
 {
     $sql = "select * from movie where 1";
@@ -54,6 +57,17 @@ function search_movie($keysword = "", $id_category)
     $list_movie = pdo_query($sql);
     return $list_movie;
 }
+
+
+
+
+
+function loadall_year()
+{
+    $sql = "SELECT year FROM movie";
+    return pdo_query($sql);
+}
+
 
 
 

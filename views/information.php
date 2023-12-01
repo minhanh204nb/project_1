@@ -114,7 +114,7 @@
     </style>
 </head>
 <?php
-extract($_SESSION['user']);
+// extract($_SESSION['user']);
 ?>
 
 
@@ -128,8 +128,8 @@ extract($_SESSION['user']);
             <div class="col-md-3 col-sm-3 col-12">
                 <div class="list-group">
                     <a href="#" class="active-on list-group-item list-group-item-action info">THÔNG TIN CHUNG</a>
-                    <a href="views/update_information.php" class="list-group-item list-group-item-action history popup-video">CHI TIẾT TÀI KHOẢN</a>
-                    <a href="views/change_password.php" class="list-group-item list-group-item-action changeInfo popup-video">ĐỔI MẬT KHẨU</a>
+                    <a href="views/update_information.php" class="list-group-item list-group-item-action history">CHI TIẾT TÀI KHOẢN</a>
+                    <a href="views/change_password.php" class="list-group-item list-group-item-action changeInfo">ĐỔI MẬT KHẨU</a>
                     <a href="index.php?action=bookingHistory" class="list-group-item list-group-item-action changePass">LỊCH SỬ GIAO DỊCH</a>
                 </div>
             </div>

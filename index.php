@@ -60,6 +60,7 @@ if (isset($_GET['action'])) {
                     $id_movie_comment = $_POST['id_movie'];
                     $content = $_POST['content'];
                     insert_comment($name_user, $id_movie_comment, $content);
+                    header('refresh :0.1');
                 } else {
                     header('Location: index.php?action=signin');
                 }
@@ -120,7 +121,7 @@ if (isset($_GET['action'])) {
                     echo ' <script> alert("Đăng nhập thành công"); </script> ';
                     header('location:index.php?action=home');
                 } else {
-                    echo ' <script> alert("Tài khoàn không tồn tại"); </script> ';
+                    echo ' <script> alert("Tài khoàn hoặc mật khẩu không đúng"); </script> ';
                 }
             }
             $list_account = loadall_account();
@@ -136,6 +137,39 @@ if (isset($_GET['action'])) {
             include './auth/forgot.php';
             break;
         case 'information':
+            if (isset($_POST['update_account']) && $_POST['update_account']) {
+                $id_account = $_POST['id_account'];
+                $name_clinet = $_POST['name_clinet'];
+                $user = $_POST['user'];
+                // $password = $_POST['password'];
+                $phone_number = $_POST['phone_number'];
+                $email = $_POST['email'];
+                $address = $_POST['address'];
+                $action = $_POST['action'];
+                $role = $_POST['role'];
+                update_account($id_account, $name_clinet, $user, $password, $phone_number, $email, $address, $action, $role);
+                echo ' <script> alert("Đổi thông tin thành công vui lòng đăng nhập lại"); </script> ';
+                unset($_SESSION['user']);
+                header('refresh :0.1');
+                // $_SESSION['user'] = $user;
+                // session_start();
+            }
+            if (isset($_POST['update_password']) && $_POST['update_password']) {
+                $id_account = $_POST['id_account'];
+                $password = $_POST['password'];
+                $current_password = $_POST['current_password'];
+                $new_password = $_POST['new_password'];
+                if ($current_password === $password) {
+                    update_password($id_account, $new_password);
+                    echo ' <script> alert("Đổi mật khẩu thành công vui lòng đăng nhập lại"); </script> ';
+                    unset($_SESSION['user']);
+                    header('refresh :0.1');
+                    // header('location: index.php');
+                } else {
+                    echo ' <script> alert("Đổi mật khẩu không thành công"); </script> ';
+                }
+            }
+            // $load_account = loadone_account($id_account);
             include './views/information.php';
             break;
         case 'bookingHistory':

@@ -82,9 +82,18 @@ if ($movie) {
             <div class="row">
                 <div class="blog-comment mb-10">
                     <div class="contact-form-wrap">
-                        <div class="widget-title mb-50">
+                        <div class="widget-title mb-50 flex">
                             <h5 class="title">Bình luận : </h5>
+                            <!-- <form action="index.php?action=details_movie&id=<?php echo $movie['id_movie'] ?>" method="post" >
+                                <input type="submit" name="all_comment" value="Xem tất cả ">
+                            </form> -->
                         </div>
+                        <style>
+                            .flex {
+                                display: flex;
+                                justify-content: space-between;
+                            }
+                        </style>
                         <div class="contact-form">
                             <form action="index.php?action=details_movie&id=<?php echo $movie['id_movie'] ?>" method="post">
                                 <input hidden type="text" name="name_user" value="<?php echo $name_clinet ?>">
