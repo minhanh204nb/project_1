@@ -73,7 +73,7 @@
 
                                             echo "<tr>";
                                             echo "<td>" . $showtime["id_showtime"] . "</td>";
-                                            echo "<td>" . $room["name_room"] . "</td>";
+                                            echo "<td>" . $showtime['id_room'] . "</td>";
                                             echo "<td>" . $movie["name_movie"] . "</td>";
                                             echo "<td>" . $image . "</td>";
                                             echo "<td>" . $showtime["show_date"] . "</td>";
