@@ -75,7 +75,8 @@
             echo '<td>' . $bill['showtime'] . '</td>';
             echo '<td>' . $bill['price_tickets'] . '</td>';
             echo '<td>' . $bill['price_combo'] . '</td>';
-            echo '<td>' . $bill['total_price'] . '</td>';
+            $total_amount = number_format($bill['total_price'], 0, ',', '.') . ' VND';
+            echo '<td>' . $total_amount . '</td>';
             echo '<td>' . $bill['booking_date'] . '</td>';
             echo '<td>đã thanh toán</td>';
             echo '<td>' . $bill['vnp_TxnRef'] . '</td>';

@@ -49,7 +49,7 @@
                                                     echo '<tr role="row" class="odd">';
                                                     echo '<td class="sorting_1">';
                                                     echo '<h2 class="table-avatar">';
-                                                    echo '<a href="index.php?action=edit_account" class="avatar avatar-sm me-2"><img class="avatar-img rounded-circle" src="https://source.unsplash.com/random" alt="User Image"></a>';
+                                                    echo '<a href="index.php?action=edit_account" class="avatar avatar-sm me-2"><img class="avatar-img rounded-circle" src="assets/img/avatar.jpg" alt="User Image"></a>';
                                                     echo '<a href="index.php?action=edit_account">' . $account['name_clinet'] . '<span>' . $account['phone_number'] . '</span></a>';
                                                     echo '</h2>';
                                                     echo '</td>';

@@ -24,13 +24,13 @@
                                     </li>
                                     <li class="menu-item-has-children"><a href="index.php?action=list_movie">DANH SÁCH PHIM</a>
                                     </li>
-                                    <li><a href="index.php?action=combo">ƯU ĐÃI</a></li>
+                                    <li><a href="index.php?action=combo">GÓI COMBO</a></li>
                                     <li class="menu-item-has-children"><a href="index.php?action=blog">TIN TỨC</a>
                                     </li>
                                     <li><a href="index.php?action=contact">LIÊN HỆ</a></li>
                                     <?php
                                     if (isset($_SESSION['user'])) {
-                                        echo '  <li><a href="index.php?action=your_ticket">Vé của tôi</a></li>';
+                                        echo '  <li><a href="index.php?action=bookingHistory">Vé của tôi</a></li>';
                                     } else {
                                         echo '  <li><a href="index.php?action=signin">Vé của tôi</a></li>';
                                     }
@@ -63,9 +63,16 @@
                                         if ($role == '1') {
                                             echo '<li class="header-btn"><a href="../admin/index.php?action=dashboard" class="btn">Chào ' . $user . '</a></li>';
                                         } else {
-                                            echo '<li class="header-btn"><a href="#" class="btn">Chào ' . $user . '</a></li>';
+                                            echo '<nav class="user-menu">';
+                                            echo '<li class="header-btn"><a href="#" class="btn">Chào ' . $user . '</a>';
+                                            echo '<ul class="dropdown-menu">';
+                                            echo '<li class="header-btn"><a href="index.php?action=information" class="btn">Thông tin</a></li>';
+                                            echo '<li class="header-btn"><a href="index.php?action=logout" class="btn">Đăng xuất</a></li>';
+                                            echo '</ul>';
+                                            echo '</li>';
+                                            echo '</nav>';
                                         }
-                                        echo '<li class="header-btn"><a href="index.php?action=logout" class="btn">ĐĂNG XUẤT</a></li>';
+                                        // echo '<li class="header-btn"><a href="index.php?action=logout" class="btn">ĐĂNG XUẤT</a></li>';
                                     } else {
                                         echo '<li class="header-btn"><a href="index.php?action=signin" class="btn">ĐĂNG NHẬP</a></li>';
                                     }
@@ -129,7 +136,6 @@
     </div>
 </header>
 <style>
-    
     .menu-wrap {
         display: flex;
         /* align-items: center; */
@@ -229,4 +235,45 @@
         background-color: #333;
         color: #fff;
     } */
+    .user-menu {
+        list-style: none;
+        padding: 0;
+        margin: auto 35px;
+    }
+
+    .header-btn {
+        display: inline-block;
+        position: relative;
+    }
+
+    .header-btn:hover .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: transparent;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 0px;
+        z-index: 2;
+    }
+
+    .dropdown-menu li {
+        display: block;
+        margin: 5px auto;
+    }
+
+    .dropdown-menu a {
+        display: block;
+        padding: 8px 10px;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .dropdown-menu a:hover {
+        background-color: #f0f0f0;
+    }
 </style>

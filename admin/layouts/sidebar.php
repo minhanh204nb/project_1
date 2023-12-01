@@ -34,6 +34,9 @@
                     <a href="index.php?action=contact"><i data-feather="settings"></i> <span>Liên Hệ</span></a>
                 </li>
                 <li>
+                    <a href="index.php?action=comment"><i data-feather="settings"></i> <span>Bình luận</span></a>
+                </li>
+                <li>
                     <a href="index.php?action=logout"><i data-feather="settings"></i> <span>Đăng xuất</span></a>
                 </li>
             </ul>

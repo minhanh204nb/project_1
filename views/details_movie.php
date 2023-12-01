@@ -52,7 +52,7 @@ if ($movie) {
                             <ul>
                                 <li class="share"><a href="#"><i class="fas fa-share-alt"></i>Chia sẻ</a></li>
                                 <li class="streaming">
-                                    
+
                                     <!-- <h6>Prime Video</h6>
                                     <span>Streaming Channels</span> -->
                                 </li>
@@ -77,6 +77,56 @@ if ($movie) {
                         <p><?php echo $movie['content']; ?></p>
                     </div>
                 </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="blog-comment mb-10">
+                    <div class="contact-form-wrap">
+                        <div class="widget-title mb-50 flex">
+                            <h5 class="title">Bình luận : </h5>
+                            <!-- <form action="index.php?action=details_movie&id=<?php echo $movie['id_movie'] ?>" method="post" >
+                                <input type="submit" name="all_comment" value="Xem tất cả ">
+                            </form> -->
+                        </div>
+                        <style>
+                            .flex {
+                                display: flex;
+                                justify-content: space-between;
+                            }
+                        </style>
+                        <div class="contact-form">
+                            <form action="index.php?action=details_movie&id=<?php echo $movie['id_movie'] ?>" method="post">
+                                <input hidden type="text" name="name_user" value="<?php echo $name_clinet ?>">
+                                <input hidden type="text" name="id_movie" value="<?php echo $movie['id_movie'] ?>">
+                                <textarea name="content" required placeholder="Nội dung bình luận . . ."></textarea>
+                                <input class="btn" name="submit" type="submit" value="Gủi">
+                                <!-- <button name="submit" class="btn">Gủi</button> -->
+                            </form>
+                        </div>
+                    </div>
+                    <div class="widget-title mb-45">
+                        <h5 class="title">Bình luận mới : </h5>
+                    </div>
+                    <?php foreach ($list_comment as $comment) : ?>
+                        <ul>
+                            <li>
+                                <div class="single-comment">
+                                    <div class="comment-avatar-img">
+                                        <img src="assets/img/images/avatar.jpg" alt="img">
+                                    </div>
+                                    <div class="comment-text">
+                                        <div class="comment-avatar-info">
+                                            <h5><?= $comment['name_user'] ?> <span class="comment-date"><?= $comment['date_submit'] ?></span></h5>
+                                        </div>
+                                        <span><?= $comment['content'] ?></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <br>
+                        </ul>
+                    <?php endforeach; ?>
+                </div>
+
             </div>
         </div>
     </section>
@@ -149,7 +199,7 @@ if ($movie) {
 <style>
     /* Adjust the height as needed */
     .equal-height img {
-        height: 300px;
+        height: 350px;
         /* Set your desired height */
         width: auto;
         object-fit: cover;
@@ -163,5 +213,88 @@ if ($movie) {
 
     .movie-item:hover {
         transform: scale(1.05);
+    }
+
+    .blog-comment {
+        width: 100%;
+        /* max-width: 73%; */
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .title {
+        /* color: #333; */
+        display: inline-block;
+        /* Đảm bảo span không bị "đẩy" ra khỏi dòng */
+    }
+
+    .title span {
+        color: #e44d26;
+        /* Màu của từ 'PHIM' */
+    }
+
+    .movie-history-wrap {
+        margin-bottom: 30px;
+    }
+
+    .movie-history-wrap p {
+        line-height: 1.6;
+        color: #666;
+    }
+
+    .blog-comment {
+        margin-bottom: 80px;
+    }
+
+    .widget-title {
+        margin-bottom: 45px;
+    }
+
+    .title.comment-date {
+        color: #888;
+    }
+
+    .single-comment {
+        display: flex;
+        margin-bottom: 30px;
+    }
+
+    .comment-avatar-img img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 20px;
+    }
+
+    .comment-text {
+        flex-grow: 1;
+    }
+
+    .comment-avatar-info h5 {
+        margin-bottom: 5px;
+    }
+
+    .contact-form-wrap {
+        flex-grow: 1;
+    }
+
+    .contact-form textarea {
+        width: calc(100% - 30px);
+        /* Thêm giảm kích thước padding để tránh làm rộng textarea quá mức */
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        resize: vertical;
+    }
+
+    .contact-form input {
+        background-color: #e44d26;
+        color: #fff;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
     }
 </style>

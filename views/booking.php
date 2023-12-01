@@ -120,37 +120,6 @@ $list_combo = loadall_combo();
                 echo '</div>';
                 echo '</div>';
                 ?>
-                <style>
-                    .not_pick {
-                        pointer-events: none;
-                    }
-
-                    /* CSS */
-                    .my-element {
-                        background-color: blue;
-                        /* Màu mặc định */
-                        transition: background-color 0.3s ease;
-                        /* Hiệu ứng chuyển đổi */
-                    }
-
-                    .my-element:hover {
-                        background-color: green;
-                        /* Màu khi hover */
-                    }
-
-                    .date_point {
-                        margin-left: 10px;
-                        margin-right: 30px;
-                    }
-
-                    .required-div:empty::before {
-                        content: "Vui lòng chọn phòng và xuất chiếu mong muốn . . .";
-                        color: red;
-                    }
-                </style>
-
-                <!-- <div class="required-div"></div> -->
-
                 <div class="right_card">
                     <h6 class="title">Chọn suất chiếu</h6>
                     <div class="card_month crd required-div" id="showTimes" required>
@@ -170,17 +139,6 @@ $list_combo = loadall_combo();
             <div class="screen" id="screen">
                 Màn hình
             </div>
-            <!-- <?php
-                    $fdg = ' <input type="text" name="hours" value="" readonly>';
-                    foreach ($list_showtime as $showtime) {
-                        echo ' <h4>' . $showtime['id_showtime'] . '</h4> ';
-                        // echo ' <h4>' . $id_showtime . '</h4> ';
-                    }
-                    if ($time['start_time'] === $fdg) {
-                        echo ' <h4>1234567</h4> ';
-                    }
-                    ?> -->
-
             <div class="chair" id="chair">
                 <?php
                 $rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
@@ -439,5 +397,33 @@ $list_combo = loadall_combo();
         });
     </script>
 </body>
+<style>
+    .not_pick {
+        pointer-events: none;
+    }
+
+    /* CSS */
+    .my-element {
+        background-color: blue;
+        /* Màu mặc định */
+        transition: background-color 0.3s ease;
+        /* Hiệu ứng chuyển đổi */
+    }
+
+    .my-element:hover {
+        background-color: green;
+        /* Màu khi hover */
+    }
+
+    .date_point {
+        margin-left: 10px;
+        margin-right: 30px;
+    }
+
+    .required-div:empty::before {
+        content: "Vui lòng chọn phòng và xuất chiếu mong muốn . . .";
+        color: red;
+    }
+</style>
 
 </html>
