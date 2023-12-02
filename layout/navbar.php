@@ -1,5 +1,5 @@
 <?php
-// extract($_SESSION['user']);
+extract($_SESSION['user']);
 ?>
 
 <button class="scroll-top scroll-to-target" data-target="html">

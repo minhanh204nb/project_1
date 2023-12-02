@@ -2,7 +2,7 @@
 session_start();
 ob_start();
 
-extract($_SESSION['user']);
+// extract($_SESSION['user']);
 
 include './models/pdo.php';
 include './layout/head.php';
