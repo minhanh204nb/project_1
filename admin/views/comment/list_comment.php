@@ -5,7 +5,7 @@
                 <div class="col">
                     <h3 class="page-title">Bình luận</h3>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
+                        <li class="breadcrumb-item"><a href="index.php">Thống kê</a></li>
                         <li class="breadcrumb-item active">Bình luận</li>
                     </ul>
                 </div>
@@ -40,8 +40,8 @@
                                                     echo ' <td> <textarea name="" id="" cols="30" rows="5">' . $comment['content'] . '</textarea> </td> ';
                                                     echo ' <td>' . $comment['date_submit'] . '</td> ';
                                                     echo '<td>';
-                                                    echo '<a href="#" class="btn btn-sm btn-white text-success me-2"><i class="far fa-edit me-1"></i> Edit</a>';
-                                                    echo ' <a class="btn btn-sm btn-white text-danger" href="' . $delete_comment . '"  data-bs-toggle="modal" data-bs-target="#delete_paid"><i class="far fa-trash-alt me-1"></i>Delete</a>';
+                                                    echo '<a href="#" class="btn btn-sm btn-white text-success me-2"><i class="far fa-edit me-1"></i>Sửa</a>';
+                                                    echo ' <a class="btn btn-sm btn-white text-danger" href="' . $delete_comment . '"  data-bs-toggle="modal" data-bs-target="#delete_paid"><i class="far fa-trash-alt me-1"></i>Xóa</a>';
                                                     echo '</td>';
                                                     echo ' </tr>';
                                                 }

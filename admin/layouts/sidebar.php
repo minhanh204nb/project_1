@@ -3,29 +3,29 @@
         <div id="sidebar-menu" class="sidebar-menu">
             <ul>
                 <li class="menu-title"><span>Main</span></li>
-                <li class="active">
+                <!-- <li class="active">
                     <a href="../index.php"><i data-feather="home"></i> <span>Home</span></a>
-                </li>
+                </li> -->
                 <li class="">
-                    <a href="index.php?action=dashboard"><i data-feather="home"></i> <span>Dashboard</span></a>
+                    <a href="index.php?action=dashboard"><i data-feather="home"></i> <span>THỐNG KÊ</span></a>
                 </li>
                 <li>
-                    <a href="index.php?action=category"><i data-feather="users"></i> <span>Category</span></a>
+                    <a href="index.php?action=category"><i data-feather="users"></i> <span>THỂ LOẠI</span></a>
                 </li>
                 <li>
-                    <a href="index.php?action=movie"><i data-feather="star"></i> <span>Movie</span></a>
+                    <a href="index.php?action=movie"><i data-feather="star"></i> <span>DANH SÁCH PHIM</span></a>
                 </li>
                 <li>
-                    <a href="index.php?action=room"><i data-feather="credit-card"></i> <span>Room</span></a>
+                    <a href="index.php?action=room"><i data-feather="credit-card"></i> <span>PHÒNG</span></a>
                 </li>
                 <li>
                     <a href="index.php?action=combo"><i data-feather="package"></i> <span>Combo</span></a>
                 </li>
                 <li>
-                    <a href="index.php?action=account"><i data-feather="settings"></i> <span>Account</span></a>
+                    <a href="index.php?action=account"><i data-feather="settings"></i> <span>TÀI KHOẢN</span></a>
                 </li>
                 <li>
-                    <a href="index.php?action=showtime"><i data-feather="settings"></i> <span>Showtime</span></a>
+                    <a href="index.php?action=showtime"><i data-feather="settings"></i> <span>SUẤT CHIẾU</span></a>
                 </li>
                 <li>
                     <a href="index.php?action=bill"><i data-feather="settings"></i> <span>Danh sách đặt vé xem phim</span></a>

@@ -8,11 +8,11 @@ if (is_array($list_account)) {
         <div class="page-header">
             <div class="row">
                 <div class="col-sm-12">
-                    <h3 class="page-title">Customers</h3>
+                    <h3 class="page-title">TÀI KHOẢN</h3>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.php?action=dashboard">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="index.php?action=account">Account</a></li>
-                        <li class="breadcrumb-item active">Edit Account</li>
+                        <li class="breadcrumb-item"><a href="index.php?action=dashboard">THỐNG KÊ</a></li>
+                        <li class="breadcrumb-item"><a href="index.php?action=account">TÀI KHOẢN</a></li>
+                        <li class="breadcrumb-item active">CẬP NHẬT TÀI KHOẢN</li>
                     </ul>
                 </div>
             </div>
@@ -26,7 +26,7 @@ if (is_array($list_account)) {
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>NAME</label>
+                                        <label>TÊN NGƯỜI DÙNG</label>
                                         <input type="text" class="form-control" name="name_clinet" value="<?php if(isset($name_clinet)&&($name_clinet!="")) echo $name_clinet?>">
                                     </div>
                                     <div class="form-group">
@@ -34,36 +34,36 @@ if (is_array($list_account)) {
                                         <input type="email" class="form-control" name="email" value="<?php if(isset($email)&&($email!="")) echo $email?>">
                                     </div>
                                     <div class="form-group">
-                                        <label>Phone</label>
+                                        <label>SỐ ĐIỆN THOẠI</label>
                                         <input type="text" class="form-control" name="phone_number" value="<?php if(isset($phone_number)&&($phone_number!="")) echo $phone_number?>">
                                     </div>
                                     <div class="form-group">
-                                        <label>Address</label>
+                                        <label>ĐỊA CHỈ</label>
                                         <input type="text" class="form-control" name="address" value="<?php if(isset($address)&&($address!="")) echo $address?>">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>User</label>
+                                        <label>TÊN ĐĂNG NHẬP</label>
                                         <input type="text" class="form-control" name="user" value="<?php if(isset($user)&&($user!="")) echo $user?>" readonly>
                                     </div>
                                     <div class="form-group">
-                                        <label>Password</label>
+                                        <label>MẬT KHẨU</label>
                                         <input type="text" class="form-control" name="password" value="<?php if(isset($password)&&($password!="")) echo $password?>">
                                     </div>
                                     <div class="form-group">
-                                        <label>Action</label>
+                                        <label>TRẠNG THÁI</label>
                                         <input type="text" class="form-control" name="action" value="<?php if(isset($action)&&($action!="")) echo $action?>">
                                     </div>
                                     <div class="form-group">
-                                        <label>Role</label>
+                                        <label>QUYỀN</label>
                                         <input type="text" class="form-control" name="role" value="<?php if(isset($role)&&($role!="")) echo $role?>">
                                         <input type="text" class="form-control" name="id_account" value="<?php if(isset($id_account)&&($id_account!="")) echo $id_account?>">
                                     </div>
                                 </div>
                             </div>
                             <div class="text-end mt-4">
-                                <input type="submit" name="update_account" class="btn btn-primary" value="Save Changes">
+                                <input type="submit" name="update_account" class="btn btn-primary" value="CẬP NHẬT">
                             </div>
                         </form>
                     </div>

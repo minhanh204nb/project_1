@@ -15,7 +15,7 @@
     </a>
     <div class="top-nav-search">
         <form>
-            <input type="text" class="form-control" placeholder="Search here">
+            <input type="text" class="form-control" placeholder="TÌM KIẾM . . .">
             <button class="btn" type="submit"><i class="fas fa-search"></i></button>
         </form>
     </div>

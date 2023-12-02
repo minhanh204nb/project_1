@@ -3,7 +3,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="index.php?action=insert_room" class="btn btn-primary btn-blog mb-3"><i class="feather-plus-circle me-1"></i> Add Room</a>
+                    <a href="index.php?action=insert_room" class="btn btn-primary btn-blog mb-3"><i class="feather-plus-circle me-1"></i>THÊM PHÒNG</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -13,9 +13,9 @@
                                     <table border="1" class="datatable table table-stripped dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                         <tr>
                                             <th>ID</th>
-                                            <th>NAME ROOM</th>
-                                            <th colspan="1">STATUS</th>
-                                            <th colspan="2">ACTION</th>
+                                            <th>TÊN PHÒNG</th>
+                                            <th colspan="1">TRẠNG THÁI </th>
+                                            <th colspan="2">CHỨC NĂNG</th>
                                         </tr>
                                         <?php
                                         foreach ($list_room as $room) {
@@ -32,8 +32,8 @@
                                             echo "<td>" . $room["name_room"] . "</td>";
                                             echo "<td>" . $room["action_room"] . "</td>";
                                             echo "<td class='edit-delete-btn'>
-                                            <a href='".$edit_room."' class='text-success'><i class='feather-edit-3 me-1'></i> Edit</a>
-                                            <a href='" . $delete_room . "' onclick='return confirm(\"Bạn có chắc muốn xóa?\");' class='text-danger' data-bs-toggle='modal' data-bs-target='#deleteModal'><i class='feather-trash-2 me-1'></i> Delete</a></td>";
+                                            <a href='".$edit_room."' class='text-success'><i class='feather-edit-3 me-1'></i>SỬA</a>
+                                            <a href='" . $delete_room . "' onclick='return confirm(\"Bạn có chắc muốn xóa?\");' class='text-danger' data-bs-toggle='modal' data-bs-target='#deleteModal'><i class='feather-trash-2 me-1'></i>XÓA</a></td>";
                                             echo "</tr>";
                                         }
                                         ?>

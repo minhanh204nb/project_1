@@ -22,13 +22,13 @@
                     <div class="col-xl-8 offset-xl-2">
                         <div class="col-md-9">
                             <ul class="list-links mb-4">
-                                <li class="active"><a href="index.php?action=combo">List Combo</a></li>
+                                <li class="active"><a href="index.php?action=combo">DANH SÁCH COMBO</a></li>
                             </ul>
                         </div>
                         <div class="page-header">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <h3 class="page-title">Add combo</h3>
+                                    <h3 class="page-title">THÊM COMBO</h3>
                                 </div>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
-                                                <label>NAME COMBO<span class="text-danger">*</span></label>
+                                                <label>TÊN COMBO<span class="text-danger">*</span></label>
                                                 <input type="text" name="name_combo" class="form-control" required placeholder="name combo"></ </div>
                                             </div>
                                         </div>
@@ -52,11 +52,11 @@
                                             <div class="col-md-12">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h5 class="card-title">IMAGES COMBO</h5>
+                                                        <h5 class="card-title">HÌNH ẢNH</h5>
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="custom-file-container" data-upload-id="myFirstImage">
-                                                            <label>Upload Image <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">x</a></label>
+                                                            <label>THÊM HÌNH ẢNH <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">x</a></label>
                                                             <label class="custom-file-container__custom-file">
                                                                 <input type="file" class="custom-file-container__custom-file__custom-file-input" accept="image/*" name="img_combo">
                                                                 <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
@@ -71,13 +71,13 @@
 
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
-                                                <label>PRICE COMBO<span class="text-danger">*</span></label>
+                                                <label>GIÁ TIỀN<span class="text-danger">*</span></label>
                                                 <input type="text" name="price_combo" class="form-control" required placeholder="price combo"></ </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
-                                                <label>DESCRIBE COMBO<span class="text-danger">*</span></label>
+                                                <label>MÔ TẢ<span class="text-danger">*</span></label>
                                                 <input type="text" name="mota" class="form-control" required placeholder="describe combo"></ </div>
                                             </div>
                                         </div>
@@ -85,7 +85,7 @@
                                     </div>
                                 </div>
                                 <div class="bank-details-btn ">
-                                    <input type="submit" class="btn btn-primary me-2" name="insert_combo" value="INSERT">
+                                    <input type="submit" class="btn btn-primary me-2" name="insert_combo" value="THÊM">
                                 </div>
                             </div>
                         </form>
