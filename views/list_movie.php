@@ -23,7 +23,7 @@
                     <?php
                     if (isset($_POST['same_category']) && $_POST['same_category']) {
                         echo ' <span class="sub-title">ONLINE STREAMING</span>';
-                        echo ' <a href="index.php?action=list_movie"><h2 class="title">Category ' . $category['name_category'] . '</h2></a> ';
+                        echo ' <a href="index.php?action=list_movie"><h2 class="title">Tìm kiếm theo thể loại ' . $category['name_category'] . '</h2></a> ';
                         echo ' <style>
                         .dis_none{
                             display: none;

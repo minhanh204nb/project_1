@@ -6,16 +6,19 @@ session_start();
 //     header('location:../index.php?action=home');
 // }
 include './models/pdo.php';
-include './models/category/category.php';
+include './layouts/head.php';
+include './layouts/navbar.php';
+include './layouts/sidebar.php';
 include './models/movie/movie.php';
+include './models/category/category.php';
 include './models/movie/country.php';
 include './models/account/account.php';
 include './models/room/room.php';
 include './models/combo/combo.php';
 include './models/showtime/showtime.php';
-include './layouts/head.php';
-include './layouts/navbar.php';
-include './layouts/sidebar.php';
+include './models/contact/contact.php';
+include './models/bill/bill.php';
+include './models/comment/comment.php';
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -107,9 +110,6 @@ if (isset($_GET['action'])) {
             $list_room = pdo_query($sql);
             include './views/room/list_room.php';
             break;
-            // End Room
-
-            // Combo
         case 'combo':
             $list_combo = loadall_combo();
             include './views/combo/list_combo.php';
@@ -195,10 +195,9 @@ if (isset($_GET['action'])) {
 
         case 'delete_showtime':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-               
+
                 delete_showtime($_GET['id']);
             }
-       
             $sql = "select * from showtime order by id_showtime";
             $list_movie = loadall_movie();
             $list_room = loadall_room();
@@ -208,17 +207,17 @@ if (isset($_GET['action'])) {
             include './views/showtime/list_showtime.php';
             break;
 
-            case 'edit_showtime':
-                if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                    $list_showtime = loadone_showtime($_GET['id']);
-                }
-                $list_movie = loadall_movie();
+        case 'edit_showtime':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $list_showtime = loadone_showtime($_GET['id']);
+            }
+            $list_movie = loadall_movie();
             $list_room = loadall_room();
             $list_showtime = loadall_showtime();
             $list_action = loadall_action();
-                // $list_movie = loadall_movie();
-                include './controllers/showtime/update_showtime.php';
-                break;
+            // $list_movie = loadall_movie();
+            include './controllers/showtime/update_showtime.php';
+            break;
 
         case 'update_showtime':
             if (isset($_POST['update_showtime']) && ($_POST['update_showtime'])) {
@@ -232,7 +231,7 @@ if (isset($_GET['action'])) {
                 update_showtime($id_showtime, $room, $movie, $show_date, $start_time, $end_time, $action);
             }
 
-            
+
 
             $list_movie = loadall_movie();
             $list_room = loadall_room();
@@ -361,7 +360,7 @@ if (isset($_GET['action'])) {
             break;
         case 'update_account':
             if (isset($_POST['update_account']) && ($_POST['update_account'])) {
-                $id_account = $_GET['id_account'];
+                $id_account = $_POST['id_account'];
                 $name_clinet = $_POST['name_clinet'];
                 $user = $_POST['user'];
                 $password = $_POST['password'];
@@ -372,10 +371,52 @@ if (isset($_GET['action'])) {
                 $role = $_POST['role'];
                 update_account($id_account, $name_clinet, $user, $password, $phone_number, $email, $address, $action, $role);
             }
-            $list_account = loadall_account();
+            $sql = "SELECT * FROM account ORDER BY id_account";
+            $list_account = pdo_query($sql);
+            // $list_account = loadall_account();
             include './views/account/list_account.php';
             break;
-        case 'tickets':
+        case 'bill':
+            $list_bill = loadall_bill();
+            $list_account = loadall_account();
+            include './views/bill/list_bill.php';
+            break;
+        case 'details_bill':
+            $list_bill = loadbill_by_id_bill($_GET['id']);
+            $list_account = loadall_account();
+            include './views/bill/details_bill.php';
+            break;
+        case 'delete_bill':
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $id_bill = $_GET['id'];
+                delete_bill($id_bill);
+                header('location: ./views/bill/list_bill.php');
+            }
+            $list_bill = loadall_bill();
+            $list_account = loadall_account();
+            include './views/bill/list_bill.php';
+            break;
+        case 'contact':
+            $list_contact = loadall_contact();
+            include './views/contact/contact.php';
+            break;
+        case 'delete_contact':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                delete_contact($_GET['id']);
+            }
+            $list_contact = loadall_contact();
+            include './views/contact/contact.php';
+            break;
+        case 'comment':
+            $list_comment = loadall_comment();
+            include './views/comment/list_comment.php';
+            break;
+        case 'delete_comment':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                delete_comment($_GET['id']);
+            }
+            $list_comment = loadall_comment();
+            include './views/comment/list_comment.php';
             break;
         case 'logout':
             if (isset($_SESSION['user'])) {

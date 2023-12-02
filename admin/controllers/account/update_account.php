@@ -27,7 +27,7 @@ if (is_array($list_account)) {
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>NAME</label>
-                                        <input type="text" class="form-control" name="name_cline" value="<?php if(isset($name_clinet)&&($name_clinet!="")) echo $name_clinet?>">
+                                        <input type="text" class="form-control" name="name_clinet" value="<?php if(isset($name_clinet)&&($name_clinet!="")) echo $name_clinet?>">
                                     </div>
                                     <div class="form-group">
                                         <label>Email</label>
@@ -58,6 +58,7 @@ if (is_array($list_account)) {
                                     <div class="form-group">
                                         <label>Role</label>
                                         <input type="text" class="form-control" name="role" value="<?php if(isset($role)&&($role!="")) echo $role?>">
+                                        <input type="text" class="form-control" name="id_account" value="<?php if(isset($id_account)&&($id_account!="")) echo $id_account?>">
                                     </div>
                                 </div>
                             </div>
