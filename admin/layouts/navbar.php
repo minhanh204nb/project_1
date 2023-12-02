@@ -30,7 +30,7 @@
                     <img src="assets/img/avatar.jpg" alt="">
                     <span class="status online"></span>
                 </span>
-                <span>Admin </span>
+                <span>QUẢN TRỊ VIÊN</span>
             </a>
         </li>
         <li class="nav-item dropdown  flag-nav">
