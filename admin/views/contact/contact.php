@@ -35,8 +35,10 @@
                                                 <?php
                                                 $stt = 1;
                                                 foreach ($list_contact as $contact) {
+                                                    extract(($contact));
                                                     echo ' <tr role="row" class="odd">';
                                                     $delete_contact = "index.php?action=delete_contact&id=" . $contact['id_contact'];
+                                                    $edit_contact = "index.php?action=edit_contact&id=" . $contact['id_contact'];
                                                     echo ' <td>' . $stt++ . '</td> ';
                                                     echo ' <td>' . $contact['name'] . '</td> ';
                                                     echo ' <td>' . $contact['email'] . '</td> ';
@@ -44,7 +46,7 @@
                                                     echo ' <td> <textarea name="" id="" cols="30" rows="5">' . $contact['content'] . '</textarea> </td> ';
                                                     echo ' <td>' . $contact['create_times'] . '</td> ';
                                                     echo '<td>';
-                                                    echo '<a href="#" class="btn btn-sm btn-white text-success me-2"><i class="far fa-edit me-1"></i>Sửa</a>';
+                                                    echo '<a href="' . $edit_contact . '" class="btn btn-sm btn-white text-success me-2"><i class="far fa-edit me-1"></i>Sửa</a>';
                                                     echo ' <a class="btn btn-sm btn-white text-danger" href="' . $delete_contact . '"  data-bs-toggle="modal" data-bs-target="#delete_paid"><i class="far fa-trash-alt me-1"></i>Xóa</a>';
                                                     echo '</td>';
                                                     echo ' </tr>';

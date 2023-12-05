@@ -33,14 +33,16 @@
                                                 <?php
                                                 $stt = 1;
                                                 foreach ($list_comment as $comment) {
+                                                    extract(($comment));
                                                     echo ' <tr role="row" class="odd">';
                                                     $delete_comment = "index.php?action=delete_comment&id=" . $comment['id_comment'];
+                                                    $edit_comment = "index.php?action=edit_comment&id=" . $comment['id_comment'];
                                                     echo ' <td>' . $stt++ . '</td> ';
                                                     echo ' <td>' . $comment['name_user'] . '</td> ';
                                                     echo ' <td> <textarea name="" id="" cols="30" rows="5">' . $comment['content'] . '</textarea> </td> ';
                                                     echo ' <td>' . $comment['date_submit'] . '</td> ';
                                                     echo '<td>';
-                                                    echo '<a href="#" class="btn btn-sm btn-white text-success me-2"><i class="far fa-edit me-1"></i>Sửa</a>';
+                                                    echo '<a href="' . $edit_comment . '" class="btn btn-sm btn-white text-success me-2"><i class="far fa-edit me-1"></i>Sửa</a>';
                                                     echo ' <a class="btn btn-sm btn-white text-danger" href="' . $delete_comment . '"  data-bs-toggle="modal" data-bs-target="#delete_paid"><i class="far fa-trash-alt me-1"></i>Xóa</a>';
                                                     echo '</td>';
                                                     echo ' </tr>';

@@ -2,12 +2,12 @@
 if (is_array($list_combo)) {
     extract(($list_combo));
 }
-    $hinhpath="../upload/".$img;
-    if(is_file($hinhpath)){
-      $img_combo= "<img src='".$hinhpath."' height='80px'>";
-    }else{
-      $img_combo = "no photo";
-    }
+// $hinhpath = "../upload/combo/' . $img'";
+// if (is_file($hinhpath)) {
+//     $img_combo = "<img src='" . $hinhpath . "' height='80px'>";
+// } else {
+//     $img_combo = "no photo";
+// }
 
 ?>
 <!<!DOCTYPE html>
@@ -41,8 +41,18 @@ if (is_array($list_combo)) {
                                                     <input type="text" name="name_combo" class="form-control" required value="<?php if (isset($name_combo) && ($name_combo != "")) echo $name_combo ?>"></ </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>ẢNH COMBO<span class="text-danger">*</span></label>
-                                                    <input type="file" name="img_combo" class="form-control"  value="<?php if (isset($img_combo) && ($img_combo != "")) echo $img_combo ?>"></ </div>
+                                                    <label>ẢNH</label>
+                                                    <div class="change-photo-btn">
+                                                        <div class="pop_up">
+                                                            <img src="../uploads/combo/<?php echo $img_combo ?>" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="change-photo-btn">
+                                                        <div class="pop_up">
+                                                            <p>CẬP NHẬT ẢNH</p>
+                                                        </div>
+                                                        <input type="file" name="img_combo" class="upload">
+                                                    </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>GIÁ TIỀN<span class="text-danger">*</span></label>
@@ -68,3 +78,54 @@ if (is_array($list_combo)) {
     </body>
 
     </html>
+    <style>
+        .pop_up {
+            max-width: 100%;
+            max-height: 100%;
+            overflow: hidden;
+            text-align: center;
+            position: relative;
+        }
+
+        .pop_up img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    </style>
+
+
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/feather.min.js"></script>
+
+    <script src="assets/js/ckeditor.js"></script>
+
+    <script src="assets/js/select2.min.js"></script>
+
+    <script src="assets/plugins/bootstrap-tagsinput/js/bootstrap-tagsinput.js"></script>
+
+    <script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Add image change event listener
+            $('.upload').on('change', function() {
+                // Get the selected file
+                var file = this.files[0];
+                if (file) {
+                    // Create a FileReader to read the file
+                    var reader = new FileReader();
+                    // Set the image source when the FileReader has finished reading the file
+                    reader.onload = function(e) {
+                        $('.pop_up p').html('<img src="' + e.target.result + '" alt="Selected Image">');
+                    };
+                    // Read the file as a data URL
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+    </script>

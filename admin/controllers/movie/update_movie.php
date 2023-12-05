@@ -58,7 +58,7 @@ if (is_array($list_movie)) {
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>NỘI DUNG<span class="text-danger">*</span></label>
-                                                <input class="form-control" type="text" value="<?php if (isset($content) && ($content != "")) echo $content ?>" name="content" required placeholder="content">
+                                                <textarea required class="col-lg-12 col-md-12" name="content" id="" cols="30" rows="7"><?php if (isset($content) && ($content != "")) echo $content ?></textarea>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">

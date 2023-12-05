@@ -78,8 +78,6 @@
                         echo '<a  href="' . $delete_movie . '" class="text-danger" onclick="return confirm(\'Bạn có chắc muốn xóa?\');" ><i class="feather-trash-2 me-1"></i>XÓA</a>';
                         echo '</div>';
                         echo '<div class="status-toggle">';
-                        // echo '<input id="rating_' . $movie['id_movie'] . '" class="check" type="checkbox" ' . ($movie['active'] ? 'checked' : '') . '>';
-                        // echo '<label for="rating_' . $movie['id_movie'] . '" class="checktoggle checkbox-bg">checkbox</label><span>Active</span>';
                         echo '</div>';
                         echo '</div>';
                         echo '</div>';

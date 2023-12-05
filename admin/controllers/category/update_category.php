@@ -32,13 +32,13 @@ if (is_array($list_category)) {
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>TÊN THỂ LOẠI<span class="text-danger">*</span></label>
-                                                <input type="text" name="name_category" class="form-control" required value="<?php if(isset($name_category)&&($name_category!="")) echo $name_category?>"></ </div>
+                                                <input type="text" name="name_category" class="form-control" required value="<?php if (isset($name_category) && ($name_category != "")) echo $name_category ?>"></ </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="bank-details-btn ">
-                                    <input type="hidden" name="id_category" value="<?php if(isset($id_category)&&($id_category>0)) echo $id_category;?>">
+                                    <input type="hidden" name="id_category" value="<?php if (isset($id_category) && ($id_category > 0)) echo $id_category; ?>">
                                     <input type="submit" class="btn btn-primary me-2" name="update_category" value="CẬP NHẬT">
                                 </div>
                             </div>

@@ -89,7 +89,7 @@
                             <div class="inovices-dash-count">
                                 <div class="inovices-amount">
                                     <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;"><?php echo total_price_bill(); ?> VND</font>
+                                        <font style="vertical-align: inherit;"><?php echo total_price_bill(); ?> VND</font>
                                     </font>
                                 </div>
                             </div>
@@ -164,7 +164,7 @@
         <div class="row">
             <?php
             foreach ($list_bill as $bill) {
-                // extract($list_bill);
+                extract($bill);
                 echo '<div class="col-sm-6 col-lg-4 col-xl-3 d-flex">';
                 echo '<div class="card invoices-grid-card w-100">';
                 echo '<div class="card-header d-flex justify-content-between align-items-center">';

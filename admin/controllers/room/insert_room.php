@@ -29,11 +29,9 @@
                                                 <input type="text" name="name_room" class="form-control" required placeholder="Name room"></ </div>
                                             </div>
                                         </div>
-
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group row">
                                                 <label>TRẠNG THÁI PHÒNG<span class="text-danger">*</span></label>
-
                                                 <div class="col-md-10">
                                                     <div class="radio">
                                                         <label>
