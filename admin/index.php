@@ -192,11 +192,7 @@ if (isset($_GET['action'])) {
 
         case 'delete_showtime':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-<<<<<<< HEAD
-
-=======
                 header('Location: index.php?action=showtime');
->>>>>>> 976e95c400325171dbeb041b5ec4d230c2d8d8af
                 delete_showtime($_GET['id']);
             }
             $sql = "select * from showtime order by id_showtime";
