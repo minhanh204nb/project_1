@@ -87,3 +87,10 @@ function load_movie_same_category_limit($id_movie, $id_category)
     $list_movie_same_category = pdo_query($sql);
     return $list_movie_same_category;
 }
+
+function total_movie()
+{
+    $sql = "SELECT COUNT(id_movie) AS total_rows FROM movie";
+    $list_sum_movie = pdo_query_one($sql);
+    return $list_sum_movie['total_rows'];
+}

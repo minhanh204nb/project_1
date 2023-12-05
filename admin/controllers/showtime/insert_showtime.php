@@ -96,7 +96,7 @@
                                                 <select class="select" name="id_action">
                                                     <?php
                                                     foreach ($list_action as $action) {
-                                                        echo ' <option value="' . $action['id_action'] . '">' . $action['action_rap'] . '</option>';
+                                                        echo ' <option value="' . $action['id_action'] . '">' . $action['action'] . '</option>';
                                                     }
                                                     ?>
                                                 </select>

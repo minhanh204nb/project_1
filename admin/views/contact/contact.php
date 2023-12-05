@@ -9,6 +9,11 @@
                         <li class="breadcrumb-item active">Liên hệ</li>
                     </ul>
                 </div>
+                <div class="col-auto">
+                    <a href="index.php?action=insert_contact" class="btn btn-primary me-1">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                </div>
             </div>
         </div>
         <div class="row">

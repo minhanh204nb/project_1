@@ -42,3 +42,9 @@ function total_price_bill()
     $list_sum_bill = pdo_query_one($sql);
     return $list_sum_bill['total_price'];
 }
+function loadone_bill($id_bill)
+{
+    $sql = "SELECT * FROM bill WHERE id_bill='$id_bill'";
+    $list_bill = pdo_query_one($sql);
+    return $list_bill;
+}

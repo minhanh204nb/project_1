@@ -63,14 +63,8 @@
                                                     break;
                                                 }
                                             }
-
-
-
-
-
                                             $edit_showtime = "index.php?action=edit_showtime&id=" . $showtime['id_showtime'];
                                             $delete_showtime = "index.php?action=delete_showtime&id=" . $showtime['id_showtime'];
-
                                             echo "<tr>";
                                             echo "<td>" . $showtime["id_showtime"] . "</td>";
                                             echo "<td>" . $showtime['id_room'] . "</td>";

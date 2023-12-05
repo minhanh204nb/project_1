@@ -130,7 +130,7 @@ if (isset($_GET['action'])) {
             break;
         case 'delete_combo':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                // Delete the category by calling the delete_category function
+                header('location: index.php?action=combo');
                 delete_combo($_GET['id']);
             }
             // Reload the list of categories after deletion
@@ -393,9 +393,27 @@ if (isset($_GET['action'])) {
             $list_account = loadall_account();
             include './views/bill/list_bill.php';
             break;
+        case 'edit_bill':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $list_bill = loadone_bill($_GET['id']);
+            }
+            include './controllers/bill/update_bill.php';
+            break;
+        case 'update_bill':
+            break;
         case 'contact':
             $list_contact = loadall_contact();
             include './views/contact/contact.php';
+            break;
+        case 'insert_contact':
+            if (isset($_POST['insert_contact']) && $_POST['insert_contact']) {
+                $name = $_POST['name'];
+                $email = $_POST['email'];
+                $title = $_POST['title'];
+                $content = $_POST['content'];
+                insert_contact($name, $email, $title, $content);
+            }
+            include './controllers/contact/insert_contact.php';
             break;
         case 'delete_contact':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
@@ -425,6 +443,15 @@ if (isset($_GET['action'])) {
         case 'comment':
             $list_comment = loadall_comment();
             include './views/comment/list_comment.php';
+            break;
+        case 'insert_comment':
+            if (isset($_POST['insert_comment']) && $_POST['insert_comment']) {
+                $name_user = $_POST['name_user'];
+                $id_movie_comment = $_POST['id_movie'];
+                $content = $_POST['content'];
+                insert_comment($name_user, $id_movie_comment, $content);
+            }
+            include './controllers/comment/insert_comment.php';
             break;
         case 'delete_comment':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {

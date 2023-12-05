@@ -45,7 +45,7 @@ if (is_array($list_account)) {
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>TÊN ĐĂNG NHẬP</label>
-                                        <input type="text" class="form-control" name="user" value="<?php if(isset($user)&&($user!="")) echo $user?>" readonly>
+                                        <input type="text" class="form-control" name="user" value="<?php if(isset($user)&&($user!="")) echo $user?>">
                                     </div>
                                     <div class="form-group">
                                         <label>MẬT KHẨU</label>
@@ -58,7 +58,7 @@ if (is_array($list_account)) {
                                     <div class="form-group">
                                         <label>QUYỀN</label>
                                         <input type="text" class="form-control" name="role" value="<?php if(isset($role)&&($role!="")) echo $role?>">
-                                        <input type="text" class="form-control" name="id_account" value="<?php if(isset($id_account)&&($id_account!="")) echo $id_account?>">
+                                        <input type="hidden" class="form-control" name="id_account" value="<?php if(isset($id_account)&&($id_account!="")) echo $id_account?>">
                                     </div>
                                 </div>
                             </div>

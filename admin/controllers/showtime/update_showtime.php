@@ -117,9 +117,9 @@ if (is_array($list_showtime)) {
                                                         <?php
                                                         foreach ($list_action as $action) {
                                                             if ($id_action == $id_showtime) {
-                                                                echo ' <option value="' . $action['id_action'] . '"selected >' . $action['action_rap'] . '</option>';
+                                                                echo ' <option value="' . $action['id_action'] . '"selected >' . $action['action'] . '</option>';
                                                             } else {
-                                                                echo ' <option value="' . $action['id_action'] . '">' . $action['action_rap'] . '</option>';
+                                                                echo ' <option value="' . $action['id_action'] . '">' . $action['action'] . '</option>';
                                                             }
                                                         }
                                                         ?>

@@ -11,7 +11,7 @@
                             <div class="dash-count">
                                 <div class="dash-title">TỔNG DOANH THU</div>
                                 <div class="dash-counts">
-                                    <p>1,642</p>
+                                    <p><?php echo total_price_bill(); ?> VND</p>
                                 </div>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                             <div class="dash-count">
                                 <div class="dash-title">TỔNG PHIM</div>
                                 <div class="dash-counts">
-                                    <p>1,041</p>
+                                    <p><?php echo total_movie(); ?> Phim</p>
                                 </div>
                             </div>
                         </div>
