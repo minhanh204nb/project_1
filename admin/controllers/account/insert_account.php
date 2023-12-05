@@ -3,11 +3,11 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-sm-12">
-                    <h3 class="page-title">Customers</h3>
+                    <h3 class="page-title">Tài khoản</h3>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="customers.html">Customers</a></li>
-                        <li class="breadcrumb-item active">Add Customers</li>
+                        <li class="breadcrumb-item"><a href="index.html">Thống kê</a></li>
+                        <li class="breadcrumb-item"><a href="customers.html">Tài khoản</a></li>
+                        <li class="breadcrumb-item active">Thêm tài khoản</li>
                     </ul>
                 </div>
             </div>
@@ -17,12 +17,12 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Basic Info</h4>
+                        <h4 class="card-title">Thông tin cơ bản</h4>
                         <form action="index.php?action=insert_account" method="post">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>NAME</label>
+                                        <label>Tên người dùng</label>
                                         <input type="text" class="form-control" name="name_clinet" placeholder="Name clinet">
                                     </div>
                                     <div class="form-group">
@@ -30,29 +30,29 @@
                                         <input type="email" class="form-control" name="email" placeholder="Email">
                                     </div>
                                     <div class="form-group">
-                                        <label>Phone</label>
+                                        <label>Số điện thoại</label>
                                         <input type="text" class="form-control" name="phone_number" placeholder="Phone number">
                                     </div>
                                     <div class="form-group">
-                                        <label>Address</label>
+                                        <label>Địa chỉ</label>
                                         <input type="text" class="form-control" name="address" placeholder="Address">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>User</label>
+                                        <label>Tên đăng nhập</label>
                                         <input type="text" class="form-control" name="user" placeholder="User">
                                     </div>
                                     <div class="form-group">
-                                        <label>Password</label>
+                                        <label>Mật khẩu</label>
                                         <input type="text" class="form-control" name="password" placeholder="Password">
                                     </div>
                                     <div class="form-group">
-                                        <label>Action</label>
+                                        <label>Trạng thái</label>
                                         <input type="text" class="form-control" name="action" value="Hoạt động">
                                     </div>
                                     <div class="form-group">
-                                        <label>Role</label>
+                                        <label>Quyền</label>
                                         <?php
                                         $role = "User";
                                         if ($role == "admin") {
@@ -64,7 +64,7 @@
                                 </div>
                             </div>
                             <div class="text-end mt-4">
-                                <input type="submit" class="btn btn-primary" name="insert" value="Add Account">
+                                <input type="submit" class="btn btn-primary" name="insert" value="Thêm tài khoản">
                             </div>
                         </form>
                     </div>

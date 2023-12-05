@@ -42,6 +42,7 @@ if (isset($_GET['action'])) {
         case 'delete_category':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $id_category = $_GET['id'];
+                header('Location: index.php?action=category');
                 delete_category($id_category);
             }
             // Reload the list of categories after deletion
@@ -74,7 +75,6 @@ if (isset($_GET['action'])) {
             $list_room = loadall_room();
             include './views/room/list_room.php';
             break;
-
         case 'insert_room':
             if (isset($_POST['insert_room']) && $_POST['insert_room']) {
                 $name = $_POST['name_room'];
@@ -85,12 +85,10 @@ if (isset($_GET['action'])) {
             break;
         case 'delete_room':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                // Delete the category by calling the delete_category function
+                header('Location: index.php?action=room');
                 delete_room($_GET['id']);
             }
-            // Reload the list of categories after deletion
-            $sql = "select * from room order by id_room";
-            $list_room = pdo_query($sql);
+            $list_room = loadall_room();
             include './views/room/list_room.php';
             break;
         case 'edit_room':
@@ -114,7 +112,6 @@ if (isset($_GET['action'])) {
             $list_combo = loadall_combo();
             include './views/combo/list_combo.php';
             break;
-
         case 'insert_combo':
             if (isset($_POST['insert_combo']) && $_POST['insert_combo']) {
                 $name = $_POST['name_combo'];
@@ -133,7 +130,7 @@ if (isset($_GET['action'])) {
             break;
         case 'delete_combo':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                // Delete the category by calling the delete_category function
+                header('location: index.php?action=combo');
                 delete_combo($_GET['id']);
             }
             // Reload the list of categories after deletion
@@ -195,7 +192,11 @@ if (isset($_GET['action'])) {
 
         case 'delete_showtime':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+<<<<<<< HEAD
 
+=======
+                header('Location: index.php?action=showtime');
+>>>>>>> 976e95c400325171dbeb041b5ec4d230c2d8d8af
                 delete_showtime($_GET['id']);
             }
             $sql = "select * from showtime order by id_showtime";
@@ -396,9 +397,29 @@ if (isset($_GET['action'])) {
             $list_account = loadall_account();
             include './views/bill/list_bill.php';
             break;
+        case 'edit_bill':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $list_bill = loadone_bill($_GET['id']);
+            }
+            $list_bill = loadbill_by_id_bill($_GET['id']);
+            $list_account = loadall_account();
+            include './controllers/bill/update_bill.php';
+            break;
+        case 'update_bill':
+            break;
         case 'contact':
             $list_contact = loadall_contact();
             include './views/contact/contact.php';
+            break;
+        case 'insert_contact':
+            if (isset($_POST['insert_contact']) && $_POST['insert_contact']) {
+                $name = $_POST['name'];
+                $email = $_POST['email'];
+                $title = $_POST['title'];
+                $content = $_POST['content'];
+                insert_contact($name, $email, $title, $content);
+            }
+            include './controllers/contact/insert_contact.php';
             break;
         case 'delete_contact':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
@@ -407,13 +428,58 @@ if (isset($_GET['action'])) {
             $list_contact = loadall_contact();
             include './views/contact/contact.php';
             break;
+        case 'edit_contact':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $list_contact = loadone_contact($_GET['id']);
+            }
+            include './controllers/contact/update_contact.php';
+            break;
+        case 'update_contact':
+            if (isset($_POST['update_contact']) && $_POST['update_contact']) {
+                $id_contact = $_POST['id_contact'];
+                $name = $_POST['name'];
+                $email = $_POST['email'];
+                $title = $_POST['title'];
+                $content = $_POST['content'];
+                update_contact($id_contact, $name, $email, $title, $content);
+            }
+            $list_contact = loadall_contact();
+            include './views/contact/contact.php';
+            break;
         case 'comment':
             $list_comment = loadall_comment();
             include './views/comment/list_comment.php';
             break;
+        case 'insert_comment':
+            if (isset($_POST['insert_comment']) && $_POST['insert_comment']) {
+                $name_user = $_POST['name_user'];
+                $id_movie_comment = $_POST['id_movie'];
+                $content = $_POST['content'];
+                insert_comment($name_user, $id_movie_comment, $content);
+            }
+            include './controllers/comment/insert_comment.php';
+            break;
         case 'delete_comment':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 delete_comment($_GET['id']);
+                header('Location: index.php?action=comment');
+            }
+            $list_comment = loadall_comment();
+            include './views/comment/list_comment.php';
+            break;
+        case 'edit_comment':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $list_comment = loadone_comment($_GET['id']);
+            }
+            include './controllers/comment/update_comment.php';
+            break;
+        case 'update_comment':
+            if (isset($_POST['update_comment']) && ($_POST['update_comment'])) {
+                $id_comment = $_POST['id_comment'];
+                $name_user = $_POST['name_user'];
+                $id_movie = $_POST['id_movie'];
+                $content = $_POST['content'];
+                update_comment($id_comment, $name_user, $id_movie, $content);
             }
             $list_comment = loadall_comment();
             include './views/comment/list_comment.php';

@@ -89,7 +89,7 @@
                             <div class="inovices-dash-count">
                                 <div class="inovices-amount">
                                     <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;"><?php echo total_price_bill(); ?> VND</font>
+                                        <font style="vertical-align: inherit;"><?php echo total_price_bill(); ?> VND</font>
                                     </font>
                                 </div>
                             </div>
@@ -164,7 +164,7 @@
         <div class="row">
             <?php
             foreach ($list_bill as $bill) {
-                // extract($list_bill);
+                extract($bill);
                 echo '<div class="col-sm-6 col-lg-4 col-xl-3 d-flex">';
                 echo '<div class="card invoices-grid-card w-100">';
                 echo '<div class="card-header d-flex justify-content-between align-items-center">';
@@ -176,9 +176,9 @@
                 echo '<div class="dropdown dropdown-action">';
                 echo '<a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>';
                 echo '<div class="dropdown-menu dropdown-menu-end">';
-                echo '<a class="dropdown-item" href="edit-invoice.html"><i class="far fa-edit me-2"></i>';
+                echo '<a class="dropdown-item" href="index.php?action=edit_bill&id=' . $bill['id_bill'] . '"><i class="far fa-edit me-2"></i>';
                 echo '<font style="vertical-align: inherit;">';
-                echo '<font style="vertical-align: inherit;">Biên tập</font>';
+                echo '<font style="vertical-align: inherit;">Sửa</font>';
                 echo '</font>';
                 echo '</a>';
                 echo '<a class="dropdown-item" href="view-invoice.html"><i class="far fa-eye me-2"></i>';
@@ -248,7 +248,7 @@
                 echo '<div class="col-auto">';
                 echo '<span class="badge bg-success-dark">';
                 echo '<font style="vertical-align: inherit;">';
-                echo '<font style="vertical-align: inherit;">Đã nhận vé</font>';
+                echo '<font style="vertical-align: inherit;">' . $bill['note'] . '</font>';
                 echo '</font>';
                 echo '</span>';
                 echo '</div>';
@@ -258,8 +258,6 @@
                 echo '</div>';
             }
             ?>
-
-
             <div class="row">
                 <div class="col-sm-12 col-md-5">
                     <!-- <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 1 to 10 of 12 entries</div> -->
@@ -276,7 +274,6 @@
                                     <a class="page-link" href="?action=bill&page=<?php echo $page; ?>"><?php echo $page; ?></a>
                                 </li>
                             <?php endforeach; ?>
-
                             <li class="paginate_button page-item <?php echo $next_class; ?>">
                                 <a class="page-link" href="?action=bill&page=<?php echo $next_page; ?>">Next</a>
                             </li>

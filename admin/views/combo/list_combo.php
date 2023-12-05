@@ -3,7 +3,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="index.php?action=insert_combo" class="btn btn-primary btn-blog mb-3"><i class="feather-plus-circle me-1"></i> Add Combo</a>
+                    <a href="index.php?action=insert_combo" class="btn btn-primary btn-blog mb-3"><i class="feather-plus-circle me-1"></i>THÊM COMBO</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -13,11 +13,11 @@
                                     <table border="1" class="datatable table table-stripped dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                         <tr style="text-align: center;">
                                             <th>ID</th>
-                                            <th>NAME COMBO</th>
-                                            <th>IMGER COMBO</th>
-                                            <th>PRICE COMBO</th>
-                                            <th colspan="1">DESCRIBE</th>
-                                            <th colspan="4">ACTION</th>
+                                            <th>TÊN COMBO</th>
+                                            <th>HÌNH ẢNH COMBO</th>
+                                            <th>GIÁ COMBO</th>
+                                            <th colspan="1">MÔ TẢ</th>
+                                            <th colspan="4">CHỨC NĂNG</th>
                                         </tr>
                                         <?php
                                         foreach ($list_combo as $combo) {
@@ -37,8 +37,8 @@
                                             echo "<td>" . $combo["price_combo"] . "</td>";
                                             echo "<td>" . $combo["mota"] . "</td>";
                                             echo "<td class='edit-delete-btn'>
-                                            <a href='" . $edit_combo . "' class='text-success'><i class='feather-edit-3 me-1'></i> Edit</a>
-                                            <a href='" . $delete_combo . "' onclick='return confirm(\"Bạn có chắc muốn xóa?\");' class='text-danger' data-bs-toggle='modal' data-bs-target='#deleteModal'><i class='feather-trash-2 me-1'></i> Delete</a></td>";
+                                            <a href='" . $edit_combo . "' class='text-success'><i class='feather-edit-3 me-1'></i>SỬA</a>
+                                            <a href='" . $delete_combo . "' onclick='return confirm(\"Bạn có chắc muốn xóa?\");' class='text-danger' data-bs-toggle='modal' data-bs-target='#deleteModal'><i class='feather-trash-2 me-1'></i>XÓA</a></td>";
                                             echo "</tr>";
                                         }
                                         // 

@@ -3,7 +3,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="index.php?action=insert_showtime" class="btn btn-primary btn-blog mb-3"><i class="feather-plus-circle me-1"></i> Add Showtime</a>
+                    <a href="index.php?action=insert_showtime" class="btn btn-primary btn-blog mb-3"><i class="feather-plus-circle me-1"></i>Thêm suất chiếu</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -13,14 +13,14 @@
                                     <table border="1" class="datatable table table-stripped dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                         <tr style="text-align: center;">
                                             <th>ID</th>
-                                            <th>ROOM</th>
-                                            <th>NAME MOVIE</th>
-                                            <th>IMAGES MOVIE</th>
+                                            <th>Phòng</th>
+                                            <th>Tên Phim</th>
+                                            <th>Ảnh</th>
                                             <th>SHOW DATE</th>
-                                            <th>START TIME</th>
-                                            <th>END TIME</th>
-                                            <th>STATUS</th>
-                                            <th colspan="2">ACTION</th>
+                                            <th>Giờ Chiếu</th>
+                                            <th>Giờ kết thúc</th>
+                                            <th>Mô tả</th>
+                                            <th colspan="2">Chức năng</th>
                                         </tr>
                                         <?php
 
@@ -63,6 +63,7 @@
                                                     break;
                                                 }
                                             }
+<<<<<<< HEAD
 
 
 
@@ -71,6 +72,10 @@
                                             $edit_showtime = "index.php?action=edit_showtime&id=" . $showtime['id_showtime'];
                                             $delete_showtime = "index.php?action=delete_showtime&id=" . $showtime['id_showtime'];
 
+=======
+                                            $edit_showtime = "index.php?action=edit_showtime&id=" . $showtime['id_showtime'];
+                                            $delete_showtime = "index.php?action=delete_showtime&id=" . $showtime['id_showtime'];
+>>>>>>> 976e95c400325171dbeb041b5ec4d230c2d8d8af
                                             echo "<tr>";
                                             echo "<td>" . $showtime["id_showtime"] . "</td>";
                                             echo "<td>" . $showtime['id_room'] . "</td>";
@@ -81,8 +86,8 @@
                                             echo "<td>" . $showtime["end_time"] . "</td>";
                                             echo "<td>" . $showtime["id_action"] . "</td>";
                                             echo "<td class='edit-delete-btn'>
-                                            <a href='" . $edit_showtime . "' class='text-success'><i class='feather-edit-3 me-1'></i> Edit</a>
-                                            <a href='" . $delete_showtime . "' onclick='return confirm(\"Bạn có chắc muốn xóa?\");' class='text-danger' data-bs-toggle='modal' data-bs-target='#deleteModal'><i class='feather-trash-2 me-1'></i> Delete</a></td>";
+                                            <a href='" . $edit_showtime . "' class='text-success'><i class='feather-edit-3 me-1'></i>Sửa</a>
+                                            <a href='" . $delete_showtime . "' onclick='return confirm(\"Bạn có chắc muốn xóa?\");' class='text-danger' data-bs-toggle='modal' data-bs-target='#deleteModal'><i class='feather-trash-2 me-1'></i>Xóa</a></td>";
                                             echo "</tr>";
                                         }
                                         // 

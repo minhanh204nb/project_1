@@ -25,8 +25,8 @@ extract($_SESSION['user']);
                                     <li class="menu-item-has-children"><a href="index.php?action=list_movie">DANH SÁCH PHIM</a>
                                     </li>
                                     <li><a href="index.php?action=combo">GÓI COMBO</a></li>
-                                    <li class="menu-item-has-children"><a href="index.php?action=blog">TIN TỨC</a>
-                                    </li>
+                                    <!-- <li class="menu-item-has-children"><a href="index.php?action=blog">TIN TỨC</a>
+                                    </li> -->
                                     <li><a href="index.php?action=contact">LIÊN HỆ</a></li>
                                     <?php
                                     if (isset($_SESSION['user'])) {

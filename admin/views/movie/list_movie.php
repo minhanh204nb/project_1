@@ -27,7 +27,7 @@
                     <div class="col-md-9">
                     </div>
                     <div class="col-md-3 text-md-end">
-                        <a href="index.php?action=insert_movie" class="btn btn-primary btn-blog mb-3"><i class="feather-plus-circle me-1"></i> Add Movie</a>
+                        <a href="index.php?action=insert_movie" class="btn btn-primary btn-blog mb-3"><i class="feather-plus-circle me-1"></i>THÊM PHIM</a>
                     </div>
                 </div>
                 <div class="row">
@@ -74,12 +74,10 @@
                         echo '<div class="edit-delete-btn">';
                         $edit_movie = 'index.php?action=edit_movie&id=' . $movie['id_movie'];
                         $delete_movie = 'index.php?action=delete_movie&id=' . $movie['id_movie'];
-                        echo ' <a href="' . $edit_movie . '" class="text-success"><i class="feather-edit-3 me-1"></i> Edit</a>';
-                        echo '<a  href="' . $delete_movie . '" class="text-danger" onclick="return confirm(\'Bạn có chắc muốn xóa?\');" ><i class="feather-trash-2 me-1"></i> Delete</a>';
+                        echo ' <a href="' . $edit_movie . '" class="text-success"><i class="feather-edit-3 me-1"></i>SỬA</a>';
+                        echo '<a  href="' . $delete_movie . '" class="text-danger" onclick="return confirm(\'Bạn có chắc muốn xóa?\');" ><i class="feather-trash-2 me-1"></i>XÓA</a>';
                         echo '</div>';
                         echo '<div class="status-toggle">';
-                        // echo '<input id="rating_' . $movie['id_movie'] . '" class="check" type="checkbox" ' . ($movie['active'] ? 'checked' : '') . '>';
-                        // echo '<label for="rating_' . $movie['id_movie'] . '" class="checktoggle checkbox-bg">checkbox</label><span>Active</span>';
                         echo '</div>';
                         echo '</div>';
                         echo '</div>';

@@ -3,11 +3,11 @@
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col">
-                    <h3 class="page-title">Account</h3>
+                    <h3 class="page-title">Tài khoản</h3>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.php?action=dashboard">Account</a>
+                        <li class="breadcrumb-item"><a href="index.php?action=dashboard">Thống kê</a>
                         </li>
-                        <li class="breadcrumb-item active">Account</li>
+                        <li class="breadcrumb-item active">Tài khoản</li>
                     </ul>
                 </div>
                 <div class="col-auto">
@@ -33,13 +33,13 @@
                                         <table class="table table-center table-hover datatable dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                             <thead class="thead-light">
                                                 <tr role="row">
-                                                    <th>Name</th>
+                                                    <th>Tên người dùng</th>
                                                     <th>Email</th>
-                                                    <th>User</th>
-                                                    <th>Password</th>
-                                                    <th>Address</th>
-                                                    <th>Role</th>
-                                                    <th class="text-end" colspan="2">Actions</th>
+                                                    <th>Tên tài khoản</th>
+                                                    <th>Mật khẩu</th>
+                                                    <th>Địa chỉ</th>
+                                                    <th>Quyền</th>
+                                                    <th class="text-end" colspan="2">Chức năng</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -67,8 +67,8 @@
                                                     echo '<td class="text-end">';
                                                     $edit_account = "index.php?action=edit_account&id=" . $account['id_account'];
                                                     $delete_account = "index.php?action=delete_account&id=" . $account['id_account'];
-                                                    echo '<a href="' . $edit_account . '"  class="btn btn-sm btn-white text-success me-2"><i class="far fa-edit me-1"></i> Edit</a>';
-                                                    echo '<a href="' . $delete_account . '"onclick="return confirm(\'Bạn có chắc muốn xóa?\');" class="btn btn-sm btn-white text-danger me-2"><i class="far fa-trash-alt me-1"></i>Delete</a>';
+                                                    echo '<a href="' . $edit_account . '"  class="btn btn-sm btn-white text-success me-2"><i class="far fa-edit me-1"></i>Sửa</a>';
+                                                    echo '<a href="' . $delete_account . '"onclick="return confirm(\'Bạn có chắc muốn xóa?\');" class="btn btn-sm btn-white text-danger me-2"><i class="far fa-trash-alt me-1"></i>Xóa</a>';
                                                     echo '</td>';
                                                     echo '</tr>';
                                                 }

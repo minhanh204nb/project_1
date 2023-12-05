@@ -1,18 +1,22 @@
 <?php
-function insert_combo($name_combo,$img_combo,$price_combo,$mota)
+function insert_combo($name_combo, $img_combo, $price_combo, $mota)
 {
     $sql = "INSERT INTO combo (name_combo,img_combo,price_combo,mota) VALUES ('$name_combo','$img_combo','$price_combo','$mota')";
     pdo_execute($sql);
 }
-function update_combo($id_combo, $name_combo,$img_combo,$price_combo,$mota)
+function update_combo($id_combo, $name_combo, $img_combo, $price_combo, $mota)
 {
-    $sql = "UPDATE combo SET name_combo = '".$name_combo."',img_combo = '".$img_combo."',price_combo = '".$price_combo."',mota = '".$mota."' WHERE id_combo = ".$id_combo;
+    if ($img_combo != "") {
+        $sql = "UPDATE combo SET name_combo = '" . $name_combo . "',img_combo = '" . $img_combo . "',price_combo = '" . $price_combo . "',mota = '" . $mota . "' WHERE id_combo = " . $id_combo;
+    } else {
+        $sql = "UPDATE combo SET name_combo = '" . $name_combo . "',price_combo = '" . $price_combo . "',mota = '" . $mota . "' WHERE id_combo = " . $id_combo;
+    }
     pdo_execute($sql);
 }
 function delete_combo($id_combo)
 {
-    $sql = "DELETE FROM combo WHERE id_combo = ".$_GET['id'];
-   pdo_query($sql);
+    $sql = "DELETE FROM combo WHERE id_combo = " . $_GET['id'];
+    pdo_query($sql);
 }
 function loadall_combo()
 {

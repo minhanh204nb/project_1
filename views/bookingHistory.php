@@ -60,6 +60,7 @@
             <th>Tổng tiền</th>
             <th>Thời Gian Đặt</th>
             <th>Action</th>
+            <th>Ghi chú</th>
             <th>Mã thanh toán</th>
         </tr>
         <?php
@@ -79,6 +80,7 @@
             echo '<td>' . $total_amount . '</td>';
             echo '<td>' . $bill['booking_date'] . '</td>';
             echo '<td>đã thanh toán</td>';
+            echo '<td>' . $bill['note'] . '</td>';
             echo '<td>' . $bill['vnp_TxnRef'] . '</td>';
             echo "</tr>";
         }
