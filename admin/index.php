@@ -397,6 +397,8 @@ if (isset($_GET['action'])) {
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $list_bill = loadone_bill($_GET['id']);
             }
+            $list_bill = loadbill_by_id_bill($_GET['id']);
+            $list_account = loadall_account();
             include './controllers/bill/update_bill.php';
             break;
         case 'update_bill':
