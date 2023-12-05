@@ -4,12 +4,12 @@
             <div class="card flex-fill">
                 <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="card-title">Sales Analytics</h5>
-                        <div class="dropdown">
+                        <h5 class="card-title">PHÂN TÍCH BÁN HÀNG</h5>
+                        <!-- <div class="dropdown">
                             <button class="btn btn-white btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                 Monthly
                             </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <li>
                                     <a href="javascript:void(0);" class="dropdown-item">Weekly</a>
                                 </li>
@@ -20,26 +20,26 @@
                                     <a href="javascript:void(0);" class="dropdown-item">Yearly</a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between flex-wrap flex-md-nowrap">
                         <div class="w-md-100 d-flex align-items-center mb-3 flex-wrap flex-md-nowrap">
                             <div>
-                                <span>Total Sales</span>
+                                <span>DOANH THU</span>
                                 <p class="h3 text-primary me-5">$1000</p>
                             </div>
                             <div>
-                                <span>Receipts</span>
+                                <span>HÓA ĐƠN</span>
                                 <p class="h3 text-success me-5">$1000</p>
                             </div>
                             <div>
-                                <span>Expenses</span>
+                                <span>CHI PHÍ</span>
                                 <p class="h3 text-danger me-5">$300</p>
                             </div>
                             <div>
-                                <span>Earnings</span>
+                                <span>THU NHẬP</span>
                                 <p class="h3 text-dark me-5">$700</p>
                             </div>
                         </div>
@@ -128,7 +128,6 @@
                                         .apexcharts-legend .apexcharts-hidden-null-series {
                                             display: none !important;
                                         }
-
                                         .apexcharts-inactive-legend {
                                             opacity: 0.45;
                                         }
@@ -224,7 +223,7 @@
                                             <path id="SvgjsPath1919" d="M 513.001201923077 264.348L 513.001201923077 213.63209591346157Q 518.3085937500001 209.3247040865385 523.6159855769232 213.63209591346157L 523.6159855769232 213.63209591346157L 523.6159855769232 264.348L 523.6159855769232 264.348z" fill="rgba(118,56,255,1)" fill-opacity="1" stroke="transparent" stroke-opacity="1" stroke-linecap="square" stroke-width="2" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskw5f2825s)" pathTo="M 513.001201923077 264.348L 513.001201923077 213.63209591346157Q 518.3085937500001 209.3247040865385 523.6159855769232 213.63209591346157L 523.6159855769232 213.63209591346157L 523.6159855769232 264.348L 523.6159855769232 264.348z" pathFrom="M 513.001201923077 264.348L 513.001201923077 264.348L 523.6159855769232 264.348L 523.6159855769232 264.348L 523.6159855769232 264.348L 513.001201923077 264.348" cy="211.47840000000002" cx="554.0504807692308" j="12" val="50" barHeight="52.869600000000005" barWidth="12.614783653846155"></path>
                                         </g>
                                         <g id="SvgjsG1920" class="apexcharts-series" rel="2" seriesName="Pending" data:realIndex="1">
-                                            <path id="SvgjsPath1922" d="M 21.024639423076923 264.348L 21.024639423076923 242.18167991346155Q 26.33203125 237.87428808653848 31.63942307692308 242.18167991346155L 31.63942307692308 242.18167991346155L 31.63942307692308 264.348L 31.63942307692308 264.348z" fill="rgba(253,166,0,1)" fill-opacity="1" stroke="transparent" stroke-opacity="1" stroke-linecap="square" stroke-width="2" stroke-dasharray="0" class="apexcharts-bar-area" index="1" clip-path="url(#gridRectMaskw5f2825s)" pathTo="M 21.024639423076923 264.348L 21.024639423076923 242.18167991346155Q 26.33203125 237.87428808653848 31.63942307692308 242.18167991346155L 31.63942307692308 242.18167991346155L 31.63942307692308 264.348L 31.63942307692308 264.348z" pathFrom="M 21.024639423076923 264.348L 21.024639423076923 264.348L 31.63942307692308 264.348L 31.63942307692308 264.348L 31.63942307692308 264.348L 21.024639423076923 264.348" cy="240.027984" cx="62.07391826923077" j="0" val="23" barHeight="24.320016000000003" barWidth="12.614783653846155"></path>
+                                            <path id="SvgjsPath1922" d="M 21.024639423076923 264.348L 21.024639423076923 242.18167991346155Q 26.33203125 237.87428808653848 31.63942307692308 242.18167991346155L 31.63942307692308 242.18167991346155L 31.63942307692308 264.348L 31.63942307692308 264.348z" fill="rgba(253,166,0,1)" fill-opacity="1" stroke="transparent" stroke-opacity="1" stroke-linecap="square" stroke-width="2" stroke-dasharray="0" class="apexcharts-bar-area" index="1" clip-path="url(#gridRectMaskw5f2825s)" pathTo="M 21.024639423076923 264.348L 21.024639423076923 242.18167991346155Q 26.33203125 237.87428808653848 31.63942307692308 242.18167991346155L 31.63942307692308 242.18167991346155L 31.63942307692308 264.348L 31.63942307692308 264.348z" pathFrom="M 21.024639423076923 264.348L 21.024639423076923 264.348L 31.63942307692308 264.348L 31.63942307692308 264.348L 31.63942307692308 264.348L 21.024639423076923 264.348" cy="240.027984" cx="62.07391826923077" j="0" val="230" barHeight="24.320016000000003" barWidth="12.614783653846155"></path>
                                             <path id="SvgjsPath1923" d="M 63.07391826923077 264.348L 63.07391826923077 222.09123191346157Q 68.38131009615384 217.7838400865385 73.68870192307692 222.09123191346157L 73.68870192307692 222.09123191346157L 73.68870192307692 264.348L 73.68870192307692 264.348z" fill="rgba(253,166,0,1)" fill-opacity="1" stroke="transparent" stroke-opacity="1" stroke-linecap="square" stroke-width="2" stroke-dasharray="0" class="apexcharts-bar-area" index="1" clip-path="url(#gridRectMaskw5f2825s)" pathTo="M 63.07391826923077 264.348L 63.07391826923077 222.09123191346157Q 68.38131009615384 217.7838400865385 73.68870192307692 222.09123191346157L 73.68870192307692 222.09123191346157L 73.68870192307692 264.348L 73.68870192307692 264.348z" pathFrom="M 63.07391826923077 264.348L 63.07391826923077 264.348L 73.68870192307692 264.348L 73.68870192307692 264.348L 73.68870192307692 264.348L 63.07391826923077 264.348" cy="219.93753600000002" cx="104.12319711538461" j="1" val="42" barHeight="44.410464000000005" barWidth="12.614783653846155"></path>
                                             <path id="SvgjsPath1924" d="M 105.12319711538461 264.348L 105.12319711538461 229.49297591346155Q 110.4305889423077 225.18558408653848 115.73798076923077 229.49297591346155L 115.73798076923077 229.49297591346155L 115.73798076923077 264.348L 115.73798076923077 264.348z" fill="rgba(253,166,0,1)" fill-opacity="1" stroke="transparent" stroke-opacity="1" stroke-linecap="square" stroke-width="2" stroke-dasharray="0" class="apexcharts-bar-area" index="1" clip-path="url(#gridRectMaskw5f2825s)" pathTo="M 105.12319711538461 264.348L 105.12319711538461 229.49297591346155Q 110.4305889423077 225.18558408653848 115.73798076923077 229.49297591346155L 115.73798076923077 229.49297591346155L 115.73798076923077 264.348L 115.73798076923077 264.348z" pathFrom="M 105.12319711538461 264.348L 105.12319711538461 264.348L 115.73798076923077 264.348L 115.73798076923077 264.348L 115.73798076923077 264.348L 105.12319711538461 264.348" cy="227.33928" cx="146.17247596153845" j="2" val="35" barHeight="37.008720000000004" barWidth="12.614783653846155"></path>
                                             <path id="SvgjsPath1925" d="M 147.17247596153845 264.348L 147.17247596153845 237.95211191346155Q 152.47986778846152 233.64472008653848 157.7872596153846 237.95211191346155L 157.7872596153846 237.95211191346155L 157.7872596153846 264.348L 157.7872596153846 264.348z" fill="rgba(253,166,0,1)" fill-opacity="1" stroke="transparent" stroke-opacity="1" stroke-linecap="square" stroke-width="2" stroke-dasharray="0" class="apexcharts-bar-area" index="1" clip-path="url(#gridRectMaskw5f2825s)" pathTo="M 147.17247596153845 264.348L 147.17247596153845 237.95211191346155Q 152.47986778846152 233.64472008653848 157.7872596153846 237.95211191346155L 157.7872596153846 237.95211191346155L 157.7872596153846 264.348L 157.7872596153846 264.348z" pathFrom="M 147.17247596153845 264.348L 147.17247596153845 264.348L 157.7872596153846 264.348L 157.7872596153846 264.348L 157.7872596153846 264.348L 147.17247596153845 264.348" cy="235.798416" cx="188.2217548076923" j="3" val="27" barHeight="28.549584000000003" barWidth="12.614783653846155"></path>
@@ -292,8 +291,8 @@
             <div class="card flex-fill">
                 <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="card-title">Invoice Analytics</h5>
-                        <div class="dropdown">
+                        <h5 class="card-title">PHÂN TÍCH HÓA ĐƠN</h5>
+                        <!-- <div class="dropdown">
                             <button class="btn btn-white btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 Monthly
                             </button>
@@ -308,7 +307,7 @@
                                     <a href="javascript:void(0);" class="dropdown-item">Yearly</a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="card-body">
@@ -428,19 +427,19 @@
                         <div class="row">
                             <div class="col-4">
                                 <div class="mt-4">
-                                    <p class="mb-2 text-truncate"><i class="fas fa-circle text-primary me-1"></i> Invoiced</p>
+                                    <p class="mb-2 text-truncate"><i class="fas fa-circle text-primary me-1"></i>ĐÃ THANH TOÁN</p>
                                     <h5>$2,132</h5>
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="mt-4">
-                                    <p class="mb-2 text-truncate"><i class="fas fa-circle text-success me-1"></i> Received</p>
+                                    <p class="mb-2 text-truncate"><i class="fas fa-circle text-success me-1"></i>CHƯA THANH TOÁN</p>
                                     <h5>$1,763</h5>
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="mt-4">
-                                    <p class="mb-2 text-truncate"><i class="fas fa-circle text-danger me-1"></i> Pending</p>
+                                    <p class="mb-2 text-truncate"><i class="fas fa-circle text-danger me-1"></i>ĐÃ HỦY</p>
                                     <h5>$973</h5>
                                 </div>
                             </div>

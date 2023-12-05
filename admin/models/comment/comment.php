@@ -21,3 +21,15 @@ function delete_comment($id_comment)
     $sql = "DELETE FROM comment WHERE id_comment = '$id_comment'";
     pdo_execute($sql);
 }
+function update_comment($id_comment, $name_user, $id_movie, $content)
+{
+    $sql = "UPDATE comment SET name_user = '$name_user' ,id_movie = '$id_movie' ,content = '$content' WHERE id_comment = '$id_comment'";
+    pdo_execute($sql);
+}
+
+function loadone_comment($id_comment)
+{
+    $sql = "SELECT * from comment where id_comment=" . $id_comment;
+    $list_comment = pdo_query_one($sql);
+    return $list_comment;
+}

@@ -8,9 +8,9 @@ function update_movie($id_movie, $name_movie, $content, $id_country, $year, $tim
 {
 
     if ($image != "")
-        $sql = "UPDATE movie SET name_movie='$name_movie',content='$content',$id_country='$id_country',year='$year',time='$time',reviews='$reviews',author='$author',performer='$performer',age_limit='$age_limit',image='$image' ,trailer_movie='$trailer_movie',id_category='$id_category' ,action='$action' WHERE id_movie=" . $id_movie;
+        $sql = "UPDATE movie SET name_movie='$name_movie',content='$content',id_country='$id_country',year='$year',time='$time',reviews='$reviews',author='$author',performer='$performer',age_limit='$age_limit',image='$image' ,trailer_movie='$trailer_movie',id_category='$id_category' ,action='$action' WHERE id_movie=" . $id_movie;
     else
-        $sql = "UPDATE movie SET name_movie='$name_movie',content='$content',$id_country='$id_country',year='$year',time='$time',reviews='$reviews',author='$author',performer='$performer',age_limit='$age_limit',trailer_movie='$trailer_movie',id_category='$id_category' ,action='$action' WHERE id_movie=" . $id_movie;
+        $sql = "UPDATE movie SET name_movie='$name_movie',content='$content',id_country='$id_country',year='$year',time='$time',reviews='$reviews',author='$author',performer='$performer',age_limit='$age_limit',trailer_movie='$trailer_movie',id_category='$id_category' ,action='$action' WHERE id_movie=" . $id_movie;
     pdo_execute($sql);
 }
 function delete_movie($id_movie)
@@ -86,4 +86,11 @@ function load_movie_same_category_limit($id_movie, $id_category)
     // $sql="select * from movie where id_category=".$id_category." AND id_movie <> ".$id_movie;
     $list_movie_same_category = pdo_query($sql);
     return $list_movie_same_category;
+}
+
+function total_movie()
+{
+    $sql = "SELECT COUNT(id_movie) AS total_rows FROM movie";
+    $list_sum_movie = pdo_query_one($sql);
+    return $list_sum_movie['total_rows'];
 }

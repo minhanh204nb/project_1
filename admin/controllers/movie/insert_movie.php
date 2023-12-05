@@ -30,13 +30,13 @@
                     <div class="col-xl-8 offset-xl-2">
                         <div class="col-md-9">
                             <ul class="list-links mb-4">
-                                <li class="active"><a href="index.php?action=movie">List movie</a></li>
+                                <li class="active"><a href="index.php?action=movie">DANH SÁCH PHIM</a></li>
                             </ul>
                         </div>
                         <div class="page-header">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <h3 class="page-title">Add Movie</h3>
+                                    <h3 class="page-title">THÊM PHIM</h3>
                                 </div>
                             </div>
                         </div>
@@ -46,19 +46,19 @@
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
-                                                <label>Name movie<span class="text-danger">*</span></label>
+                                                <label>TÊN PHIM<span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" name="name_movie" required placeholder="name movie" >
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
-                                                <label>Content<span class="text-danger">*</span></label>
+                                                <label>NỘI DUNG<span class="text-danger">*</span></label>
                                                 <input class="form-control" type="text" name="content" value="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur sint laborum quidem architecto accusantium est itaque soluta vel doloremque veritatis! Et deserunt debitis quae beatae, excepturi possimus repellat. Delectus, soluta. " required placeholder="content" >
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group modal-select-box">
-                                                <label>Country</label>
+                                                <label>QUỐC GIA</label>
                                                 <select class="select" name="id_country">
                                                     <?php
                                                     foreach ($list_country as $country) {
@@ -70,46 +70,46 @@
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
-                                                <label>Years<span class="text-danger">*</span></label>
+                                                <label>NĂM SẢN XUẤT<span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" name="year" value="2023" required min="1900" max="2023" >
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
-                                                <label>Time<span class="text-danger">*</span></label>
+                                                <label>TỔNG THỜI GIAN<span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" value="120 phút" name="time" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
-                                                <label>Reviews<span class="text-danger">*</span></label>
+                                                <label>ĐÁNH GIÁ<span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" value="9.3" name="reviews" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
-                                                <label>Author<span class="text-danger">*</span></label>
+                                                <label>TÁC GIẢ<span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" value="Frank Darabont" name="author" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
-                                                <label>Performer<span class="text-danger">*</span></label>
+                                                <label>DIỄN VIÊN<span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" value="Morgan Freeman, Tim Robbins, Bob Gunton…" name="performer" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
-                                                <label>Age limit<span class="text-danger">*</span></label>
+                                                <label>GIỚI HẠN ĐỘ TUỔI<span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" value="16" name="age_limit" required min="0" max="150" >
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
-                                                <label>Thumb movie</label>
+                                                <label>ẢNH PHIM</label>
                                                 <div class="change-photo-btn">
                                                     <div class="pop_up">
-                                                        <p>Add Image</p>
+                                                        <p>THÊM ẢNH</p>
                                                     </div>
                                                     <input type="file" name="image" class="upload" required>
                                                 </div>
@@ -117,13 +117,13 @@
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
-                                                <label>Trailer movie<span class="text-danger">*</span></label>
+                                                <label>Trailer PHIM<span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" value="https://www.youtube.com/watch?v=yi363I5MoAk" name="trailer_movie" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group modal-select-box">
-                                                <label>Category</label>
+                                                <label>THỂ LOẠI</label>
                                                 <select class="select" name="id_category">
                                                     <?php
                                                     foreach ($list_category as $category) {
@@ -135,7 +135,7 @@
                                         </div>
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
-                                                <label>Action<span class="text-danger">*</span></label>
+                                                <label>TRẠNG THÁI<span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" value="action" name="action" required>
                                             </div>
                                         </div>
@@ -145,7 +145,7 @@
                             <div class=" blog-categories-btn pt-0">
                                 <div class="bank-details-btn ">
                                     <!-- <button name="insert" class="btn btn-primary me-2">Add Movie</button> -->
-                                    <input type="submit" name="insert" class="btn btn-primary me-2" value="Add Movie">
+                                    <input type="submit" name="insert" class="btn btn-primary me-2" value="THÊM PHIM">
                                 </div>
                             </div>
                         </form>

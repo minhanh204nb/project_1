@@ -15,7 +15,7 @@
     </a>
     <div class="top-nav-search">
         <form>
-            <input type="text" class="form-control" placeholder="Search here">
+            <input type="text" class="form-control" placeholder="TÌM KIẾM . . .">
             <button class="btn" type="submit"><i class="fas fa-search"></i></button>
         </form>
     </div>
@@ -30,7 +30,7 @@
                     <img src="assets/img/avatar.jpg" alt="">
                     <span class="status online"></span>
                 </span>
-                <span>Admin </span>
+                <span>QUẢN TRỊ VIÊN</span>
             </a>
         </li>
         <li class="nav-item dropdown  flag-nav">

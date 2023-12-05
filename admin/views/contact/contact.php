@@ -3,11 +3,16 @@
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col">
-                    <h3 class="page-title">Contact</h3>
+                    <h3 class="page-title">Liên hệ</h3>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Contact</li>
+                        <li class="breadcrumb-item"><a href="index.php">Thống kê</a></li>
+                        <li class="breadcrumb-item active">Liên hệ</li>
                     </ul>
+                </div>
+                <div class="col-auto">
+                    <a href="index.php?action=insert_contact" class="btn btn-primary me-1">
+                        <i class="fas fa-plus"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -35,8 +40,10 @@
                                                 <?php
                                                 $stt = 1;
                                                 foreach ($list_contact as $contact) {
+                                                    extract(($contact));
                                                     echo ' <tr role="row" class="odd">';
                                                     $delete_contact = "index.php?action=delete_contact&id=" . $contact['id_contact'];
+                                                    $edit_contact = "index.php?action=edit_contact&id=" . $contact['id_contact'];
                                                     echo ' <td>' . $stt++ . '</td> ';
                                                     echo ' <td>' . $contact['name'] . '</td> ';
                                                     echo ' <td>' . $contact['email'] . '</td> ';
@@ -44,8 +51,8 @@
                                                     echo ' <td> <textarea name="" id="" cols="30" rows="5">' . $contact['content'] . '</textarea> </td> ';
                                                     echo ' <td>' . $contact['create_times'] . '</td> ';
                                                     echo '<td>';
-                                                    echo '<a href="#" class="btn btn-sm btn-white text-success me-2"><i class="far fa-edit me-1"></i> Edit</a>';
-                                                    echo ' <a class="btn btn-sm btn-white text-danger" href="' . $delete_contact . '"  data-bs-toggle="modal" data-bs-target="#delete_paid"><i class="far fa-trash-alt me-1"></i>Delete</a>';
+                                                    echo '<a href="' . $edit_contact . '" class="btn btn-sm btn-white text-success me-2"><i class="far fa-edit me-1"></i>Sửa</a>';
+                                                    echo ' <a class="btn btn-sm btn-white text-danger" href="' . $delete_contact . '"  data-bs-toggle="modal" data-bs-target="#delete_paid"><i class="far fa-trash-alt me-1"></i>Xóa</a>';
                                                     echo '</td>';
                                                     echo ' </tr>';
                                                 }
