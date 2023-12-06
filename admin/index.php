@@ -378,6 +378,23 @@ if (isset($_GET['action'])) {
             $list_account = loadall_account();
             include './views/bill/list_bill.php';
             break;
+        case 'insert_bill':
+            if (isset($_POST['insert_bill']) && $_POST['insert_bill']) {
+                $id_account = rand(2, 3);
+                $vnp_TxnRef = $_POST['vnp_TxnRef'];
+                $name_movie = $_POST['name_movie'];
+                $cinema = $_POST['cinema'];
+                $room = $_POST['room'];
+                $seats = $_POST['seats'];
+                $show_day = $_POST['month'];
+                $showtime = $_POST['hours'];
+                $price_combo = $_POST['combos'];
+                $price_tickets = $_POST['tickets'];
+                $total_price = $_POST['amount'];
+                insert_bill($id_account, $vnp_TxnRef, $price_tickets, $price_combo, $name_movie, $cinema, $room, $seats, $show_day, $showtime, $total_price);
+            }
+            include './controllers/bill/insert_bill.php';
+            break;
         case 'details_bill':
             $list_bill = loadbill_by_id_bill($_GET['id']);
             $list_account = loadall_account();
@@ -398,10 +415,27 @@ if (isset($_GET['action'])) {
                 $list_bill = loadone_bill($_GET['id']);
             }
             $list_bill = loadbill_by_id_bill($_GET['id']);
-            $list_account = loadall_account();
             include './controllers/bill/update_bill.php';
             break;
         case 'update_bill':
+            if (isset($_POST['update_bill']) && $_POST['update_bill']) {
+                $id_bill = $_POST['id_bill'];
+                // $vnp_TxnRef = $_POST['vnp_TxnRef'];
+                $name_movie = $_POST['name_movie'];
+                $cinema = $_POST['cinema'];
+                $room = $_POST['room'];
+                $seats = $_POST['seats'];
+                $show_day = $_POST['show_day'];
+                $showtime = $_POST['showtime'];
+                $price_tickets = $_POST['price_tickets'];
+                $price_combo = $_POST['price_combo'];
+                $total_price = $_POST['total_price'];
+                $note = $_POST['note'];
+                update_bill($id_bill, $price_tickets, $price_combo, $name_movie, $cinema, $room, $seats, $show_day, $showtime, $total_price, $note);
+            }
+            $list_bill = loadall_bill();
+            $list_account = loadall_account();
+            include './views/bill/list_bill.php';
             break;
         case 'contact':
             $list_contact = loadall_contact();

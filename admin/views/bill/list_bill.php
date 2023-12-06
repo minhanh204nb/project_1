@@ -23,17 +23,13 @@
                 </div>
             </div>
         </div>
-
-
-
-
         <div class="card invoices-tabs-card">
             <div class="card-body card-body pt-0 pb-0">
                 <div class="invoices-main-tabs border-0 pb-0">
                     <div class="row align-items-center">
                         <div class="col-lg-12 col-md-12">
                             <div class="invoices-settings-btn invoices-settings-btn-one">
-                                <a href="add-invoice.html" class="btn">
+                                <a href="index.php?action=insert_bill" class="btn">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle">
                                         <circle cx="12" cy="12" r="10"></circle>
                                         <line x1="12" y1="8" x2="12" y2="16"></line>
@@ -89,7 +85,7 @@
                             <div class="inovices-dash-count">
                                 <div class="inovices-amount">
                                     <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;"><?php echo total_price_bill(); ?> VND</font>
+                                        <font style="vertical-align: inherit;"><?php echo total_price_bill_where_action_ok('Đã thanh toán') ?> VND</font>
                                     </font>
                                 </div>
                             </div>
@@ -99,7 +95,7 @@
                                 <font style="vertical-align: inherit;">Hóa đơn đã thanh toán </font>
                             </font><span>
                                 <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;"><?php echo total_bill(); ?></font>
+                                    <font style="vertical-align: inherit;"><?php echo  total_bill_action_ok('Đã thanh toán') ?></font>
                                 </font>
                             </span>
                         </p>
@@ -116,7 +112,7 @@
                             <div class="inovices-dash-count">
                                 <div class="inovices-amount">
                                     <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">$2,05,545</font>
+                                        <font style="vertical-align: inherit;"><?php echo total_price_bill_where_action_ok('Chưa thanh toán') ?> VND</font>
                                     </font>
                                 </div>
                             </div>
@@ -126,7 +122,7 @@
                                 <font style="vertical-align: inherit;">Hóa đơn chưa thanh toán </font>
                             </font><span>
                                 <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">70</font>
+                                    <font style="vertical-align: inherit;"><?php echo  total_bill_action_ok('Chưa thanh toán') ?></font>
                                 </font>
                             </span>
                         </p>
@@ -143,7 +139,7 @@
                             <div class="inovices-dash-count">
                                 <div class="inovices-amount">
                                     <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">$8,8,797</font>
+                                        <font style="vertical-align: inherit;"><?php echo total_price_bill_where_action_ok('Đã hủy') ?> VND</font>
                                     </font>
                                 </div>
                             </div>
@@ -153,7 +149,7 @@
                                 <font style="vertical-align: inherit;">Hóa đơn bị hủy </font>
                             </font><span>
                                 <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">80</font>
+                                    <font style="vertical-align: inherit;"><?php echo  total_bill_action_ok('Đã hủy') ?></font>
                                 </font>
                             </span>
                         </p>
@@ -181,7 +177,7 @@
                 echo '<font style="vertical-align: inherit;">Sửa</font>';
                 echo '</font>';
                 echo '</a>';
-                echo '<a class="dropdown-item" href="view-invoice.html"><i class="far fa-eye me-2"></i>';
+                echo '<a class="dropdown-item" href="index.php?action=details_bill&id='.$bill['id_bill'].'"><i class="far fa-eye me-2"></i>';
                 echo '<font style="vertical-align: inherit;">';
                 echo '<font style="vertical-align: inherit;">Xem</font>';
                 echo '</font>';
@@ -239,7 +235,9 @@
                 echo '<div class="card-footer">';
                 echo '<div class="row align-items-center">';
                 echo '<div class="col-auto">';
-                echo '<span class="badge bg-success-dark">';
+                $billAction = $bill['action'];
+                $fontColor = ($billAction != 'Đã thanh toán') ? 'red' : '';
+                echo '<span class="badge bg-success-dark" style="background-color:' . $fontColor . '" >';
                 echo '<font style="vertical-align: inherit;">';
                 echo '<font style="vertical-align: inherit;">' . $bill['action'] . '</font>';
                 echo '</font>';
