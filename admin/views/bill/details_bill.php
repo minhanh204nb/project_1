@@ -124,8 +124,12 @@ foreach ($list_bill as $bill) {
                         <div class="row align-items-center justify-content-center">
                             <div class="col-lg-6 col-md-6">
                                 <div class="invoice-terms">
-                                    <h6>Notes:</h6>
+                                    <h6>Ghi chú :</h6>
                                     <p class="mb-0"><?php echo  $bill['note']; ?></p>
+                                </div>
+                                <div class="invoice-terms">
+                                    <h6>Trạng thái giao dịch :</h6>
+                                    <p class="mb-0"><?php echo  $bill['action']; ?></p>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">

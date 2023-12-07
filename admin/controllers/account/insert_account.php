@@ -5,8 +5,8 @@
                 <div class="col-sm-12">
                     <h3 class="page-title">Tài khoản</h3>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Thống kê</a></li>
-                        <li class="breadcrumb-item"><a href="customers.html">Tài khoản</a></li>
+                        <li class="breadcrumb-item"><a href="index.php">Thống kê</a></li>
+                        <li class="breadcrumb-item"><a href="index.php?action=account">Tài khoản</a></li>
                         <li class="breadcrumb-item active">Thêm tài khoản</li>
                     </ul>
                 </div>

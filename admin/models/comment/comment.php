@@ -12,7 +12,7 @@ function load_comment_by_id_movie($id_movie)
 }
 function loadall_comment()
 {
-    $sql = "SELECT * FROM comment ORDER BY id_comment";
+    $sql = "SELECT * FROM comment ORDER BY id_comment desc";
     $list_comment = pdo_query($sql);
     return $list_comment;
 }

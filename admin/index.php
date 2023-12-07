@@ -432,7 +432,8 @@ if (isset($_GET['action'])) {
                 $price_combo = $_POST['price_combo'];
                 $total_price = $_POST['total_price'];
                 $note = $_POST['note'];
-                update_bill($id_bill, $price_tickets, $price_combo, $name_movie, $cinema, $room, $seats, $show_day, $showtime, $total_price, $note);
+                $action = $_POST['action'];
+                update_bill($id_bill, $price_tickets, $price_combo, $name_movie, $cinema, $room, $seats, $show_day, $showtime, $total_price, $note, $action);
             }
             $list_bill = loadall_bill();
             $list_account = loadall_account();

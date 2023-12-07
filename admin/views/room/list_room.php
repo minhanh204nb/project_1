@@ -12,7 +12,7 @@
                                 <div class="col-sm-12">
                                     <table border="1" class="datatable table table-stripped dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                         <tr>
-                                            <th>ID</th>
+                                            <th>STT</th>
                                             <th>TÊN PHÒNG</th>
                                             <th colspan="1">TRẠNG THÁI </th>
                                             <th colspan="2">CHỨC NĂNG</th>
@@ -27,8 +27,9 @@
                                             } else {
                                                 $room['action_room'] = "Không hoạt động";
                                             }
+                                            $stt++;
                                             echo "<tr>";
-                                            echo "<td>" . $room["id_room"] . "</td>";
+                                            echo "<td>" . $stt . "</td>";
                                             echo "<td>" . $room["name_room"] . "</td>";
                                             echo "<td>" . $room["action_room"] . "</td>";
                                             echo "<td class='edit-delete-btn'>

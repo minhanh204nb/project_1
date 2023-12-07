@@ -63,9 +63,39 @@
                         <div class="row align-items-center justify-content-center">
                             <div class="col-lg-6 col-md-6">
                                 <div class="invoice-terms">
-                                    <h6>Notes:</h6>
-                                    <textarea name="note" class="mb-0" name="note" id="" cols="50" rows="5"> <?php echo $bill['note'] ?></textarea>
-                                    <!-- <p class="mb-0">Enter customer notes or any other details</p> -->
+                                    <h6>Ghi chú :</h6>
+                                    <!-- <textarea name="note" class="mb-0" name="note" id="" cols="50" rows="5"> <?php echo $bill['note'] ?></textarea> -->
+                                    <select class="custom-select custom-select-sm form-control form-control-sm" name="note" id="">
+                                        <?php
+                                        if ($bill['note'] === "Nhận vé tại quầy") {
+                                            $tt = "Đã nhận vé";
+                                        } else {
+                                            $tt = "Nhận vé tại quầy";
+                                        }
+                                        ?>
+                                        <option value="<?php echo $bill['note'] ?>"><?php echo $bill['note'] ?></option>
+                                        <option value="<?php echo $tt ?>"><?php echo $tt ?></option>
+                                    </select>
+                                </div>
+                                <div class="invoice-terms">
+                                    <h6>Trạng thái giao dịch : </h6>
+                                    <select class="custom-select custom-select-sm form-control form-control-sm" name="action" id="">
+                                        <?php
+                                        if ($bill['action'] === "Đã thanh toán") {
+                                            $tt1 = "Chưa thanh toán";
+                                            $tt2 = "Đã hủy";
+                                        } elseif ($bill['action'] === 'Chưa thanh toán') {
+                                            $tt1 = "Đã thanh toán";
+                                            $tt2 = "Đã hủy";
+                                        } else {
+                                            $tt1 = "Đã thanh toán";
+                                            $tt2 = "Chưa thanh toán";
+                                        }
+                                        ?>
+                                        <option value="<?php echo $bill['action'] ?>"><?php echo $bill['action'] ?></option>
+                                        <option value="<?php echo $tt1 ?>"><?php echo $tt1 ?></option>
+                                        <option value="<?php echo $tt2 ?>"><?php echo $tt2 ?></option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
