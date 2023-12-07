@@ -26,9 +26,9 @@
                                 <i class="fas fa-users"></i>
                             </span>
                             <div class="dash-count">
-                                <div class="dash-title">TỔNG NGƯỜI XEM</div>
+                                <div class="dash-title">TỔNG TÀI KHOẢN</div>
                                 <div class="dash-counts">
-                                    <p>3,642</p>
+                                    <p><?php echo total_account() ?></p>
                                 </div>
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                                 <i class="fas fa-file-alt"></i>
                             </span>
                             <div class="dash-count">
-                                <div class="dash-title">TỔNG PHIM</div>
+                                <div class="dash-title">TỔNG PHIM ĐANG CÓ</div>
                                 <div class="dash-counts">
                                     <p><?php echo total_movie(); ?> Phim</p>
                                 </div>
@@ -62,7 +62,7 @@
                             <div class="dash-count">
                                 <div class="dash-title">TỔNG SỐ VÉ ĐÃ BÁN</div>
                                 <div class="dash-counts">
-                                    <p>2,150</p>
+                                    <p><?php echo total_bill() ?></p>
                                 </div>
                             </div>
                         </div>

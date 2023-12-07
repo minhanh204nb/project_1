@@ -9,6 +9,7 @@ include './models/pdo.php';
 include './layouts/head.php';
 include './layouts/navbar.php';
 include './layouts/sidebar.php';
+include './models/analytics/analytics.php';
 include './models/movie/movie.php';
 include './models/category/category.php';
 include './models/movie/country.php';

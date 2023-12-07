@@ -43,7 +43,7 @@ if ($movie) {
                                 </li>
                                 <li class="release-time">
                                     <span><i class="far fa-calendar-alt"></i><?php echo $movie['year']; ?></span>
-                                    <span><i class="far fa-clock"></i><?php echo $movie['time']; ?></span>
+                                    <span><i class="far fa-clock"></i><?php echo $movie['time']; ?> phút</span>
                                 </li>
                             </ul>
                         </div>
@@ -183,7 +183,7 @@ if ($movie) {
                 echo '<ul>';
                 echo '<li><span class="quality">hd</span></li>';
                 echo '<li>';
-                echo '<span class="duration"><i class="far fa-clock"></i>' . $same_category['time'] . '</span>';
+                echo '<span class="duration"><i class="far fa-clock"></i>' . $same_category['time'] . ' phút</span>';
                 echo '<span class="rating"><i class="fas fa-thumbs-up"></i>' . $same_category['reviews'] . '</span>';
                 echo '</li>';
                 echo '</ul>';

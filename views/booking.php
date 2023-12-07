@@ -79,7 +79,7 @@ $list_combo = loadall_combo();
             <div class="head_time">
                 <h1 id="title"><?php echo $movie['name_movie'] ?></h1>
                 <div class="time">
-                    <h6><i class="bi bi-clock"></i><?php echo $movie['time'] ?></h6>
+                    <h6><i class="bi bi-clock"></i><?php echo $movie['time'] ?> phút</h6>
                     <select class="btn min" name="id_room" id="id_room">
                         <option value="">Chọn Phòng</option>
                         <?php
