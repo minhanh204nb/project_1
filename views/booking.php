@@ -63,6 +63,8 @@ $list_combo = loadall_combo();
                 <hr>
                 <input type="hidden" name="id_account" value="<?php echo $id_account ?>">
                 <input type="hidden" name="name_movie" value="<?php echo $movie['name_movie'] ?>">
+                <input type="hidden" name="email" value="<?php echo $email ?>">
+                <input type="hidden" name="name_clinet" value="<?php echo $name_clinet ?>">
                 <input type="submit" name="redirect" class="btn btn-default" value="Thanh toán">
             </form>
             <style>

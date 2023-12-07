@@ -18,7 +18,7 @@ function loadall_category()
 {
     // $sql = "select * from category order by id_category";
     // $sql = "select * from category order by id_category asc";
-    $sql="SELECT * from category order by id_category";
+    $sql="SELECT * from category order by id_category  desc";
     $list_category = pdo_query($sql);
     return $list_category;
 }

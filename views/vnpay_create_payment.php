@@ -14,6 +14,8 @@ $amount = $_POST['amount'];
 $id_account = $_POST['id_account'];
 $name_movie = $_POST['name_movie'];
 $id_movie = $_POST['id_movie'];
+$name_clinet = $_POST['name_clinet'];
+$email = $_POST['email'];
 
 // Lưu thông tin vào session
 $_SESSION['booking_info'] = [
@@ -28,6 +30,8 @@ $_SESSION['booking_info'] = [
     'id_account' => $id_account,
     'name_movie' => $name_movie,
     'id_movie' => $id_movie,
+    'name_clinet' => $name_clinet,
+    'email' => $email,
 ];
 
 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);

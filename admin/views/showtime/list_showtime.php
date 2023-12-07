@@ -12,14 +12,14 @@
                                 <div class="col-sm-12">
                                     <table border="1" class="datatable table table-stripped dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                         <tr style="text-align: center;">
-                                            <th>ID</th>
+                                            <th>STT</th>
                                             <th>Phòng</th>
                                             <th>Tên Phim</th>
                                             <th>Ảnh</th>
                                             <th>SHOW DATE</th>
                                             <th>Giờ Chiếu</th>
-                                            <th>Giờ kết thúc</th>
-                                            <th>Mô tả</th>
+                                            <!-- <th>Giờ kết thúc</th> -->
+                                            <!-- <th>Mô tả</th> -->
                                             <th colspan="2">Chức năng</th>
                                         </tr>
                                         <?php
@@ -65,15 +65,16 @@
                                             }
                                             $edit_showtime = "index.php?action=edit_showtime&id=" . $showtime['id_showtime'];
                                             $delete_showtime = "index.php?action=delete_showtime&id=" . $showtime['id_showtime'];
+                                            $stt++;
                                             echo "<tr>";
-                                            echo "<td>" . $showtime["id_showtime"] . "</td>";
+                                            echo "<td>" . $stt . "</td>";
                                             echo "<td>" . $showtime['id_room'] . "</td>";
                                             echo "<td>" . $movie["name_movie"] . "</td>";
                                             echo "<td>" . $image . "</td>";
                                             echo "<td>" . $showtime["show_date"] . "</td>";
                                             echo "<td>" . $showtime["start_time"] . "</td>";
-                                            echo "<td>" . $showtime["end_time"] . "</td>";
-                                            echo "<td>" . $showtime["id_action"] . "</td>";
+                                            // echo "<td>" . $showtime["end_time"] . "</td>";
+                                            // echo "<td>" . $showtime["id_action"] . "</td>";
                                             echo "<td class='edit-delete-btn'>
                                             <a href='" . $edit_showtime . "' class='text-success'><i class='feather-edit-3 me-1'></i>Sửa</a>
                                             <a href='" . $delete_showtime . "' onclick='return confirm(\"Bạn có chắc muốn xóa?\");' class='text-danger' data-bs-toggle='modal' data-bs-target='#deleteModal'><i class='feather-trash-2 me-1'></i>Xóa</a></td>";

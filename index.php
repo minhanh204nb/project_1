@@ -134,6 +134,7 @@ if (isset($_GET['action'])) {
             }
             break;
         case 'forgot':
+            
             include './auth/forgot.php';
             break;
         case 'information':

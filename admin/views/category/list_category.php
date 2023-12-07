@@ -18,9 +18,10 @@
                                         </tr>
                                         <?php
                                         foreach ($list_category as $category) {
+                                            $stt++;
                                             extract(($category));
                                             echo "<tr>";
-                                            echo "<td>" . $category["id_category"] . "</td>";
+                                            echo "<td>" . $stt . "</td>";
                                             echo "<td>" . $category["name_category"] . "</td>";
                                             $edit_category = "index.php?action=edit_category&id=" . $category['id_category'];
                                             $delete_category = "index.php?action=delete_category&id=" . $category['id_category'];
