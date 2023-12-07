@@ -53,7 +53,7 @@
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>NỘI DUNG<span class="text-danger">*</span></label>
-                                                <input class="form-control" type="text" name="content" value="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur sint laborum quidem architecto accusantium est itaque soluta vel doloremque veritatis! Et deserunt debitis quae beatae, excepturi possimus repellat. Delectus, soluta. " required placeholder="content" >
+                                                <input class="form-control" type="text" name="content" value="Bạo lực màn ảnh đã thay đổi mãi mãi với câu chuyện của Arthur Penn năm 1967 về câu chuyện của những người tình nổi tiếng trở thành tội phạm với sự tham gia của Faye Dunaway và Warren Beatty. Thường được coi là một trong những bộ phim mở ra kỷ nguyên làm phim sáng tạo kéo dài vào cuối những năm 60 và qua những năm 70, điều thực sự khiến khán giả bị sốc là phần kết của bộ phim, một thứ bạo lực hơn những bộ phim chính thống từng thực sự truyền tải. Bất cứ ai nghĩ rằng tác phẩm này được thiết kế để tôn vinh những kẻ giết người đã không chú ý." required placeholder="content" >
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">

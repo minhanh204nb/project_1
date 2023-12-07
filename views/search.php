@@ -65,7 +65,7 @@
                 echo '<ul>';
                 echo '<li><span class="quality">hd</span></li>';
                 echo '<li>';
-                echo '<span class="duration"><i class="far fa-clock"></i> ' . $movie['time'] . '</span>';
+                echo '<span class="duration"><i class="far fa-clock"></i> ' . $movie['time'] . ' phút</span>';
                 echo '<span class="rating"><i class="fas fa-thumbs-up"></i>' . $movie['reviews'] . '</span>';
                 echo '</li>';
                 echo '</ul>';

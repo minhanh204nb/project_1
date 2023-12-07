@@ -45,3 +45,10 @@ function load_showtime_by_id_room($id_room)
     $load_showtime_by_id_room = pdo_query($sql);
     return $load_showtime_by_id_room;
 }
+
+function load_showtime_by_id_show_date($show_date)
+{
+    $sql = "SELECT show_date FROM showtime WHERE show_date = '$show_date'";
+    $load_showtime_by_show_date = pdo_query_one($sql);
+    return $load_showtime_by_show_date;
+}

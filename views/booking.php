@@ -63,6 +63,8 @@ $list_combo = loadall_combo();
                 <hr>
                 <input type="hidden" name="id_account" value="<?php echo $id_account ?>">
                 <input type="hidden" name="name_movie" value="<?php echo $movie['name_movie'] ?>">
+                <input type="hidden" name="email" value="<?php echo $email ?>">
+                <input type="hidden" name="name_clinet" value="<?php echo $name_clinet ?>">
                 <input type="submit" name="redirect" class="btn btn-default" value="Thanh toán">
             </form>
             <style>
@@ -79,7 +81,7 @@ $list_combo = loadall_combo();
             <div class="head_time">
                 <h1 id="title"><?php echo $movie['name_movie'] ?></h1>
                 <div class="time">
-                    <h6><i class="bi bi-clock"></i><?php echo $movie['time'] ?></h6>
+                    <h6><i class="bi bi-clock"></i><?php echo $movie['time'] ?> phút</h6>
                     <select class="btn min" name="id_room" id="id_room">
                         <option value="">Chọn Phòng</option>
                         <?php
@@ -124,7 +126,7 @@ $list_combo = loadall_combo();
                     <h6 class="title">Chọn suất chiếu</h6>
                     <div class="card_month crd required-div" id="showTimes" required>
                         <?php
-                        $showTimes = load_showtime_by_id_room($room['id_room']);
+                        // $showTimes = load_showtime_by_id_room($room['id_room']);
                         // $showTimes = loadone_showtime_by_id_movie($_GET['id']);
                         foreach ($showTimes as $time) {
                             echo '<li>';
@@ -142,7 +144,7 @@ $list_combo = loadall_combo();
             <div class="chair" id="chair">
                 <?php
                 $rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
-                $columns = range(1, 9);
+                $columns = range(1, 40);
                 foreach ($rows as $row) {
                     echo '<div class="row">';
                     foreach ($columns as $column) {
@@ -251,7 +253,7 @@ $list_combo = loadall_combo();
 
             function updateamountPrice() {
                 var selectedSeats = $("input[name='seats']").val();
-                var pricePerSeat = 10000; // Set your price per seat here
+                var pricePerSeat = 79000; // Set your price per seat here
                 var amount = selectedSeats.split(',').length * pricePerSeat;
                 // Update the tickets input field with the calculated amount price
                 $("input[name='tickets']").val(amount.toLocaleString('vi-VN') + ' VND');
@@ -261,21 +263,7 @@ $list_combo = loadall_combo();
             }
         });
     </script>
-    <script>
-        $(document).ready(function() {
-            // Define an array of show times
-            // Add click event listener to show time buttons
-            $("#showTimes li").click(function() {
-                // Remove the 'selected' class from all show time buttons
-                $("#showTimes li").removeClass("selected");
-                var selectedTime = $(this).text().trim();
-                // Update the hours input field
-                $("input[name='hours']").val(selectedTime);
-                // Add the 'selected' class to the clicked button
-                $(this).addClass("selected");
-            });
-        });
-    </script>
+
     <script>
         $(document).ready(function() {
             // Add click event listener to date points
@@ -420,10 +408,13 @@ $list_combo = loadall_combo();
         margin-right: 30px;
     }
 
-    .required-div:empty::before {
+    /* .required-div:empty::before {
         content: "Vui lòng chọn phòng và xuất chiếu mong muốn . . .";
         color: red;
-    }
+    } */
 </style>
+
+
+
 
 </html>

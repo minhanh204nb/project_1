@@ -6,37 +6,62 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
         table {
-            padding: 1000px;
-            margin: 120px auto;
-            width: 100%;
+            margin: 50px auto;
+            width: 90%;
             border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         th,
         td {
-            border: 1px solid black;
-            padding: 8px;
+            border: 1px solid #ddd;
+            padding: 12px;
             text-align: left;
+            color: black;
+            font-size: 15px;
         }
 
         th {
             background-color: #f2f2f2;
         }
 
-        td {
-            color: black;
+        .ttrr {
+            background-color: #f9f9f9;
         }
 
-        .ttrr {
-            height: 150px;
+        .title-info {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 20px;
         }
 
         .title-info h3 {
-            margin-top: 50px;
-            color: black;
-            text-align: center;
-            margin-bottom: 20px;
+            margin: 0;
+        }
+
+        .title-info a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .title-info a:hover {
+            text-decoration: underline;
+        }
+
+        body {
+            background-image: url('../assets/img/bg/movie_details_bg.jpg');
         }
     </style>
 </head>
@@ -59,7 +84,7 @@
             <th>Giá combo</th>
             <th>Tổng tiền</th>
             <th>Thời Gian Đặt</th>
-            <th>Action</th>
+            <th>Thanh toán</th>
             <th>Ghi chú</th>
             <th>Mã thanh toán</th>
         </tr>
