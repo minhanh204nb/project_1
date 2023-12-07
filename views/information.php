@@ -111,6 +111,10 @@
             font-size: 18px;
             margin-bottom: 5px;
         }
+
+        body {
+            background-image: url('../assets/img/bg/movie_details_bg.jpg');
+        }
     </style>
 </head>
 <?php

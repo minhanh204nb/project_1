@@ -49,7 +49,8 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 16px;
-            margin-bottom: 10px; /* Added margin bottom for spacing */
+            margin-bottom: 10px;
+            /* Added margin bottom for spacing */
         }
 
         .form__btn {
@@ -61,7 +62,8 @@
             border-radius: 4px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            text-decoration: none; /* Remove underline from anchor */
+            text-decoration: none;
+            /* Remove underline from anchor */
         }
 
         .form__btn:hover {
@@ -71,7 +73,8 @@
         .flex {
             display: flex;
             justify-content: space-between;
-            align-items: center; /* Align items vertically */
+            align-items: center;
+            /* Align items vertically */
         }
 
         a.form__btn {
@@ -94,7 +97,7 @@ extract($_SESSION['user']);
         <div class="tab-content">
             <div class="tab-pane fade" id="tab-1" role="tabpanel" aria-labelledby="1-tab">
                 <div class="row">
-                    <form action="/index.php?action=information" method="POST" class="form form--profile">
+                    <form action="/index.php?action=information" method="POST" class="bg form form--profile">
                         <div class="row row--form">
                             <div class="col-12">
                                 <h4 class="form__title">CHI TIẾT TÀI KHOẢN</h4>
@@ -164,5 +167,96 @@ extract($_SESSION['user']);
 
     a {
         text-decoration: none;
+    }
+</style>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form--profile {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .form__title {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .form__group {
+        margin-bottom: 20px;
+    }
+
+    .form__label {
+        font-size: 16px;
+        color: #333;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form__input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    .form__btn {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .form__btn:hover {
+        background-color: #0056b3;
+    }
+
+    .flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    a.form__btn {
+        background-color: #ccc;
+        color: #333;
+        text-align: center;
+        display: inline-block;
+    }
+
+    body {
+        background-image: url('../assets/img/bg/movie_details_bg.jpg');
+    }
+
+    .container {
+        opacity: .9;
+        /* background-color: transparent; */
+        /* background-image: url('../assets/img/bg/movie_details_bg.jpg'); */
     }
 </style>
