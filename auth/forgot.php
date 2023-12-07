@@ -13,7 +13,6 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="author" content="Dmitry Volkov" />
-    <title>HotFlix – Online Movies, TV Shows & Cinema HTML Template</title>
 </head>
 
 <body class="body">
@@ -22,49 +21,25 @@
             <div class="row">
                 <div class="col-12">
                     <div class="sign__content">
-                        <!-- authorization form -->
-                        <form action="#" class="sign__form">
-                            <a href="index.html" class="sign__logo">
+                        <form action="index.php?action=forgot" method="post" class="sign__form">
+                            <a href="index.php" class="sign__logo">
                                 <img src="./assets/img/images/logo.svg" alt="" />
                             </a>
-
                             <div class="sign__group">
-                                <input type="text" class="sign__input" placeholder="Email" />
+                                <input type="text" name="email" class="sign__input" placeholder="Email" />
                             </div>
-
-
-
                             <div class="sign__group sign__group--checkbox">
                                 <input id="remember" name="remember" type="checkbox" checked="checked" />
                                 <label for="remember">Tôi chấp nhận mọi điều khoản</label>
                             </div>
-
-                            <button class="sign__btn" type="button">GỬI</button>
-
-                           
+                            <input type="submit" name="forgot" class="sign__btn" value="GỬI">
+                            <!-- <button class="sign__btn" type="button">GỬI</button> -->
                             <span class="sign__text">Chúng tôi sẽ gửi mật khẩu đến email của bạn</span>
-                            <!-- end authorization form -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- JS -->
-    <!-- <script src="js/jquery-3.5.1.min.js"></script> -->
-    <!-- <script src="js/bootstrap.bundle.min.js"></script> -->
-    <!-- <script src="js/owl.carousel.min.js"></script> -->
-    <!-- <script src="js/jquery.magnific-popup.min.js"></script> -->
-    <!-- <script src="js/jquery.mousewheel.min.js"></script> -->
-    <!-- <script src="js/jquery.mCustomScrollbar.min.js"></script> -->
-    <!-- <script src="js/wNumb.js"></script> -->
-    <!-- <script src="js/nouislider.min.js"></script> -->
-    <!-- <script src="js/plyr.min.js"></script> -->
-    <!-- <script src="js/photoswipe.min.js"></script> -->
-    <!-- <script src="js/photoswipe-ui-default.min.js"></script> -->
-    <!-- <script src="js/main.js"></script> -->
 </body>
-
-<!-- Mirrored from hotflix.volkovdesign.com/main/signin.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 04 Nov 2023 18:10:31 GMT -->
 
 </html>

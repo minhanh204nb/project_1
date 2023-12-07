@@ -21,6 +21,14 @@ include './admin/models/bill/bill.php';
 include './admin/models/vnpay/vnpay.php';
 include './admin/models/seats/seat.php';
 include './admin/models/comment/comment.php';
+include './PHPMailer/src/PHPMailer.php';
+include './PHPMailer/src/Exception.php';
+include './PHPMailer/src/OAuth.php';
+include './PHPMailer/src/POP3.php';
+include './PHPMailer/src/SMTP.php';
+
+use \PHPMailer\PHPMailer\PHPMailer;
+use \PHPMailer\PHPMailer\Exception;
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -62,7 +70,8 @@ if (isset($_GET['action'])) {
                     insert_comment($name_user, $id_movie_comment, $content);
                     header('refresh :0.1');
                 } else {
-                    header('Location: index.php?action=signin');
+                    echo ' <script> alert("Vui lòng đăng nhập để bình luận ."); </script> ';
+                    header('Refresh:.1; url=index.php?action=signin');
                 }
             }
             $list_all_movie = loadall_movie();
@@ -107,7 +116,8 @@ if (isset($_GET['action'])) {
                 $action = $_POST['action'];
                 $role = $_POST['role'];
                 insert_account($name_clinet, $user, $password, $phone_number, $email, $address, $action, $role);
-                header('location:index.php?action=signin');
+                echo ' <script> alert("Đăng ký thành công , đăng nhập ngay . . ."); </script> ';
+                header('Refresh:.1; url=index.php?action=signin');
             }
             include './auth/signup.php';
             break;
@@ -119,7 +129,7 @@ if (isset($_GET['action'])) {
                 if (is_array($check_user)) {
                     $_SESSION['user'] = $check_user;
                     echo ' <script> alert("Đăng nhập thành công"); </script> ';
-                    header('location:index.php?action=home');
+                    header('Refresh:.1; url=index.php?action=home');
                 } else {
                     echo ' <script> alert("Tài khoàn hoặc mật khẩu không đúng"); </script> ';
                 }
@@ -130,11 +140,56 @@ if (isset($_GET['action'])) {
         case 'logout':
             if (isset($_SESSION['user'])) {
                 unset($_SESSION['user']);
-                header('location: index.php?action=home');
+                echo ' <script> alert("Đăng xuất thành công"); </script> ';
+                header('Refresh:.1; url=index.php?action=home');
             }
             break;
         case 'forgot':
-            
+            if (isset($_POST['forgot']) && $_POST['forgot']) {
+                $gmail = $_POST['email'];
+                $sql = "SELECT email,user,password FROM account WHERE email = '$gmail'";
+                $meomeo = pdo_query_one($sql);
+                $mail = new PHPMailer(true);
+                try {
+                    //Server settings
+                    $mail->SMTPDebug = 0;                                 // Enable verbose debug output
+                    $mail->isSMTP();                                      // Set mailer to use SMTP
+                    $mail->CharSet  = "utf-8";
+                    $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+                    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+                    $mail->Username = 'minhanh24hihi@gmail.com';                 // SMTP username
+                    $mail->Password = 'kgnpzlzospwtlbzs';                           // SMTP password
+                    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+                    $mail->Port = 587;                                    // TCP port to connect to
+                    //Recipients
+                    $mail->setFrom('minhanh24hihi@gmail.com', 'ĐẶT VÉ PHIM ONLINE');
+                    $mail->addAddress($meomeo['email'], 'user');     // Add a recipient
+                    // $mail->addAddress('ellen@example.com');               // Name is optional
+                    // $mail->addReplyTo('info@example.com', 'Information');
+                    // $mail->addCC('cc@example.com');
+                    // $mail->addBCC('bcc@example.com');
+
+                    //Attachments
+                    // $mail->addAttachment('/var/tmp/file.tar.gz');
+                    // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');
+                    //Content
+                    $mail->isHTML(true);                                  // Set email format to HTML
+                    $mail->Subject = 'KHÔI PHỤC MẬT KHẨU TÀI KHOẢN';
+                    $mail->Body    = "Tên đăng nhập : " . $meomeo['user'] . "<br>  Mật khẩu : " . $meomeo['password'] . "";
+                    $mail->AltBody = '';
+                    $mail->send();
+                    echo ' <script> alert("Vui lòng kiểm tra email để nhận thông tin khôi phục tài khoản"); </script> ';
+                    header('Refresh:.1; url=index.php?action=home');
+                } catch (Exception $e) {
+                    echo '
+                    <script>
+                    alert("Không có tài khoản nào , hãy đăng ký tài khoản nào . . .");
+                    </script>
+                    ';
+                    header('Refresh:0;url=index.php?action=signup');
+                    // echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+                }
+            }
             include './auth/forgot.php';
             break;
         case 'information':
@@ -235,16 +290,11 @@ if (isset($_GET['action'])) {
             }
             break;
         default:
+            header('location: index.php?action=home');
             break;
     }
 } else {
-    $list_category = loadall_category();
-    $list_country = loadall_country();
-    $list_movie_limit = loadlimit_movie(4);
-    $list_movie = loadall_movie();
-    // include './layout/navbar.php';
-    include './layout/header.php';
-    include './views/home.php';
+    header('location: index.php?action=home');
 }
 
 include './layout/footer.php';
