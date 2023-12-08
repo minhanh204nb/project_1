@@ -418,5 +418,51 @@
                 </div>
             </div>
         </div>
+        <?php
+        // Tạo mảng giả định về dữ liệu phim
+        // $sql = "SELECT * FROM bill ORDER BY total_price desc limit 5";
+
+        // $movies = pdo_query_one($sql);
+        // echo $movies['total_price'];
+        // $movies = ['Phim A', 'Phim B', 'Phim C', 'Phim D', 'Phim E'];
+        // $revenues = [1000, 1200, 800, 1500, 1000];
+        ?>
+
+        <!-- Vẽ biểu đồ hình tròn bằng Chart.js -->
+        <!-- <div class="col-xl-5 d-flex">
+            <div class="card flex-fill">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">PHÂN TÍCH TOP 5 PHIM CÓ SỐ VÉ BÁN ĐƯỢC NHIỀU NHẤT</h5>
+                        <?php echo $movies['total_price']; ?>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="">
+                        <canvas id="myPieChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- <script>
+            var ctx = document.getElementById('myPieChart').getContext('2d');
+            var myPieChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: <?php echo json_encode($movies); ?>,
+                    datasets: [{
+                        data: <?php echo json_encode($revenues); ?>,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.8)',
+                            'rgba(54, 162, 235, 0.8)',
+                            'rgba(255, 206, 86, 0.8)',
+                            'rgba(75, 192, 192, 0.8)',
+                            'rgba(153, 102, 255, 0.8)'
+                        ],
+                        hoverOffset: 4
+                    }]
+                }
+            });
+        </script> -->
     </div>
 </div>

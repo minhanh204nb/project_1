@@ -73,4 +73,6 @@
 <!-- contact-area-end -->
 
 <!-- map -->
-<div id="map" data-background="assets/img/bg/map.jpg"></div>
+<div id="map" data-background="">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.835477294099!2d105.72923707596304!3d21.03926798061274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345550b525aa03%3A0x3fdefc40f69a023a!2zQ2FvIMSR4bqzbmcgRlBUIFBo4buRIFRy4buLbmggVsSDbiBCw7QgLCBQaMaw4budbmcgUGjGsMahbmcgQ2FuaCAsIHF14bqtbiBU4burIExpw6pt!5e0!3m2!1sen!2s!4v1702065780545!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
