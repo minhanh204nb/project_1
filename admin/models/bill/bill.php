@@ -19,7 +19,7 @@ function loadall_bill()
 }
 function loadbill_by_id_account($id_account)
 {
-    $sql = "SELECT * FROM bill WHERE id_account='$id_account'";
+    $sql = "SELECT * FROM bill WHERE id_account='$id_account' ORDER BY id_bill desc";
     $list_bill_by_id_account = pdo_query($sql);
     return $list_bill_by_id_account;
 }

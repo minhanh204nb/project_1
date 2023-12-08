@@ -58,7 +58,7 @@ if (isset($_GET['action'])) {
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $id_movie = $_GET['id'];
                 $list_movie = loadone_movie($id_movie);
-                $id_category = isset($_POST['same_category']) ? $_POST['same_category'] : 1;
+                $id_category = isset($_POST['same_category']) ? $_POST['same_category'] : rand(84, 92);
                 $list_same_category = load_movie_same_category_limit($id_movie, $id_category);
                 $list_comment = load_comment_by_id_movie($id_movie);
             }
