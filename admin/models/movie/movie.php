@@ -29,6 +29,8 @@ function loadall_movie()
 
 
 
+
+
 function loadlimit_movie($number)
 {
     $sql = "SELECT * FROM movie order by id_movie desc limit $number";

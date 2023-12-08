@@ -58,7 +58,7 @@ if (isset($_GET['action'])) {
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $id_movie = $_GET['id'];
                 $list_movie = loadone_movie($id_movie);
-                $id_category = isset($_POST['same_category']) ? $_POST['same_category'] : 1;
+                $id_category = isset($_POST['same_category']) ? $_POST['same_category'] : rand(84, 92);
                 $list_same_category = load_movie_same_category_limit($id_movie, $id_category);
                 $list_comment = load_comment_by_id_movie($id_movie);
             }
@@ -116,8 +116,16 @@ if (isset($_GET['action'])) {
                 $action = $_POST['action'];
                 $role = $_POST['role'];
                 insert_account($name_clinet, $user, $password, $phone_number, $email, $address, $action, $role);
-                echo ' <script> alert("Đăng ký thành công , đăng nhập ngay . . ."); </script> ';
-                header('Refresh:.1; url=index.php?action=signin');
+                echo ' 
+                <div class="container">
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>
+                Đăng ký thành công , vui lòng đăng nhập .
+                </strong>
+                </div>
+                </div> 
+                ';
+                header('Refresh:1; url=index.php?action=signin');
             }
             include './auth/signup.php';
             break;
@@ -128,10 +136,29 @@ if (isset($_GET['action'])) {
                 $check_user = check_user($user, $password);
                 if (is_array($check_user)) {
                     $_SESSION['user'] = $check_user;
-                    echo ' <script> alert("Đăng nhập thành công"); </script> ';
-                    header('Refresh:.1; url=index.php?action=home');
+                    // echo ' <script> alert("Đăng nhập thành công"); </script> ';
+                    echo ' 
+                    <div class="container">
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                    <strong>
+                    Đăng nhập thành công
+                    </strong>
+                    </div>
+                    </div> 
+                    ';
+                    header('Refresh:1; url=index.php?action=home');
                 } else {
-                    echo ' <script> alert("Tài khoàn hoặc mật khẩu không đúng"); </script> ';
+                    // echo ' <script> alert("Tài khoàn hoặc mật khẩu không đúng"); </script> ';
+                    echo ' 
+                    <div class="container">
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                    <strong>
+                    Tài khoản hoặc mật khẩu không chính xác , vui lòng nhập lại .
+                    </strong>
+                    </div>
+                    </div> 
+                    ';
+                    header('Refresh:2');
                 }
             }
             $list_account = loadall_account();
@@ -141,7 +168,7 @@ if (isset($_GET['action'])) {
             if (isset($_SESSION['user'])) {
                 unset($_SESSION['user']);
                 echo ' <script> alert("Đăng xuất thành công"); </script> ';
-                header('Refresh:.1; url=index.php?action=home');
+                header('Refresh:0; url=index.php?action=home');
             }
             break;
         case 'forgot':
@@ -178,8 +205,17 @@ if (isset($_GET['action'])) {
                     $mail->Body    = "Tên đăng nhập : " . $meomeo['user'] . "<br>  Mật khẩu : " . $meomeo['password'] . "";
                     $mail->AltBody = '';
                     $mail->send();
-                    echo ' <script> alert("Vui lòng kiểm tra email để nhận thông tin khôi phục tài khoản"); </script> ';
-                    header('Refresh:.1; url=index.php?action=home');
+                    // echo ' <script> alert("Vui lòng kiểm tra email để nhận thông tin khôi phục tài khoản"); </script> ';
+                    echo ' 
+                    <div class="container">
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                    <strong>
+                    Vui lòng kiểm tra email để nhận thông tin khôi phục tài khoản
+                    </strong>
+                    </div>
+                    </div> 
+                    ';
+                    header('Refresh:2; url=index.php?action=home');
                 } catch (Exception $e) {
                     echo '
                     <script>

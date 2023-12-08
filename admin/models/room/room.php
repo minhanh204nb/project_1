@@ -16,7 +16,7 @@ function delete_room($id_room)
 }
 function loadall_room()
 {
-    $sql = "select * from room order by id_room asc";
+    $sql = "select * from room order by id_room desc";
     $list_room = pdo_query($sql);
     return $list_room;
 }

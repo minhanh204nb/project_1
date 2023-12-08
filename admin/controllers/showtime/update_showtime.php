@@ -100,13 +100,6 @@
                                                         <input type="time" class="form-control" name="start_time" value="<?php if (isset($start_time) && ($start_time != "")) echo $end_time ?>">
                                                     </div>
                                                 </div>
-
-                                                <div class="col-lg-12 col-md-12">
-                                                    <div class="form-group">
-                                                        <label>Thời gian kết thúc<span class="text-danger">*</span></label>
-                                                        <input type="time" class="form-control" name="end_time" value="<?php if (isset($end_time) && ($end_time != "")) echo $end_time ?>">
-                                                    </div>
-                                                </div>
                                             </div>
 
                                             <div class="col-lg-12 col-md-12">

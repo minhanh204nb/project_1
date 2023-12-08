@@ -65,6 +65,7 @@ if (is_array($list_movie)) {
                                             <div class="form-group modal-select-box">
                                                 <label>QUỐC GIA</label>
                                                 <select class="select" name="id_country">
+                                                    <option value="<?php if (isset($id_country) && ($id_country != "")) echo $id_country ?>">Giữ Nguyên</option>
                                                     <?php
                                                     foreach ($list_country as $country) {
                                                         echo ' <option value="' . $country['id_country'] . '">' . $country['name_country'] . '</option>';
@@ -135,6 +136,7 @@ if (is_array($list_movie)) {
                                             <div class="form-group modal-select-box">
                                                 <label>THỂ LOẠI</label>
                                                 <select class="select" name="id_category">
+                                                    <option value="<?php if (isset($id_category) && ($id_category != "")) echo $id_category ?>">Giữ Nguyên</option>
                                                     <?php
                                                     foreach ($list_category as $category) {
                                                         echo ' <option value="' . $category['id_category'] . '">' . $category['name_category'] . '</option>';

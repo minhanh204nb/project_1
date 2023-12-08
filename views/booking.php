@@ -85,19 +85,26 @@ $list_combo = loadall_combo();
                     <select class="btn min" name="id_room" id="id_room">
                         <option value="">Chọn Phòng</option>
                         <?php
-                        $list_room = loadall_room(); // Move this line outside the loop
+                        $list_room = loadall_room();
+                        $displayedRoomNames = array();
+                        // mảng để lưu trữ tên phòng đã hiển thị
                         foreach ($loadone_showtime as $room) {
                             $name = "";
                             foreach ($list_room as $room_item) {
                                 if ($room_item['id_room'] == $room['id_room']) {
                                     $name = $room_item['name_room'];
-                                    break; // No need to continue searching once a match is found
+                                    break;
                                 }
                             }
-                            echo '<option value="' . $room['id_room'] . '">' . $name . '</option>';
+                            // chỉ hiển thị tùy chọn nếu tên phòng chưa được hiển thị trước đó
+                            if (!in_array($name, $displayedRoomNames)) {
+                                echo '<option value="' . $room['id_room'] . '">' . $name . '</option>';
+                                $displayedRoomNames[] = $name; // Add the room name to the displayed list
+                            }
                         }
                         ?>
                     </select>
+
                 </div>
             </div>
             <div class="date_type">
@@ -408,10 +415,10 @@ $list_combo = loadall_combo();
         margin-right: 30px;
     }
 
-    /* .required-div:empty::before {
+    .required-div:empty::before {
         content: "Vui lòng chọn phòng và xuất chiếu mong muốn . . .";
         color: red;
-    } */
+    }
 </style>
 
 

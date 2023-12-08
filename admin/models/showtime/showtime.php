@@ -1,13 +1,18 @@
 <?php
-function insert_showtime($id_room, $id_movie, $show_date, $start_time, $end_time, $id_action)
+function insert_showtime($id_room, $id_movie, $show_date, $start_time, $id_action)
 {
-    $sql = "INSERT INTO showtime (id_room,id_movie,show_date,start_time,end_time,id_action) VALUES ('$id_room','$id_movie','$show_date','$start_time','$end_time','$id_action')";
+    $sql = "INSERT INTO showtime (id_room,id_movie,show_date,start_time,id_action) VALUES ('$id_room','$id_movie','$show_date','$start_time','$id_action')";
     pdo_execute($sql);
 }
-function update_showtime($id_showtime, $id_room, $id_movie, $show_date, $start_time, $end_time, $id_action)
+function update_showtime($id_showtime, $id_room, $id_movie, $show_date, $start_time, $id_action)
 {
+<<<<<<< HEAD
     $sql = "UPDATE showtime SET id_room = '" . $id_room . "',id_movie = '" . $id_movie . "',show_date = '" . $show_date . "',start_time = '" . $start_time . "',end_time = '" . $end_time . "',id_action = '" . $id_action . "' WHERE id_showtime = " . $id_showtime;
     pdo_execute($sql);
+=======
+    $sql = "UPDATE showtime SET id_room = '" . $id_room . "',id_movie = '" . $id_movie . "',show_date = '" . $show_date . "',start_time = '" . $start_time . "',id_action = '" . $id_action . "' WHERE id_showtime = " . $id_showtime;
+    pdo_execute1($sql);
+>>>>>>> f09cf12639548a11ff3b1dec610b04c153a56990
 }
 function delete_showtime($id_showtime)
 {

@@ -20,8 +20,8 @@ function delete_combo($id_combo)
 }
 function loadall_combo()
 {
-    $sql = "select * from combo order by id_combo";
-    $sql = "select * from combo order by id_combo asc";
+    // $sql = "select * from combo order by id_combo";
+    $sql = "select * from combo order by id_combo desc";
     $list_combo = pdo_query($sql);
     return $list_combo;
 }

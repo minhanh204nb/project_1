@@ -14,7 +14,7 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>TÊN THỂ LOẠI</th>
-                                            <th colspan="2">ACTION</th>
+                                            <th colspan="2">CHỨC NĂNG</th>
                                         </tr>
                                         <?php
                                         foreach ($list_category as $category) {

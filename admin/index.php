@@ -180,9 +180,8 @@ if (isset($_GET['action'])) {
                 $movie = $_POST['id_movie'];
                 $show_date = $_POST['show_date'];
                 $start_time = $_POST['start_time'];
-                $end_time = $_POST['end_time'];
                 $action = $_POST['id_action'];
-                insert_showtime($room, $movie, $show_date, $start_time, $end_time, $action);
+                insert_showtime($room, $movie, $show_date, $start_time, $action);
             }
             $list_movie = loadall_movie();
             $list_room = loadall_room();
@@ -223,10 +222,9 @@ if (isset($_GET['action'])) {
                 $movie = $_POST['id_movie'];
                 $show_date = $_POST['show_date'];
                 $start_time = $_POST['start_time'];
-                $end_time = $_POST['end_time'];
                 $action = $_POST['id_action'];
                 $id_showtime = $_POST['id_showtime'];
-                update_showtime($id_showtime, $room, $movie, $show_date, $start_time, $end_time, $action);
+                update_showtime($id_showtime, $room, $movie, $show_date, $start_time, $action);
             }
 
 
@@ -381,7 +379,7 @@ if (isset($_GET['action'])) {
             break;
         case 'insert_bill':
             if (isset($_POST['insert_bill']) && $_POST['insert_bill']) {
-                $id_account = rand(2, 3);
+                $id_account = rand(39, 140);
                 $vnp_TxnRef = $_POST['vnp_TxnRef'];
                 $name_movie = $_POST['name_movie'];
                 $cinema = $_POST['cinema'];
@@ -432,7 +430,8 @@ if (isset($_GET['action'])) {
                 $price_combo = $_POST['price_combo'];
                 $total_price = $_POST['total_price'];
                 $note = $_POST['note'];
-                update_bill($id_bill, $price_tickets, $price_combo, $name_movie, $cinema, $room, $seats, $show_day, $showtime, $total_price, $note);
+                $action = $_POST['action'];
+                update_bill($id_bill, $price_tickets, $price_combo, $name_movie, $cinema, $room, $seats, $show_day, $showtime, $total_price, $note, $action);
             }
             $list_bill = loadall_bill();
             $list_account = loadall_account();

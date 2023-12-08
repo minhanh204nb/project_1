@@ -12,7 +12,7 @@
                                 <div class="col-sm-12">
                                     <table border="1" class="datatable table table-stripped dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                         <tr style="text-align: center;">
-                                            <th>ID</th>
+                                            <th>STT</th>
                                             <th>TÊN COMBO</th>
                                             <th>HÌNH ẢNH COMBO</th>
                                             <th>GIÁ COMBO</th>
@@ -30,8 +30,9 @@
                                             } else {
                                                 $img_combo = "no photo";
                                             }
+                                            $stt++;
                                             echo "<tr>";
-                                            echo "<td>" . $combo["id_combo"] . "</td>";
+                                            echo "<td>" . $stt . "</td>";
                                             echo "<td>" . $combo["name_combo"] . "</td>";
                                             echo "<td>" . $img_combo . "</td>";
                                             echo "<td>" . $combo["price_combo"] . "</td>";

@@ -47,7 +47,7 @@
                                 </div>
                             </div>
                             <div class="invoice-add-table">
-                                <h4>Item Details</h4>
+                                <h4>Chi tiết hóa đơn</h4>
                                 <div class="table-responsive">
                                     <table class="table table-center add-table-items">
                                         <thead>
@@ -93,7 +93,7 @@
                                                 <div class="panel panel-default">
                                                     <div class="col-lg-6 col-md-6">
                                                         <div class="invoice-terms">
-                                                            <h6>Notes:</h6>
+                                                            <h6>Ghi chú :</h6>
                                                             <textarea class="mb-0" name="note" id="" cols="50" rows="5"></textarea>
                                                             <!-- <p class="mb-0">Enter customer notes or any other details</p> -->
                                                         </div>
@@ -105,7 +105,7 @@
                                 </div>
                                 <div class="col-lg-5 col-md-6">
                                     <div class="invoice-total-card">
-                                        <h4 class="invoice-total-title">Summary</h4>
+                                        <h4 class="invoice-total-title">Tổng tiền</h4>
                                         <div class="invoice-total-box">
                                             <div class="invoice-total-inner">
                                                 <p>Giá vé <span> <input class="form-control" name="tickets" type="text" value=""></span></p>

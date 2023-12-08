@@ -73,22 +73,16 @@
                                         <div class="form-group">
                                             <label>Ngày chiếu</label>
                                             <input type="date" id="date" name='show_date' class="form-control">
-                                            
+
                                         </div>
 
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
                                                 <label>Thời gian chiếu<span class="text-danger">*</span></label>
-                                                <input type="time" class="form-control" name="start_time"   >
+                                                <input type="time" class="form-control" name="start_time">
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-12 col-md-12">
-                                            <div class="form-group">
-                                                <label>Thời gian kết thúc<span class="text-danger">*</span></label>
-                                                <input type="time" class="form-control" name="end_time"   >
-                                            </div>
-                                        </div>
 
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group modal-select-box">

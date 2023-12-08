@@ -126,7 +126,7 @@
             <div class="col-lg-8">
                 <div class="section-title title-style-three text-center mb-70">
                     <span class="sub-title">Tại sao không thử xem</span>
-                    <h2 class="title">Những phim được yêu thích nhất</h2>
+                    <h2 class="title">Danh sách phim hay</h2>
                 </div>
             </div>
         </div>
